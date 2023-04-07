@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { Spinner } from '../Spinner';
@@ -28,25 +28,30 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   block?: boolean;
   loading?: boolean;
 }
+export type Ref = HTMLButtonElement;
 
-export const Button: FC<Props> = ({
-  children,
-  type,
-  disabled,
-  palette,
-  size = 'middle',
-  view = 'primary',
-  square = false,
-  block = false,
-  loading = false,
-  ...props
-}) => {
-  const utilityClasses = `button_${view} button-${palette || 'primary'}`;
+export const Button = forwardRef<Ref, Props>(
+  (
+    {
+      children,
+      type,
+      disabled,
+      palette,
+      size = 'middle',
+      view = 'primary',
+      square = false,
+      block = false,
+      loading = false,
+      ...props
+    },
+    ref,
+  ) => {
+    const utilityClasses = `button_${view} button-${palette || 'primary'}`;
 
-  return (
-    <div>
+    return (
       <button
         {...props}
+        ref={ref}
         type={type || 'button'}
         disabled={loading || disabled}
         className={classNames(
@@ -63,6 +68,6 @@ export const Button: FC<Props> = ({
         {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
         {loading && <Spinner />}
       </button>
-    </div>
-  );
-};
+    );
+  },
+);
