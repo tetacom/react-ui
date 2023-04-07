@@ -1,4 +1,4 @@
-.Button {
+.root {
   border: none;
   color: var(--color-global-bgmain);
   display: inline-flex;
@@ -14,8 +14,8 @@
   //TODO возможно стоит завести токены с транзишенами
   transition: background 0.4s;
 
-  &--size {
-    &-large {
+  &Size {
+    &Large {
       //TODO height нужно вынести в значние токена
       height: var(--spacing-32);
 
@@ -28,7 +28,7 @@
       text-transform: var(--font-button1-text-case);
     }
 
-    &-middle {
+    &Middle {
       //TODO height нужно вынести в значние токена
       height: var(--spacing-28);
 
@@ -41,7 +41,7 @@
       text-transform: var(--font-button2-text-case);
     }
 
-    &-small {
+    &Small {
       //TODO height нужно вынести в значние токена
       height: var(--spacing-24);
 
@@ -57,34 +57,14 @@
     }
   }
 
-  &--square {
+  &Square {
     padding: 0;
     justify-content: center;
-
-    &[class*='large'] {
-      width: var(--spacing-32);
-    }
-
-    &[class*='middle'] {
-      width: var(--spacing-28);
-    }
-
-    &[class*='small'] {
-      width: var(--spacing-24);
-    }
+    aspect-ratio: 1;
   }
 
-  &--block {
+  &Block {
     width: 100%;
-  }
-
-  //TODO в макете не нашел состояние лоадинг, нужно доавить
-  &--loading {
-    &[class*='square'] {
-      .Button__children {
-        display: none;
-      }
-    }
   }
 
   &:hover:enabled {
@@ -96,19 +76,19 @@
     box-shadow: 0 0 0 4px #c6d7ff;
   }
 
-  &:disabled {
-    &.button_primary {
+  &.disabled {
+    &Primary {
       background-color: var(--color-text-30);
     }
 
-    &.button_outline {
+    &Outline {
       border-color: var(--color-text-30);
       color: var(--color-text-30);
     }
 
-    &.button_ghost {
+    &Ghost {
       color: var(--color-text-30);
-      background-color: transparent !important;
+      background-color: transparent;
     }
   }
 }

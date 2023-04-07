@@ -3,12 +3,26 @@ import classNames from 'classnames';
 
 import { Spinner } from '../Spinner';
 
-import './style.scss';
+import s from './style.module.scss';
+
+type ViewType = 'primary' | 'outline' | 'ghost';
+type SizeType = 'small' | 'middle' | 'large';
+
+const sizeClasses: Record<SizeType, string> = {
+  small: s.rootSizeSmall,
+  middle: s.rootSizeMiddle,
+  large: s.rootSizeLarge,
+};
+const disabledClasses: Record<ViewType, string> = {
+  primary: s.disabledPrimary,
+  outline: s.disabledOutline,
+  ghost: s.disabledGhost,
+};
 
 // TODO view outline желательно переименовать в secondary или в макетах secondary в outline
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: 'small' | 'middle' | 'large';
-  view?: 'primary' | 'outline' | 'ghost';
+  view?: ViewType;
+  size?: SizeType;
   palette?: 'green' | 'yellow' | 'red';
   square?: boolean;
   block?: boolean;
@@ -18,6 +32,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: FC<Props> = ({
   children,
   type,
+  disabled,
   palette,
   size = 'middle',
   view = 'primary',
@@ -26,28 +41,28 @@ export const Button: FC<Props> = ({
   loading = false,
   ...props
 }) => {
-  const styles = `button_${view} button-${palette || 'primary'}`;
+  const utilityClasses = `button_${view} button-${palette || 'primary'}`;
 
   return (
-    <button
-      {...props}
-      type={type || 'button'}
-      className={classNames(
-        'Button',
-        styles,
-        `Button--size-${size}`,
-        square && 'Button--square',
-        block && 'Button--block',
-        loading && 'Button--loading',
-      )}
-    >
-      <span className="Button__children">{children}</span>
-
-      {loading && (
-        <span className="Button__loading">
-          <Spinner />
-        </span>
-      )}
-    </button>
+    <div>
+      <button
+        {...props}
+        type={type || 'button'}
+        disabled={loading || disabled}
+        className={classNames(
+          utilityClasses,
+          s.root,
+          sizeClasses[size],
+          square && s.rootSquare,
+          block && s.rootBlock,
+          loading && s.rootLoading,
+          disabled && disabledClasses[view],
+        )}
+      >
+        {loading && square ? null : children}
+        {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
+        {loading && <Spinner />}
+      </button>
+    </div>
   );
 };
