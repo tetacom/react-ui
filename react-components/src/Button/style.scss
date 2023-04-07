@@ -1,0 +1,114 @@
+.Button {
+  border: none;
+  color: var(--color-global-bgmain);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-6);
+  padding: 0 var(--spacing-10);
+  border-radius: var(--radius-btn-round);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: transparent;
+  background-position: center;
+  //TODO возможно стоит завести токены с транзишенами
+  transition: background 0.4s;
+
+  &--size {
+    &-large {
+      //TODO height нужно вынести в значние токена
+      height: var(--spacing-32);
+
+      font-size: var(--font-button1-font-size);
+      font-family: var(--font-button1-font-family);
+      font-weight: var(--font-button1-font-weight);
+      font-style: var(--font-button1-font-style);
+      font-stretch: var(--font-button1-font-stretch);
+      letter-spacing: var(--font-button1-letter-spacing);
+      text-transform: var(--font-button1-text-case);
+    }
+
+    &-middle {
+      //TODO height нужно вынести в значние токена
+      height: var(--spacing-28);
+
+      font-size: var(--font-button2-font-size);
+      font-family: var(--font-button2-font-family);
+      font-weight: var(--font-button2-font-weight);
+      font-style: var(--font-button2-font-style);
+      font-stretch: var(--font-button2-font-stretch);
+      letter-spacing: var(--font-button2-letter-spacing);
+      text-transform: var(--font-button2-text-case);
+    }
+
+    &-small {
+      //TODO height нужно вынести в значние токена
+      height: var(--spacing-24);
+
+      gap: var(--spacing-4);
+      padding: var(--spacing-8);
+      font-size: var(--font-button3-font-size);
+      font-family: var(--font-button3-font-family);
+      font-weight: var(--font-button3-font-weight);
+      font-style: var(--font-button3-font-style);
+      font-stretch: var(--font-button3-font-stretch);
+      letter-spacing: var(--font-button3-letter-spacing);
+      text-transform: var(--font-button3-text-case);
+    }
+  }
+
+  &--square {
+    padding: 0;
+    justify-content: center;
+
+    &[class*='large'] {
+      width: var(--spacing-32);
+    }
+
+    &[class*='middle'] {
+      width: var(--spacing-28);
+    }
+
+    &[class*='small'] {
+      width: var(--spacing-24);
+    }
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  //TODO в макете не нашел состояние лоадинг, нужно доавить
+  &--loading {
+    &[class*='square'] {
+      .Button__children {
+        display: none;
+      }
+    }
+  }
+
+  &:hover:enabled {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    //TODO нужны токены для теней
+    box-shadow: 0 0 0 4px #c6d7ff;
+  }
+
+  &:disabled {
+    &.button_primary {
+      background-color: var(--color-text-30);
+    }
+
+    &.button_outline {
+      border-color: var(--color-text-30);
+      color: var(--color-text-30);
+    }
+
+    &.button_ghost {
+      color: var(--color-text-30);
+      background-color: transparent !important;
+    }
+  }
+}
