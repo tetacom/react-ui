@@ -1,9 +1,16 @@
-.root {
-  border: none;
-  color: var(--color-global-bgmain);
+@mixin base {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
   gap: var(--spacing-6);
+}
+
+.root {
+  @include base;
+
+  border: none;
+  position: relative;
+  color: var(--color-global-bgmain);
   padding: 0 var(--spacing-10);
   border-radius: var(--radius-btn-round);
   white-space: nowrap;
@@ -14,6 +21,36 @@
   box-shadow: 0 0 0 0 transparent;
   //TODO возможно стоит завести токены с транзишенами
   transition: background 0.4s;
+
+  .children {
+    @include base;
+  }
+
+  .children,
+  .leftIcon,
+  .rightIcon {
+    transition: opacity 0.2s;
+  }
+
+  .leftIcon,
+  .rightIcon {
+    font-size: 0;
+  }
+
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.2s, transform 0.2s;
+  }
 
   &Size {
     &Large {
@@ -60,12 +97,29 @@
 
   &Square {
     padding: 0;
-    justify-content: center;
     aspect-ratio: 1;
+    justify-content: flex-start;
+
+    .leftIcon {
+      flex: 0 0 100%;
+    }
   }
 
   &Block {
     width: 100%;
+  }
+
+  &Loading {
+    .children,
+    .leftIcon,
+    .rightIcon {
+      opacity: 0.2;
+    }
+
+    .loading {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   &:hover:enabled {

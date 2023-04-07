@@ -20,6 +20,10 @@ type Story = StoryObj<typeof Button>;
  * See https://storybook.js.org/docs/7.0/react/api/csf
  * to learn how to use render functions.
  */
-export const Primary: Story = {
+export const WithText: Story = {
   render: () => <ButtonStory />,
+};
+
+export const Square: Story = {
+  render: () => <ButtonStory square />,
 };
