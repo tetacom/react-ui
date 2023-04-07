@@ -95,18 +95,19 @@
     }
   }
 
+  &Block {
+    width: 100%;
+  }
+
   &Square {
     padding: 0;
+    width: auto;
     aspect-ratio: 1;
     justify-content: flex-start;
 
     .leftIcon {
       flex: 0 0 100%;
     }
-  }
-
-  &Block {
-    width: 100%;
   }
 
   &Loading {
