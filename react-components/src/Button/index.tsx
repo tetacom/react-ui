@@ -20,7 +20,7 @@ const disabledClasses: Record<ViewType, string> = {
 };
 
 // TODO view outline желательно переименовать в secondary или в макетах secondary в outline
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   view?: ViewType;
   size?: SizeType;
   icons?: [React.ReactElement | null, React.ReactElement?];
@@ -31,7 +31,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 export type Ref = HTMLButtonElement;
 
-export const Button = forwardRef<Ref, Props>(
+export const Button = forwardRef<Ref, ButtonProps>(
   (
     {
       children,

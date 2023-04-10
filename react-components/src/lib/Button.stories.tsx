@@ -1,29 +1,45 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from 'react';
 
-import { Button } from '../Button';
-import { ButtonStory } from '../ButtonStory';
+import { Button, ButtonProps } from '../Button';
+import ButtonDocs from '../Button/docs';
+import { TmpSvgIcon } from '../tmpSvgIcon';
 
-const meta: Meta<typeof Button> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/7.0/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: 'Button',
+export default {
+  title: 'Buttons/Button',
   component: Button,
-};
+  args: {
+    children: 'Push me',
+    view: 'primary',
+    size: 'middle',
+    palette: undefined,
+    icons: [<TmpSvgIcon />, <TmpSvgIcon />],
+    disabled: false,
+    square: false,
+    block: false,
+    loading: false,
+  },
+  parameters: {
+    docs: {
+      page: ButtonDocs,
+    },
+  },
+} as ComponentMeta<(args: ButtonProps) => ReturnType<typeof Button>>;
 
-export default meta;
-type Story = StoryObj<typeof Button>;
+const Template: ComponentStory<
+  (args: ButtonProps) => ReturnType<typeof Button>
+> = ({ children, ...args }) => (
+  <Button {...args} onClick={action('clicked')}>
+    {children}
+  </Button>
+);
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/7.0/react/api/csf
- * to learn how to use render functions.
- */
-export const WithText: Story = {
-  render: () => <ButtonStory />,
-};
+export const Default = Template.bind({});
+Default.args = {};
 
-export const Square: Story = {
-  render: () => <ButtonStory square />,
-};
+// export const PrimaryColor = Template.bind({});
+// PrimaryColor.storyName = 'Color: Primary';
+// PrimaryColor.args = {
+//   palette: 'yellow',
+// };
