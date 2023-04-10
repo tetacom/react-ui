@@ -8,17 +8,17 @@ import s from './style.module.scss';
 type PaletteType = 'green' | 'yellow' | 'red';
 type ViewType = 'primary' | 'outline' | 'ghost';
 type SizeType = 'small' | 'middle' | 'large';
-type BrickType = 'brick' | 'round' | 'circle';
+type ShapeType = 'brick' | 'round' | 'circle';
 
 const sizeClasses: Record<SizeType, string> = {
   small: s.rootSizeSmall,
   middle: s.rootSizeMiddle,
   large: s.rootSizeLarge,
 };
-const brickClasses: Record<BrickType, string> = {
-  brick: s.rootBrickBrick,
-  round: s.rootBrickRound,
-  circle: s.rootBrickCircle,
+const shapeClasses: Record<ShapeType, string> = {
+  brick: s.rootShapeBrick,
+  round: s.rootShapeRound,
+  circle: s.rootShapeCircle,
 };
 const disabledClasses: Record<ViewType, string> = {
   primary: s.disabledPrimary,
@@ -32,7 +32,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: SizeType;
   icons?: [React.ReactElement | null, React.ReactElement?];
   palette?: PaletteType;
-  brick?: BrickType;
+  shape?: ShapeType;
   square?: boolean;
   block?: boolean;
   loading?: boolean;
@@ -46,13 +46,14 @@ export const Button = forwardRef<Ref, ButtonProps>(
       type,
       disabled,
       palette,
-      brick = 'round',
+      shape = 'round',
       icons = [],
       size = 'middle',
       view = 'primary',
       square = false,
       block = false,
       loading = false,
+      className,
       ...props
     },
     ref,
@@ -70,11 +71,12 @@ export const Button = forwardRef<Ref, ButtonProps>(
           utilityClasses,
           s.root,
           sizeClasses[size],
-          brickClasses[brick],
+          shapeClasses[shape],
           square && s.rootSquare,
           block && s.rootBlock,
           loading && s.rootLoading,
           disabled && disabledClasses[view],
+          className,
         )}
       >
         {leftIcon && <span className={s.leftIcon}>{leftIcon}</span>}

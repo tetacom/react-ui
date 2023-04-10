@@ -14,7 +14,7 @@ export default {
     view: 'primary',
     size: 'middle',
     palette: undefined,
-    brick: 'round',
+    shape: 'round',
     icons: [<TmpSvgIcon />, <TmpSvgIcon />],
     disabled: false,
     square: false,
@@ -39,8 +39,71 @@ const Template: ComponentStory<
 export const Default = Template.bind({});
 Default.args = {};
 
-// export const PrimaryColor = Template.bind({});
-// PrimaryColor.storyName = 'Color: Primary';
-// PrimaryColor.args = {
-//   palette: 'yellow',
-// };
+export const PrimaryColor = Template.bind({});
+PrimaryColor.storyName = 'Color: Primary';
+PrimaryColor.args = {
+  size: 'large',
+};
+
+export const SecondaryColor = Template.bind({});
+SecondaryColor.storyName = 'Color: Secondary';
+SecondaryColor.args = {
+  view: 'outline',
+  size: 'large',
+};
+
+export const GhostColor = Template.bind({});
+GhostColor.storyName = 'Color: Ghost';
+GhostColor.args = {
+  view: 'ghost',
+  size: 'large',
+};
+
+export const BasePalette = Template.bind({});
+BasePalette.storyName = 'Palette: None';
+BasePalette.args = {
+  palette: undefined,
+  size: 'large',
+};
+
+export const GreenPalette = Template.bind({});
+GreenPalette.storyName = 'Palette: Green';
+GreenPalette.args = {
+  palette: 'green',
+  size: 'large',
+};
+
+export const YellowPalette = Template.bind({});
+YellowPalette.storyName = 'Palette: Yellow';
+YellowPalette.args = {
+  palette: 'yellow',
+  size: 'large',
+};
+
+export const RedPalette = Template.bind({});
+RedPalette.storyName = 'Palette: Red';
+RedPalette.args = {
+  palette: 'red',
+  size: 'large',
+};
+
+export const BrickShape = Template.bind({});
+BrickShape.storyName = 'Shape: Brick';
+BrickShape.args = {
+  shape: 'brick',
+  size: 'large',
+};
+
+export const RoundShape = Template.bind({});
+RoundShape.storyName = 'Shape: Round';
+RoundShape.args = {
+  shape: 'round',
+  size: 'large',
+};
+
+export const CircleShape = Template.bind({});
+CircleShape.storyName = 'Shape: Circle';
+CircleShape.args = {
+  shape: 'circle',
+  size: 'large',
+};

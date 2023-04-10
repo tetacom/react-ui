@@ -52,7 +52,7 @@
     transition: opacity 0.2s, transform 0.2s;
   }
 
-  &Brick {
+  &Shape {
     &Brick {
       border-radius: var(--radius-field-brick);
     }
