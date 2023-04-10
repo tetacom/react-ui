@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Button, ButtonProps } from '../Button';
-import ButtonDocs from '../Button/docs';
+import { ButtonDocs } from '../Button/docs';
 import { TmpSvgIcon } from '../tmpSvgIcon';
 
 export default {
