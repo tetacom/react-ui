@@ -33,7 +33,7 @@
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-links": "^6.5.16",
     "@storybook/addon-toolbars": "^6.5.16",
-    "@storybook/addons": "^6.5.16+++++++++++++++++++++++++++++++++++9+",
+    "@storybook/addons": "^6.5.16",
 
     "@storybook/builder-vite": "^0.2.6",
     "@storybook/core-common": "^6.5.15",
