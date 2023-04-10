@@ -23,7 +23,7 @@ const disabledClasses: Record<ViewType, string> = {
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   view?: ViewType;
   size?: SizeType;
-  icons?: [React.ReactElement, React.ReactElement?];
+  icons?: [React.ReactElement | null, React.ReactElement?];
   palette?: 'green' | 'yellow' | 'red';
   square?: boolean;
   block?: boolean;
