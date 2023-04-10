@@ -14,6 +14,7 @@ export default {
     view: 'primary',
     size: 'middle',
     palette: undefined,
+    brick: 'round',
     icons: [<TmpSvgIcon />, <TmpSvgIcon />],
     disabled: false,
     square: false,

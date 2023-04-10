@@ -52,6 +52,20 @@
     transition: opacity 0.2s, transform 0.2s;
   }
 
+  &Brick {
+    &Brick {
+      border-radius: var(--radius-field-brick);
+    }
+
+    &Round {
+      border-radius: var(--radius-field-round);
+    }
+
+    &Circle {
+      border-radius: var(--radius-field-circle);
+    }
+  }
+
   &Size {
     &Large {
       //TODO height нужно вынести в значние токена
