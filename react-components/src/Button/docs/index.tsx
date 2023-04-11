@@ -11,6 +11,7 @@ import { Button, ButtonProps } from '../index';
 import { TmpSvgIcon } from '../../tmpSvgIcon';
 
 import s from './style.module.scss';
+import buttonClassNames from '../style.module.scss';
 
 interface BaseType {
   key: string;
@@ -112,7 +113,9 @@ export const ButtonDocs = () => {
       >
         Кнопка
       </h4>
-      <p className={classNames(s.caption, 'color-primary-50')}>_button</p>
+      <p className={classNames(s.caption, 'color-primary-50')}>
+        {buttonClassNames.button}
+      </p>
 
       <br />
 

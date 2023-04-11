@@ -11,14 +11,14 @@ type SizeType = 'small' | 'middle' | 'large';
 type ShapeType = 'brick' | 'round' | 'circle';
 
 const sizeClasses: Record<SizeType, string> = {
-  small: s.rootSizeSmall,
-  middle: s.rootSizeMiddle,
-  large: s.rootSizeLarge,
+  small: s.buttonSizeSmall,
+  middle: s.buttonSizeMiddle,
+  large: s.buttonSizeLarge,
 };
 const shapeClasses: Record<ShapeType, string> = {
-  brick: s.rootShapeBrick,
-  round: s.rootShapeRound,
-  circle: s.rootShapeCircle,
+  brick: s.buttonShapeBrick,
+  round: s.buttonShapeRound,
+  circle: s.buttonShapeCircle,
 };
 const disabledClasses: Record<ViewType, string> = {
   primary: s.disabledPrimary,
@@ -69,12 +69,12 @@ export const Button = forwardRef<Ref, ButtonProps>(
         disabled={loading || disabled}
         className={classNames(
           utilityClasses,
-          s.root,
+          s.button,
           sizeClasses[size],
           shapeClasses[shape],
-          square && s.rootSquare,
-          block && s.rootBlock,
-          loading && s.rootLoading,
+          square && s.buttonSquare,
+          block && s.buttonBlock,
+          loading && s.buttonLoading,
           disabled && disabledClasses[view],
           className,
         )}

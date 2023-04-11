@@ -2,9 +2,9 @@ import { action } from '@storybook/addon-actions';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Button, ButtonProps } from '../Button';
-import { ButtonDocs } from '../Button/docs';
-import { TmpSvgIcon } from '../tmpSvgIcon';
+import { Button, ButtonProps } from '../index';
+import { ButtonDocs } from '../docs';
+import { TmpSvgIcon } from '../../tmpSvgIcon';
 
 export default {
   title: 'Buttons/Button',
