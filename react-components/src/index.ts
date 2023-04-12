@@ -1,1 +1,3 @@
-export * from './lib/react-components';
+// import { Typography } from './Typography';
+
+export * from './Button';
