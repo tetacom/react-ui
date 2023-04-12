@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Typography } from '../index';
 import { LinkProps } from '../types';
-// import { ButtonDocs } from '../docs';
+import { TypographyDocs } from '../docs';
 
 const { Link } = Typography;
 
@@ -14,11 +14,11 @@ export default {
     children: 'Typography',
     fontVariant: undefined,
   },
-  // parameters: {
-  //   docs: {
-  //     page: ButtonDocs,
-  //   },
-  // },
+  parameters: {
+    docs: {
+      page: TypographyDocs,
+    },
+  },
 } as ComponentMeta<(args: LinkProps) => ReturnType<typeof Link>>;
 
 const Template: ComponentStory<

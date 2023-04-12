@@ -1,47 +1,4 @@
 .root {
-  h4 {
-    font-size: var(--font-h4-font-size);
-    font-family: var(--font-h4-font-family);
-    font-weight: var(--font-h4-font-weight);
-    font-style: var(--font-h4-font-style);
-    font-stretch: var(--font-h4-font-stretch);
-    letter-spacing: var(--font-h4-letter-spacing);
-    text-transform: var(--font-h4-text-case);
-  }
-
-  h6 {
-    font-size: var(--font-h6-font-size);
-    font-family: var(--font-h6-font-family);
-    font-weight: var(--font-h6-font-weight);
-    font-style: var(--font-h6-font-style);
-    font-stretch: var(--font-h6-font-stretch);
-    letter-spacing: var(--font-h6-letter-spacing);
-    text-transform: var(--font-h6-text-case);
-  }
-
-  .caption {
-    margin-top: 0;
-    font-size: var(--font-caption-font-size);
-    font-family: var(--font-caption-font-family);
-    font-weight: var(--font-caption-font-weight);
-    font-style: var(--font-caption-font-style);
-    font-stretch: var(--font-caption-font-stretch);
-    letter-spacing: var(--font-caption-letter-spacing);
-    text-transform: var(--font-caption-text-case);
-  }
-
-  p,
-  ol li,
-  ul li {
-    font-size: var(--font-body2-font-size);
-    font-family: var(--font-body2-font-family);
-    font-weight: var(--font-body2-font-weight);
-    font-style: var(--font-body2-font-style);
-    font-stretch: var(--font-body2-font-stretch);
-    letter-spacing: var(--font-body2-letter-spacing);
-    text-transform: var(--font-body2-text-case);
-  }
-
   ol li,
   ul li {
     margin: 0.5em 0;

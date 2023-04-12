@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Typography } from '../index';
 import { TitleProps } from '../title';
-// import { ButtonDocs } from '../docs';
+import { TypographyDocs } from '../docs';
 
 const { Title } = Typography;
 
@@ -15,11 +15,11 @@ export default {
     level: 1,
     fontVariant: undefined,
   },
-  // parameters: {
-  //   docs: {
-  //     page: ButtonDocs,
-  //   },
-  // },
+  parameters: {
+    docs: {
+      page: TypographyDocs,
+    },
+  },
 } as ComponentMeta<(args: TitleProps) => ReturnType<typeof Title>>;
 
 const Template: ComponentStory<
