@@ -5,7 +5,7 @@ import { Paragraph } from './paragraph';
 import { Text } from './text';
 import { Link } from './link';
 
-export interface TypographyComposition extends React.PropsWithChildren {
+interface TypographyComposition extends React.PropsWithChildren {
   Title: typeof Title;
   Paragraph: typeof Paragraph;
   Text: typeof Text;

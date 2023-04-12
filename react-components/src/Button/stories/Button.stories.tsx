@@ -7,7 +7,7 @@ import { ButtonDocs } from '../docs';
 import { TmpSvgIcon } from '../../tmpSvgIcon';
 
 export default {
-  title: 'Buttons/Button',
+  title: 'General/Button',
   component: Button,
   args: {
     children: 'Push me',

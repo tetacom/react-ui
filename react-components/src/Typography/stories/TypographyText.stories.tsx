@@ -2,33 +2,36 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Typography } from '../index';
+import { BaseProps } from '../types';
 // import { ButtonDocs } from '../docs';
 
+const { Text } = Typography;
+
 export default {
-  title: 'Typographies/Typography',
-  component: Typography,
+  title: 'General/Typography/Text',
+  component: Text,
   args: {
     children: 'Typography',
-    yes: true,
+    fontVariant: undefined,
   },
   // parameters: {
   //   docs: {
   //     page: ButtonDocs,
   //   },
   // },
-} as ComponentMeta<
-  (args: React.PropsWithChildren) => ReturnType<typeof Typography>
->;
+} as ComponentMeta<(args: BaseProps) => ReturnType<typeof Text>>;
 
 const Template: ComponentStory<
-  (args: React.PropsWithChildren) => ReturnType<typeof Typography>
+  (args: BaseProps) => ReturnType<typeof Text>
 > = ({ ...args }) => {
-  return <Typography {...args} />;
+  return <Text {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {};
 
-export const PrimaryColor = Template.bind({});
-PrimaryColor.storyName = 'Color: Primary';
-PrimaryColor.args = {};
+export const H4 = Template.bind({});
+H4.storyName = 'Text: h4 font variant';
+H4.args = {
+  fontVariant: 'h4',
+};

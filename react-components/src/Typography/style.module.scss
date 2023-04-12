@@ -1,4 +1,7 @@
 .typo {
+  color: var(--color-text-90);
+  transition: color 0.2s;
+
   &H1 {
     font-size: var(--font-h1-font-size);
     text-decoration: var(--font-h1-text-decoration);

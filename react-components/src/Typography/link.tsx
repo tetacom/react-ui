@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
+
 import { LinkProps } from './types';
 import { DEFAULT_TYPE_FACE, typoClasses } from './constants';
+import s from './style.module.scss';
 
 type LinkRef = HTMLAnchorElement;
 export const Link = forwardRef<LinkRef, LinkProps>(
@@ -9,7 +11,7 @@ export const Link = forwardRef<LinkRef, LinkProps>(
     <a
       {...props}
       ref={ref}
-      className={classNames(typoClasses[fontVariant], className)}
+      className={classNames(s.typo, typoClasses[fontVariant], className)}
     >
       {children}
     </a>

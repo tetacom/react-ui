@@ -3,8 +3,9 @@ import classNames from 'classnames';
 
 import { BaseProps, Levels } from './types';
 import { levelClasses, typoClasses } from './constants';
+import s from './style.module.scss';
 
-interface TitleProps extends BaseProps {
+export interface TitleProps extends BaseProps {
   level?: Levels;
 }
 
@@ -18,7 +19,11 @@ export const Title = forwardRef<TitleRef, TitleProps>(
 
     return React.createElement(
       `h${level}`,
-      { ...props, ref, className: classNames(titleClassname, className) },
+      {
+        ...props,
+        ref,
+        className: classNames(s.typo, titleClassname, className),
+      },
       children,
     );
   },

@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
+
 import { BaseProps } from './types';
 import { DEFAULT_TYPE_FACE, typoClasses } from './constants';
+import s from './style.module.scss';
 
 type TextRef = HTMLSpanElement;
 export const Text = forwardRef<TextRef, BaseProps>(
@@ -9,7 +11,7 @@ export const Text = forwardRef<TextRef, BaseProps>(
     <span
       {...props}
       ref={ref}
-      className={classNames(typoClasses[fontVariant], className)}
+      className={classNames(s.typo, typoClasses[fontVariant], className)}
     >
       {children}
     </span>
