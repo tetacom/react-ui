@@ -1,3 +1,2 @@
-// import { Typography } from './Typography';
-
 export * from './Button';
+export * from './Typography';
