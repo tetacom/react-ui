@@ -30,14 +30,13 @@ const disabledClasses: Record<ViewType, string> = {
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   view?: ViewType;
   size?: SizeType;
-  icons?: [React.ReactElement | null, React.ReactElement?];
   palette?: PaletteType;
   shape?: ShapeType;
   square?: boolean;
   block?: boolean;
   loading?: boolean;
 }
-export type Ref = HTMLButtonElement;
+type Ref = HTMLButtonElement;
 
 export const Button = forwardRef<Ref, ButtonProps>(
   (
@@ -47,7 +46,6 @@ export const Button = forwardRef<Ref, ButtonProps>(
       disabled,
       palette,
       shape = 'round',
-      icons = [],
       size = 'middle',
       view = 'primary',
       square = false,
@@ -59,7 +57,6 @@ export const Button = forwardRef<Ref, ButtonProps>(
     ref,
   ) => {
     const utilityClasses = `button_${view} button-${palette || 'primary'}`;
-    const [leftIcon, rightIcon] = icons;
 
     return (
       <button
@@ -79,10 +76,7 @@ export const Button = forwardRef<Ref, ButtonProps>(
           className,
         )}
       >
-        {leftIcon && <span className={s.leftIcon}>{leftIcon}</span>}
         <span className={s.children}>{children}</span>
-        {rightIcon && <span className={s.rightIcon}>{rightIcon}</span>}
-
         {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
         <span className={s.loading}>
           <Spinner />
