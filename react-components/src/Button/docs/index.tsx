@@ -8,10 +8,10 @@ import {
 
 import { Button, ButtonProps } from '../index';
 import { Typography } from '../../Typography';
-import { TmpSvgIcon } from '../../tmpSvgIcon';
 
 import s from './style.module.scss';
 import buttonClassNames from '../style.module.scss';
+import { Icon } from '../../Icons';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -164,7 +164,7 @@ export const ButtonDocs = () => {
           <div key={key}>
             <Text fontVariant="captionSemi">{title}</Text>
             <Button view={view} square={square}>
-              <TmpSvgIcon /> Загрузить
+              Загрузить <Icon name="user" />
             </Button>
           </div>
         ))}
@@ -194,7 +194,7 @@ export const ButtonDocs = () => {
           <div key={key}>
             <Text fontVariant="captionSemi">{title}</Text>
             <Button disabled={disabled}>
-              <TmpSvgIcon /> Загрузить
+              Загрузить <Icon name="user" />
             </Button>
           </div>
         ))}
@@ -210,7 +210,7 @@ export const ButtonDocs = () => {
           <div key={key}>
             <Text fontVariant="captionSemi">{title}</Text>
             <Button size={size}>
-              <TmpSvgIcon /> Загрузить
+              Загрузить <Icon name="user" color="white" />
             </Button>
           </div>
         ))}

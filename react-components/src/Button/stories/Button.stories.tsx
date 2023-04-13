@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Button, ButtonProps } from '../index';
 import { ButtonDocs } from '../docs';
-import { TmpSvgIcon } from '../../tmpSvgIcon';
+import { Icon } from '../../Icons';
 
 export default {
   title: 'General/Button',
@@ -12,9 +12,9 @@ export default {
   args: {
     children: (
       <>
-        <TmpSvgIcon />
+        <Icon name="update" />
         Push me
-        <TmpSvgIcon />
+        <Icon name="user" />
       </>
     ),
     view: 'primary',
