@@ -10,12 +10,17 @@ export default {
   title: 'General/Button',
   component: Button,
   args: {
-    children: 'Push me',
+    children: (
+      <>
+        <TmpSvgIcon />
+        Push me
+        <TmpSvgIcon />
+      </>
+    ),
     view: 'primary',
     size: 'middle',
     palette: undefined,
     shape: 'round',
-    icons: [<TmpSvgIcon />, <TmpSvgIcon />],
     disabled: false,
     square: false,
     block: false,

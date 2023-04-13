@@ -163,8 +163,8 @@ export const ButtonDocs = () => {
         {buttonTypes.map(({ key, title, view, square }) => (
           <div key={key}>
             <Text fontVariant="captionSemi">{title}</Text>
-            <Button view={view} square={square} icons={[<TmpSvgIcon />]}>
-              Загрузить
+            <Button view={view} square={square}>
+              <TmpSvgIcon /> Загрузить
             </Button>
           </div>
         ))}
@@ -193,8 +193,8 @@ export const ButtonDocs = () => {
         {buttonStates.map(({ key, title, disabled }) => (
           <div key={key}>
             <Text fontVariant="captionSemi">{title}</Text>
-            <Button disabled={disabled} icons={[<TmpSvgIcon />]}>
-              Загрузить
+            <Button disabled={disabled}>
+              <TmpSvgIcon /> Загрузить
             </Button>
           </div>
         ))}
@@ -209,8 +209,8 @@ export const ButtonDocs = () => {
         {buttonSizes.map(({ key, title, size }) => (
           <div key={key}>
             <Text fontVariant="captionSemi">{title}</Text>
-            <Button size={size} icons={[<TmpSvgIcon />]}>
-              Загрузить
+            <Button size={size}>
+              <TmpSvgIcon /> Загрузить
             </Button>
           </div>
         ))}
