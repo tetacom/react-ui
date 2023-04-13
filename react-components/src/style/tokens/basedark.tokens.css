@@ -1,5 +1,5 @@
 html[data-theme='basedark'] {
-        --color-global-link: #79c6ff;
+  --color-global-link: #79c6ff;
   --color-global-white: #ffffff;
   --color-global-bgcard: #1e1e1e;
   --color-global-bgmain: #161616;
@@ -74,4 +74,4 @@ html[data-theme='basedark'] {
   --shadow-3: 0px 8px 16px 0px #00000066;
   --shadow-4: 0px 12px 24px 0px #00000066;
   --shadow-5: 0px 16px 32px 0px #00000066;
-    }
+}
