@@ -10,7 +10,7 @@ export default {
   component: Icon,
   args: {
     name: 'star',
-    color: undefined,
+    color: 'var(--color-primary-50)',
     size: 64,
   },
   parameters: {
