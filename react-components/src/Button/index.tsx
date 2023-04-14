@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import classNames from 'classnames';
 
-import { Spinner } from '../Spinner';
+import { Loader } from './Loader';
 
 import s from './style.module.scss';
 
@@ -79,7 +79,7 @@ export const Button = forwardRef<Ref, ButtonProps>(
         <span className={s.children}>{children}</span>
         {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
         <span className={s.loading}>
-          <Spinner />
+          <Loader />
         </span>
       </button>
     );

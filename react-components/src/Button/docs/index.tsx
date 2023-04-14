@@ -107,7 +107,8 @@ export const ButtonDocs = () => {
   return (
     <div className={s.root}>
       <Title
-        level={4}
+        level={1}
+        fontVariant="h4"
         style={{
           marginBottom: 0,
         }}
@@ -133,7 +134,9 @@ export const ButtonDocs = () => {
         действия в системе.
       </Paragraph>
 
-      <Title level={6}>Как использовать</Title>
+      <Title level={2} fontVariant="h6">
+        Как использовать
+      </Title>
       <Paragraph>Основные правила применения кнопки:</Paragraph>
       <ul>
         <Text>
@@ -153,7 +156,9 @@ export const ButtonDocs = () => {
         </Text>
       </ul>
 
-      <Title level={6}>Типы кнопок</Title>
+      <Title level={2} fontVariant="h6">
+        Типы кнопок
+      </Title>
       <Paragraph>
         В системе существуют всего 6 типов кнопок — это Primary (основная),
         Secondary (второстепенная) и Ghost (без фона), Primary Icon, Secondary
@@ -170,7 +175,9 @@ export const ButtonDocs = () => {
         ))}
       </div>
 
-      <Title level={6}>Состояния кнопок</Title>
+      <Title level={2} fontVariant="h6">
+        Состояния кнопок
+      </Title>
       <Paragraph>Есть 5 состояний каждой кнопки:</Paragraph>
       <ol>
         <Text>
@@ -200,7 +207,9 @@ export const ButtonDocs = () => {
         ))}
       </div>
 
-      <Title level={6}>Размер кнопок</Title>
+      <Title level={2} fontVariant="h6">
+        Размер кнопок
+      </Title>
       <Paragraph>
         Есть 3 размера кнопок — S, M и L. В основном в проектах используются
         кнопки размера M

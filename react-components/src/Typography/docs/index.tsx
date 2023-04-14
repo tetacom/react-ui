@@ -16,7 +16,8 @@ export const TypographyDocs = () => {
   return (
     <div className={s.root}>
       <Title
-        level={4}
+        level={1}
+        fontVariant="h4"
         style={{
           marginBottom: 0,
         }}
@@ -37,7 +38,9 @@ export const TypographyDocs = () => {
         включая заголовки, параграфы, ссылки и многое другое..
       </Paragraph>
 
-      <Title level={6}>Когда использовать</Title>
+      <Title level={2} fontVariant="h6">
+        Когда использовать
+      </Title>
       <Paragraph>Основные правила применения кнопки:</Paragraph>
       <ul>
         <Text>
@@ -51,13 +54,17 @@ export const TypographyDocs = () => {
         </Text>
       </ul>
 
-      <Title level={6}>Title (Заголовки)</Title>
+      <Title level={2} fontVariant="h6">
+        Title (Заголовки)
+      </Title>
       <Paragraph>
         Заголовки принимают атрибут <Text fontVariant="h6">level</Text> со
         значениями от 1 до 6, определяющий тег заголовка.
       </Paragraph>
 
-      <Title level={6}>Параграф, текст или ссылка</Title>
+      <Title level={2} fontVariant="h6">
+        Параграф, текст или ссылка
+      </Title>
       <Paragraph>
         Атрибут <Text fontVariant="h6">fontVariant</Text> определяет вариант
         текстового токена

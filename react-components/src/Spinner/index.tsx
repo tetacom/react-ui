@@ -1,26 +1,36 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 
-import './style.scss';
+import s from './style.module.scss';
 
-export const Spinner: FC = () => {
-  return (
-    <div className="Spinner">
-      <svg x="0px" y="0px" width="14" height="14" viewBox="0 0 50 50">
-        <path
-          fill="var(--color-text-90)"
-          d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z"
-        >
-          <animateTransform
-            attributeType="xml"
-            attributeName="transform"
-            type="rotate"
-            from="0 25 25"
-            to="360 25 25"
-            dur="0.6s"
-            repeatCount="indefinite"
-          />
-        </path>
-      </svg>
-    </div>
-  );
-};
+export interface SpinnerProps
+  extends Pick<HTMLAttributes<HTMLElement>, 'className' | 'style'> {
+  size?: number;
+  color?: string;
+}
+
+export const Spinner: FC<SpinnerProps> = ({
+  color = 'currentColor',
+  size = 14,
+  ...props
+}) => (
+  <div className={s.spinner}>
+    <svg {...props} width={size} height={size} viewBox="0 0 14 14">
+      <path
+        fill={color}
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 7C12 9.76142 9.76142 12 7 12C4.23858 12 2 9.76142 2 7C2 4.23858 4.23858 2 7 2V0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14C10.866 14 14 10.866 14 7H12Z"
+      >
+        <animateTransform
+          attributeType="xml"
+          attributeName="transform"
+          type="rotate"
+          from="0 7 7"
+          to="360 7 7"
+          dur="0.6s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+  </div>
+);

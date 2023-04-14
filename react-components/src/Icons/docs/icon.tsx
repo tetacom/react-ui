@@ -22,7 +22,8 @@ export const IconDocs = () => {
   return (
     <div className={s.root}>
       <Title
-        level={4}
+        level={1}
+        fontVariant="h4"
         style={{
           marginBottom: 0,
         }}
@@ -40,7 +41,7 @@ export const IconDocs = () => {
 
       <Paragraph>Semantic vector graphics.</Paragraph>
 
-      <Title level={6}>
+      <Title level={2} fontVariant="h6">
         <input
           type="text"
           placeholder="Icon name"
