@@ -1,8 +1,10 @@
 .button {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
   border: none;
   position: relative;
+  //TODO забирать color для primary из утилити классов
   color: var(--color-global-bgmain);
   padding: 0 var(--spacing-10);
   border-radius: var(--radius-btn-round);

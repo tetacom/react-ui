@@ -10,7 +10,7 @@ export interface IconProps extends BaseProps {
 
 export const Icon: FC<IconProps> = ({
   name,
-  color = 'var(--color-primary-50)',
+  color = 'currentColor',
   size = 16,
   ...props
 }) => (
