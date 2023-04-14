@@ -1,2 +1,2 @@
-export * from './Button';
-export * from './Typography';
+export * from './components/Button';
+export * from './components/Typography';

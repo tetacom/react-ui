@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import IconsSVG from '../assets/color-icons.svg';
+import IconsSVG from '../../assets/color-icons.svg';
 import s from './style.module.scss';
 import { BaseProps } from './types';
 
