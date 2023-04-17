@@ -8,7 +8,8 @@ import {
 
 import { Spinner } from '../index';
 import { Typography } from '../../Typography';
-import { Button, ButtonProps } from '../../Button';
+import { Button } from '../../Button';
+import { ButtonProps } from '../../Button/model';
 import { Icon } from '../../Icons';
 
 import s from './style.module.scss';

@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Typography } from '../index';
-import { TitleProps } from '../title';
+import { TitleProps } from '../model';
 import { TypographyDocs } from '../docs';
 
 const { Title } = Typography;

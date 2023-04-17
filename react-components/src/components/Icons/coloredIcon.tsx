@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
 import IconsSVG from '../../assets/color-icons.svg';
+import { BaseProps } from './model';
 import s from './style.module.scss';
-import { BaseProps } from './types';
 
 export const ColoredIcon: FC<BaseProps> = ({ name, size = 16, ...props }) => (
   <div className={s.icon}>

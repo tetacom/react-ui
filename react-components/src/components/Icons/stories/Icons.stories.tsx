@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Icon } from '../icon';
-import { IconProps } from '../icon';
+import { IconProps } from '../model';
 import { IconDocs } from '../docs/icon';
 
 export default {

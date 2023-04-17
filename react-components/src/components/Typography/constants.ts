@@ -1,4 +1,4 @@
-import { FontVariant, Levels } from './types';
+import { FontVariant, Levels } from './model';
 import s from './style.module.scss';
 
 export const DEFAULT_TYPE_FACE: FontVariant = 'body2';

@@ -1,13 +1,9 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
-import { BaseProps, Levels } from './types';
+import { TitleProps } from './model';
 import { levelClasses, typoClasses } from './constants';
 import s from './style.module.scss';
-
-export interface TitleProps extends BaseProps {
-  level?: Levels;
-}
 
 type TitleRef = HTMLHeadingElement;
 

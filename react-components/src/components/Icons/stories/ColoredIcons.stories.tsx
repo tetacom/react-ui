@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { ColoredIcon } from '../index';
-import { BaseProps } from '../types';
+import { BaseProps } from '../model';
 import { ColoredIconDocs } from '../docs/coloredIcon';
 
 export default {

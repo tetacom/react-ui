@@ -6,7 +6,8 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 
-import { Button, ButtonProps } from '../index';
+import { Button } from '../index';
+import { ButtonProps } from '../model';
 import { Typography } from '../../Typography';
 
 import s from './style.module.scss';

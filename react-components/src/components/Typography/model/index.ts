@@ -25,3 +25,7 @@ type Base = {
 
 export type BaseProps = Base & HTMLAttributes<HTMLElement>;
 export type LinkProps = Base & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+export interface TitleProps extends BaseProps {
+  level?: Levels;
+}
