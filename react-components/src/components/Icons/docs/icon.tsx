@@ -15,7 +15,10 @@ export const IconDocs = () => {
     setSearchQuery(event.target.value);
   };
   const filteredList = useMemo(
-    () => iconsList.filter((icon) => icon.includes(searchQuery)),
+    () =>
+      iconsList.filter((icon) =>
+        icon.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
     [searchQuery],
   );
 

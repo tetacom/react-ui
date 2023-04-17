@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import classNames from 'classnames';
 
 import IconsSVG from '../../assets/icons.svg';
 import s from './style.module.scss';
@@ -10,13 +11,17 @@ export interface IconProps extends BaseProps {
 
 export const Icon: FC<IconProps> = ({
   name,
-  color = 'currentColor',
+  color = 'inherit',
   size = 16,
   ...props
-}) => (
-  <div className={s.icon}>
-    <svg {...props} fill={color} stroke={color} width={size} height={size}>
-      <use xlinkHref={`${IconsSVG}#${name}`} />
-    </svg>
-  </div>
-);
+}) => {
+  const { className, style } = props;
+
+  return (
+    <div className={classNames(s.icon, className)} style={{ color, ...style }}>
+      <svg width={size} height={size}>
+        <use xlinkHref={`${IconsSVG}#${name}`} />
+      </svg>
+    </div>
+  );
+};
