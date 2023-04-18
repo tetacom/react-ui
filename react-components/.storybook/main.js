@@ -9,6 +9,9 @@ module.exports = {
   ],
   addons: ['@storybook/addon-essentials'],
   async viteFinal(config, { configType }) {
+    if(configType === 'PRODUCTION') {
+      config.base = './'
+    }
     return mergeConfig(config, {
       plugins: [
         viteTsConfigPaths({
