@@ -1,0 +1,54 @@
+.input {
+  display: inline-flex;
+  flex-direction: column;
+
+  .field {
+    font-size: var(--font-body3-font-size);
+    font-family: var(--font-body3-font-family);
+    font-weight: var(--font-body3-font-weight);
+    font-style: var(--font-body3-font-style);
+    font-stretch: var(--font-body3-font-stretch);
+    letter-spacing: var(--font-body3-letter-spacing);
+    text-transform: var(--font-body3-text-case);
+    display: inline-flex;
+    align-items: center;
+    padding: 0 var(--spacing-8);
+    background-color: var(--color-text-5);
+  }
+
+  &Size {
+    &Large {
+      height: var(--spacing-32);
+    }
+
+    &Middle {
+      height: var(--spacing-28);
+    }
+
+    &Small {
+      height: var(--spacing-24);
+    }
+  }
+
+  &Shape {
+    &Brick {
+      border-radius: var(--radius-field-brick);
+    }
+
+    &Round {
+      border-radius: var(--radius-field-round);
+    }
+
+    &Circle {
+      border-radius: var(--radius-field-circle);
+    }
+  }
+
+  &Error {
+    border-color: tomato;
+  }
+
+  .errorMessage {
+    border: 2px dashed red;
+  }
+}

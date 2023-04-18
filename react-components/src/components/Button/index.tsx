@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { Loader } from './Loader';
-import { ButtonProps, ShapeType, SizeType, ViewType } from './model';
+import { ButtonProps, ButtonRef, ShapeType, SizeType, ViewType } from './model';
 import s from './style.module.scss';
 
 const sizeClasses: Record<SizeType, string> = {
@@ -21,15 +21,13 @@ const disabledClasses: Record<ViewType, string> = {
   ghost: s.disabledGhost,
 };
 
-type Ref = HTMLButtonElement;
-
-export const Button = forwardRef<Ref, ButtonProps>(
+export const Button = forwardRef<ButtonRef, ButtonProps>(
   (
     {
       children,
-      type,
-      disabled,
       palette,
+      type = 'button',
+      disabled = false,
       shape = 'round',
       size = 'middle',
       view = 'primary',
@@ -47,7 +45,7 @@ export const Button = forwardRef<Ref, ButtonProps>(
       <button
         {...props}
         ref={ref}
-        type={type || 'button'}
+        type={type}
         disabled={loading || disabled}
         className={classNames(
           utilityClasses,
