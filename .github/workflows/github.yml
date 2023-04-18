@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.2
-        with:
-          token: ${{ secrets.GH_TOKEN }}
       - uses: nrwl/nx-set-shas@v3
       - name: Install and Build
         run: npx nx run react-components:build-storybook
