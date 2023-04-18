@@ -1,5 +1,5 @@
 {
-  "name": "@tetacom",
+  "name": "tetacom",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "./src",
   "projectType": "application",
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/@tetacom"
+        "outputPath": "dist/tetacom"
       },
       "configurations": {
         "development": {
@@ -24,15 +24,15 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "@tetacom:build"
+        "buildTarget": "tetacom:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "@tetacom:build:development",
+          "buildTarget": "tetacom:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "@tetacom:build:production",
+          "buildTarget": "tetacom:build:production",
           "hmr": false
         }
       }
@@ -41,23 +41,23 @@
       "executor": "@nrwl/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "@tetacom:build"
+        "buildTarget": "tetacom:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "@tetacom:build:development"
+          "buildTarget": "tetacom:build:development"
         },
         "production": {
-          "buildTarget": "@tetacom:build:production"
+          "buildTarget": "tetacom:build:production"
         }
       }
     },
     "test": {
       "executor": "@nrwl/vite:test",
-      "outputs": ["coverage/@tetacom"],
+      "outputs": ["coverage/tetacom"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "coverage/@tetacom"
+        "reportsDirectory": "coverage/tetacom"
       }
     },
     "lint": {
@@ -70,7 +70,7 @@
     "serve-static": {
       "executor": "@nrwl/web:file-server",
       "options": {
-        "buildTarget": "@tetacom:build"
+        "buildTarget": "tetacom:build"
       }
     }
   },

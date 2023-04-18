@@ -1,5 +1,5 @@
 {
-  "name": "@tetacom/react-components",
+  "name": "react-components",
   "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -7,6 +7,10 @@
     ".": {
       "import": "./index.mjs",
       "require": "./index.js"
+    },
+    "./index.css": {
+      "import": "./index.css",
+      "require": "./index.css"
     }
   }
 }
