@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
-import { LinkProps } from './types';
+import { LinkProps } from './model';
 import { DEFAULT_TYPE_FACE, typoClasses } from './constants';
 import s from './style.module.scss';
 

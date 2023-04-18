@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Typography } from '../index';
-import { LinkProps } from '../types';
+import { LinkProps } from '../model';
 import { TypographyDocs } from '../docs';
 
 const { Link } = Typography;

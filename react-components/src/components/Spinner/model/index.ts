@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 
-export interface BaseProps
+export interface SpinnerProps
   extends Pick<HTMLAttributes<HTMLElement>, 'className' | 'style'> {
-  name: string;
   size?: number;
+  color?: string;
 }

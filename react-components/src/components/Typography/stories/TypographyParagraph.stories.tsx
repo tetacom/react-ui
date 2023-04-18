@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Typography } from '../index';
-import { BaseProps } from '../types';
+import { BaseProps } from '../model';
 import { TypographyDocs } from '../docs';
 
 const { Paragraph } = Typography;

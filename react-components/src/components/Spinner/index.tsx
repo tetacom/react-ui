@@ -1,12 +1,7 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC } from 'react';
 
+import { SpinnerProps } from './model';
 import s from './style.module.scss';
-
-export interface SpinnerProps
-  extends Pick<HTMLAttributes<HTMLElement>, 'className' | 'style'> {
-  size?: number;
-  color?: string;
-}
 
 export const Spinner: FC<SpinnerProps> = ({
   color = 'currentColor',

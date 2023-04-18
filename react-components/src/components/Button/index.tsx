@@ -1,14 +1,9 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { Loader } from './Loader';
-
+import { ButtonProps, ShapeType, SizeType, ViewType } from './model';
 import s from './style.module.scss';
-
-type PaletteType = 'green' | 'yellow' | 'red';
-type ViewType = 'primary' | 'outline' | 'ghost';
-type SizeType = 'small' | 'middle' | 'large';
-type ShapeType = 'brick' | 'round' | 'circle';
 
 const sizeClasses: Record<SizeType, string> = {
   small: s.buttonSizeSmall,
@@ -26,16 +21,6 @@ const disabledClasses: Record<ViewType, string> = {
   ghost: s.disabledGhost,
 };
 
-// TODO view outline желательно переименовать в secondary или в макетах secondary в outline
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  view?: ViewType;
-  size?: SizeType;
-  palette?: PaletteType;
-  shape?: ShapeType;
-  square?: boolean;
-  block?: boolean;
-  loading?: boolean;
-}
 type Ref = HTMLButtonElement;
 
 export const Button = forwardRef<Ref, ButtonProps>(
@@ -77,10 +62,13 @@ export const Button = forwardRef<Ref, ButtonProps>(
         )}
       >
         <span className={s.children}>{children}</span>
+
         {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
-        <span className={s.loading}>
-          <Loader />
-        </span>
+        {loading && (
+          <span className={s.loading}>
+            <Loader />
+          </span>
+        )}
       </button>
     );
   },

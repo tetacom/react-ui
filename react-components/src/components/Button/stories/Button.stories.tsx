@@ -2,7 +2,8 @@ import { action } from '@storybook/addon-actions';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Button, ButtonProps } from '../index';
+import { Button } from '../index';
+import { ButtonProps } from '../model';
 import { ButtonDocs } from '../docs';
 import { Icon } from '../../Icons';
 
