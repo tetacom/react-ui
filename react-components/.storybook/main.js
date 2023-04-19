@@ -13,6 +13,7 @@ module.exports = {
   ],
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
+      base: './',
       plugins: [
         viteTsConfigPaths({
           root: '../../',

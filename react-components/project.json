@@ -59,7 +59,7 @@
       "executor": "@nrwl/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "outputDir": "dist/storybook/react-components",
+        "outputDir": "docs-build",
         "configDir": "react-components/.storybook",
         "uiFramework": "@storybook/react"
       },
