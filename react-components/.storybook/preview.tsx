@@ -1,3 +1,4 @@
+import React from "react";
 import { useTheme } from './useTheme';
 
 import '../src/style/sb.css';
