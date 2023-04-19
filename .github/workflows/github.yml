@@ -15,4 +15,4 @@ jobs:
       - name: Deploy To Github Pages
         run: npx -p @storybook/storybook-deployer storybook-to-ghpages --existing-output-dir=docs-build --branch gh-pages --source-branch main --ci true
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN }}
