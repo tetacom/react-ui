@@ -1,1 +1,2 @@
-export * from './lib/react-components';
+export * from './Button';
+export * from './Typography';
