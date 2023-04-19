@@ -1,0 +1,19 @@
+.root {
+  ol li,
+  ul li {
+    margin: 0.5em 0;
+  }
+
+  .icons {
+    margin-top: var(--spacing-24);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--spacing-16);
+
+    .icon {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-8);
+    }
+  }
+}

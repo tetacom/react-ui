@@ -5,14 +5,16 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.2
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
         with:
-          cache: npm
-          node-version: 16
+          persist-credentials: false
       - name: Install and Build
-        run: npm install && npx nx run react-components:build-storybook
-      - name: Deploy To Github Pages
-        run: npx -p @storybook/storybook-deployer storybook-to-ghpages --existing-output-dir=docs-build --branch gh-pages --source-branch main --ci true
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN_ORG }}
+        run: |
+          npm install
+          npx nx run react-components:build-storybook
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs-build
