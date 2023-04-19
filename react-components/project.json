@@ -46,8 +46,7 @@
       "executor": "@nrwl/storybook:storybook",
       "options": {
         "port": 4400,
-        "configDir": "react-components/.storybook",
-        "uiFramework": "@storybook/react"
+        "configDir": "react-components/.storybook"
       },
       "configurations": {
         "ci": {
@@ -59,9 +58,8 @@
       "executor": "@nrwl/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "outputDir": "docs-build",
-        "configDir": "react-components/.storybook",
-        "uiFramework": "@storybook/react"
+        "outputDir": "dist/storybook/react-components",
+        "configDir": "react-components/.storybook"
       },
       "configurations": {
         "ci": {

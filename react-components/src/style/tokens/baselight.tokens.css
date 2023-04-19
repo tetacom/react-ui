@@ -1,5 +1,5 @@
 html[data-theme='baselight'] {
-        --color-global-link: #005ab6;
+  --color-global-link: #005ab6;
   --color-global-white: #ffffff;
   --color-global-bgcard: #ffffff;
   --color-global-bgmain: #f4f5f7;
@@ -58,4 +58,4 @@ html[data-theme='baselight'] {
   --shadow-3: 0px 16px 22px 0px #0000001a;
   --shadow-4: 0px 16px 24px 0px #27272729;
   --shadow-5: 0px 20px 32px 0px #27272733;
-    }
+}
