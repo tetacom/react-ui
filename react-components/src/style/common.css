@@ -13,10 +13,15 @@ html {
 }
 
 body {
-  font-family: Inter, sans-serif;
+  font-family: Inter, sans-serif !important;
   font-feature-settings: 'kern';
   font-kerning: normal;
   height: 100vh;
+}
+
+.sb-show-main.sb-main-padded,
+.sbdocs.sbdocs-wrapper {
+  background-color: var(--color-global-bgmain);
   transition: background-color 0.4s;
 }
 

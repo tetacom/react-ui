@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Unstyled } from '@storybook/blocks';
 
 import { ColoredIcon } from '../index';
 import { Typography } from '../../Typography';
@@ -22,49 +23,51 @@ export const ColoredIconDocs = () => {
   );
 
   return (
-    <div className={s.root}>
-      <Title
-        level={1}
-        fontVariant="h4"
-        style={{
-          marginBottom: 0,
-        }}
-      >
-        Цветная иконка
-      </Title>
-      <Paragraph
-        fontVariant="caption"
-        style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
-      >
-        {iconClassNames.icon}
-      </Paragraph>
-
-      <br />
-
-      <Paragraph>Semantic vector graphics.</Paragraph>
-
-      <Title level={2} fontVariant="h6">
-        <input
-          type="text"
-          placeholder="Icon name"
-          autoFocus
-          onChange={handleSearch}
+    <Unstyled>
+      <div className={s.root}>
+        <Title
+          level={1}
+          fontVariant="h4"
           style={{
-            width: '100%',
-            border: '1px solid var(--color-primary-50)',
-            padding: 'var(--spacing-8)',
+            marginBottom: 0,
           }}
-        />
-      </Title>
+        >
+          Цветная иконка
+        </Title>
+        <Paragraph
+          fontVariant="caption"
+          style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
+        >
+          {iconClassNames.icon}
+        </Paragraph>
 
-      <div className={s.icons}>
-        {filteredList.map((icon) => (
-          <div key={icon} className={s.icon}>
-            <ColoredIcon name={icon} size={24} />
-            <Text fontVariant="title2">{icon}</Text>
-          </div>
-        ))}
+        <br />
+
+        <Paragraph>Semantic vector graphics.</Paragraph>
+
+        <Title level={2} fontVariant="h6">
+          <input
+            type="text"
+            placeholder="Icon name"
+            autoFocus
+            onChange={handleSearch}
+            style={{
+              width: '100%',
+              border: '1px solid var(--color-primary-50)',
+              padding: 'var(--spacing-8)',
+            }}
+          />
+        </Title>
+
+        <div className={s.icons}>
+          {filteredList.map((icon) => (
+            <div key={icon} className={s.icon}>
+              <ColoredIcon name={icon} size={24} />
+              <Text fontVariant="title2">{icon}</Text>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </Unstyled>
   );
 };
