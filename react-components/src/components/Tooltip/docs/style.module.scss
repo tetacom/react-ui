@@ -1,0 +1,26 @@
+.root {
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 5em 0;
+  }
+
+  .tooltip {
+    display: grid;
+    place-content: center;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    cursor: pointer;
+  }
+}
