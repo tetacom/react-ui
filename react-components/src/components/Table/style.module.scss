@@ -5,11 +5,15 @@
 
   th,
   td {
+    background-color: var(--color-global-bgcard);
     padding: var(--radius-6) var(--radius-8);
   }
 
-  thead th,
-  tfoot th {
+  thead th {
+    border-bottom: 1px solid var(--color-text-5);
+  }
+
+  thead th {
     font-size: var(--font-caption-semi-font-size);
     text-decoration: var(--font-caption-semi-text-decoration);
     font-family: var(--font-caption-semi-font-family);
@@ -22,10 +26,10 @@
   }
 
   tbody tr {
-    background-color: var(--color-global-white);
-
     &:nth-child(2n) {
-      background-color: var(--color-global-bgmain);
+      td {
+        background-color: var(--color-global-bgmain);
+      }
     }
 
     td {
@@ -37,6 +41,7 @@
       font-stretch: var(--font-body3-font-stretch);
       letter-spacing: var(--font-body3-letter-spacing);
       text-transform: var(--font-body3-text-case);
+      color: var(--color-text-90);
     }
   }
 }

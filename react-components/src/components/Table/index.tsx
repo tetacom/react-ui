@@ -18,13 +18,11 @@ export const Table = forwardRef<TableRef, TableProps>(
       return [...dataSource];
     }, [dataSource]);
 
-    const columnHelper2 = createColumnHelper<object>();
-    const testColumns = columns.map(({ name, caption }) =>
-      columnHelper2.accessor(name as keyof TableColumn, {
+    const columnHelper = createColumnHelper<object>();
+    const tableColumns = columns.map(({ name, caption }) =>
+      columnHelper.accessor(name as keyof TableColumn, {
         id: name,
-        cell: (info: CellContext<object, number>) => (
-          <span>{info.getValue()}</span>
-        ),
+        cell: (info: CellContext<object, number>) => info.getValue(),
         header: () => caption,
         footer: () => caption,
       }),
@@ -32,7 +30,7 @@ export const Table = forwardRef<TableRef, TableProps>(
 
     const table = useReactTable({
       data,
-      columns: testColumns,
+      columns: tableColumns,
       getCoreRowModel: getCoreRowModel(),
     });
 
@@ -65,22 +63,6 @@ export const Table = forwardRef<TableRef, TableProps>(
             </tr>
           ))}
         </tbody>
-        <tfoot>
-          {table.getFooterGroups().map((footerGroup) => (
-            <tr key={footerGroup.id}>
-              {footerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.footer,
-                        header.getContext(),
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </tfoot>
       </table>
     );
   },
