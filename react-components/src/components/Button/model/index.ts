@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 
 export type ButtonRef = HTMLButtonElement;
 
-export type PaletteType = 'green' | 'yellow' | 'red';
+export type PaletteType = 'none' | 'green' | 'yellow' | 'red';
 export type ViewType = 'primary' | 'outline' | 'ghost';
 export type SizeType = 'small' | 'middle' | 'large';
 export type ShapeType = 'brick' | 'round' | 'circle';

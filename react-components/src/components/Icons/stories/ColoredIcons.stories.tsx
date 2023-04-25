@@ -1,37 +1,38 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { ColoredIcon } from '../index';
-import { BaseProps } from '../model';
+import { ColoredIcon } from '../coloredIcon';
 import { ColoredIconDocs } from '../docs/coloredIcon';
 
-export default {
+const meta: Meta<typeof ColoredIcon> = {
   title: 'General/Icons/ColoredIcon',
   component: ColoredIcon,
-  args: {
-    name: 'coinColor',
-    size: 64,
-  },
   parameters: {
     docs: {
       page: ColoredIconDocs,
     },
   },
-} as ComponentMeta<(args: BaseProps) => ReturnType<typeof ColoredIcon>>;
+};
+export default meta;
 
-const Template: ComponentStory<
-  (args: BaseProps) => ReturnType<typeof ColoredIcon>
-> = ({ ...args }) => <ColoredIcon {...args} />;
+type Story = StoryObj<typeof ColoredIcon>;
 
-export const CoinColor = Template.bind({});
-CoinColor.args = {};
-
-export const ImproveColor = Template.bind({});
-ImproveColor.args = {
-  name: 'improveColor',
+export const CoinColor: Story = {
+  args: {
+    name: 'coinColor',
+    size: 64,
+  },
 };
 
-export const TestAnalyzeGroupColor = Template.bind({});
-TestAnalyzeGroupColor.args = {
-  name: 'testAnalyzeGroupColor',
+export const ImproveColor: Story = {
+  args: {
+    ...CoinColor.args,
+    name: 'improveColor',
+  },
+};
+
+export const TestAnalyzeGroupColor: Story = {
+  args: {
+    ...CoinColor.args,
+    name: 'testAnalyzeGroupColor',
+  },
 };

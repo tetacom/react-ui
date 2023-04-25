@@ -27,7 +27,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
       children,
       type,
       disabled,
-      palette,
+      palette = 'none',
       shape = 'round',
       size = 'middle',
       view = 'primary',
@@ -39,7 +39,9 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
     },
     ref,
   ) => {
-    const utilityClasses = `button_${view} button-${palette || 'primary'}`;
+    const utilityClasses = `button_${view} button-${
+      palette === 'none' ? 'primary' : palette
+    }`;
 
     return (
       <button

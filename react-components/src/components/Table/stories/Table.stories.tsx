@@ -1,22 +1,25 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Table } from '../index';
-import { TableProps } from '../model';
 import { columns, data } from './tableData';
+import { TypographyDocs } from '../docs';
 
-export default {
+const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
   component: Table,
+  parameters: {
+    docs: {
+      page: TypographyDocs,
+    },
+  },
+};
+export default meta;
+
+type Story = StoryObj<typeof Table>;
+
+export const Default: Story = {
   args: {
     dataSource: data,
     columns: columns,
   },
-} as ComponentMeta<(args: TableProps) => ReturnType<typeof Table>>;
-
-const Template: ComponentStory<
-  (args: TableProps) => ReturnType<typeof Table>
-> = ({ children, ...args }) => <Table {...args}>{children}</Table>;
-
-export const Default = Template.bind({});
-Default.args = {};
+};

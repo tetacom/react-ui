@@ -1,27 +1,24 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Spinner } from '../index';
-import { SpinnerProps } from '../model';
 import { SpinnerDocs } from '../docs';
 
-export default {
+const meta: Meta<typeof Spinner> = {
   title: 'Feedback/Spinner',
   component: Spinner,
-  args: {
-    color: 'var(--color-primary-50)',
-    size: 64,
-  },
   parameters: {
     docs: {
       page: SpinnerDocs,
     },
   },
-} as ComponentMeta<(args: SpinnerProps) => ReturnType<typeof Spinner>>;
+};
+export default meta;
 
-const Template: ComponentStory<
-  (args: SpinnerProps) => ReturnType<typeof Spinner>
-> = ({ ...args }) => <Spinner {...args} />;
+type Story = StoryObj<typeof Spinner>;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {
+  args: {
+    color: 'var(--color-primary-50)',
+    size: 64,
+  },
+};
