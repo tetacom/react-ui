@@ -125,12 +125,7 @@
 
   &Loading {
     .children {
-      opacity: 0.2;
-    }
-
-    .loading {
-      opacity: 1;
-      transform: scale(1);
+      opacity: 0;
     }
   }
 
