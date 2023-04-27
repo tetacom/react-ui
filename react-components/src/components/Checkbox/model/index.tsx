@@ -4,7 +4,7 @@ export type CheckboxRef = HTMLInputElement;
 
 export interface CheckboxProps
   extends Omit<InputHTMLAttributes<CheckboxRef>, 'onChange'> {
-  checked: boolean;
+  checked?: boolean;
   onChange?: (
     checked: boolean,
     event: React.ChangeEvent<HTMLInputElement>,

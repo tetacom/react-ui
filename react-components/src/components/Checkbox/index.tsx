@@ -28,7 +28,6 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(
           ref={ref}
           type="checkbox"
           disabled={disabled}
-          defaultChecked={defaultChecked}
           checked={isChecked}
           onChange={handleChange}
         />
