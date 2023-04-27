@@ -135,7 +135,7 @@
 
   &:focus-visible {
     //TODO нужны токены для теней
-    box-shadow: 0 0 0 4px #c6d7ff;
+    box-shadow: 0 0 0 4px var(--color-primary-10);
     transition: background 0.4s, box-shadow 0.2s;
   }
 

@@ -65,7 +65,7 @@ export const Button = forwardRef<Ref, ButtonProps>(
         <span className={s.children}>{children}</span>
 
         {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {loading && (
             <motion.span
               className={s.loading}
