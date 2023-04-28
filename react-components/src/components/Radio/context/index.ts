@@ -1,9 +1,9 @@
-import { RadioValue } from '../model';
+import { RadioValueType } from '../model';
 import React from 'react';
 
 export interface RadioGroupContextData {
-  value: null | RadioValue;
-  onChange: (value: RadioValue) => void;
+  value: null | RadioValueType;
+  onChange: (value: RadioValueType) => void;
 }
 
 const RadioGroupContext = React.createContext<RadioGroupContextData>({

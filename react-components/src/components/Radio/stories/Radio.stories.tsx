@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Radio } from '../index';
-import { RadioValue } from '../model';
+import { RadioValueType } from '../model';
 import { RadioDocs } from '../docs';
 
 const meta: Meta<typeof Radio> = {
@@ -20,8 +20,8 @@ type Story = StoryObj<typeof Radio>;
 type GroupStory = StoryObj<typeof Radio.Group>;
 
 const RadioWithHooks = () => {
-  const [value, setValue] = useState<RadioValue>(1);
-  const handleOnChange = (event: RadioValue) => {
+  const [value, setValue] = useState<RadioValueType>(1);
+  const handleOnChange = (event: RadioValueType) => {
     setValue(event);
   };
 

@@ -10,7 +10,7 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(
     const defaultChecked = checked ? checked : false;
     const [isChecked, setIsChecked] = useState(defaultChecked);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      onChange && onChange(event.target.checked, event);
+      onChange && onChange(event);
       setIsChecked((prev) => !prev);
     };
 

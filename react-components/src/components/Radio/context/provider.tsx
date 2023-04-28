@@ -1,11 +1,11 @@
 import React, { FC, PropsWithChildren, useMemo, useState } from 'react';
 
-import { RadioValue } from '../model';
+import { RadioValueType } from '../model';
 import RadioGroupContext, { RadioGroupContextData } from './index';
 
 interface RadioGroupContextProviderProps extends PropsWithChildren {
-  initValue: RadioValue;
-  onChangeValue: (checked: RadioValue) => void;
+  initValue: RadioValueType;
+  onChangeValue: (checked: RadioValueType) => void;
 }
 
 const RadioGroupContextProvider: FC<RadioGroupContextProviderProps> = ({
@@ -13,7 +13,7 @@ const RadioGroupContextProvider: FC<RadioGroupContextProviderProps> = ({
   onChangeValue,
   children,
 }) => {
-  const [value, setValue] = useState<RadioValue>(initValue);
+  const [value, setValue] = useState<RadioValueType>(initValue);
 
   const radioGroupContextValue: RadioGroupContextData = useMemo(
     () => ({

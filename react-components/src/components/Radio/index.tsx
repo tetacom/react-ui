@@ -30,7 +30,7 @@ const Radio: FC<RadioProps> & RadioComposition = ({
     }
 
     if (onChange) {
-      onChange(event.target.checked, event);
+      onChange(event);
     }
   };
 

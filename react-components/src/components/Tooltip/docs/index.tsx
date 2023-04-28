@@ -11,11 +11,12 @@ import { Placement } from 'react-laag';
 import { Tooltip } from '../index';
 import { Typography } from '../../Typography';
 import { Button } from '../../Button';
+import { Radio } from 'tetacom/react-components';
 
 import s from './style.module.scss';
-import tooptipClassNames from '../style.module.scss';
+import tooltipClassNames from '../style.module.scss';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 const placements: {
   type: 'placement' | 'empty' | 'tooltip';
@@ -107,7 +108,7 @@ const placements: {
 export const TooltipDocs = () => {
   const [selectedPlacement, setSelectedPlacement] = useState('top-start');
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedPlacement(event.target.id);
+    setSelectedPlacement(event.target.value);
   };
 
   return (
@@ -126,7 +127,7 @@ export const TooltipDocs = () => {
           fontVariant="caption"
           style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
         >
-          {tooptipClassNames.tooltip}
+          {tooltipClassNames.tooltip}
         </Paragraph>
 
         <br />
@@ -170,17 +171,11 @@ export const TooltipDocs = () => {
             }
 
             return (
-              // TODO поменять на чекбоксы из библиотеки, когда они появятся
-              <label key={id} className={s.tile} htmlFor={id}>
-                <input
-                  type="radio"
-                  name="tooltip"
-                  id={id}
-                  checked={checked}
-                  onChange={handleChange}
-                />
-                <Text fontVariant="captionSemi">{label}</Text>
-              </label>
+              <div key={id} className={s.tile}>
+                <Radio value={id} checked={checked} onChange={handleChange}>
+                  {label}
+                </Radio>
+              </div>
             );
           })}
         </div>

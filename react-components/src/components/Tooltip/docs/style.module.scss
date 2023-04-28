@@ -15,12 +15,6 @@
   }
 
   .tile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
     padding: 12px;
-    cursor: pointer;
   }
 }
