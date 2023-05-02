@@ -8,7 +8,7 @@ import img3 from './assets/3.jpg';
 // import { TooltipDocs } from '../docs';
 
 const meta: Meta<typeof List> = {
-  title: 'Data Display/List',
+  title: 'Navigation/List',
   component: List,
   // parameters: {
   //   docs: {

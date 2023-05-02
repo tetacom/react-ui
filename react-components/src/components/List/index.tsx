@@ -10,7 +10,7 @@ export const List: FC<ListProps> = ({
   items,
   imageSize = 'small',
   imageRound = true,
-  divider,
+  divider = true,
 }) => {
   return (
     <ul className={s.list}>
