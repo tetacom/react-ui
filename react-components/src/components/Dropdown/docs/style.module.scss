@@ -1,0 +1,23 @@
+.root {
+  .example {
+    width: 500px;
+    height: 400px;
+    overflow: auto;
+    background-color: var(--color-primary-5);
+    border: 2px solid var(--color-primary-40);
+    border-radius: 4px;
+
+    &Content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 800px;
+      height: 650px;
+    }
+
+    .canvas {
+      width: 2000px;
+      height: 2000px;
+    }
+  }
+}
