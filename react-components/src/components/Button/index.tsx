@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Loader } from './Loader';
-import { ButtonProps, ShapeType, SizeType, ViewType } from './model';
+import { ButtonProps, ButtonRef, ShapeType, SizeType, ViewType } from './model';
 import s from './style.module.scss';
 
 const sizeClasses: Record<SizeType, string> = {
@@ -22,15 +22,13 @@ const disabledClasses: Record<ViewType, string> = {
   ghost: s.disabledGhost,
 };
 
-type Ref = HTMLButtonElement;
-
-export const Button = forwardRef<Ref, ButtonProps>(
+export const Button = forwardRef<ButtonRef, ButtonProps>(
   (
     {
       children,
       type,
       disabled,
-      palette,
+      palette = 'none',
       shape = 'round',
       size = 'middle',
       view = 'primary',
@@ -42,7 +40,9 @@ export const Button = forwardRef<Ref, ButtonProps>(
     },
     ref,
   ) => {
-    const utilityClasses = `button_${view} button-${palette || 'primary'}`;
+    const utilityClasses = `button_${view} button-${
+      palette === 'none' ? 'primary' : palette
+    }`;
 
     return (
       <button

@@ -12,7 +12,7 @@ module.exports = {
   ],
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
-      base: './'
+      base: './',
     });
   },
   framework: {

@@ -1,38 +1,39 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Icon } from '../icon';
-import { IconProps } from '../model';
 import { IconDocs } from '../docs/icon';
 
-export default {
+const meta: Meta<typeof Icon> = {
   title: 'General/Icons/Icon',
   component: Icon,
-  args: {
-    name: 'star',
-    color: 'var(--color-primary-50)',
-    size: 64,
-  },
   parameters: {
     docs: {
       page: IconDocs,
     },
   },
-} as ComponentMeta<(args: IconProps) => ReturnType<typeof Icon>>;
+};
+export default meta;
 
-const Template: ComponentStory<
-  (args: IconProps) => ReturnType<typeof Icon>
-> = ({ ...args }) => <Icon {...args} />;
+type Story = StoryObj<typeof Icon>;
 
-export const Star = Template.bind({});
-Star.args = {};
-
-export const Table = Template.bind({});
-Table.args = {
-  name: 'table',
+export const Star: Story = {
+  args: {
+    name: 'star',
+    color: 'var(--color-primary-50)',
+    size: 64,
+  },
 };
 
-export const User = Template.bind({});
-User.args = {
-  name: 'user',
+export const Table: Story = {
+  args: {
+    ...Star.args,
+    name: 'table',
+  },
+};
+
+export const User: Story = {
+  args: {
+    ...Star.args,
+    name: 'star',
+  },
 };

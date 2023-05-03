@@ -1,37 +1,34 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Typography } from '../index';
-import { BaseProps } from '../model';
 import { TypographyDocs } from '../docs';
 
 const { Paragraph } = Typography;
 
-export default {
+const meta: Meta<typeof Paragraph> = {
   title: 'General/Typography/Paragraph',
   component: Paragraph,
-  args: {
-    children: 'Typography',
-    fontVariant: undefined,
-  },
   parameters: {
     docs: {
       page: TypographyDocs,
     },
   },
-} as ComponentMeta<(args: BaseProps) => ReturnType<typeof Paragraph>>;
+};
+export default meta;
 
-const Template: ComponentStory<
-  (args: BaseProps) => ReturnType<typeof Paragraph>
-> = ({ ...args }) => {
-  return <Paragraph {...args} />;
+type Story = StoryObj<typeof Paragraph>;
+
+export const Default: Story = {
+  args: {
+    children: 'Typography',
+    fontVariant: undefined,
+  },
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const H4 = Template.bind({});
-H4.storyName = 'Paragraph: h4 font variant';
-H4.args = {
-  fontVariant: 'h4',
+export const H4: Story = {
+  name: 'Paragraph: h4 font variant',
+  args: {
+    ...Default.args,
+    fontVariant: 'h4',
+  },
 };

@@ -1,0 +1,73 @@
+import React from 'react';
+import {
+  ArgsTable,
+  Primary,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+import { Unstyled } from '@storybook/blocks';
+
+import { Typography } from '../../Typography';
+import s from './style.module.scss';
+import tableClassNames from '../style.module.scss';
+
+const { Title, Paragraph, Text } = Typography;
+
+export const TypographyDocs = () => {
+  return (
+    <Unstyled>
+      <div className={s.root}>
+        <Title
+          level={1}
+          fontVariant="h4"
+          style={{
+            marginBottom: 0,
+          }}
+        >
+          Таблица
+        </Title>
+        <Paragraph
+          fontVariant="caption"
+          style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
+        >
+          {tableClassNames.table}
+        </Paragraph>
+
+        <br />
+
+        <Paragraph>
+          Table (таблица) — компонент, который отображает данные. Создает на
+          основе двух элементов: Table Header (шапка таблицы) и Cell (ячейка).
+        </Paragraph>
+
+        <Title level={2} fontVariant="h6">
+          Как использовать
+        </Title>
+        <Paragraph>Основные правила применения элементов таблицы:</Paragraph>
+        <ul>
+          <Text>
+            <li>
+              в ячейке могут быть иконки, текстовые составляющие, выпадающие
+              таблицы, тоглы, чекбоксы и др.;
+            </li>
+          </Text>
+          <Text>
+            <li>Table Header используется только в шапке таблице.</li>
+          </Text>
+        </ul>
+        <Paragraph>
+          Для упрощения дизайн-процесса лучше всего создать строку из
+          необходимого количества Table Header и объединить в компонент. Затем
+          то же самое повторить со строками с Cell и из полученных строк создать
+          компонент таблицы.
+        </Paragraph>
+
+        <br />
+        <br />
+        <Primary />
+        <ArgsTable story={PRIMARY_STORY} />
+        <Stories />
+      </div>
+    </Unstyled>
+  );
+};

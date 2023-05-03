@@ -5,6 +5,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
+import { Unstyled } from '@storybook/blocks';
 
 import { Button } from '../index';
 import { ButtonProps } from '../model';
@@ -106,131 +107,133 @@ const buttonSizes: (BaseType & Pick<ButtonProps, 'size'>)[] = [
 
 export const ButtonDocs = () => {
   return (
-    <div className={s.root}>
-      <Title
-        level={1}
-        fontVariant="h4"
-        style={{
-          marginBottom: 0,
-        }}
-      >
-        Кнопка
-      </Title>
-      <Paragraph
-        fontVariant="caption"
-        style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
-      >
-        {buttonClassNames.button}
-      </Paragraph>
+    <Unstyled>
+      <div className={s.root}>
+        <Title
+          level={1}
+          fontVariant="h4"
+          style={{
+            marginBottom: 0,
+          }}
+        >
+          Кнопка
+        </Title>
+        <Paragraph
+          fontVariant="caption"
+          style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
+        >
+          {buttonClassNames.button}
+        </Paragraph>
 
-      <br />
+        <br />
 
-      <Paragraph>
-        Button (кнопка) — компонент, который призывает пользователя к совершению
-        определенного действия в интерфейсе, например: открыть следующую
-        страницу, заказать товар или войти в свой аккаунт.
-      </Paragraph>
-      <Paragraph>
-        Основной призыв к действию. Предназначены для выполнения какого-либо
-        действия в системе.
-      </Paragraph>
+        <Paragraph>
+          Button (кнопка) — компонент, который призывает пользователя к
+          совершению определенного действия в интерфейсе, например: открыть
+          следующую страницу, заказать товар или войти в свой аккаунт.
+        </Paragraph>
+        <Paragraph>
+          Основной призыв к действию. Предназначены для выполнения какого-либо
+          действия в системе.
+        </Paragraph>
 
-      <Title level={2} fontVariant="h6">
-        Как использовать
-      </Title>
-      <Paragraph>Основные правила применения кнопки:</Paragraph>
-      <ul>
-        <Text>
-          <li>Текст кнопки всегда должен быть с заглавной буквы;</li>
-        </Text>
-        <Text>
-          <li>
-            Текст на кнопке должен сообщать пользователю, что произойдёт, если
-            он нажмёт на кнопку (например, Сохранить, Добавить и т. п.);
-          </li>
-        </Text>
-        <Text>
-          <li>
-            Не перенасыщать страницу большим количеством Primary кнопок. Не
-            распологать их рядом друг с другом.
-          </li>
-        </Text>
-      </ul>
+        <Title level={2} fontVariant="h6">
+          Как использовать
+        </Title>
+        <Paragraph>Основные правила применения кнопки:</Paragraph>
+        <ul>
+          <Text>
+            <li>Текст кнопки всегда должен быть с заглавной буквы;</li>
+          </Text>
+          <Text>
+            <li>
+              Текст на кнопке должен сообщать пользователю, что произойдёт, если
+              он нажмёт на кнопку (например, Сохранить, Добавить и т. п.);
+            </li>
+          </Text>
+          <Text>
+            <li>
+              Не перенасыщать страницу большим количеством Primary кнопок. Не
+              распологать их рядом друг с другом.
+            </li>
+          </Text>
+        </ul>
 
-      <Title level={2} fontVariant="h6">
-        Типы кнопок
-      </Title>
-      <Paragraph>
-        В системе существуют всего 6 типов кнопок — это Primary (основная),
-        Secondary (второстепенная) и Ghost (без фона), Primary Icon, Secondary
-        Icon, Ghost Icon кнопки
-      </Paragraph>
-      <div className={s.exampleBlock}>
-        {buttonTypes.map(({ key, title, view, square }) => (
-          <div key={key}>
-            <Text fontVariant="captionSemi">{title}</Text>
-            <Button view={view} square={square}>
-              Загрузить <Icon name="user" />
-            </Button>
-          </div>
-        ))}
+        <Title level={2} fontVariant="h6">
+          Типы кнопок
+        </Title>
+        <Paragraph>
+          В системе существуют всего 6 типов кнопок — это Primary (основная),
+          Secondary (второстепенная) и Ghost (без фона), Primary Icon, Secondary
+          Icon, Ghost Icon кнопки
+        </Paragraph>
+        <div className={s.exampleBlock}>
+          {buttonTypes.map(({ key, title, view, square }) => (
+            <div key={key}>
+              <Text fontVariant="captionSemi">{title}</Text>
+              <Button view={view} square={square}>
+                Загрузить <Icon name="user" />
+              </Button>
+            </div>
+          ))}
+        </div>
+
+        <Title level={2} fontVariant="h6">
+          Состояния кнопок
+        </Title>
+        <Paragraph>Есть 5 состояний каждой кнопки:</Paragraph>
+        <ol>
+          <Text>
+            <li>Rest (покой)</li>
+          </Text>
+          <Text>
+            <li>Hover (наведение)</li>
+          </Text>
+          <Text>
+            <li>Press (нажатие)</li>
+          </Text>
+          <Text>
+            <li>Disable (недоступно)</li>
+          </Text>
+          <Text>
+            <li>Focus (в фокусе)</li>
+          </Text>
+        </ol>
+        <div className={s.exampleBlock}>
+          {buttonStates.map(({ key, title, disabled }) => (
+            <div key={key}>
+              <Text fontVariant="captionSemi">{title}</Text>
+              <Button disabled={disabled}>
+                Загрузить <Icon name="user" />
+              </Button>
+            </div>
+          ))}
+        </div>
+
+        <Title level={2} fontVariant="h6">
+          Размер кнопок
+        </Title>
+        <Paragraph>
+          Есть 3 размера кнопок — S, M и L. В основном в проектах используются
+          кнопки размера M
+        </Paragraph>
+        <div className={s.exampleBlock}>
+          {buttonSizes.map(({ key, title, size }) => (
+            <div key={key}>
+              <Text fontVariant="captionSemi">{title}</Text>
+              <Button size={size}>
+                Загрузить <Icon name="user" color="white" />
+              </Button>
+            </div>
+          ))}
+        </div>
+
+        <br />
+        <br />
+        <Primary />
+        <ArgsTable story={PRIMARY_STORY} />
+        <Stories />
       </div>
-
-      <Title level={2} fontVariant="h6">
-        Состояния кнопок
-      </Title>
-      <Paragraph>Есть 5 состояний каждой кнопки:</Paragraph>
-      <ol>
-        <Text>
-          <li>Rest (покой)</li>
-        </Text>
-        <Text>
-          <li>Hover (наведение)</li>
-        </Text>
-        <Text>
-          <li>Press (нажатие)</li>
-        </Text>
-        <Text>
-          <li>Disable (недоступно)</li>
-        </Text>
-        <Text>
-          <li>Focus (в фокусе)</li>
-        </Text>
-      </ol>
-      <div className={s.exampleBlock}>
-        {buttonStates.map(({ key, title, disabled }) => (
-          <div key={key}>
-            <Text fontVariant="captionSemi">{title}</Text>
-            <Button disabled={disabled}>
-              Загрузить <Icon name="user" />
-            </Button>
-          </div>
-        ))}
-      </div>
-
-      <Title level={2} fontVariant="h6">
-        Размер кнопок
-      </Title>
-      <Paragraph>
-        Есть 3 размера кнопок — S, M и L. В основном в проектах используются
-        кнопки размера M
-      </Paragraph>
-      <div className={s.exampleBlock}>
-        {buttonSizes.map(({ key, title, size }) => (
-          <div key={key}>
-            <Text fontVariant="captionSemi">{title}</Text>
-            <Button size={size}>
-              Загрузить <Icon name="user" color="white" />
-            </Button>
-          </div>
-        ))}
-      </div>
-
-      <br />
-      <br />
-      <Primary />
-      <ArgsTable story={PRIMARY_STORY} />
-      <Stories />
-    </div>
+    </Unstyled>
   );
 };
