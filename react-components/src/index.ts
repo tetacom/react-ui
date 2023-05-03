@@ -15,3 +15,5 @@ export * from './components/Checkbox';
 
 export * from './components/Table';
 export * from './components/Table/model/public-api';
+
+export * from './components/Dropdown';
