@@ -8,6 +8,5 @@ export interface ListItem {
   picture?: string;
   leftIcon?: React.ReactElement;
   rightIcon?: React.ReactElement;
-  checkbox?: boolean;
   disabled?: boolean;
 }

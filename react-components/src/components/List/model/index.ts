@@ -5,4 +5,5 @@ export interface ListProps {
   imageSize?: 'small' | 'large';
   imageRound?: boolean;
   divider?: boolean;
+  checked?: boolean;
 }

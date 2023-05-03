@@ -11,6 +11,7 @@ export const List: FC<ListProps> = ({
   imageSize = 'small',
   imageRound = true,
   divider = true,
+  checked = false,
 }) => {
   return (
     <ul className={s.list}>
@@ -22,7 +23,6 @@ export const List: FC<ListProps> = ({
           picture = '',
           leftIcon = null,
           rightIcon = null,
-          checkbox = false,
           disabled = false,
         }) => (
           <li
@@ -33,7 +33,7 @@ export const List: FC<ListProps> = ({
               disabled && s.itemDisabled,
             )}
           >
-            {checkbox && (
+            {checked && (
               <span className={s.checkbox}>
                 <Checkbox />
               </span>
@@ -57,7 +57,7 @@ export const List: FC<ListProps> = ({
               className={s.text}
               style={{
                 maxWidth: getTextBlockWidth({
-                  checkbox,
+                  checkbox: checked,
                   picture: Boolean(picture),
                   leftIcon: Boolean(leftIcon),
                   rightIcon: Boolean(rightIcon),

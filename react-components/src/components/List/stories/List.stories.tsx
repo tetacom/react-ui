@@ -5,16 +5,16 @@ import { Icon } from '../../Icons';
 import img1 from './assets/1.jpg';
 import img2 from './assets/2.jpg';
 import img3 from './assets/3.jpg';
-// import { TooltipDocs } from '../docs';
+import { ListDocs } from '../docs';
 
 const meta: Meta<typeof List> = {
   title: 'Navigation/List',
   component: List,
-  // parameters: {
-  //   docs: {
-  //     page: TooltipDocs,
-  //   },
-  // },
+  parameters: {
+    docs: {
+      page: ListDocs,
+    },
+  },
 };
 export default meta;
 
@@ -25,6 +25,7 @@ export const Default: Story = {
     divider: true,
     imageSize: 'large',
     imageRound: true,
+    checked: true,
     items: [
       {
         key: '1',
@@ -33,7 +34,6 @@ export const Default: Story = {
         picture: img1,
         leftIcon: <Icon name="user" />,
         rightIcon: <Icon name="home" />,
-        checkbox: true,
       },
       {
         key: '2',
