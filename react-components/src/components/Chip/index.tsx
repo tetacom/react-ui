@@ -21,6 +21,7 @@ export const Chip = forwardRef<ChipRef, ChipProps>(
       closeIcon = null,
       icon = null,
       picture = null,
+      onClick = null,
       onClose = null,
       className,
       ...props
@@ -29,7 +30,12 @@ export const Chip = forwardRef<ChipRef, ChipProps>(
   ) => {
     const hasPictureOrIcon = picture || icon;
 
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+      onClick && onClick(event);
+    };
+
     const handleClose = (event: React.MouseEvent<HTMLElement>) => {
+      event.stopPropagation();
       onClose && onClose(event);
     };
 
@@ -37,7 +43,13 @@ export const Chip = forwardRef<ChipRef, ChipProps>(
       <div
         {...props}
         ref={ref}
-        className={classNames(s.chip, viewClasses[view], className)}
+        className={classNames(
+          s.chip,
+          viewClasses[view],
+          onClick && s.chipClickable,
+          className,
+        )}
+        onClick={handleClick}
       >
         {hasPictureOrIcon &&
           (picture ? (
@@ -50,7 +62,7 @@ export const Chip = forwardRef<ChipRef, ChipProps>(
 
         {closable && (
           <div className={s.closeIcon} onClick={handleClose}>
-            <Icon name="closeCircle" />
+            {closeIcon ? closeIcon : <Icon name="closeCircle" />}
           </div>
         )}
       </div>

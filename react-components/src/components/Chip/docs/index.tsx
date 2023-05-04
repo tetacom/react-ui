@@ -7,53 +7,69 @@ import {
 } from '@storybook/addon-docs';
 import { Unstyled } from '@storybook/blocks';
 
-import { Spinner } from '../index';
+import { Chip } from '../index';
 import { Typography } from '../../Typography';
-import { Button } from '../../Button';
-import { ButtonProps } from '../../Button/model';
+import { ChipProps } from '../model';
 import { Icon } from '../../Icons';
+import img from './assets/avatar.jpg';
 
 import s from './style.module.scss';
-import spinnerClassNames from '../style.module.scss';
+import chipClassNames from '../style.module.scss';
 
 const { Title, Paragraph } = Typography;
 
-const exampleButtons: (Pick<ButtonProps, 'view' | 'square'> & {
+type ExampleType = {
   id: string;
-})[] = [
+} & Pick<ChipProps, 'view' | 'picture' | 'icon'>;
+
+const chips: ExampleType[] = [
   {
-    id: '1',
+    id: 'default-with-picture',
+    view: 'default',
+    picture: <img src={img} alt="" />,
+  },
+  {
+    id: 'default-with-icon',
+    view: 'default',
+    icon: <Icon name="tick" />,
+  },
+  {
+    id: 'default',
+    view: 'default',
+  },
+
+  {
+    id: 'primary-with-picture',
     view: 'primary',
-    square: false,
+    picture: <img src={img} alt="" />,
   },
   {
-    id: '2',
-    view: 'outline',
-    square: false,
-  },
-  {
-    id: '3',
-    view: 'ghost',
-    square: false,
-  },
-  {
-    id: '4',
+    id: 'primary-with-icon',
     view: 'primary',
-    square: true,
+    icon: <Icon name="tick" />,
   },
   {
-    id: '5',
+    id: 'primary',
+    view: 'primary',
+  },
+
+  {
+    id: 'outline-with-picture',
     view: 'outline',
-    square: true,
+    picture: <img src={img} alt="" />,
   },
   {
-    id: '6',
-    view: 'ghost',
-    square: true,
+    id: 'outline-with-icon',
+    view: 'outline',
+    icon: <Icon name="tick" />,
+  },
+  {
+    id: 'outline',
+    view: 'outline',
   },
 ];
 
-export const SpinnerDocs = () => {
+export const ChipDocs = () => {
   return (
     <Unstyled>
       <div className={s.root}>
@@ -64,56 +80,38 @@ export const SpinnerDocs = () => {
             marginBottom: 0,
           }}
         >
-          Спиннер
+          Чип
         </Title>
         <Paragraph
           fontVariant="caption"
           style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
         >
-          {spinnerClassNames.spinner}
+          {chipClassNames.chip}
         </Paragraph>
 
         <br />
 
         <Paragraph>
-          Spinner (спинер) — это зацикленный индикатор, не отображающий прогресс
-          выполнения задачи.
+          Чип — это компактные элементы, представляющие ввод, атрибут или
+          действие.
         </Paragraph>
-
-        <Title level={2} fontVariant="h6">
-          Как использовать
-        </Title>
         <Paragraph>
-          Не показывайте на странице сразу несколько спиннеров, даже если они
-          иллюстрируют не связанные процессы. Это создает неприятное мельтешение
-          и излишне акцентирует внимание пользователя на процессе загрузки. Как
-          правило, есть другой способ показать процесс загрузки.
+          Чипы позволяют пользователям вводить информацию, делать выбор,
+          фильтровать содержимое или запускать действия.
         </Paragraph>
-        <Paragraph>Чаще всего применяется на кнопках.</Paragraph>
+        <Paragraph>
+          Несмотря на то, что он включен сюда как отдельный компонент, наиболее
+          распространенное использование будет в той или иной форме ввода,
+          поэтому некоторые продемонстрированные здесь действия не показаны в
+          контексте.
+        </Paragraph>
 
         <div className={s.exampleBlock}>
-          {[
-            'var(--color-primary-50)',
-            'var(--color-text-30)',
-            'var(--color-global-white)',
-          ].map((spin) => (
-            <div key={spin}>
-              <Spinner color={spin} size={32} />
-            </div>
-          ))}
-        </div>
-
-        <Title level={2} fontVariant="h4">
-          Принцип работы
-        </Title>
-
-        <div className={s.exampleUsageBlock}>
-          {exampleButtons.map(({ id, view, square }) => (
+          {chips.map(({ id, view, picture, icon }) => (
             <div key={id}>
-              <Button size="large" view={view} square={square} loading>
-                Загрузить
-                <Icon name="user" />
-              </Button>
+              <Chip view={view} picture={picture} icon={icon} closable>
+                Floyd Miles
+              </Chip>
             </div>
           ))}
         </div>

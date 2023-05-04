@@ -17,6 +17,10 @@
   transition: background-color 0.2s, color 0.2s;
   cursor: default;
 
+  &Clickable {
+    cursor: pointer;
+  }
+
   &View {
     &Default {
       background-color: var(--color-text-5);
