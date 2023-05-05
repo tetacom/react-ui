@@ -24,6 +24,7 @@ export const Default: Story = {
   render: () => (
     <Tabs
       defaultActiveKey="2"
+      direction="left"
       items={[
         {
           key: '1',

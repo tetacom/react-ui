@@ -1,6 +1,15 @@
 .tabs {
   overflow: hidden;
 
+  &Left {
+    display: grid;
+    grid-template-columns: auto 2px 1fr;
+
+    .nav {
+      flex-direction: column;
+    }
+  }
+
   .nav {
     margin: 0;
     padding: 0;

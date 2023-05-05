@@ -14,7 +14,7 @@ export const Tabs: FC<TabsProps> = ({
   defaultActiveKey = '',
   activeKey = '',
   onChange = null,
-  // tabPosition = 'top',
+  direction = 'top',
 }) => {
   const tabsRef = useRef<HTMLUListElement>(null);
   const [currentKey, setCurrentKey] = useState(defaultActiveKey);
@@ -35,7 +35,7 @@ export const Tabs: FC<TabsProps> = ({
     items.find((item) => item.key === selectedKey)?.disabled || false;
 
   return (
-    <div className={s.tabs}>
+    <div className={classNames(s.tabs, direction === 'left' && s.tabsLeft)}>
       <ul ref={tabsRef} className={s.nav}>
         {items.map(({ key, label, disabled }) => (
           <li key={key} className={s.navItem}>
