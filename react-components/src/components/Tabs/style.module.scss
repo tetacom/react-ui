@@ -1,0 +1,42 @@
+.tabs {
+  overflow: hidden;
+
+  .nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    .navItem {
+      margin: 0;
+      font-size: var(--font-button2-font-size);
+      font-family: var(--font-button2-font-family);
+      font-weight: var(--font-button2-font-weight);
+      font-style: var(--font-button2-font-style);
+      font-stretch: var(--font-button2-font-stretch);
+      letter-spacing: var(--font-button2-letter-spacing);
+      line-height: var(--font-button2-line-height);
+      text-transform: var(--font-button2-text-case);
+      padding: var(--spacing-16);
+      color: var(--color-text-90);
+      cursor: pointer;
+    }
+  }
+
+  .highlightContainer {
+    position: relative;
+    height: var(--spacing-2);
+
+    .highlight {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      background-color: var(--color-primary-50);
+    }
+  }
+
+  .content {
+    padding: var(--spacing-24) var(--spacing-16);
+    margin: 0;
+  }
+}

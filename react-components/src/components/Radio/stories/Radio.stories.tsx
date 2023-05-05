@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Radio } from '../index';
-import { RadioValueType } from '../model';
+import { RadioValueType } from '../model/public-api';
 import { RadioDocs } from '../docs';
 
 const meta: Meta<typeof Radio> = {
