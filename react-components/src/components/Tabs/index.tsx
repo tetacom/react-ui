@@ -1,11 +1,11 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
-import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
+import classNames from 'classnames';
 
 import { TabsProps } from './model';
 import { TabType } from './model/tabType';
 import { Typography } from '../Typography';
-import { useHighlight } from './useHighlight';
+import { Highlight } from './Highlight';
 
 import s from './style.module.scss';
 
@@ -31,32 +31,36 @@ export const Tabs: FC<TabsProps> = ({
   }, []);
 
   const selectedKey = activeKey || currentKey;
-  const highlight = useHighlight(tabsRef.current, selectedKey);
+  const isDisabledSelectedKey =
+    items.find((item) => item.key === selectedKey)?.disabled || false;
 
   return (
     <div className={s.tabs}>
       <ul ref={tabsRef} className={s.nav}>
-        {items.map(({ key, label }) => (
-          <li
-            key={key}
-            data-key={key}
-            className={classNames(s.navItem)}
-            onClick={() => handleChange(key)}
-          >
-            {label}
+        {items.map(({ key, label, disabled }) => (
+          <li key={key} className={s.navItem}>
+            <button
+              type="button"
+              className={classNames(
+                s.navItemButton,
+                key === selectedKey && s.navItemButtonSelected,
+              )}
+              data-key={key}
+              disabled={disabled}
+              onClick={() => handleChange(key)}
+            >
+              {label}
+            </button>
           </li>
         ))}
       </ul>
 
       <div className={s.highlightContainer}>
-        {highlight && (
-          <motion.div
-            initial={false}
-            className={s.highlight}
-            animate={{ x: highlight.offset, width: highlight.width }}
-            transition={{ type: 'spring', duration: 0.5, bounce: 0.25 }}
-          />
-        )}
+        <Highlight
+          tabsRef={tabsRef.current}
+          selectedKey={selectedKey}
+          disabled={isDisabledSelectedKey}
+        />
       </div>
 
       {items.map(({ key, children }) => {
