@@ -1,14 +1,7 @@
 .tabs {
+  --highlight-width: var(--spacing-2);
+
   overflow: hidden;
-
-  &Left {
-    display: grid;
-    grid-template-columns: auto 2px 1fr;
-
-    .nav {
-      flex-direction: column;
-    }
-  }
 
   .nav {
     margin: 0;
@@ -62,11 +55,25 @@
 
   .highlightContainer {
     position: relative;
-    height: var(--spacing-2);
+    height: var(--highlight-width);
   }
 
   .content {
     padding: var(--spacing-24) var(--spacing-16);
     margin: 0;
+  }
+
+  &Left {
+    display: grid;
+    grid-template-columns: auto var(--highlight-width) 1fr;
+
+    .nav {
+      flex-direction: column;
+    }
+
+    .highlightContainer {
+      width: var(--highlight-width);
+      height: auto;
+    }
   }
 }

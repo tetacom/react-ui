@@ -1,6 +1,6 @@
 import { TabType } from './tabType';
 
-type Direction = 'top' | 'left';
+export type Direction = 'top' | 'left';
 
 export interface TabsProps {
   items: TabType[];

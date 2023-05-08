@@ -34,6 +34,9 @@ export const Tabs: FC<TabsProps> = ({
   const isDisabledSelectedKey =
     items.find((item) => item.key === selectedKey)?.disabled || false;
 
+  const initContent = direction === 'top' ? { x: 0, y: 25 } : { x: 25, y: 0 };
+  const animateContent = direction === 'top' ? { x: 0, y: 0 } : { x: 0, y: 0 };
+
   return (
     <div className={classNames(s.tabs, direction === 'left' && s.tabsLeft)}>
       <ul ref={tabsRef} className={s.nav}>
@@ -59,6 +62,7 @@ export const Tabs: FC<TabsProps> = ({
         <Highlight
           tabsRef={tabsRef.current}
           selectedKey={selectedKey}
+          direction={direction}
           disabled={isDisabledSelectedKey}
         />
       </div>
@@ -79,8 +83,8 @@ export const Tabs: FC<TabsProps> = ({
         return (
           <AnimatePresence key={key} initial={isComponentInit}>
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ ...initContent, opacity: 0 }}
+              animate={{ ...animateContent, opacity: 1 }}
             >
               {result}
             </motion.div>

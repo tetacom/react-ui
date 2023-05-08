@@ -5,34 +5,57 @@ import classNames from 'classnames';
 import { TabType } from '../model/tabType';
 
 import s from './style.module.scss';
+import { Direction } from '../model';
 
 interface Props {
   tabsRef: HTMLUListElement | null;
   selectedKey: TabType['key'];
+  direction: Direction;
   disabled: boolean;
 }
 
-export const Highlight: FC<Props> = ({ tabsRef, selectedKey, disabled }) => {
+export const Highlight: FC<Props> = ({
+  tabsRef,
+  selectedKey,
+  direction,
+  disabled,
+}) => {
   if (!tabsRef) {
     return null;
   }
 
   const tabs = Array.from(tabsRef.querySelectorAll('button'));
-  const currentTabWidth =
-    tabs.find(({ dataset }) => dataset.key === selectedKey)?.offsetWidth || 0;
+  const selectedTab = tabs.find(({ dataset }) => dataset.key === selectedKey);
+  const currentTabWidth = selectedTab?.offsetWidth || 0;
+  const currentTabHeight = selectedTab?.offsetHeight || 0;
   let offsetWidth = 0;
+  let offsetHeight = 0;
   for (const currentTab of tabs) {
     if (currentTab.dataset.key === selectedKey) {
       break;
     }
     offsetWidth += currentTab.offsetWidth;
+    offsetHeight += currentTab.offsetHeight;
   }
+
+  const horizontal = {
+    x: offsetWidth,
+    y: 0,
+    width: currentTabWidth,
+    height: '100%',
+  };
+  const vertical = {
+    x: 0,
+    y: offsetHeight,
+    width: '100%',
+    height: currentTabHeight,
+  };
 
   return (
     <motion.div
       initial={false}
       className={classNames(s.highlight, disabled && s.highlightDisabled)}
-      animate={{ x: offsetWidth, width: currentTabWidth }}
+      animate={direction === 'top' ? horizontal : vertical}
       transition={{ type: 'spring', duration: 0.5, bounce: 0.25 }}
     />
   );
