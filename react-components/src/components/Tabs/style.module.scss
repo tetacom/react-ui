@@ -4,6 +4,7 @@
   overflow: hidden;
 
   .nav {
+    grid-area: nav;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -54,18 +55,21 @@
   }
 
   .highlightContainer {
+    grid-area: high;
     position: relative;
     height: var(--highlight-width);
   }
 
   .content {
+    grid-area: content;
     padding: var(--spacing-24) var(--spacing-16);
     margin: 0;
   }
 
   &Left {
     display: grid;
-    grid-template-columns: auto var(--highlight-width) 1fr;
+    grid-template-columns: var(--highlight-width) auto 1fr;
+    grid-template-areas: 'high nav content';
 
     .nav {
       flex-direction: column;
