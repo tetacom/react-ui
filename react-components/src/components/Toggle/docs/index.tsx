@@ -62,7 +62,7 @@ export const ToggleDocs = () => (
         При клике пользователь переводит чекбокс из состояния Off в On и
         наоборот.
       </Paragraph>
-      <Stack size={96}>
+      <Stack size={96} style={{ margin: '24px 0' }}>
         <div>
           <Paragraph fontVariant="captionSemi">Off</Paragraph>
           <Toggle />
@@ -94,7 +94,7 @@ export const ToggleDocs = () => (
           <li>Disable (недоступно)</li>
         </Text>
       </ol>
-      <Stack size={96} wrap>
+      <Stack size={96} wrap style={{ margin: '24px 0' }}>
         <div>
           <Paragraph fontVariant="captionSemi">Rest</Paragraph>
           <Stack size={12} direction="column">

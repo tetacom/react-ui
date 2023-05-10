@@ -13,6 +13,7 @@ export const Stack: FC<StackProps> = ({
   wrap = false,
   block = false,
   className = '',
+  style,
   children,
 }) => {
   const isColumnDirection =
@@ -29,6 +30,7 @@ export const Stack: FC<StackProps> = ({
         className,
       )}
       style={{
+        ...style,
         flexDirection: direction,
         gap: gapSize,
         alignItems: align,
