@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import classNames from 'classnames';
 
 import { TabType } from '../model/tabType';
+import { Direction } from '../model';
 
 import s from './style.module.scss';
-import { Direction } from '../model';
 
 interface Props {
   tabsRef: HTMLUListElement | null;
@@ -55,7 +55,7 @@ export const Highlight: FC<Props> = ({
     <motion.div
       initial={false}
       className={classNames(s.highlight, disabled && s.highlightDisabled)}
-      animate={direction === 'top' ? horizontal : vertical}
+      animate={direction === 'horizontal' ? horizontal : vertical}
       transition={{ type: 'spring', duration: 0.5, bounce: 0.25 }}
     />
   );

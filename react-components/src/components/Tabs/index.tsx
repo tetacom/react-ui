@@ -14,7 +14,7 @@ export const Tabs: FC<TabsProps> = ({
   defaultActiveKey = '',
   activeKey = '',
   onChange = null,
-  direction = 'top',
+  direction = 'horizontal',
 }) => {
   const tabsRef = useRef<HTMLUListElement>(null);
   const [currentKey, setCurrentKey] = useState(defaultActiveKey);
@@ -34,11 +34,13 @@ export const Tabs: FC<TabsProps> = ({
   const isDisabledSelectedKey =
     items.find((item) => item.key === selectedKey)?.disabled || false;
 
-  const initContent = direction === 'top' ? { x: 0, y: 25 } : { x: 25, y: 0 };
-  const animateContent = direction === 'top' ? { x: 0, y: 0 } : { x: 0, y: 0 };
+  const initContent =
+    direction === 'horizontal' ? { x: 0, y: 25 } : { x: 25, y: 0 };
+  const animateContent =
+    direction === 'horizontal' ? { x: 0, y: 0 } : { x: 0, y: 0 };
 
   return (
-    <div className={classNames(s.tabs, direction === 'left' && s.tabsLeft)}>
+    <div className={classNames(s.tabs, direction === 'vertical' && s.tabsLeft)}>
       <ul ref={tabsRef} className={s.nav}>
         {items.map(({ key, label, disabled }) => (
           <li key={key} className={s.navItem}>
