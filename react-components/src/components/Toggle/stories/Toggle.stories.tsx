@@ -35,7 +35,7 @@ const TabsWithHooks = () => {
     setIsOn(!isOn);
   };
 
-  return <Toggle checked={isOn} onChange={handleChange} autoFocus />;
+  return <Toggle checked={isOn} onChange={handleChange} />;
 };
 
 export const ControlledToggle: Story = {

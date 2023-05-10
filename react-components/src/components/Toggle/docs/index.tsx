@@ -65,14 +65,14 @@ export const ToggleDocs = () => (
         наоборот.
       </Paragraph>
       <Stack size={96} style={{ margin: '24px 0' }}>
-        <div>
+        <>
           <Paragraph fontVariant="captionSemi">Off</Paragraph>
           <Toggle />
-        </div>
-        <div>
+        </>
+        <>
           <Paragraph fontVariant="captionSemi">On</Paragraph>
           <Toggle defaultChecked />
-        </div>
+        </>
       </Stack>
 
       <Title level={2} fontVariant="h6">
@@ -97,41 +97,41 @@ export const ToggleDocs = () => (
         </Text>
       </ol>
       <Stack size={96} wrap style={{ margin: '24px 0' }}>
-        <div>
+        <>
           <Paragraph fontVariant="captionSemi">Rest</Paragraph>
           <Stack size={12} direction="column">
             <Toggle />
             <Toggle defaultChecked />
           </Stack>
-        </div>
-        <div>
+        </>
+        <>
           <Paragraph fontVariant="captionSemi">Hover me</Paragraph>
           <Stack size={12} direction="column">
             <Toggle />
             <Toggle defaultChecked />
           </Stack>
-        </div>
-        <div>
+        </>
+        <>
           <Paragraph fontVariant="captionSemi">Press me</Paragraph>
           <Stack size={12} direction="column">
             <Toggle />
             <Toggle defaultChecked />
           </Stack>
-        </div>
-        <div>
+        </>
+        <>
           <Paragraph fontVariant="captionSemi">Focus with keyboard</Paragraph>
           <Stack size={12} direction="column">
-            <Toggle autoFocus />
+            <Toggle />
             <Toggle defaultChecked />
           </Stack>
-        </div>
-        <div>
+        </>
+        <>
           <Paragraph fontVariant="captionSemi">Disable</Paragraph>
           <Stack size={12} direction="column">
             <Toggle disabled />
             <Toggle defaultChecked disabled />
           </Stack>
-        </div>
+        </>
       </Stack>
 
       <br />
