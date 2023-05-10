@@ -25,6 +25,11 @@ body {
   transition: background-color 0.4s;
 }
 
+.sbdocs.sbdocs-wrapper a {
+  color: var(--color-primary-50);
+  cursor: pointer;
+}
+
 button,
 input,
 optgroup,
@@ -39,4 +44,8 @@ textarea {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.storybook-docs {
+  border: 3px dashed red;
 }

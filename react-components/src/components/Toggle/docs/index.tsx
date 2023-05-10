@@ -6,6 +6,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import { Unstyled } from '@storybook/blocks';
+import { linkTo } from '@storybook/addon-links';
 
 import { Toggle } from '../index';
 import { Typography } from '../../Typography';
@@ -14,7 +15,7 @@ import { Stack } from '../../Stack';
 import s from './style.module.scss';
 import toggleClassNames from '../style.module.scss';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph, Text, Link } = Typography;
 
 export const ToggleDocs = () => (
   <Unstyled>
@@ -46,9 +47,10 @@ export const ToggleDocs = () => (
         Как использовать
       </Title>
       <Paragraph>
-        Функционально тогл — аналог чекбокса, но контекст их использования может
-        отличаться. Тогл нельзя использовать для выбора элементов в списке.
-        Например, выбрать несколько параметров.
+        Функционально тогл — аналог{' '}
+        <Link onClick={linkTo('Data Entry/Checkbox')}>чекбокса</Link>, но
+        контекст их использования может отличаться. Тогл нельзя использовать для
+        выбора элементов в списке. Например, выбрать несколько параметров.
       </Paragraph>
       <Paragraph>
         Тогл больше и заметнее чекбокса. Хорошо, когда на странице 1 тогл,
