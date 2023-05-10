@@ -94,7 +94,7 @@ export const TabsDocs = () => {
             <Paragraph fontVariant="captionSemi">Vertical</Paragraph>
             <Tabs
               defaultActiveKey="1"
-              direction="left"
+              direction="vertical"
               items={[
                 {
                   key: '1',
