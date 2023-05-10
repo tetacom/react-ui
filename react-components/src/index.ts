@@ -21,3 +21,5 @@ export * from './components/Dropdown';
 export * from './components/Chip';
 
 export * from './components/Stack';
+
+export * from './components/Toggle';
