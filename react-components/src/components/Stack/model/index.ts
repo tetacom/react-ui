@@ -6,7 +6,7 @@ type AlignType = 'stretch' | 'start' | 'end' | 'center' | 'baseline';
 export interface StackProps extends PropsWithChildren {
   direction?: DirectionType;
   align?: AlignType;
-  size?: number;
+  size?: number | [number, number];
   divider?: boolean;
   wrap?: boolean;
   block?: boolean;

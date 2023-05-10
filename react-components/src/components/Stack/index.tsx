@@ -4,11 +4,12 @@ import classNames from 'classnames';
 import { StackProps } from './model';
 
 import s from './style.module.scss';
+import { getGaps } from './utils/getGaps';
 
 export const Stack: FC<StackProps> = ({
   direction = 'row',
   align = 'center',
-  size = 24,
+  size,
   divider = false,
   wrap = false,
   block = false,
@@ -17,7 +18,10 @@ export const Stack: FC<StackProps> = ({
 }) => {
   const isColumnDirection =
     direction === 'column' || direction === 'column-reverse';
-  const gapSize = divider ? size / 2 : size;
+  const { verticalGap, horizontalGap } = getGaps(size);
+  const gap = divider
+    ? `${verticalGap}px ${horizontalGap / 2}px`
+    : `${verticalGap}px ${horizontalGap}px`;
 
   return (
     <div
@@ -30,7 +34,7 @@ export const Stack: FC<StackProps> = ({
       )}
       style={{
         flexDirection: direction,
-        gap: gapSize,
+        gap,
         alignItems: align,
       }}
     >
