@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { AvatarProps } from '../model';
+import { AvatarProps } from '../../model';
 
 interface Props {
   picture: AvatarProps['picture'];

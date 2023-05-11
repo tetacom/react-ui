@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Avatar } from '../index';
+import img from '../docs/assets/avatar.jpg';
 // import { ChipDocs } from '../docs';
 
 const meta: Meta<typeof Avatar> = {
@@ -17,18 +18,13 @@ export default meta;
 
 type Story = StoryObj<typeof Avatar>;
 
-const Picture = (
-  <img
-    src="https://sun9-80.userapi.com/impg/EpLIGrGoCxK0V8QzZbBrHsRy4T43yctZ9DIfzQ/cw4GUec5FFc.jpg?size=200x256&quality=96&sign=824c8edaf8461151a521a21cf7776dac&type=album"
-    alt="test"
-  />
-);
+const Picture = <img src={img} alt="" />;
 
 export const Default: Story = {
   args: {
-    name: 'za',
+    name: 'LA',
     shape: 'circle',
     size: '200',
-    // picture: Picture,
+    picture: Picture,
   },
 };
