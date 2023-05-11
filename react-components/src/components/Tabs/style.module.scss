@@ -1,16 +1,10 @@
 .tabs {
+  --highlight-width: var(--spacing-2);
+
   overflow: hidden;
 
-  &Left {
-    display: grid;
-    grid-template-columns: auto 2px 1fr;
-
-    .nav {
-      flex-direction: column;
-    }
-  }
-
   .nav {
+    grid-area: nav;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -21,6 +15,7 @@
 
       &Button {
         border: none;
+        width: 100%;
         display: inline-flex;
         align-items: center;
         gap: var(--spacing-6);
@@ -61,12 +56,29 @@
   }
 
   .highlightContainer {
+    grid-area: high;
     position: relative;
-    height: var(--spacing-2);
+    height: var(--highlight-width);
   }
 
   .content {
+    grid-area: content;
     padding: var(--spacing-24) var(--spacing-16);
     margin: 0;
+  }
+
+  &Left {
+    display: grid;
+    grid-template-columns: var(--highlight-width) auto 1fr;
+    grid-template-areas: 'high nav content';
+
+    .nav {
+      flex-direction: column;
+    }
+
+    .highlightContainer {
+      width: var(--highlight-width);
+      height: auto;
+    }
   }
 }

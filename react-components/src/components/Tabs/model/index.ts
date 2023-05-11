@@ -1,6 +1,6 @@
 import { TabType } from './tabType';
 
-type Direction = 'top' | 'left';
+export type Direction = 'horizontal' | 'vertical';
 
 export interface TabsProps {
   // Настроить содержимое вкладок

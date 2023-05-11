@@ -24,34 +24,30 @@ export const Default: Story = {
   render: () => (
     <Tabs
       defaultActiveKey="2"
-      direction="left"
       items={[
         {
           key: '1',
-          label: (
-            <>
-              <Icon name="add" /> Tab 1
-            </>
-          ),
+          label: <>Это просто таб</>,
           children: `Content of Tab Pane 1`,
         },
         {
           key: '2',
           label: (
             <>
-              <Icon name="add" /> Tab 2
+              <Icon name="add" /> Это просто таб
             </>
           ),
           children: `Content of Tab Pane 2`,
         },
         {
           key: '3',
-          label: (
-            <>
-              <Icon name="add" /> Tab 3
-            </>
-          ),
+          label: <Icon name="add" />,
           children: `Content of Tab Pane 3`,
+        },
+        {
+          key: '4',
+          label: <>Неактивный таб</>,
+          children: `Content of Tab Pane 4`,
           disabled: true,
         },
       ]}
@@ -69,20 +65,33 @@ const TabsWithHooks = () => {
     <Tabs
       activeKey={activeKey}
       onChange={onChange}
+      direction="vertical"
       items={[
         {
           key: '1',
-          label: `Tab 1`,
+          label: (
+            <>
+              <Icon name="add" /> Это просто таб
+            </>
+          ),
           children: `Content of Tab Pane 1`,
         },
         {
           key: '2',
-          label: `Tab 2`,
+          label: (
+            <>
+              <Icon name="add" /> Это просто таб
+            </>
+          ),
           children: <Button>Button</Button>,
         },
         {
           key: '3',
-          label: `Tab number 3`,
+          label: (
+            <>
+              <Icon name="add" /> Это просто таб
+            </>
+          ),
           children: `Content of Tab Pane 3`,
         },
       ]}
@@ -96,7 +105,6 @@ export const ControlledTabs: Story = {
 export const Links: Story = {
   render: () => (
     <Tabs
-      defaultActiveKey="1"
       items={[
         {
           key: '1',
