@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { AvatarProps, ShapeType } from './model';
 import { Picture } from './components/Picture';
 import { Name } from './components/Name';
+import { rusToLat } from '../../utils/rusToLat';
 
 import s from './style.module.scss';
 
@@ -22,15 +23,19 @@ export const Avatar: FC<AvatarProps> = ({
   size = '28',
   className = '',
   style,
-}) => (
-  <div
-    className={classNames(s.avatar, shapeClasses[shape], className)}
-    style={{ ...style, width: `${size}px` }}
-  >
-    {picture ? (
-      <Picture picture={picture} alt={alt} srcSet={srcSet} />
-    ) : (
-      <Name name={name} size={size} />
-    )}
-  </div>
-);
+}) => {
+  const latName = rusToLat(name);
+
+  return (
+    <div
+      className={classNames(s.avatar, shapeClasses[shape], className)}
+      style={{ ...style, width: `${size}px` }}
+    >
+      {picture ? (
+        <Picture picture={picture} alt={alt} srcSet={srcSet} />
+      ) : (
+        <Name name={latName} size={size} />
+      )}
+    </div>
+  );
+};
