@@ -30,7 +30,7 @@ export const Avatar: FC<AvatarProps> = ({
     {picture ? (
       <Picture picture={picture} alt={alt} srcSet={srcSet} />
     ) : (
-      <Name name={name} />
+      <Name name={name} size={size} />
     )}
   </div>
 );
