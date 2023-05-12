@@ -1,5 +1,5 @@
 {
-  "name": "@tetacom",
+  "name": "tetacom",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -9,9 +9,12 @@
   },
   "private": true,
   "dependencies": {
+    "@tanstack/react-table": "^8.8.5",
     "classnames": "^2.3.2",
+    "framer-motion": "^10.12.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-laag": "^2.0.5",
     "sass": "^1.60.0",
     "tslib": "^2.3.0"
   },

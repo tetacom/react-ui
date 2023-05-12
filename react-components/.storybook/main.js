@@ -11,7 +11,9 @@ module.exports = {
     '@storybook/addon-mdx-gfm',
   ],
   async viteFinal(config, { configType }) {
-    return mergeConfig(config, {});
+    return mergeConfig(config, {
+      base: './',
+    });
   },
   framework: {
     name: '@storybook/react-vite',

@@ -1,37 +1,34 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Typography } from '../index';
-import { LinkProps } from '../model';
 import { TypographyDocs } from '../docs';
 
 const { Link } = Typography;
 
-export default {
+const meta: Meta<typeof Link> = {
   title: 'General/Typography/Link',
   component: Link,
-  args: {
-    children: 'Typography',
-    fontVariant: undefined,
-  },
   parameters: {
     docs: {
       page: TypographyDocs,
     },
   },
-} as ComponentMeta<(args: LinkProps) => ReturnType<typeof Link>>;
+};
+export default meta;
 
-const Template: ComponentStory<
-  (args: LinkProps) => ReturnType<typeof Link>
-> = ({ ...args }) => {
-  return <Link {...args} />;
+type Story = StoryObj<typeof Link>;
+
+export const Default: Story = {
+  args: {
+    children: 'Typography',
+    fontVariant: undefined,
+  },
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const H4 = Template.bind({});
-H4.storyName = 'Link: h4 font variant';
-H4.args = {
-  fontVariant: 'h4',
+export const H4: Story = {
+  name: 'Link: h4 font variant',
+  args: {
+    ...Default.args,
+    fontVariant: 'h4',
+  },
 };

@@ -1,0 +1,43 @@
+.stack {
+  --divider-difference: var(--spacing-12);
+
+  display: inline-flex;
+  height: auto;
+
+  .divider {
+    position: relative;
+    width: 1px;
+    height: inherit;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: calc(100% - var(--divider-difference));
+      background-color: var(--color-text-10);
+    }
+  }
+
+  &ColumnDirection {
+    .divider {
+      width: inherit;
+      height: 1px;
+
+      &::after {
+        width: calc(100% - var(--divider-difference));
+        height: 100%;
+      }
+    }
+  }
+
+  &Wrap {
+    flex-wrap: wrap;
+  }
+
+  &Block {
+    width: 100%;
+  }
+}

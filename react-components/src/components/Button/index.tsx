@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Loader } from './Loader';
 import { ButtonProps, ButtonRef, ShapeType, SizeType, ViewType } from './model';
@@ -25,9 +26,9 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
   (
     {
       children,
-      palette,
-      type = 'button',
-      disabled = false,
+      type,
+      disabled,
+      palette = 'none',
       shape = 'round',
       size = 'middle',
       view = 'primary',
@@ -39,13 +40,15 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
     },
     ref,
   ) => {
-    const utilityClasses = `button_${view} button-${palette || 'primary'}`;
+    const utilityClasses = `button_${view} button-${
+      palette === 'none' ? 'primary' : palette
+    }`;
 
     return (
       <button
         {...props}
         ref={ref}
-        type={type}
+        type={type || 'button'}
         disabled={loading || disabled}
         className={classNames(
           utilityClasses,
@@ -62,11 +65,18 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
         <span className={s.children}>{children}</span>
 
         {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
-        {loading && (
-          <span className={s.loading}>
-            <Loader />
-          </span>
-        )}
+        <AnimatePresence initial={false}>
+          {loading && (
+            <motion.span
+              className={s.loading}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+            >
+              <Loader />
+            </motion.span>
+          )}
+        </AnimatePresence>
       </button>
     );
   },

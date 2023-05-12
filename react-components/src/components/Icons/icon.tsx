@@ -14,10 +14,13 @@ export const Icon: FC<IconProps> = ({
   const { className, style } = props;
 
   return (
-    <div className={classNames(s.icon, className)} style={{ color, ...style }}>
-      <svg width={size} height={size}>
-        <use xlinkHref={`${IconsSVG}#${name}`} />
-      </svg>
-    </div>
+    <svg
+      width={size}
+      height={size}
+      className={classNames(s.icon, className)}
+      style={{ color, ...style }}
+    >
+      <use xlinkHref={`${IconsSVG}#${name}`} />
+    </svg>
   );
 };
