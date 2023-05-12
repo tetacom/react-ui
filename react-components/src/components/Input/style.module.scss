@@ -1,14 +1,13 @@
 .input {
-  display: inline-flex;
-  flex-direction: column;
-
   .field {
+    border: none;
     font-size: var(--font-body3-font-size);
     font-family: var(--font-body3-font-family);
     font-weight: var(--font-body3-font-weight);
     font-style: var(--font-body3-font-style);
     font-stretch: var(--font-body3-font-stretch);
     letter-spacing: var(--font-body3-letter-spacing);
+    line-height: var(--font-body3-line-height);
     text-transform: var(--font-body3-text-case);
     display: inline-flex;
     align-items: center;
@@ -45,10 +44,12 @@
   }
 
   &Error {
-    border-color: tomato;
+    .field {
+      border-color: var(--color-red-50);
+    }
   }
 
   .errorMessage {
-    border: 2px dashed red;
+    color: var(--color-red-50);
   }
 }

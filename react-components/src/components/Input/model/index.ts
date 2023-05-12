@@ -9,4 +9,5 @@ export interface InputProps extends InputHTMLAttributes<InputRef> {
   fieldSize?: SizeType;
   shape?: ShapeType;
   errorMessage?: string;
+  label?: string;
 }

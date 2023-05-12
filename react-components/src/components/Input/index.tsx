@@ -21,6 +21,7 @@ export const Input = forwardRef<InputRef, InputProps>(
     {
       fieldSize = 'middle',
       shape = 'round',
+      label = '',
       errorMessage = '',
       className,
       ...props
@@ -28,17 +29,21 @@ export const Input = forwardRef<InputRef, InputProps>(
     ref,
   ) => (
     <div className={s.input}>
-      <input
-        {...props}
-        ref={ref}
-        className={classNames(
-          s.field,
-          sizeClasses[fieldSize],
-          shapeClasses[shape],
-          errorMessage && s.inputError,
-          className,
-        )}
-      />
+      <label>
+        {label && <span>{label}</span>}
+
+        <input
+          {...props}
+          ref={ref}
+          className={classNames(
+            s.field,
+            sizeClasses[fieldSize],
+            shapeClasses[shape],
+            className,
+          )}
+        />
+      </label>
+
       {errorMessage && (
         <Typography.Text fontVariant="caption" className="color-red-50">
           {errorMessage}
