@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { TabsProps } from './model';
 import { TabType } from './model/tabType';
 import { Typography } from '../Typography';
-import { Highlight } from './Highlight';
+import { Highlight } from './components/Highlight';
 
 import s from './style.module.scss';
 

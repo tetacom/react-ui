@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 
-import { TabType } from '../model/tabType';
-import { Direction } from '../model';
+import { TabType } from '../../model/tabType';
+import { Direction } from '../../model';
 
 import s from './style.module.scss';
 
