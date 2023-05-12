@@ -16,6 +16,7 @@
   letter-spacing: var(--font-h4-letter-spacing);
   line-height: var(--font-h4-line-height);
   text-transform: var(--font-h4-text-case);
+  transition: color 0.2s;
 
   &::before {
     content: '';
@@ -34,5 +35,6 @@
 
   span {
     transform: translateZ(0);
+    transition: color 0.2s;
   }
 }
