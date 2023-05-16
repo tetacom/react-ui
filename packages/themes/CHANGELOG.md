@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.3-alpha.1](https://github.com/tetacom/react-ui/compare/themes-0.0.3-alpha.0...themes-0.0.3-alpha.1) (2023-05-16)
+
+
+### Bug Fixes
+
+* **ci:** add access to package ([8c15c11](https://github.com/tetacom/react-ui/commit/8c15c1189c2cf5783f368246da742625bdfc09e6))
+* design tokens updated ([d5cfdce](https://github.com/tetacom/react-ui/commit/d5cfdce820ef083e40dca7242de339f511225f93))
+
 ### [0.0.3-alpha.0](https://github.com/tetacom/react-ui/compare/themes-0.0.2...themes-0.0.3-alpha.0) (2023-05-16)
 
 
