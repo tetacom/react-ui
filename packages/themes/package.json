@@ -1,0 +1,15 @@
+{
+  "name": "@tetacom/themes",
+  "version": "0.0.3-alpha.0",
+  "type": "commonjs",
+  "files": [
+    "themes/src",
+    ""
+  ],
+  "exports": {
+    "*.scss": {
+      "import": "./*/*.scss",
+      "require": "./*/*.scss"
+    }
+  }
+}

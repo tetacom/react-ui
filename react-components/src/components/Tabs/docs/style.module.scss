@@ -5,6 +5,8 @@
   }
 
   .example {
-    margin: 2em 0;
+    margin: var(--spacing-24) 0;
+    display: flex;
+    gap: 96px;
   }
 }

@@ -1,3 +1,3 @@
-import type { RadioValueType } from './index';
+import type { RadioValueType } from './radioValueType';
 
 export type { RadioValueType };
