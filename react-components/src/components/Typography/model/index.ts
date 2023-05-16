@@ -20,6 +20,7 @@ export type FontVariant =
 export type Levels = 1 | 2 | 3 | 4 | 5 | 6;
 
 type Base = {
+  // Начертание из определенных в дизайн токенах
   fontVariant?: FontVariant;
 };
 
@@ -27,5 +28,6 @@ export type BaseProps = Base & HTMLAttributes<HTMLElement>;
 export type LinkProps = Base & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export interface TitleProps extends BaseProps {
+  // Уровень заголовка
   level?: Levels;
 }

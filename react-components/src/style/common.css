@@ -25,6 +25,11 @@ body {
   transition: background-color 0.4s;
 }
 
+
+.sbdocs.sbdocs-wrapper ol li,
+.sbdocs.sbdocs-wrapper ul li {
+  margin: 0.5em 0;
+}
 .sbdocs.sbdocs-wrapper a {
   color: var(--color-primary-50);
   cursor: pointer;
