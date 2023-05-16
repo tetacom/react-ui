@@ -18,6 +18,10 @@ export * from './components/Table/model/public-api';
 
 export * from './components/Dropdown';
 
-export * from './components/Chip';
+export * from './components/Tabs';
+export * from './components/Tabs/model/public-api';
 
+export * from './components/Chip';
 export * from './components/Stack';
+
+export * from './components/Toggle';
