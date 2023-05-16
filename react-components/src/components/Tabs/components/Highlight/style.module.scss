@@ -1,0 +1,9 @@
+.highlight {
+  position: absolute;
+  background-color: var(--color-primary-50);
+  transition: background-color 0.2s;
+
+  &Disabled {
+    background-color: var(--color-text-30);
+  }
+}

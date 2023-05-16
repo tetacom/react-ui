@@ -1,0 +1,12 @@
+.root {
+  ol li,
+  ul li {
+    margin: 0.5em 0;
+  }
+
+  .example {
+    margin: var(--spacing-24) 0;
+    display: flex;
+    gap: 96px;
+  }
+}

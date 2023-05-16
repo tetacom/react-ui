@@ -15,7 +15,7 @@ export const Tooltip: FC<TooltipProps> = ({
   const arrowSize = 8;
   const triggerOffset = arrowSize + offset;
 
-  const [isOver, hoverProps] = useHover({ delayEnter: 100, delayLeave: 300 });
+  const [isOver, hoverProps] = useHover({ delayEnter: 200, delayLeave: 300 });
 
   const { triggerProps, layerProps, renderLayer, arrowProps } = useLayer({
     isOpen: isOver,
