@@ -170,6 +170,18 @@
     text-transform: var(--font-caption-semi-text-case);
   }
 
+  &CaptionBold {
+    font-size: var(--font-caption-bold-font-size);
+    text-decoration: var(--font-caption-bold-text-decoration);
+    font-family: var(--font-caption-bold-font-family);
+    font-weight: var(--font-caption-bold-font-weight);
+    font-style: var(--font-caption-bold-font-style);
+    font-stretch: var(--font-caption-bold-font-stretch);
+    letter-spacing: var(--font-caption-bold-letter-spacing);
+    line-height: var(--font-caption-bold-line-height);
+    text-transform: var(--font-caption-bold-text-case);
+  }
+
   &Overline {
     font-size: var(--font-overline-font-size);
     text-decoration: var(--font-overline-text-decoration);

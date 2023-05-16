@@ -15,6 +15,7 @@ export type FontVariant =
   | 'body3'
   | 'caption'
   | 'captionSemi'
+  | 'captionBold'
   | 'overline';
 
 export type Levels = 1 | 2 | 3 | 4 | 5 | 6;

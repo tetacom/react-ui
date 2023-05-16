@@ -24,4 +24,6 @@ export * from './components/Tabs/model/public-api';
 export * from './components/Chip';
 export * from './components/Stack';
 
+export * from './components/Avatar';
 export * from './components/Toggle';
+

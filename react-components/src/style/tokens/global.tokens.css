@@ -186,6 +186,17 @@
   --font-caption-semi-paragraph-indent: 0;
   --font-caption-semi-paragraph-spacing: 0;
   --font-caption-semi-text-case: none;
+  --font-caption-bold-font-size: 11px;
+  --font-caption-bold-text-decoration: none;
+  --font-caption-bold-font-family: Inter;
+  --font-caption-bold-font-weight: 500;
+  --font-caption-bold-font-style: normal;
+  --font-caption-bold-font-stretch: normal;
+  --font-caption-bold-letter-spacing: 0px;
+  --font-caption-bold-line-height: 16px;
+  --font-caption-bold-paragraph-indent: 0;
+  --font-caption-bold-paragraph-spacing: 0;
+  --font-caption-bold-text-case: none;
   --font-overline-font-size: 10px;
   --font-overline-text-decoration: none;
   --font-overline-font-family: Inter;
