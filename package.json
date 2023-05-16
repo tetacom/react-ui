@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "tokens:prepare": "node prepare-tokens.js",
+    "tokens:build-global": "node build-global-tokens.js"
   },
   "private": true,
   "dependencies": {
@@ -71,6 +73,7 @@
     "nx": "15.9.2",
     "prettier": "^2.8.7",
     "react-test-renderer": "18.2.0",
+    "style-dictionary": "^3.8.0",
     "ts-jest": "^29.0.5",
     "ts-node": "10.9.1",
     "typescript": "~4.9.5",
