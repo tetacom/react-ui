@@ -1,3 +1,23 @@
+//@use 'sass:map';
+//@use 'node_modules/@tetacom/themes/src/base/presets.scss' as base;
+//@use 'node_modules/@tetacom/themes/src/tatneft/presets.scss' as tatneft;
+//
+//$tatneft_presets: map-get(tatneft.$presets, 'themes');
+//$base_presets: map-get(base.$presets, 'themes');
+//$themes: map-merge($tatneft_presets, $base_presets);
+//
+//body {
+//  @each $name, $theme in map.keys($themes) {
+//    .theme-#{$name} {
+//      @each $paletteName, $palette in map.get($themes, $name) {
+//        @each $paletteColorName, $paletteColor in $palette {
+//          --color-#{$paletteName}-#{$paletteColorName}: #{$paletteColor};
+//        }
+//      }
+//    }
+//  }
+//}
+
 .button {
   display: inline-flex;
   justify-content: center;

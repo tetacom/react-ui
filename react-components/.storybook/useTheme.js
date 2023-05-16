@@ -4,7 +4,8 @@ export const useTheme = (StoryFn) => {
   const [{ theme }] = useGlobals();
 
   useEffect(() => {
-    document.querySelector('html').setAttribute('data-theme', theme);
+    // document.querySelector('html').setAttribute('data-theme', theme);
+    document.querySelector('html').classList.add(`theme-${theme}`);
   }, [theme]);
 
   return StoryFn();
