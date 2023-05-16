@@ -47,6 +47,8 @@ jobs:
           body: "Design tokens have been updated via Figma and need to be reviewed."
           add-paths: |
             packages/themes
+            *.css
+            *.scss
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH_NAME: 'main'
