@@ -42,7 +42,7 @@ jobs:
       - name: Create PR
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: "fix: design tokens updated"
+          commit-message: "fix(style): design tokens updated"
           title: "🪁 Design tokens updated"
           body: "Design tokens have been updated via Figma and need to be reviewed."
           add-paths: |

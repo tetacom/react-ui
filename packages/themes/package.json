@@ -7,6 +7,7 @@
   "author": {
     "name": "tetacom"
   },
+  "keywords": ["tetacom"],
   "type": "commonjs",
   "files": [
     "src"
