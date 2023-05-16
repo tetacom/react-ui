@@ -2,8 +2,9 @@ import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { InputProps, InputRef, ShapeType, SizeType } from './model';
-import s from './style.module.scss';
 import { Typography } from '../Typography';
+
+import s from './style.module.scss';
 
 const sizeClasses: Record<SizeType, string> = {
   large: s.inputSizeLarge,
@@ -19,29 +20,47 @@ const shapeClasses: Record<ShapeType, string> = {
 export const Input = forwardRef<InputRef, InputProps>(
   (
     {
+      defaultValue = '',
+      value = '',
       fieldSize = 'middle',
       shape = 'round',
       label = '',
+      labelPosition = 'top',
+      placeholder = '',
       errorMessage = '',
+      allowClear = false,
+      disabled = false,
+      maxLength = 0,
+      icon = null,
+      onChange = null,
+      onPressEnter = null,
       className,
+      style,
       ...props
     },
     ref,
   ) => (
     <div className={s.input}>
-      <label>
-        {label && <span>{label}</span>}
+      <label
+        className={classNames(
+          s.content,
+          labelPosition === 'left' && s.contentLeft,
+        )}
+        style={style}
+      >
+        {label && <span className={s.label}>{label}</span>}
 
-        <input
-          {...props}
-          ref={ref}
+        <span
           className={classNames(
             s.field,
             sizeClasses[fieldSize],
             shapeClasses[shape],
             className,
           )}
-        />
+        >
+          <input {...props} ref={ref} />
+          <span className={s.placeholder}>{placeholder}</span>
+        </span>
       </label>
 
       {errorMessage && (

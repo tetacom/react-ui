@@ -18,5 +18,21 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    defaultValue: '',
+    value: '',
+    fieldSize: 'middle',
+    shape: 'round',
+    label: 'Label',
+    labelPosition: 'top',
+    placeholder: 'Text',
+    errorMessage: '',
+    allowClear: false,
+    disabled: false,
+    maxLength: 0,
+    // icon: null,
+    // onChange: null,
+    // onPressEnter: null,
+    className: '',
+  },
 };
