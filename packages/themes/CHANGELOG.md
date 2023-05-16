@@ -11,18 +11,6 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 ### [0.0.2-alpha.0](https://github.com/tetacom/react-ui/compare/themes-0.0.1...themes-0.0.2-alpha.0) (2023-05-16)
 
-### 0.0.1 (2023-05-16)
-
-
 ### Bug Fixes
 
 * **ci:** add nx semver ([80c0251](https://github.com/tetacom/react-ui/commit/80c02515d5755803c2b735b1f34fb5aa011e7923))
-
-### 0.0.1 (2023-05-16)
-
-
-### Bug Fixes
-
-* **ci:** add nx semver ([80c0251](https://github.com/tetacom/react-ui/commit/80c02515d5755803c2b735b1f34fb5aa011e7923))
-
-### 0.0.1 (2023-05-16)
