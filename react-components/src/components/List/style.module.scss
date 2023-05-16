@@ -97,6 +97,7 @@
     .text {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: var(--spacing-2);
 
       &Headline {
@@ -111,6 +112,7 @@
         font-style: var(--font-body3-font-style);
         font-stretch: var(--font-body3-font-stretch);
         letter-spacing: var(--font-body3-letter-spacing);
+        line-height: var(--font-body3-line-height);
         text-transform: var(--font-body3-text-case);
       }
 
@@ -123,6 +125,7 @@
         font-style: var(--font-caption-font-style);
         font-stretch: var(--font-caption-font-stretch);
         letter-spacing: var(--font-caption-letter-spacing);
+        line-height: var(--font-caption-line-height);
         text-transform: var(--font-caption-text-case);
       }
     }

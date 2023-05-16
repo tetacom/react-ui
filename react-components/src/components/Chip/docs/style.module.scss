@@ -1,0 +1,13 @@
+.root {
+  ol li,
+  ul li {
+    margin: 0.5em 0;
+  }
+
+  .exampleBlock {
+    margin-top: var(--spacing-24);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-12);
+  }
+}
