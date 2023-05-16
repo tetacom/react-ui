@@ -5,6 +5,13 @@ import { RadioProps } from './model';
 import { RadioGroup } from './group';
 import RadioGroupContext from './context';
 import s from './style.module.scss';
+import { AnimatePresence, motion } from 'framer-motion';
+
+const spring = {
+  type: 'spring',
+  stiffness: 600,
+  damping: 30,
+};
 
 interface RadioComposition {
   Group: typeof RadioGroup;
@@ -35,14 +42,7 @@ const Radio: FC<RadioProps> & RadioComposition = ({
   };
 
   return (
-    <label
-      className={classNames(
-        s.radio,
-        isChecked && s.radioChecked,
-        disabled && s.disabled,
-        className,
-      )}
-    >
+    <label className={classNames(s.radio, disabled && s.disabled, className)}>
       <input
         {...props}
         type="radio"
@@ -51,7 +51,19 @@ const Radio: FC<RadioProps> & RadioComposition = ({
         checked={isChecked}
         onChange={handleChange}
       />
-      <span className={classNames(s.input)} />
+      <span className={classNames(s.input)}>
+        <AnimatePresence initial={false}>
+          {isChecked && (
+            <motion.span
+              className={s.checked}
+              initial={{ scale: 1.5 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              transition={spring}
+            />
+          )}
+        </AnimatePresence>
+      </span>
 
       {children && <span>{children}</span>}
     </label>
