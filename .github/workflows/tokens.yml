@@ -37,7 +37,7 @@ jobs:
       - name: Build Presets
         run: 'npx json-to-scss "packages/themes/src/**/*.json"'
       - name: Build Global Tokens
-        run: 'npm run tokens:build'
+        run: 'npm run tokens:build-global'
       # We now create a pull request
       - name: Create PR
         uses: peter-evans/create-pull-request@v4
