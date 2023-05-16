@@ -2,7 +2,9 @@
   "name": "@tetacom/themes",
   "version": "0.0.1",
   "type": "commonjs",
-  "files": ["themes/src"],
+  "files": [
+    "themes/src"
+  ],
   "exports": {
     "*.scss": {
       "import": "./*/*.scss",
