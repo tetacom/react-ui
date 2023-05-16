@@ -6,7 +6,8 @@ export type SizeType = 'small' | 'middle' | 'large';
 export type ShapeType = 'brick' | 'round' | 'circle';
 export type LabelPositionType = 'top' | 'left';
 
-export interface InputProps extends InputHTMLAttributes<InputRef> {
+export interface InputProps
+  extends Omit<InputHTMLAttributes<InputRef>, 'onChange'> {
   // Исходное входное содержимое
   defaultValue?: string;
 
@@ -44,7 +45,10 @@ export interface InputProps extends InputHTMLAttributes<InputRef> {
   icon?: React.ReactElement;
 
   // Обратный вызов при вводе пользователем
-  onChange?: () => void;
+  onChange?: (
+    value: string,
+    event?: React.ChangeEvent<HTMLInputElement>,
+  ) => void;
 
   // Функция обратного вызова, которая срабатывает при нажатии клавиши Enter.
   onPressEnter?: () => void;
