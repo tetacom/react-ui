@@ -2,7 +2,7 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
-### [0.0.3](https://github.com/tetacom/react-ui/compare/react-components-0.0.3-alpha.0...react-components-0.0.3) (2023-05-16)
+### [0.0.4-alpha.0](https://github.com/tetacom/react-ui/compare/react-components-0.0.3...react-components-0.0.4-alpha.0) (2023-05-16)
 
 ### [0.0.3-alpha.0](https://github.com/tetacom/react-ui/compare/react-components-0.0.2...react-components-0.0.3-alpha.0) (2023-05-16)
 
