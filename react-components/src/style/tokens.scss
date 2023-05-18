@@ -17,13 +17,6 @@ $themes: map-merge($tatneft_presets, $base_presets);
     transition: background 0.8s;
 
     &:hover {
-      background: getColorVar($paletteName, '60')
-        radial-gradient(
-          circle,
-          transparent 1%,
-          getColorVar($paletteName, '60') 1%
-        )
-        center/15000%;
     }
 
     &:active {
