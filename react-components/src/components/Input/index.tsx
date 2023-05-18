@@ -87,7 +87,6 @@ export const Input = forwardRef<InputRef, InputProps>(
           s.input,
           labelPosition === 'left' && s.inputHorizontal,
         )}
-        style={style}
       >
         {label && (
           <label htmlFor={props.id} className={s.label}>
@@ -103,7 +102,6 @@ export const Input = forwardRef<InputRef, InputProps>(
             shapeClasses[shape],
             icon && s.fieldLeftIcon,
             allowClear && s.fieldRightIcon,
-            className,
           )}
         >
           {icon && <span className={s.icon}>{icon}</span>}
@@ -131,11 +129,13 @@ export const Input = forwardRef<InputRef, InputProps>(
               s.fieldTag,
               finalValue && s.fieldTagHasValue,
               isErrorStatus && s.fieldTagHasError,
+              className,
             )}
             value={finalValue}
             onChange={handleChange}
             onKeyDown={handleEnterKeyPress}
             disabled={disabled}
+            style={style}
           />
 
           <span className={s.placeholder}>{placeholder}</span>
