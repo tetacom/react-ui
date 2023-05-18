@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Loader } from './Loader';
 import { ButtonProps, ButtonRef, ShapeType, SizeType, ViewType } from './model';
 import s from './style.module.scss';
-import './style.scss';
 
 const sizeClasses: Record<SizeType, string> = {
   small: s.buttonSizeSmall,

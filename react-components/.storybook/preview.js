@@ -3,6 +3,7 @@ import { useTheme } from './useTheme';
 import '../src/style/sb.css';
 import '../src/style/tokens/tokens.css';
 import '../src/style/common.css';
+import '../src/style/style.scss';
 
 export const globalTypes = {
   theme: {

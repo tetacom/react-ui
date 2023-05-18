@@ -91,7 +91,7 @@ $themes: map-merge($tatneft_presets, $base_presets);
 
 html {
   @each $name, $theme in map.keys($themes) {
-    &.theme-#{$name} {
+    &.#{$name} {
       @each $paletteName, $palette in map.get($themes, $name) {
         @each $paletteColorName, $paletteColor in $palette {
           --color-#{$paletteName}-#{$paletteColorName}: #{$paletteColor};
