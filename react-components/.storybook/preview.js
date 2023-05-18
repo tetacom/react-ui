@@ -12,7 +12,7 @@ export const globalTypes = {
     defaultValue: 'baselight',
     toolbar: {
       icon: 'circlehollow',
-      items: ['baselight', 'basedark'],
+      items: ['baselight', 'basedark', 'tatneftlight', 'tatneftdark'],
       name: true,
       dynamicTitle: true,
     },

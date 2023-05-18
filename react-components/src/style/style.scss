@@ -11,7 +11,7 @@ $themes: map-merge($tatneft_presets, $base_presets);
 }
 
 @mixin generateButtonForPalette($paletteName) {
-  .button_primary.button-#{$paletteName} {
+  .button_primary.button-#{'' + $paletteName} {
     background-color: getColorVar($paletteName, '50');
     background-position: center;
     transition: background 0.8s;
@@ -33,7 +33,7 @@ $themes: map-merge($tatneft_presets, $base_presets);
     }
   }
 
-  .button_ghost.button-#{$paletteName} {
+  .button_ghost.button-#{'' + $paletteName} {
     color: getColorVar($paletteName, '90');
     fill: getColorVar($paletteName, '90');
     background-color: transparent;
@@ -57,7 +57,7 @@ $themes: map-merge($tatneft_presets, $base_presets);
     }
   }
 
-  .button_outline.button-#{$paletteName} {
+  .button_outline.button-#{'' + $paletteName} {
     color: getColorVar($paletteName, '50');
     fill: getColorVar($paletteName, '50');
     border-color: getColorVar($paletteName, '50');
@@ -94,7 +94,8 @@ html {
     &.#{$name} {
       @each $paletteName, $palette in map.get($themes, $name) {
         @each $paletteColorName, $paletteColor in $palette {
-          --color-#{$paletteName}-#{$paletteColorName}: #{$paletteColor};
+          --color-#{'' + $paletteName}-#{'' + $paletteColorName}: #{'' +
+            $paletteColor};
         }
       }
     }
