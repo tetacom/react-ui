@@ -45,11 +45,23 @@ export const Input = forwardRef<InputRef, InputProps>(
     const inputWrapperRef = useRef<HTMLSpanElement>(null);
     const [inputValue, setInputValue] = useState(defaultValue);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const { value } = event.target;
+    const finalValue = onChange ? value : inputValue;
+    const isShowClearIcon = allowClear && finalValue;
 
-      setInputValue(value);
-      onChange && onChange(value, event);
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      const lengthDiff = maxLength - value.length;
+
+      if (maxLength && lengthDiff < 0) {
+        const prevValue = value.slice(0, -1);
+        setInputValue(prevValue);
+        onChange && onChange(prevValue);
+      } else {
+        setInputValue(value);
+        if (onChange) {
+          onChange(value);
+        }
+      }
     };
 
     const clearInput = () => {
@@ -58,8 +70,16 @@ export const Input = forwardRef<InputRef, InputProps>(
       inputWrapperRef.current?.querySelector('input')?.focus();
     };
 
-    const finalValue = value || inputValue;
-    const isShowClearIcon = allowClear && finalValue;
+    const handleEnterKeyPress = (
+      event: React.KeyboardEvent<HTMLInputElement>,
+    ) => {
+      if (event.key === 'Enter') {
+        onPressEnter && onPressEnter(event);
+      }
+    };
+
+    const isFieldFull = maxLength - finalValue.length <= 0;
+    const isErrorStatus = errorMessage || (maxLength && isFieldFull);
 
     return (
       <div
@@ -110,25 +130,36 @@ export const Input = forwardRef<InputRef, InputProps>(
             className={classNames(
               s.fieldTag,
               finalValue && s.fieldTagHasValue,
-              errorMessage && s.fieldTagHasError,
+              isErrorStatus && s.fieldTagHasError,
             )}
             value={finalValue}
             onChange={handleChange}
+            onKeyDown={handleEnterKeyPress}
             disabled={disabled}
           />
 
           <span className={s.placeholder}>{placeholder}</span>
         </span>
 
-        <div>
-          {errorMessage && (
-            <Typography.Text fontVariant="caption" className={s.errorMessage}>
-              {errorMessage}
-            </Typography.Text>
-          )}
+        <div className={s.footer}>
+          <span>
+            {errorMessage && (
+              <Typography.Text fontVariant="caption" className={s.errorMessage}>
+                {errorMessage}
+              </Typography.Text>
+            )}
+          </span>
 
           {Boolean(maxLength) && (
-            <Typography.Text fontVariant="caption">123</Typography.Text>
+            <Typography.Text
+              fontVariant="caption"
+              className={classNames(
+                s.maxLength,
+                isFieldFull ? s.maxLengthError : s.maxLengthSuccess,
+              )}
+            >
+              {`${finalValue.length}/${maxLength}`}
+            </Typography.Text>
           )}
         </div>
       </div>

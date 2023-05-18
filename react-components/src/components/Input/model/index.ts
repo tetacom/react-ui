@@ -45,11 +45,8 @@ export interface InputProps
   icon?: React.ReactElement;
 
   // Обратный вызов при вводе пользователем
-  onChange?: (
-    value: string,
-    event?: React.ChangeEvent<HTMLInputElement>,
-  ) => void;
+  onChange?: (value: string) => void;
 
   // Функция обратного вызова, которая срабатывает при нажатии клавиши Enter.
-  onPressEnter?: () => void;
+  onPressEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
