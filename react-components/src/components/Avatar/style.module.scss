@@ -1,0 +1,24 @@
+.avatar {
+  aspect-ratio: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  &Shape {
+    &Circle {
+      border-radius: 50%;
+    }
+
+    &Round {
+      border-radius: var(--radius-8);
+    }
+
+    &Brick {
+      border-radius: 0;
+    }
+  }
+}

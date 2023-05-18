@@ -6,7 +6,7 @@ import { DropdownDocs } from '../docs';
 import { DropdownList } from '../docs/list';
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Navigation/Dropdown',
+  title: 'Data Display/Dropdown',
   component: Dropdown,
   parameters: {
     docs: {

@@ -1,0 +1,84 @@
+.tabs {
+  --highlight-width: var(--spacing-2);
+
+  overflow: hidden;
+
+  .nav {
+    grid-area: nav;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    .navItem {
+      margin: 0;
+
+      &Button {
+        border: none;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-6);
+        font-size: var(--font-button2-font-size);
+        font-family: var(--font-button2-font-family);
+        font-weight: var(--font-button2-font-weight);
+        font-style: var(--font-button2-font-style);
+        font-stretch: var(--font-button2-font-stretch);
+        letter-spacing: var(--font-button2-letter-spacing);
+        line-height: var(--font-button2-line-height);
+        text-transform: var(--font-button2-text-case);
+        padding: var(--spacing-16);
+        color: var(--color-text-40);
+        box-shadow: inset 0 0 0 0 transparent;
+        transition: color 0.2s, box-shadow 0.2s;
+
+        &:focus-visible {
+          box-shadow: inset 0 0 0 4px var(--color-primary-10);
+        }
+
+        &:not(:disabled) {
+          cursor: pointer;
+        }
+
+        &:not(&Selected):not(:disabled):hover {
+          color: var(--color-text-70);
+        }
+
+        &Selected {
+          color: var(--color-text-90);
+        }
+
+        &:disabled {
+          color: var(--color-text-30);
+        }
+      }
+    }
+  }
+
+  .highlightContainer {
+    grid-area: high;
+    position: relative;
+    height: var(--highlight-width);
+  }
+
+  .content {
+    grid-area: content;
+    padding: var(--spacing-24) var(--spacing-16);
+    margin: 0;
+  }
+
+  &Left {
+    display: grid;
+    grid-template-columns: var(--highlight-width) auto 1fr;
+    grid-template-areas: 'high nav content';
+
+    .nav {
+      flex-direction: column;
+    }
+
+    .highlightContainer {
+      width: var(--highlight-width);
+      height: auto;
+    }
+  }
+}

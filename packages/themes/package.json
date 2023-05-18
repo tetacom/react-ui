@@ -1,0 +1,23 @@
+{
+  "name": "@tetacom/themes",
+  "version": "0.0.3-alpha.4",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "tetacom"
+  },
+  "keywords": [
+    "tetacom"
+  ],
+  "type": "commonjs",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    "*.scss": {
+      "import": "./*/*.scss",
+      "require": "./*/*.scss"
+    }
+  }
+}

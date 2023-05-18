@@ -1,0 +1,158 @@
+$presets: (
+  themes: (
+    baselight: (
+      global: (
+        link: #005ab6ff,
+        white: #ffffffff,
+        bgmain: #edeef0ff,
+        bgcard: #ffffffff,
+        staticprimary: #263077ff
+      ),
+      text: (
+        5: #00000012,
+        10: #0000001a,
+        20: #00000029,
+        30: #00000047,
+        40: #00000070,
+        50: #0000008f,
+        60: #000000a3,
+        70: #000000b8,
+        80: #000000cc,
+        90: #000000de
+      ),
+      primary: (
+        5: #e5efffff,
+        10: #c1d6ffff,
+        20: #9ebbfeff,
+        30: #7c9dfbff,
+        40: #5b7ef7ff,
+        50: #3c5df2ff,
+        60: #3247d7ff,
+        70: #2833baff,
+        80: #20229dff,
+        90: #1b187fff
+      ),
+      green: (
+        5: #e6f4f0ff,
+        10: #bbe0d3ff,
+        20: #90cbb5ff,
+        30: #66b596ff,
+        40: #3c9e76ff,
+        50: #148654ff,
+        60: #107744ff,
+        70: #0c6836ff,
+        80: #095828ff,
+        90: #06471cff
+      ),
+      red: (
+        5: #feebe8ff,
+        10: #fac6c0ff,
+        20: #f5a099ff,
+        30: #ee7a73ff,
+        40: #e7534fff,
+        50: #de2c2cff,
+        60: #c5242dff,
+        70: #ab1c2cff,
+        80: #91162aff,
+        90: #751026ff
+      ),
+      yellow: (
+        5: #fff0ccff,
+        10: #ffe1a3ff,
+        20: #ffcf7aff,
+        30: #fdbb52ff,
+        40: #f9a429ff,
+        50: #f38b01ff,
+        60: #d86e00ff,
+        70: #bd5400ff,
+        80: #9f3d00ff,
+        90: #802900ff
+      )
+    ),
+    basedark: (
+      global: (
+        link: #58c3ffff,
+        white: #ffffffff,
+        bgmain: #1c1b21ff,
+        bgcard: #222229ff,
+        staticprimary: #263077ff
+      ),
+      text: (
+        5: #ffffff0f,
+        10: #ffffff1a,
+        20: #ffffff3d,
+        30: #ffffff52,
+        40: #ffffff7a,
+        50: #ffffff8f,
+        60: #ffffffa3,
+        70: #ffffffb8,
+        80: #ffffffcc,
+        90: #ffffffde
+      ),
+      primary: (
+        5: #2b286fff,
+        10: #2e2e88ff,
+        20: #3238a1ff,
+        30: #3643bbff,
+        40: #3a4fd6ff,
+        50: #3c5df2ff,
+        60: #6386f8ff,
+        70: #8dacfdff,
+        80: #b8d0ffff,
+        90: #e5efffff
+      ),
+      green: (
+        5: #232f26ff,
+        10: #2f4533ff,
+        20: #3a5d3dff,
+        30: #437645ff,
+        40: #4c914aff,
+        50: #59ae50ff,
+        60: #68c068ff,
+        70: #81d088ff,
+        80: #9ddea8ff,
+        90: #c4f5d1ff
+      ),
+      red: (
+        5: #3a282dff,
+        10: #56353bff,
+        20: #753f45ff,
+        30: #964748ff,
+        40: #ba554dff,
+        50: #e06850ff,
+        60: #ec8065ff,
+        70: #f6997dff,
+        80: #fcb398ff,
+        90: #ffccb6ff
+      ),
+      yellow: (
+        5: #402f1dff,
+        10: #5b401fff,
+        20: #7a541dff,
+        30: #9d6c17ff,
+        40: #c4890dff,
+        50: #eeab00ff,
+        60: #fdc730ff,
+        70: #ffdf60ff,
+        80: #fff18fff,
+        90: #fffcbfff
+      )
+    )
+  ),
+  shadow: (
+    baselight: (
+      1: 0px 4px 4px 0px #0000000f,
+      2: 0px 6px 18px 0px #00000014,
+      3: 0px 10px 22px 0px #0000001a,
+      4: 0px 10px 24px 0px #27272729,
+      5: 0px 14px 32px 0px #27272733
+    ),
+    basedark: (
+      1: 0px 4px 4px 0px #0b0b0c3d,
+      2: 0px 6px 18px 0px #0000004d,
+      3: 0px 8px 16px 0px #00000066,
+      4: 0px 12px 24px 0px #00000066,
+      5: 0px 16px 32px 0px #00000066
+    )
+  )
+);

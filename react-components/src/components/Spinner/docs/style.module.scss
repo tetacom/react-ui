@@ -1,23 +1,8 @@
 .root {
-  ol li,
-  ul li {
-    margin: 0.5em 0;
-  }
-
   .exampleBlock {
     background-color: var(--color-text-30);
     padding: var(--spacing-24);
     border-radius: var(--spacing-16);
     margin-top: var(--spacing-24);
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-32);
-  }
-
-  .exampleUsageBlock {
-    margin-top: var(--spacing-24);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-32);
   }
 }
