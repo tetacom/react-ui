@@ -20,9 +20,6 @@ $themes: map-merge($tatneft_presets, $base_presets);
     }
 
     &:active {
-      background-color: getColorVar($paletteName, '70');
-      background-size: 100%;
-      transition: background 0s;
     }
   }
 
