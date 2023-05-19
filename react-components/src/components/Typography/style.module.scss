@@ -158,18 +158,6 @@
     text-transform: var(--font-caption-text-case);
   }
 
-  &CaptionSemi {
-    font-size: var(--font-caption-semi-font-size);
-    text-decoration: var(--font-caption-semi-text-decoration);
-    font-family: var(--font-caption-semi-font-family);
-    font-weight: var(--font-caption-semi-font-weight);
-    font-style: var(--font-caption-semi-font-style);
-    font-stretch: var(--font-caption-semi-font-stretch);
-    letter-spacing: var(--font-caption-semi-letter-spacing);
-    line-height: var(--font-caption-semi-line-height);
-    text-transform: var(--font-caption-semi-text-case);
-  }
-
   &CaptionBold {
     font-size: var(--font-caption-bold-font-size);
     text-decoration: var(--font-caption-bold-text-decoration);

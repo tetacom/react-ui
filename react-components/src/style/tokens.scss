@@ -1,10 +1,13 @@
 @use 'sass:map';
 @use 'node_modules/@tetacom/themes/src/base/presets.scss' as base;
 @use 'node_modules/@tetacom/themes/src/tatneft/presets.scss' as tatneft;
+@use 'node_modules/@tetacom/themes/src/green/presets.scss' as greenPreset;
 
 $tatneft_presets: map-get(tatneft.$presets, 'themes');
 $base_presets: map-get(base.$presets, 'themes');
-$themes: map-merge($tatneft_presets, $base_presets);
+$green_presets: map-get(greenPreset.$presets, 'themes');
+$themes0: map-merge($tatneft_presets, $base_presets);
+$themes: map-merge($themes0, $green_presets);
 
 @function getColorVar($palette, $grade) {
   @return var(--color-#{$palette}-#{$grade});
@@ -81,6 +84,7 @@ $themes: map-merge($tatneft_presets, $base_presets);
 
 html {
   @each $name, $theme in map.keys($themes) {
+    @debug $name;
     &.#{$name} {
       @each $paletteName, $palette in map.get($themes, $name) {
         @each $paletteColorName, $paletteColor in $palette {
