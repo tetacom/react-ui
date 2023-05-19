@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.2-alpha.2](https://github.com/tetacom/react-ui/compare/themes-0.0.2-alpha.1...themes-0.0.2-alpha.2) (2023-05-19)
+
 ### [0.0.2-alpha.1](https://github.com/tetacom/react-ui/compare/themes-0.0.2-alpha.0...themes-0.0.2-alpha.1) (2023-05-19)
 
 ### [0.0.2-alpha.0](https://github.com/tetacom/react-ui/compare/themes-0.0.1...themes-0.0.2-alpha.0) (2023-05-19)
