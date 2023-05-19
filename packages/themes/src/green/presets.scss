@@ -1,0 +1,146 @@
+$presets: (
+  themes: (
+    greendark: (
+      global: (
+        link: #1d9a6cff,
+        white: #ffffffff,
+        bgcard: #292e3cff,
+        bgmain: #222836ff,
+        bgcontrast: #3a3f4cff,
+        bgapp: #1b2230ff,
+        staticprimary: #26413fff
+      ),
+      text: (
+        5: #ffffff0f,
+        10: #ffffff14,
+        20: #ffffff3d,
+        30: #ffffff52,
+        40: #ffffff7a,
+        50: #ffffff8f,
+        60: #ffffffa3,
+        70: #ffffffb8,
+        80: #ffffffcc,
+        90: #ffffffde
+      ),
+      primary: (
+        5: #26413fff,
+        10: #27504bff,
+        20: #276055ff,
+        30: #25725fff,
+        40: #228567ff,
+        50: #1d9a6cff,
+        60: #48b16dff,
+        70: #74c67aff,
+        80: #addaa1ff,
+        90: #deedcfff
+      ),
+      green: (
+        5: #232f26ff,
+        10: #2f4533ff,
+        20: #3a5d3dff,
+        30: #437645ff,
+        40: #4c914aff,
+        50: #59ae50ff,
+        60: #68c068ff,
+        70: #81d088ff,
+        80: #9ddea8ff,
+        90: #c4f5d1ff
+      ),
+      red: (
+        5: #3a282dff,
+        10: #56353bff,
+        20: #753f45ff,
+        30: #964748ff,
+        40: #ba554dff,
+        50: #e06850ff,
+        60: #ec8065ff,
+        70: #f6997dff,
+        80: #fcb398ff,
+        90: #ffccb6ff
+      ),
+      yellow: (
+        5: #402f1dff,
+        10: #5b401fff,
+        20: #7a541dff,
+        30: #9d6c17ff,
+        40: #c4890dff,
+        50: #eeab00ff,
+        60: #fdc730ff,
+        70: #ffdf60ff,
+        80: #fff18fff,
+        90: #fffcbfff
+      )
+    ),
+    greenlight: (
+      global: (
+        link: #005ab6ff,
+        white: #ffffffff,
+        bgcard: #ffffffff,
+        bgmain: #edeef0ff,
+        bgcontrast: #707070ff,
+        bgapp: #dddee1ff,
+        staticprimary: #26413fff
+      ),
+      text: (
+        5: #00000012,
+        10: #0000001a,
+        20: #00000029,
+        30: #00000047,
+        40: #00000070,
+        50: #0000008f,
+        60: #000000a3,
+        70: #000000b8,
+        80: #000000cc,
+        90: #000000de
+      ),
+      primary: (
+        5: #eef6f3ff,
+        10: #c7e1d8ff,
+        20: #9ecdbdff,
+        30: #74bba2ff,
+        40: #49aa87ff,
+        50: #1d9a6cff,
+        60: #199073ff,
+        70: #158679ff,
+        80: #117b7bff,
+        90: #0e6370ff
+      ),
+      green: (
+        5: #e6f4f0ff,
+        10: #bbe0d3ff,
+        20: #90cbb5ff,
+        30: #66b596ff,
+        40: #3c9e76ff,
+        50: #148654ff,
+        60: #107744ff,
+        70: #0c6836ff,
+        80: #095828ff,
+        90: #06471cff
+      ),
+      red: (
+        5: #feebe8ff,
+        10: #fac6c0ff,
+        20: #f5a099ff,
+        30: #ee7a73ff,
+        40: #e7534fff,
+        50: #de2c2cff,
+        60: #c5242dff,
+        70: #ab1c2cff,
+        80: #91162aff,
+        90: #751026ff
+      ),
+      yellow: (
+        5: #fff0ccff,
+        10: #ffe1a3ff,
+        20: #ffcf7aff,
+        30: #fdbb52ff,
+        40: #f9a429ff,
+        50: #f38b01ff,
+        60: #d86e00ff,
+        70: #bd5400ff,
+        80: #9f3d00ff,
+        90: #802900ff
+      )
+    )
+  )
+);
