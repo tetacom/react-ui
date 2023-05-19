@@ -42,11 +42,11 @@ export const Name: FC<Props> = ({ name, size = '28' }) => {
     : undefined;
 
   return (
-    <div
-      className={s.name}
-      style={{ backgroundColor: bgColor, color: getContrastColor(bgColor) }}
-    >
-      <Typography.Text fontVariant={fontVariant} style={{ fontSize }}>
+    <div className={s.name} style={{ backgroundColor: bgColor }}>
+      <Typography.Text
+        fontVariant={fontVariant}
+        style={{ fontSize, color: getContrastColor(bgColor) }}
+      >
         {initials}
       </Typography.Text>
     </div>
