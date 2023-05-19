@@ -45,6 +45,19 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+    name: "css/fonts",
+    type: "value",
+    matcher: function (prop) {
+        return prop.attributes.item === "fontSize" ||
+        prop.attributes.item === "lineHeight" ||
+        prop.attributes.item === "letterSpacing";
+    },
+    transformer: (token) => {
+        return `${token.original.value}px`;
+    },
+});
+
+StyleDictionary.registerTransform({
     name: "css/spacing",
     type: "value",
     matcher: function (prop) {
@@ -61,6 +74,7 @@ StyleDictionary.registerTransformGroup({
     transforms: StyleDictionary.transformGroup["css"].concat([
         "css/radius",
         "css/spacing",
+        "css/fonts"
     ]),
 });
 
