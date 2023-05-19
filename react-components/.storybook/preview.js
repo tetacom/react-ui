@@ -1,8 +1,8 @@
 import { useTheme } from './useTheme';
 
-import '../src/style/sb.css';
-import '../src/style/tokens/tokens.css';
+import '../src/style/fonts.css';
 import '../src/style/common.css';
+// import '../src/style/globalTokens.css';
 import '../src/style/tokens.scss';
 
 export const globalTypes = {
