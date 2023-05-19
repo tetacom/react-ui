@@ -93,7 +93,7 @@
         color: var(--color-text-20);
       }
 
-      &:hover {
+      &:hover:enabled {
         background-color: var(--color-text-10);
       }
 

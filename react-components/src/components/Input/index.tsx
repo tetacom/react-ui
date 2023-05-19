@@ -23,12 +23,12 @@ export const Input = forwardRef<InputRef, InputProps>(
   (
     {
       defaultValue = '',
-      value = '',
+      value,
       fieldSize = 'middle',
       shape = 'round',
       label = '',
       labelPosition = 'top',
-      placeholder = '',
+      placeholder = 'Placeholder',
       errorMessage = '',
       allowClear = false,
       disabled = false,
@@ -45,7 +45,7 @@ export const Input = forwardRef<InputRef, InputProps>(
     const inputWrapperRef = useRef<HTMLSpanElement>(null);
     const [inputValue, setInputValue] = useState(defaultValue);
 
-    const finalValue = onChange ? value : inputValue;
+    const finalValue = value !== undefined ? value : inputValue;
     const isShowClearIcon = allowClear && finalValue;
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
