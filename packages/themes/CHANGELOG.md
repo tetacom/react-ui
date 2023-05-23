@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.5](https://github.com/tetacom/react-ui/compare/themes-0.0.4...themes-0.0.5) (2023-05-23)
+
+
+### Bug Fixes
+
+* **style:** add generate file in scss ([6c10fa8](https://github.com/tetacom/react-ui/commit/6c10fa849dafd334ca31f0730882fcfbf9cecbd0))
+
 ### [0.0.4](https://github.com/tetacom/react-ui/compare/themes-0.0.3...themes-0.0.4) (2023-05-23)
 
 ### [0.0.3](https://github.com/tetacom/react-ui/compare/themes-0.0.3-alpha.5...themes-0.0.3) (2023-05-23)
