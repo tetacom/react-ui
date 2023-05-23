@@ -4,7 +4,12 @@ export const useTheme = (StoryFn) => {
   const [{ theme }] = useGlobals();
 
   useEffect(() => {
-    document.querySelector('html').setAttribute('data-theme', theme);
+    if (!theme) {
+      document.querySelector('html').classList.add('baselight');
+    } else {
+      document.querySelector('html').className = '';
+      document.querySelector('html').classList.add(theme);
+    }
   }, [theme]);
 
   return StoryFn();

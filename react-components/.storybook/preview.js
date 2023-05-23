@@ -3,6 +3,7 @@ import { useTheme } from './useTheme';
 import '../src/style/sb.css';
 import '../src/style/tokens/tokens.css';
 import '../src/style/common.css';
+import '../src/style/tokens.scss';
 
 export const globalTypes = {
   theme: {
@@ -11,7 +12,7 @@ export const globalTypes = {
     defaultValue: 'baselight',
     toolbar: {
       icon: 'circlehollow',
-      items: ['baselight', 'basedark'],
+      items: ['baselight', 'basedark', 'tatneftlight', 'tatneftdark'],
       name: true,
       dynamicTitle: true,
     },

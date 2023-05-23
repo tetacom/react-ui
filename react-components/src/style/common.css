@@ -12,6 +12,10 @@ html {
   outline: none;
 }
 
+:root {
+  color-scheme: light dark;
+}
+
 body {
   font-family: Inter, sans-serif;
   font-feature-settings: 'kern';
@@ -24,7 +28,6 @@ body {
   background-color: var(--color-global-bgmain);
   transition: background-color 0.4s;
 }
-
 
 .sbdocs.sbdocs-wrapper ol li,
 .sbdocs.sbdocs-wrapper ul li {
