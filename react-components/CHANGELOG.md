@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.3](https://github.com/tetacom/react-ui/compare/react-components-0.1.2...react-components-0.1.3) (2023-05-23)
+
+
+### Bug Fixes
+
+* **ci:** publish access config ([85e1190](https://github.com/tetacom/react-ui/commit/85e11907ba6b0628974686c38d0decc7eebda535))
+
 ### [0.1.2](https://github.com/tetacom/react-ui/compare/react-components-0.1.1...react-components-0.1.2) (2023-05-23)
 
 
