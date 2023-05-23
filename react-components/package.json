@@ -6,6 +6,9 @@
   "peerDependencies": {
     "@tetacom/themes": "^0.0.3-alpha.4"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "components",
     "utils"
