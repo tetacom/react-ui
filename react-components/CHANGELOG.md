@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.5](https://github.com/tetacom/react-ui/compare/react-components-0.1.4...react-components-0.1.5) (2023-05-23)
+
+
+### Bug Fixes
+
+* **style:** dropdown box-shadow token ([ec04e0b](https://github.com/tetacom/react-ui/commit/ec04e0b0bbc1f97e97982a3ea10bcc10be88bfdd))
+* **style:** remove unused code ([a92222d](https://github.com/tetacom/react-ui/commit/a92222dc7ebedc03fef973fc41327d6d27b232d6))
+* **style:** themes flow ([64dfd51](https://github.com/tetacom/react-ui/commit/64dfd5107710b0dd01047fdc162a239239036ae5))
+
 ### [0.1.4](https://github.com/tetacom/react-ui/compare/react-components-0.1.3...react-components-0.1.4) (2023-05-23)
 
 
