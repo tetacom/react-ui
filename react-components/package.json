@@ -1,10 +1,10 @@
 {
   "name": "@tetacom/react-components",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "./index.js",
   "types": "./index.d.ts",
   "peerDependencies": {
-    "@tetacom/themes": "^0.0.5"
+    "@tetacom/themes": "^0.0.6"
   },
   "publishConfig": {
     "access": "public"
