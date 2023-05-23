@@ -1,0 +1,219 @@
+@mixin field {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--spacing-8);
+  font-size: var(--font-body3-font-size);
+  font-family: var(--font-body3-font-family);
+  font-weight: var(--font-body3-font-weight);
+  font-style: var(--font-body3-font-style);
+  font-stretch: var(--font-body3-font-stretch);
+  letter-spacing: var(--font-body3-letter-spacing);
+  line-height: var(--font-body3-line-height);
+  text-transform: var(--font-body3-text-case);
+}
+
+.input {
+  display: inline-grid;
+  max-width: 100%;
+
+  .label {
+    font-size: var(--font-caption-bold-font-size);
+    text-decoration: var(--font-caption-bold-text-decoration);
+    font-family: var(--font-caption-bold-font-family);
+    font-weight: var(--font-caption-bold-font-weight);
+    font-style: var(--font-caption-bold-font-style);
+    font-stretch: var(--font-caption-bold-font-stretch);
+    letter-spacing: var(--font-caption-bold-letter-spacing);
+    line-height: var(--font-caption-bold-line-height);
+    text-transform: var(--font-caption-bold-text-case);
+    margin-bottom: var(--spacing-12);
+    color: var(--color-text-90);
+  }
+
+  .field {
+    position: relative;
+    overflow: hidden;
+
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 var(--spacing-8);
+      color: var(--color-text-90);
+      pointer-events: none;
+
+      svg {
+        width: var(--spacing-16);
+        height: var(--spacing-16);
+      }
+    }
+
+    .clear {
+      border: none;
+      position: absolute;
+      color: var(--color-text-70);
+      top: 0;
+      right: 0;
+      padding: 0 var(--spacing-8);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:enabled {
+        cursor: pointer;
+      }
+
+      &:hover:enabled {
+        color: var(--color-text-90);
+      }
+
+      &:disabled {
+        color: var(--color-text-20);
+      }
+    }
+
+    .fieldTag {
+      @include field;
+
+      border: 1px solid transparent;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-text-5);
+      color: var(--color-text-90);
+      border-radius: inherit;
+      transition: background-color 0.2s, border 0.2s, color 0.2s;
+
+      &:disabled {
+        background-color: var(--color-text-5);
+        color: var(--color-text-20);
+      }
+
+      &:hover:enabled {
+        background-color: var(--color-text-10);
+      }
+
+      &:focus {
+        background-color: transparent;
+        border-color: var(--color-primary-50);
+      }
+
+      &HasValue,
+      &:focus {
+        + .placeholder {
+          transform: translate(-24px);
+          opacity: 0;
+        }
+      }
+
+      &HasError:enabled {
+        background-color: transparent;
+        border-color: var(--color-red-50);
+      }
+    }
+
+    .placeholder {
+      @include field;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: var(--color-text-40);
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    &Size {
+      &Large {
+        height: var(--spacing-32);
+      }
+
+      &Middle {
+        height: var(--spacing-28);
+      }
+
+      &Small {
+        height: var(--spacing-24);
+      }
+    }
+
+    &Shape {
+      &Brick {
+        border-radius: var(--radius-field-brick);
+      }
+
+      &Round {
+        border-radius: var(--radius-field-round);
+      }
+
+      &Circle {
+        border-radius: var(--radius-field-circle);
+      }
+    }
+
+    &LeftIcon {
+      .fieldTag,
+      .placeholder {
+        padding-left: var(--spacing-32);
+      }
+    }
+
+    &RightIcon {
+      .fieldTag,
+      .placeholder {
+        padding-right: var(--spacing-32);
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-12);
+
+    .errorMessage {
+      color: var(--color-red-50);
+    }
+
+    .maxLength {
+      text-align: right;
+      transition: color 0.2s;
+
+      &Success {
+        color: var(--color-green-50);
+      }
+
+      &Error {
+        color: var(--color-red-50);
+      }
+    }
+  }
+
+  &Horizontal {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+
+    .label {
+      margin-bottom: 0;
+      margin-right: var(--spacing-16);
+    }
+
+    .errorMessage {
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+  }
+
+  &Error {
+    .field {
+      border-color: var(--color-red-50);
+    }
+  }
+}

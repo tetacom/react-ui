@@ -27,3 +27,4 @@ export * from './components/Stack';
 export * from './components/Avatar';
 export * from './components/Toggle';
 
+export * from './components/Input';
