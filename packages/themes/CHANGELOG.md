@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.7](https://github.com/tetacom/react-ui/compare/themes-0.0.6...themes-0.0.7) (2023-05-23)
+
+
+### Bug Fixes
+
+* **library:** remove unused code ([d2e6b8d](https://github.com/tetacom/react-ui/commit/d2e6b8d85ae5a91450d8d050cc862d4a9a220bc5))
+
 ## [0.0.6](https://github.com/tetacom/react-ui/compare/themes-0.0.5...themes-0.0.6) (2023-05-23)
 
 

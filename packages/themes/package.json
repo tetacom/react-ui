@@ -1,6 +1,6 @@
 {
   "name": "@tetacom/themes",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publishConfig": {
     "access": "public"
   },
@@ -13,11 +13,5 @@
   "type": "commonjs",
   "files": [
     "src"
-  ],
-  "exports": {
-    "*.scss": {
-      "import": "./*/*.scss",
-      "require": "./*/*.scss"
-    }
-  }
+  ]
 }
