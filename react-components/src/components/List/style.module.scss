@@ -1,3 +1,5 @@
+@import 'react-components/src/style/mixins';
+
 .list {
   margin: 0;
   padding: var(--spacing-8);
@@ -101,32 +103,18 @@
       gap: var(--spacing-2);
 
       &Headline {
+        @include fontBody3;
+
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         color: var(--color-text-90);
-        font-size: var(--font-body3-font-size);
-        text-decoration: var(--font-body3-text-decoration);
-        font-family: var(--font-body3-font-family);
-        font-weight: var(--font-body3-font-weight);
-        font-style: var(--font-body3-font-style);
-        font-stretch: var(--font-body3-font-stretch);
-        letter-spacing: var(--font-body3-letter-spacing);
-        line-height: var(--font-body3-line-height);
-        text-transform: var(--font-body3-text-case);
       }
 
       &Caption {
+        @include fontCaption;
+
         color: var(--color-text-70);
-        font-size: var(--font-caption-font-size);
-        text-decoration: var(--font-caption-text-decoration);
-        font-family: var(--font-caption-font-family);
-        font-weight: var(--font-caption-font-weight);
-        font-style: var(--font-caption-font-style);
-        font-stretch: var(--font-caption-font-stretch);
-        letter-spacing: var(--font-caption-letter-spacing);
-        line-height: var(--font-caption-line-height);
-        text-transform: var(--font-caption-text-case);
       }
     }
   }

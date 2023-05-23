@@ -1,13 +1,8 @@
+@import 'react-components/src/style/mixins';
+
 .chip {
-  font-size: var(--font-caption-font-size);
-  text-decoration: var(--font-caption-text-decoration);
-  font-family: var(--font-caption-font-family);
-  font-weight: var(--font-caption-font-weight);
-  font-style: var(--font-caption-font-style);
-  font-stretch: var(--font-caption-font-stretch);
-  letter-spacing: var(--font-caption-letter-spacing);
-  line-height: var(--font-caption-line-height);
-  text-transform: var(--font-caption-text-case);
+  @include fontCaption;
+
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-6);

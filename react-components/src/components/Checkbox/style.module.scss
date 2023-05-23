@@ -1,16 +1,11 @@
+@import 'react-components/src/style/mixins';
+
 .checkbox {
+  @include fontBody3;
+
   display: inline-flex;
   align-items: flex-end;
   gap: var(--spacing-8);
-  font-size: var(--font-body3-font-size);
-  text-decoration: var(--font-body3-text-decoration);
-  font-family: var(--font-body3-font-family);
-  font-weight: var(--font-body3-font-weight);
-  font-style: var(--font-body3-font-style);
-  font-stretch: var(--font-body3-font-stretch);
-  letter-spacing: var(--font-body3-letter-spacing);
-  line-height: var(--font-body3-line-height);
-  text-transform: var(--font-body3-text-case);
   color: var(--color-text-90);
   cursor: pointer;
   transition: color 0.2s;

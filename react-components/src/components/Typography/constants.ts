@@ -17,7 +17,6 @@ export const typoClasses: Record<FontVariant, string> = {
   body2: s.typoBody2,
   body3: s.typoBody3,
   caption: s.typoCaption,
-  captionSemi: s.typoCaptionSemi,
   captionBold: s.typoCaptionBold,
   overline: s.typoOverline,
 };

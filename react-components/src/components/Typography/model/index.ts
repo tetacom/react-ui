@@ -14,7 +14,6 @@ export type FontVariant =
   | 'body2'
   | 'body3'
   | 'caption'
-  | 'captionSemi'
   | 'captionBold'
   | 'overline';
 
