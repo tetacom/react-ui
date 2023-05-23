@@ -15,6 +15,6 @@ jobs:
       - name: Install dependencies and build 🔧
         run: npm ci && npx nx run react-components:build
       - name: Publish package on NPM 📦
-        run: cd dist/packages/react-components && npm publish
+        run: cd dist/react-components && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
