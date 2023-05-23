@@ -55,6 +55,10 @@
   transition: background 0s;
 }
 
+.button-primary:focus-visible:enabled {
+  box-shadow: 0 0 0 4px var(--color-primary-10);
+}
+
 .button_primary.button-text {
   background-color: var(--color-text-50);
   transition: background 0.8s;
@@ -167,6 +171,10 @@
   transition: background 0s;
 }
 
+.button-red:focus-visible:enabled {
+  box-shadow: 0 0 0 4px var(--color-red-10);
+}
+
 .button_primary.button-green {
   background-color: var(--color-green-50);
   transition: background 0.8s;
@@ -224,6 +232,10 @@
   transition: background 0s;
 }
 
+.button-green:focus-visible:enabled {
+  box-shadow: 0 0 0 4px var(--color-green-10);
+}
+
 .button_primary.button-yellow {
   background-color: var(--color-yellow-50);
   transition: background 0.8s;
@@ -279,6 +291,10 @@
   background-color: var(--color-yellow-10);
   background-size: 100%;
   transition: background 0s;
+}
+
+.button-yellow:focus-visible:enabled {
+  box-shadow: 0 0 0 4px var(--color-yellow-10);
 }
 
 .color-global-link {
