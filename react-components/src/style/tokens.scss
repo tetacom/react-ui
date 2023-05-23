@@ -1,74 +1,7 @@
-@use 'sass:map';
 @use 'node_modules/@tetacom/themes/src/base/presets.scss' as base;
 @use 'node_modules/@tetacom/themes/src/tatneft/presets.scss' as tatneft;
 @use 'node_modules/@tetacom/themes/src/green/presets.scss' as greenPreset;
 
-$tatneft_presets: map-get(tatneft.$presets, 'themes');
-$base_presets: map-get(base.$presets, 'themes');
-$green_presets: map-get(greenPreset.$presets, 'themes');
-$themes0: map-merge($tatneft_presets, $base_presets);
-$themes: map-merge($themes0, $green_presets);
+$themes: map-collect('themes', tatneft.$presets, base.$presets, greenPreset.$presets);
+$shadows: map-collect('shadow', tatneft.$presets, base.$presets, greenPreset.$presets);
 
-@function getColorVar($palette, $grade) {
-  @return var(--color-#{$palette}-#{$grade});
-}
-
-@mixin generateButtonForPalette($paletteName) {
-  .button_primary.button-#{'' + $paletteName} {
-    background-color: getColorVar($paletteName, '50');
-
-    &:hover {
-      background-color: getColorVar($paletteName, '60');
-    }
-
-    &:active {
-      background-color: getColorVar($paletteName, '70');
-    }
-  }
-
-  .button_ghost.button-#{'' + $paletteName} {
-    color: var(--color-text-90);
-    background-color: transparent;
-
-    &:hover {
-      background-color: var(--color-text-5);
-    }
-
-    &:active {
-      background-color: var(--color-text-10);
-    }
-  }
-
-  .button_outline.button-#{'' + $paletteName} {
-    color: var(--color-text-90);
-    border-color: var(--color-text-10);
-    border-style: solid;
-    border-width: 1px;
-    background-color: transparent;
-
-    &:hover {
-      background-color: var(--color-text-5);
-    }
-
-    &:active {
-      background-color: var(--color-text-10);
-    }
-  }
-}
-
-@each $paletteName, $palette in map.get($themes, nth(map.keys($themes), 1)) {
-  @include generateButtonForPalette($paletteName);
-}
-
-html {
-  @each $name, $theme in map.keys($themes) {
-    &.#{$name} {
-      @each $paletteName, $palette in map.get($themes, $name) {
-        @each $paletteColorName, $paletteColor in $palette {
-          --color-#{'' + $paletteName}-#{'' + $paletteColorName}: #{'' +
-            $paletteColor};
-        }
-      }
-    }
-  }
-}

@@ -3260,8 +3260,8 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^9.0.0"
     "@types/react-dom" "^18.0.0"
-
-"@tetacom/themes@^0.0.4":
+    
+"@tetacom/themes@0.0.4":
   version "0.0.4"
   resolved "https://registry.npmjs.org/@tetacom/themes/-/themes-0.0.4.tgz"
   integrity sha512-6RpCLcOrX/xZ3V3HU/gf9FfpnLmNsXlGv2FxAodOFvmAPwlZkjVegNsPZsPqEgVt665A84X/iy77VbN/27a6hA==
