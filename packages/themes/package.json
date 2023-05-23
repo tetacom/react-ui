@@ -13,11 +13,5 @@
   "type": "commonjs",
   "files": [
     "src"
-  ],
-  "exports": {
-    "*.scss": {
-      "import": "./*/*.scss",
-      "require": "./*/*.scss"
-    }
-  }
+  ]
 }
