@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.2](https://github.com/tetacom/react-ui/compare/react-components-0.1.1...react-components-0.1.2) (2023-05-23)
+
+
+### Bug Fixes
+
+* **ci:** add pipeline to release ([9beb554](https://github.com/tetacom/react-ui/commit/9beb5547efd815f642d1b2e703ed25da32badc50))
+
 ### [0.1.1](https://github.com/tetacom/react-ui/compare/react-components-0.1.0...react-components-0.1.1) (2023-05-23)
 
 
