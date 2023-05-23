@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.1](https://github.com/tetacom/react-ui/compare/react-components-0.1.0...react-components-0.1.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* **style:** add font mixins ([ba037c5](https://github.com/tetacom/react-ui/commit/ba037c53dca0b31ad5283a3a6758a14d7b0b7a64))
+* **style:** add green theme ([bd2de22](https://github.com/tetacom/react-ui/commit/bd2de22d5e5dd7c6b323225716e2e3261b654705))
+* **style:** remove hardcode tokens ([c7b1918](https://github.com/tetacom/react-ui/commit/c7b19185d71f3c559cfb670e2449716decc0aa95))
+* **style:** update buttons hover and active styles ([77a42e3](https://github.com/tetacom/react-ui/commit/77a42e32b4bd83f75716fdedf5ee66cc45d47a4f))
+
 ## [0.1.0](https://github.com/tetacom/react-ui/compare/react-components-0.0.4-alpha.0...react-components-0.1.0) (2023-05-23)
 
 
