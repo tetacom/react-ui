@@ -1,3 +1,5 @@
+@import 'react-components/src/style/mixins';
+
 .table {
   width: 100%;
   text-align: left;
@@ -14,15 +16,8 @@
   }
 
   thead th {
-    font-size: var(--font-caption-semi-font-size);
-    text-decoration: var(--font-caption-semi-text-decoration);
-    font-family: var(--font-caption-semi-font-family);
-    font-weight: var(--font-caption-semi-font-weight);
-    font-style: var(--font-caption-semi-font-style);
-    font-stretch: var(--font-caption-semi-font-stretch);
-    letter-spacing: var(--font-caption-semi-letter-spacing);
-    line-height: var(--font-caption-semi-line-height);
-    text-transform: var(--font-caption-semi-text-case);
+    @include fontCaptionBold;
+
     color: var(--color-text-60);
   }
 
@@ -34,15 +29,8 @@
     }
 
     td {
-      font-size: var(--font-body3-font-size);
-      text-decoration: var(--font-body3-text-decoration);
-      font-family: var(--font-body3-font-family);
-      font-weight: var(--font-body3-font-weight);
-      font-style: var(--font-body3-font-style);
-      font-stretch: var(--font-body3-font-stretch);
-      letter-spacing: var(--font-body3-letter-spacing);
-      line-height: var(--font-body3-line-height);
-      text-transform: var(--font-body3-text-case);
+      @include fontBody3;
+
       color: var(--color-text-90);
     }
   }

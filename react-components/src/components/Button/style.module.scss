@@ -1,3 +1,5 @@
+@import 'react-components/src/style/mixins';
+
 .button {
   display: inline-flex;
   justify-content: center;
@@ -54,47 +56,23 @@
 
   &Size {
     &Large {
-      //TODO height нужно вынести в значние токена
-      height: var(--spacing-32);
+      @include fontButton1;
 
-      font-size: var(--font-button1-font-size);
-      font-family: var(--font-button1-font-family);
-      font-weight: var(--font-button1-font-weight);
-      font-style: var(--font-button1-font-style);
-      font-stretch: var(--font-button1-font-stretch);
-      letter-spacing: var(--font-button1-letter-spacing);
-      line-height: var(--font-button1-line-height);
-      text-transform: var(--font-button1-text-case);
+      height: var(--spacing-32);
     }
 
     &Middle {
-      //TODO height нужно вынести в значние токена
-      height: var(--spacing-28);
+      @include fontButton2;
 
-      font-size: var(--font-button2-font-size);
-      font-family: var(--font-button2-font-family);
-      font-weight: var(--font-button2-font-weight);
-      font-style: var(--font-button2-font-style);
-      font-stretch: var(--font-button2-font-stretch);
-      letter-spacing: var(--font-button2-letter-spacing);
-      line-height: var(--font-button2-line-height);
-      text-transform: var(--font-button2-text-case);
+      height: var(--spacing-28);
     }
 
     &Small {
-      //TODO height нужно вынести в значние токена
-      height: var(--spacing-24);
+      @include fontButton3;
 
+      height: var(--spacing-24);
       gap: var(--spacing-4);
       padding: var(--spacing-8);
-      font-size: var(--font-button3-font-size);
-      font-family: var(--font-button3-font-family);
-      font-weight: var(--font-button3-font-weight);
-      font-style: var(--font-button3-font-style);
-      font-stretch: var(--font-button3-font-stretch);
-      letter-spacing: var(--font-button3-letter-spacing);
-      line-height: var(--font-button3-line-height);
-      text-transform: var(--font-button3-text-case);
     }
   }
 

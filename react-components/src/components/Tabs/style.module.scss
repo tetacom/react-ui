@@ -1,3 +1,5 @@
+@import 'react-components/src/style/mixins';
+
 .tabs {
   --highlight-width: var(--spacing-2);
 
@@ -14,19 +16,13 @@
       margin: 0;
 
       &Button {
+        @include fontButton2;
+
         border: none;
         width: 100%;
         display: inline-flex;
         align-items: center;
         gap: var(--spacing-6);
-        font-size: var(--font-button2-font-size);
-        font-family: var(--font-button2-font-family);
-        font-weight: var(--font-button2-font-weight);
-        font-style: var(--font-button2-font-style);
-        font-stretch: var(--font-button2-font-stretch);
-        letter-spacing: var(--font-button2-letter-spacing);
-        line-height: var(--font-button2-line-height);
-        text-transform: var(--font-button2-text-case);
         padding: var(--spacing-16);
         color: var(--color-text-40);
         box-shadow: inset 0 0 0 0 transparent;
