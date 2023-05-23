@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.6](https://github.com/tetacom/react-ui/compare/react-components-0.1.5...react-components-0.1.6) (2023-05-23)
+
+
+### Bug Fixes
+
+* **style:** button text color ([cebe517](https://github.com/tetacom/react-ui/commit/cebe5177e56dff0e442726a3ae6dd73b19cf269c))
+
 ## [0.1.5](https://github.com/tetacom/react-ui/compare/react-components-0.1.4...react-components-0.1.5) (2023-05-23)
 
 
