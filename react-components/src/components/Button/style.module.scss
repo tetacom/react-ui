@@ -2,7 +2,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: none;
+  border: 1px solid transparent;
   position: relative;
   //TODO забирать color для primary из утилити классов
   color: var(--color-global-bgmain);
@@ -12,10 +12,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   background-color: transparent;
-  background-position: center;
   box-shadow: 0 0 0 0 transparent;
   //TODO возможно стоит завести токены с транзишенами
-  transition: background 0.4s;
+  transition: background 0.2s, color 0.2s, border 0.2s;
 
   .children {
     height: 100%;
