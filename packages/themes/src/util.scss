@@ -1,0 +1,8 @@
+@function map-collect($key, $maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map-merge($collection, map-get($map, $key));
+  }
+  @return $collection;
+}

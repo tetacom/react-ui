@@ -1,16 +1,6 @@
-@function map-collect($key, $maps...) {
-  $collection: ();
-
-  @each $map in $maps {
-    $collection: map-merge($collection, map-get($map, $key));
-  }
-  @return $collection;
-}
-
 @function getColorVar($palette, $grade) {
   @return var(--color-#{$palette}-#{$grade});
 }
-
 
 @mixin generateButtonForPalette($paletteName) {
   .button_primary.button-#{'' + $paletteName} {
