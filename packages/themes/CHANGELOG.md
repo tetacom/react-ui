@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.8](https://github.com/tetacom/react-ui/compare/themes-0.0.7...themes-0.0.8) (2023-05-30)
+
+
+### Bug Fixes
+
+* **library:** refactor, add utility css classes ([a81cee3](https://github.com/tetacom/react-ui/commit/a81cee32be875cc439c30a7f5163cc4ff9fb616a))
+
 ## 0.0.1 (2023-05-30)
 
 
