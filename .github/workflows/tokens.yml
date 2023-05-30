@@ -45,6 +45,7 @@ jobs:
           commit-message: "fix(style): design tokens updated"
           title: "🪁 Design tokens updated"
           body: "Design tokens have been updated via Figma and need to be reviewed."
+          branch-suffix: timestamp
           add-paths: |
             packages/themes/**/*.scss
             packages/themes/**/*.css
