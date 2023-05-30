@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.9](https://github.com/tetacom/react-ui/compare/themes-0.0.8...themes-0.0.9) (2023-05-30)
+
+
+### Bug Fixes
+
+* **library:** rename project in project.json ([32506e4](https://github.com/tetacom/react-ui/commit/32506e44c44ba9376087d0a0d522ba2697062703))
+
 ## [0.0.8](https://github.com/tetacom/react-ui/compare/themes-0.0.7...themes-0.0.8) (2023-05-30)
 
 
