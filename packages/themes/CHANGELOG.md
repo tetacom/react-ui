@@ -2,6 +2,35 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.8](https://github.com/tetacom/react-ui/compare/themes-0.0.7...themes-0.0.8) (2023-05-30)
+
+
+### Bug Fixes
+
+* **library:** refactor, add utility css classes ([a81cee3](https://github.com/tetacom/react-ui/commit/a81cee32be875cc439c30a7f5163cc4ff9fb616a))
+
+## 0.0.1 (2023-05-30)
+
+
+### Bug Fixes
+
+* **ci:** add access to package ([8c15c11](https://github.com/tetacom/react-ui/commit/8c15c1189c2cf5783f368246da742625bdfc09e6))
+* **ci:** add keywords ([9b65d17](https://github.com/tetacom/react-ui/commit/9b65d1715580cb726156975f7245dc310345bf88))
+* **ci:** add nx semver ([80c0251](https://github.com/tetacom/react-ui/commit/80c02515d5755803c2b735b1f34fb5aa011e7923))
+* **ci:** paths in package.json ([3931213](https://github.com/tetacom/react-ui/commit/3931213446f5b9a46c64dfc5d5ae8b89dc515b22))
+* design tokens updated ([d8cae67](https://github.com/tetacom/react-ui/commit/d8cae674368e2513db81272c37df6efa1fa91b1d))
+* design tokens updated ([d5cfdce](https://github.com/tetacom/react-ui/commit/d5cfdce820ef083e40dca7242de339f511225f93))
+* **docs:** patch test ([aaffad5](https://github.com/tetacom/react-ui/commit/aaffad5eaae7c528869d02d5a19462213309491d))
+* **library:** refactor, add utility css classes ([a81cee3](https://github.com/tetacom/react-ui/commit/a81cee32be875cc439c30a7f5163cc4ff9fb616a))
+* **library:** remove unused code ([d2e6b8d](https://github.com/tetacom/react-ui/commit/d2e6b8d85ae5a91450d8d050cc862d4a9a220bc5))
+* patch test ([cb30876](https://github.com/tetacom/react-ui/commit/cb30876ec142b273b3153f522bfe24e8da84cc5e))
+* **style:** add generate file in scss ([6c10fa8](https://github.com/tetacom/react-ui/commit/6c10fa849dafd334ca31f0730882fcfbf9cecbd0))
+* **style:** add util ([876623c](https://github.com/tetacom/react-ui/commit/876623cee504d098fc1880547daf68299e6fad57))
+* **style:** design tokens updated ([e935dab](https://github.com/tetacom/react-ui/commit/e935daba0eb3f2cff12b8211deee08af86cef2bc))
+* **style:** design tokens updated ([3d64f1d](https://github.com/tetacom/react-ui/commit/3d64f1de994c09a42883d45d187a020157aadc83))
+* **style:** design tokens updated ([55968dd](https://github.com/tetacom/react-ui/commit/55968ddaba9843e26a9f303ed90c573ad9af9008))
+* **style:** design tokens updated ([10e3a70](https://github.com/tetacom/react-ui/commit/10e3a70c95ef9cd5b67f998de58dd0db0426054e))
+
 ## [0.0.7](https://github.com/tetacom/react-ui/compare/themes-0.0.6...themes-0.0.7) (2023-05-23)
 
 

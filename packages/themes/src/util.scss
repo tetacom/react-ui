@@ -6,3 +6,50 @@
   }
   @return $collection;
 }
+
+@function getColorVar($palette, $grade) {
+  @return var(--color-#{$palette}-#{$grade});
+}
+
+@mixin generateButtonForPalette($paletteName) {
+  .button_primary.button-#{'' + $paletteName} {
+    background-color: getColorVar($paletteName, '50');
+
+    &:hover {
+      background-color: getColorVar($paletteName, '60');
+    }
+
+    &:active {
+      background-color: getColorVar($paletteName, '70');
+    }
+  }
+
+  .button_ghost.button-#{'' + $paletteName} {
+    color: var(--color-text-90);
+    background-color: transparent;
+
+    &:hover {
+      background-color: var(--color-text-5);
+    }
+
+    &:active {
+      background-color: var(--color-text-10);
+    }
+  }
+
+  .button_outline.button-#{'' + $paletteName} {
+    color: var(--color-text-90);
+    border-color: var(--color-text-10);
+    border-style: solid;
+    border-width: 1px;
+    background-color: transparent;
+
+    &:hover {
+      background-color: var(--color-text-5);
+    }
+
+    &:active {
+      background-color: var(--color-text-10);
+    }
+  }
+}
