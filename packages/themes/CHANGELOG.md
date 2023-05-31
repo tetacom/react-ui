@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.11](https://github.com/tetacom/react-ui/compare/themes-0.0.10...themes-0.0.11) (2023-05-31)
+
+
+### Bug Fixes
+
+* **style:** button double pseudo classes hover and active ([e4395c5](https://github.com/tetacom/react-ui/commit/e4395c522a1041bc6998d20fd6f7b5340bead36a))
+
 ## [0.0.10](https://github.com/tetacom/react-ui/compare/themes-0.0.9...themes-0.0.10) (2023-05-31)
 
 
