@@ -4,6 +4,12 @@
   "sourceRoot": "packages/themes/src",
   "projectType": "library",
   "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx build themes --watch"
+      }
+    },
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],

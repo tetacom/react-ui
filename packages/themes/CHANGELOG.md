@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.10](https://github.com/tetacom/react-ui/compare/themes-0.0.9...themes-0.0.10) (2023-05-31)
+
+
+### Bug Fixes
+
+* **style:** change path in tokens ([77e0bc9](https://github.com/tetacom/react-ui/commit/77e0bc9c32704618822ff04988c30ba791aadede))
+* **style:** design tokens updated ([c236174](https://github.com/tetacom/react-ui/commit/c236174f97d8fb60b758000906caf18b2b7ee80b))
+* **style:** design tokens updated ([7f6ec4c](https://github.com/tetacom/react-ui/commit/7f6ec4cecccfba50af9d3e21d2f890953e320226))
+
 ## [0.0.9](https://github.com/tetacom/react-ui/compare/themes-0.0.8...themes-0.0.9) (2023-05-30)
 
 
