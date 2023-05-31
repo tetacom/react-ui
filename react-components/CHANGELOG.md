@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.7](https://github.com/tetacom/react-ui/compare/react-components-0.1.6...react-components-0.1.7) (2023-05-31)
+
+
+### Bug Fixes
+
+* **library:** bump theme packages ([5edee8e](https://github.com/tetacom/react-ui/commit/5edee8e95d5ac3d89623978a79c1482abc4fdf64))
+* **style:** change path in tokens ([77e0bc9](https://github.com/tetacom/react-ui/commit/77e0bc9c32704618822ff04988c30ba791aadede))
+
 ## [0.1.6](https://github.com/tetacom/react-ui/compare/react-components-0.1.5...react-components-0.1.6) (2023-05-23)
 
 
