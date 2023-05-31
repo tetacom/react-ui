@@ -15,10 +15,12 @@
   .button_primary.button-#{'' + $paletteName} {
     background-color: getColorVar($paletteName, '50');
 
+    &.hover,
     &:hover {
       background-color: getColorVar($paletteName, '60');
     }
 
+    &.active,
     &:active {
       background-color: getColorVar($paletteName, '70');
     }
@@ -28,10 +30,12 @@
     color: var(--color-text-90);
     background-color: transparent;
 
+    &.hover,
     &:hover {
       background-color: var(--color-text-5);
     }
 
+    &.active,
     &:active {
       background-color: var(--color-text-10);
     }
@@ -44,10 +48,12 @@
     border-width: 1px;
     background-color: transparent;
 
+    &.hover,
     &:hover {
       background-color: var(--color-text-5);
     }
 
+    &.active,
     &:active {
       background-color: var(--color-text-10);
     }
