@@ -23,7 +23,7 @@ export const Default: Story = {
   args: {
     defaultValue: '',
     value: '',
-    fieldSize: 'middle',
+    size: 'middle',
     shape: 'round',
     label: 'Label',
     labelPosition: 'top',

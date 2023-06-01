@@ -27,7 +27,6 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
     {
       children,
       type,
-      disabled,
       palette = 'none',
       shape = 'round',
       size = 'middle',
@@ -35,7 +34,8 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
       square = false,
       block = false,
       loading = false,
-      className,
+      disabled = false,
+      className = '',
       ...props
     },
     ref,

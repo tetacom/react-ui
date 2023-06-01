@@ -1,0 +1,20 @@
+.result {
+  justify-content: center;
+  padding: var(--spacing-24);
+
+  .picture {
+    font-size: 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .subtitle {
+    margin: 0;
+  }
+}

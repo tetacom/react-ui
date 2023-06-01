@@ -56,12 +56,15 @@ export const List: FC<ListProps> = ({
             <span
               className={s.text}
               style={{
-                maxWidth: getTextBlockWidth({
-                  checkbox: checked,
-                  picture: Boolean(picture),
-                  leftIcon: Boolean(leftIcon),
-                  rightIcon: Boolean(rightIcon),
-                }),
+                maxWidth: getTextBlockWidth(
+                  {
+                    checkbox: checked,
+                    picture: Boolean(picture),
+                    leftIcon: Boolean(leftIcon),
+                    rightIcon: Boolean(rightIcon),
+                  },
+                  imageSize,
+                ),
               }}
             >
               <span className={s.textHeadline}>{headline}</span>

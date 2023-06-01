@@ -24,7 +24,7 @@ export const Input = forwardRef<InputRef, InputProps>(
     {
       defaultValue = '',
       value,
-      fieldSize = 'middle',
+      size = 'middle',
       shape = 'round',
       label = '',
       labelPosition = 'top',
@@ -87,6 +87,7 @@ export const Input = forwardRef<InputRef, InputProps>(
           s.input,
           labelPosition === 'left' && s.inputHorizontal,
         )}
+        style={style}
       >
         {label && (
           <label htmlFor={props.id} className={s.label}>
@@ -98,7 +99,7 @@ export const Input = forwardRef<InputRef, InputProps>(
           ref={inputWrapperRef}
           className={classNames(
             s.field,
-            sizeClasses[fieldSize],
+            sizeClasses[size],
             shapeClasses[shape],
             icon && s.fieldLeftIcon,
             allowClear && s.fieldRightIcon,
@@ -135,7 +136,6 @@ export const Input = forwardRef<InputRef, InputProps>(
             onChange={handleChange}
             onKeyDown={handleEnterKeyPress}
             disabled={disabled}
-            style={style}
           />
 
           <span className={s.placeholder}>{placeholder}</span>

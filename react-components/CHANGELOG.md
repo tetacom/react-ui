@@ -2,6 +2,23 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/tetacom/react-ui/compare/react-components-0.1.6...react-components-0.2.0) (2023-06-01)
+
+
+### Features
+
+* add result component ([4267236](https://github.com/tetacom/react-ui/commit/42672362b3105f608ef1d1654f9ac7fa2bf12ce2))
+
+
+### Bug Fixes
+
+* add new icons ([e44825e](https://github.com/tetacom/react-ui/commit/e44825e0416b92de609991444d1e24983d63573b))
+* fix tabs with links ([6a05d19](https://github.com/tetacom/react-ui/commit/6a05d1978c4823591a457f3fbb670eb9d4194345))
+* **refactor:** add component input field ([732ac6c](https://github.com/tetacom/react-ui/commit/732ac6ce74fd5fcb15b18b23f9d2d9f1e0141552))
+* **refactor:** use Avatar in Chip ([b512702](https://github.com/tetacom/react-ui/commit/b512702983c9eb5d91e20ba367e767e3c34cae11))
+* **style:** change path in tokens ([77e0bc9](https://github.com/tetacom/react-ui/commit/77e0bc9c32704618822ff04988c30ba791aadede))
+* update themes ([aeedb2b](https://github.com/tetacom/react-ui/commit/aeedb2b99165c99b48555d1eb39487ea725b46cd))
+
 ## [0.1.6](https://github.com/tetacom/react-ui/compare/react-components-0.1.5...react-components-0.1.6) (2023-05-23)
 
 

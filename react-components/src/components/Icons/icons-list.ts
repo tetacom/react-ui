@@ -176,6 +176,9 @@ export const iconsList = [
   'xyz',
   'y',
   'zoom',
+  'bubbleChart',
+  'darkMode',
+  'lightMode',
 ];
 
 export const coloredIconsList = [

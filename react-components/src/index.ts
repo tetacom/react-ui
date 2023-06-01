@@ -28,3 +28,5 @@ export * from './components/Avatar';
 export * from './components/Toggle';
 
 export * from './components/Input';
+
+export * from './components/Result';

@@ -3,7 +3,9 @@ import { Unstyled } from '@storybook/blocks';
 
 import { ColoredIcon } from '../index';
 import { Typography } from '../../Typography';
+import { Input } from 'tetacom/react-components';
 import { coloredIconsList } from '../icons-list';
+
 import s from './style.module.scss';
 import iconClassNames from '../style.module.scss';
 
@@ -11,8 +13,8 @@ const { Title, Paragraph, Text } = Typography;
 
 export const ColoredIconDocs = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+  const handleSearch = (value: string) => {
+    setSearchQuery(value);
   };
   const filteredList = useMemo(
     () =>
@@ -45,19 +47,13 @@ export const ColoredIconDocs = () => {
 
         <Paragraph>Semantic vector graphics.</Paragraph>
 
-        <Title level={2} fontVariant="h6">
-          <input
-            type="text"
-            placeholder="Icon name"
-            autoFocus
-            onChange={handleSearch}
-            style={{
-              width: '100%',
-              border: '1px solid var(--color-primary-50)',
-              padding: 'var(--spacing-8)',
-            }}
-          />
-        </Title>
+        <Input
+          size="large"
+          value={searchQuery}
+          onChange={handleSearch}
+          allowClear
+          style={{ width: '100%' }}
+        />
 
         <div className={s.icons}>
           {filteredList.map((icon) => (
