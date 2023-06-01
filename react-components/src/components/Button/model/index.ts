@@ -29,4 +29,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<ButtonRef> {
 
   // Установить статус загрузки кнопки
   loading?: boolean;
+
+  // Отключить кнопку
+  disabled?: boolean;
 }
