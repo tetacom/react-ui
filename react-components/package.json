@@ -4,7 +4,8 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "peerDependencies": {
-    "@tetacom/themes": "^0.0.6"
+    "@tetacom/themes": "^0.0.6",
+    "d3": "^7.8.4"
   },
   "publishConfig": {
     "access": "public"
@@ -16,5 +17,8 @@
     "index.d.ts",
     "index.js",
     "index.mjs"
-  ]
+  ],
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2"
+  }
 }
