@@ -26,6 +26,6 @@ export const Default: Story = {
     view: 'default',
     closable: true,
     icon: <Icon name="tick" />,
-    picture: <img src={img} alt="" />,
+    picture: img,
   },
 };

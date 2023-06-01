@@ -33,7 +33,7 @@ const chips: ExampleType[] = [
       {
         id: 'default-with-picture',
         view: 'default',
-        picture: <img src={img} alt="" />,
+        picture: img,
       },
       {
         id: 'default-with-icon',
@@ -52,7 +52,7 @@ const chips: ExampleType[] = [
       {
         id: 'primary-with-picture',
         view: 'primary',
-        picture: <img src={img} alt="" />,
+        picture: img,
       },
       {
         id: 'primary-with-icon',
@@ -71,7 +71,7 @@ const chips: ExampleType[] = [
       {
         id: 'outline-with-picture',
         view: 'outline',
-        picture: <img src={img} alt="" />,
+        picture: img,
       },
       {
         id: 'outline-with-icon',

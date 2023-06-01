@@ -18,7 +18,7 @@ export interface ChipProps extends HTMLAttributes<ChipRef> {
   icon?: React.ReactElement;
 
   // Установить изображение чипа
-  picture?: React.ReactElement;
+  picture?: string;
 
   // Обратный вызов выполняется при нажатии на чип
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;

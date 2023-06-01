@@ -2,9 +2,10 @@ import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { ChipProps, ChipRef, ViewType } from './model';
+import { Icon } from '../Icons';
+import { Avatar } from '../Avatar';
 
 import s from './style.module.scss';
-import { Icon } from '../Icons';
 
 const viewClasses: Record<ViewType, string> = {
   default: s.chipViewDefault,
@@ -20,7 +21,7 @@ export const Chip = forwardRef<ChipRef, ChipProps>(
       closable = false,
       closeIcon = null,
       icon = null,
-      picture = null,
+      picture = '',
       onClick = null,
       onClose = null,
       className,
@@ -53,7 +54,9 @@ export const Chip = forwardRef<ChipRef, ChipProps>(
       >
         {hasPictureOrIcon &&
           (picture ? (
-            <div className={s.picture}>{picture}</div>
+            <div className={s.picture}>
+              <Avatar name="" size="28" picture={picture} />
+            </div>
           ) : (
             <div className={s.icon}>{icon}</div>
           ))}

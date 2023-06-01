@@ -1,5 +1,7 @@
 import React from 'react';
 
+export type PictureType = 'small' | 'large';
+
 export interface ListItem {
   // Уникальный идентификатор пункта списка
   key: string;
@@ -10,7 +12,6 @@ export interface ListItem {
   // Текст описания пункта списка
   caption?: string;
 
-  // TODO изображение временно строка, позже переделать на возможность передавать компонент аватара
   // Изображение пункта списка
   picture?: string;
 
