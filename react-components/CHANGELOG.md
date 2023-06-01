@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.2.1](https://github.com/tetacom/react-ui/compare/react-components-0.2.0...react-components-0.2.1) (2023-06-01)
+
+
+### Bug Fixes
+
+* **style:** fix some icons color ([6292a70](https://github.com/tetacom/react-ui/commit/6292a70c3256b68c7350ae8585258b2445a978df))
+
 ## [0.2.0](https://github.com/tetacom/react-ui/compare/react-components-0.1.6...react-components-0.2.0) (2023-06-01)
 
 
