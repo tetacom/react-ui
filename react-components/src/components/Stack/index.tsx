@@ -46,6 +46,8 @@ export const Stack: FC<StackProps> = ({
             <div className={s.divider} />
           ) : null;
 
+        if (!child) return null;
+
         return (
           <>
             <div>{child}</div>
