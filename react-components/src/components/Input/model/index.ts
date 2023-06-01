@@ -7,7 +7,7 @@ export type ShapeType = 'brick' | 'round' | 'circle';
 export type LabelPositionType = 'top' | 'left';
 
 export interface InputProps
-  extends Omit<InputHTMLAttributes<InputRef>, 'onChange'> {
+  extends Omit<InputHTMLAttributes<InputRef>, 'size' | 'onChange'> {
   // Исходное входное содержимое
   defaultValue?: string;
 
@@ -15,7 +15,7 @@ export interface InputProps
   value?: string;
 
   // Размер поля ввода. Примечание: по умолчанию используется средний размер
-  fieldSize?: SizeType;
+  size?: SizeType;
 
   // Установить форму текстового поля
   shape?: ShapeType;
