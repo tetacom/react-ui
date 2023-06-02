@@ -1,9 +1,9 @@
 import {BasePoint, BaseSeriesComponent, BaseSeriesConfig} from "tetacom/react-components";
-import React from "react";
-import {useConfig} from "../../context/hooks";
+import React, {useContext} from "react";
+import {ChartContext} from "../../context/chart.context";
 
 function BarSeries(props: BaseSeriesConfig<BasePoint>): React.ReactElement<BaseSeriesComponent<BasePoint>> {
-    const config = useConfig();
+    const config = useContext(ChartContext);
     return <>{props.series.data.map((point) => {
         return <></>
     })}</>

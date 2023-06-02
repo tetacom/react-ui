@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Chart } from '../index';
 import {createChart} from "./helpers/story-helper";
+import {ChartLineDemo} from "./ChartLineDemo";
 
-const meta: Meta<typeof Chart> = {
+const meta: Meta<typeof ChartLineDemo> = {
   title: 'Data Display/Chart',
-  component: Chart,
+  component: ChartLineDemo,
   parameters: {
     docs: {},
   },
 };
 export default meta;
 
-type Story = StoryObj<typeof Chart>;
+type Story = StoryObj<typeof ChartLineDemo>;
 
 export const Default: Story = {
   args: {
-    config: createChart(500)
+    createChart: createChart
   }
 };

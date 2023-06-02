@@ -5,3 +5,7 @@
  * .container {
  * }
 */
+
+#storybook-root {
+    height: 100%
+}

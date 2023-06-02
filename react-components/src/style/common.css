@@ -57,3 +57,7 @@ a {
 .storybook-docs {
   border: 3px dashed red;
 }
+
+html, body, #storybook-root {
+  height: 100%;
+}

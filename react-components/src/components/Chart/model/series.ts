@@ -18,6 +18,8 @@ export type Series<T extends BasePoint> = {
 export type BaseSeriesComponent<T extends BasePoint> = Component<BaseSeriesConfig<T>> | React.FC<BaseSeriesConfig<T>>;
 export type BaseSeriesConfig<T extends BasePoint> = {
   config: IChartConfig;
-  series: Series<T>
+  series: Series<T>;
+  x: any;
+  y: any;
 }
 

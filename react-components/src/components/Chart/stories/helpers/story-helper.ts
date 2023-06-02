@@ -23,22 +23,13 @@ const createSeries = (size: number) => {
                 color: cssColors[randomColor()].toLowerCase(),
                 data: Array.from(Array(size).keys())
                     .map((key, index, arr) => {
-                        const num = faker.number.int({min: 0, max: 6000});
                         const point: BasePoint = {
-                            x: num,
+                            x: index,
                             y: faker.number.int({min: 0, max: 200}),
                         };
 
                         return point;
                     })
-                    .sort((a, b) => a.x - b.x)
-                    .map((_, index, arr) => {
-                        return {
-                            ..._,
-                            x: arr[index - 1]?.x,
-                            x1: _.x,
-                        };
-                    }),
             };
         }
     );
@@ -49,11 +40,7 @@ export const createChart = (size: number): IChartConfig => {
     return {
         name: faker.location.country(),
         bounds: undefined,
-        xAxis: [{
-            min: 0,
-            max: 5000
-        },
-        ],
+        xAxis: [{}],
         yAxis: [
             {
                 visible: true,
