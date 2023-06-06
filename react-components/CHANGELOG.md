@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.2.2](https://github.com/tetacom/react-ui/compare/react-components-0.2.1...react-components-0.2.2) (2023-06-06)
+
+
+### Bug Fixes
+
+* **style:** update icons ([96d814e](https://github.com/tetacom/react-ui/commit/96d814e9f6b52456e1b0b1f4c025ec1f6cce2370))
+* **style:** update stack divider and add small tabs ([3ce33a1](https://github.com/tetacom/react-ui/commit/3ce33a1bf080f72af55b4ab9adc482d4e65fe33d))
+
 ### [0.2.1](https://github.com/tetacom/react-ui/compare/react-components-0.2.0...react-components-0.2.1) (2023-06-01)
 
 

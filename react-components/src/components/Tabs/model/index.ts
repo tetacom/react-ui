@@ -1,6 +1,7 @@
 import { TabType } from './tabType';
 
 export type Direction = 'horizontal' | 'vertical';
+export type TabSize = 'small' | 'large';
 
 export interface TabsProps {
   // Настроить содержимое вкладок
@@ -17,4 +18,7 @@ export interface TabsProps {
 
   // Направление вкладок
   direction?: Direction;
+
+  // Размер вкладок
+  size?: TabSize;
 }

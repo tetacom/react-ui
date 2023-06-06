@@ -2,12 +2,17 @@ import React, { FC, useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 
-import { TabsProps } from './model';
+import { TabSize, TabsProps } from './model';
 import { TabType } from './model/tabType';
 import { Typography } from '../Typography';
 import { Highlight } from './components/Highlight';
 
 import s from './style.module.scss';
+
+const sizeClasses: Record<TabSize, string> = {
+  small: s.navItemButtonSmall,
+  large: s.navItemButtonLarge,
+};
 
 export const Tabs: FC<TabsProps> = ({
   items,
@@ -15,6 +20,7 @@ export const Tabs: FC<TabsProps> = ({
   activeKey = '',
   onChange = null,
   direction = 'horizontal',
+  size = 'large',
 }) => {
   const tabsRef = useRef<HTMLUListElement>(null);
   const [currentKey, setCurrentKey] = useState(defaultActiveKey);
@@ -48,6 +54,7 @@ export const Tabs: FC<TabsProps> = ({
               type="button"
               className={classNames(
                 s.navItemButton,
+                sizeClasses[size],
                 key === selectedKey && s.navItemButtonSelected,
               )}
               data-key={key}
