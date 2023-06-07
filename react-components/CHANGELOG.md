@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.2.4](https://github.com/tetacom/react-ui/compare/react-components-0.2.3...react-components-0.2.4) (2023-06-07)
+
+
+### Bug Fixes
+
+* **style:** update fonts ([b1d2c87](https://github.com/tetacom/react-ui/commit/b1d2c87a6a7e57b67db07e9b93eae6a127375af8))
+
 ### [0.2.3](https://github.com/tetacom/react-ui/compare/react-components-0.2.2...react-components-0.2.3) (2023-06-07)
 
 
