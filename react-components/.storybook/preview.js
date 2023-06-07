@@ -1,6 +1,7 @@
 import { useTheme } from './useTheme';
 
 import '../src/style/fonts.css';
+import '../src/style/normalize.css';
 import '../src/style/common.css';
 import '../src/style/globalTokens.css';
 import '../src/style/tokens.scss';
