@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.2.3](https://github.com/tetacom/react-ui/compare/react-components-0.2.2...react-components-0.2.3) (2023-06-07)
+
+
+### Bug Fixes
+
+* **style:** add normalize styles to build ([49e82c6](https://github.com/tetacom/react-ui/commit/49e82c68f359cd62b2c5bcc6064f4383efac795b))
+* **style:** update circle button paddings ([61c412d](https://github.com/tetacom/react-ui/commit/61c412d0594777e5402becf63a634e7bc40ed758))
+
 ### [0.2.2](https://github.com/tetacom/react-ui/compare/react-components-0.2.1...react-components-0.2.2) (2023-06-06)
 
 
