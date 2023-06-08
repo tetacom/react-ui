@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.12](https://github.com/tetacom/react-ui/compare/themes-0.0.11...themes-0.0.12) (2023-06-08)
+
+
+### Reverts
+
+* Revert "fix(style): design tokens updated" ([4c64024](https://github.com/tetacom/react-ui/commit/4c64024699fddb113cf042dd8d3910be1119efca))
+
 ## [0.0.11](https://github.com/tetacom/react-ui/compare/themes-0.0.10...themes-0.0.11) (2023-06-08)
 
 
