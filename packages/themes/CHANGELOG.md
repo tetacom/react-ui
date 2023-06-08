@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.13](https://github.com/tetacom/react-ui/compare/themes-0.0.12...themes-0.0.13) (2023-06-08)
+
+
+### Bug Fixes
+
+* **style:** fix tatneft tokens ([ebfa8e7](https://github.com/tetacom/react-ui/commit/ebfa8e7e3d239ab47ec06d98075c049f85f409b5))
+
 ## [0.0.12](https://github.com/tetacom/react-ui/compare/themes-0.0.11...themes-0.0.12) (2023-06-08)
 
 
