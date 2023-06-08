@@ -6,7 +6,7 @@ $presets: (
         white: #ffffffff,
         bgmain: #f4f4f4ff,
         bgcard: #ffffffff,
-        staticprimary: #26413fff
+        staticprimary: #26413fff,
       ),
       text: (
         5: #24242412,
@@ -18,7 +18,7 @@ $presets: (
         60: #03030799,
         70: #020203b0,
         80: #020203c7,
-        90: #020203e0
+        90: #020203e0,
       ),
       primary: (
         5: #e6f7e9ff,
@@ -30,7 +30,7 @@ $presets: (
         60: #089667ff,
         70: #05885bff,
         80: #02794eff,
-        90: #006a42ff
+        90: #006a42ff,
       ),
       green: (
         5: #e6f4f0ff,
@@ -42,7 +42,7 @@ $presets: (
         60: #107744ff,
         70: #0c6836ff,
         80: #095828ff,
-        90: #06471cff
+        90: #06471cff,
       ),
       red: (
         5: #fdeef6ff,
@@ -54,7 +54,7 @@ $presets: (
         60: #c23e42ff,
         70: #993c3fff,
         80: #733739ff,
-        90: #502e2fff
+        90: #502e2fff,
       ),
       yellow: (
         5: #fff0ccff,
@@ -66,16 +66,16 @@ $presets: (
         60: #d86e00ff,
         70: #bd5400ff,
         80: #9f3d00ff,
-        90: #802900ff
-      )
+        90: #802900ff,
+      ),
     ),
     tatneftdark: (
       global: (
         link: #007effff,
         white: #ffffffff,
-        bgmain: #222836ff,
-        bgcard: #292e3cff,
-        staticprimary: #26413fff
+        bgmain: #262626ff,
+        bgcard: #303030ff,
+        staticprimary: #26413fff,
       ),
       text: (
         5: #ffffff0f,
@@ -87,7 +87,7 @@ $presets: (
         60: #ffffffa3,
         70: #ffffffb8,
         80: #ffffffcc,
-        90: #ffffffde
+        90: #ffffffde,
       ),
       primary: (
         5: #283f3aff,
@@ -99,7 +99,7 @@ $presets: (
         60: #38a467ff,
         70: #68bd75ff,
         80: #a1d499ff,
-        90: #d8eaccff
+        90: #d8eaccff,
       ),
       green: (
         5: #283f3aff,
@@ -111,7 +111,7 @@ $presets: (
         60: #38a467ff,
         70: #68bd75ff,
         80: #a1d499ff,
-        90: #d8eaccff
+        90: #d8eaccff,
       ),
       red: (
         5: #662a2bff,
@@ -123,7 +123,7 @@ $presets: (
         60: #fa606bff,
         70: #ff8794ff,
         80: #ffb2beff,
-        90: #ffe1e7ff
+        90: #ffe1e7ff,
       ),
       yellow: (
         5: #402f1dff,
@@ -135,9 +135,9 @@ $presets: (
         60: #fdc730ff,
         70: #ffdf60ff,
         80: #fff18fff,
-        90: #fffcbfff
-      )
-    )
+        90: #fffcbfff,
+      ),
+    ),
   ),
   shadow: (
     tatneftlight: (
@@ -145,14 +145,14 @@ $presets: (
       2: 0px 14px 18px 0px #00000014,
       3: 0px 16px 22px 0px #0000001a,
       4: 0px 16px 24px 0px #27272729,
-      5: 0px 20px 32px 0px #27272733
+      5: 0px 20px 32px 0px #27272733,
     ),
     tatneftdark: (
       1: 0px 4px 4px 0px #0b0b0c3d,
       2: 0px 14px 18px 0px #0000003d,
       3: 0px 8px 16px 0px #00000066,
       4: 0px 12px 24px 0px #00000066,
-      5: 0px 16px 32px 0px #00000066
-    )
-  )
+      5: 0px 16px 32px 0px #00000066,
+    ),
+  ),
 );
