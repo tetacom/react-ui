@@ -1,58 +1,120 @@
-import React, { FC } from 'react';
-import { useLayer } from 'react-laag';
+import React, { FC, useState } from 'react';
+
+import {
+  useFloating,
+  size,
+  autoPlacement,
+  autoUpdate,
+  useInteractions,
+  useClick,
+  useDismiss,
+  FloatingPortal,
+  flip,
+} from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { DropdownProps } from './model';
 import s from './style.module.scss';
+import { flushSync } from 'react-dom';
 
 export const Dropdown: FC<DropdownProps> = ({
   dropdown,
-  placement = 'bottom-center',
-  autoPlacement = true,
-  open = false,
+  placement = 'bottom',
+  possiblePlacements = ['left-end', 'right-end'],
+  open,
+  autoWidth = false,
   children,
+  onOpenChange,
+  resizable = false,
 }) => {
   const [isOpen, setOpen] = React.useState(false);
-  const toggle = () => {
-    setOpen(!isOpen);
-  };
-  const close = () => {
-    setOpen(false);
-  };
+  const [maxHeight, setMaxHeight] = useState<number>(0);
 
-  const { renderLayer, triggerProps, layerProps } = useLayer({
-    isOpen,
-    onOutsideClick: close,
-    possiblePlacements: ['left-end', 'right-end'],
-    overflowContainer: false,
-    auto: autoPlacement,
+  const showDropdown = open !== undefined ? open : isOpen;
+
+  const { x, y, refs, floatingStyles, context } = useFloating({
     placement,
+    open: showDropdown,
+    onOpenChange: (e) => {
+      setOpen(e);
+      if (onOpenChange) {
+        onOpenChange(e);
+      }
+    },
+    whileElementsMounted: resizable ? autoUpdate : undefined,
+    middleware: [
+      autoPlacement({
+        allowedPlacements: possiblePlacements,
+      }),
+      flip(),
+      size({
+        apply({ rects, elements, availableHeight, x }) {
+          // Force update
+          flushSync(() => {
+            setMaxHeight(maxHeight === 0 ? availableHeight : maxHeight);
+          });
+          Object.assign(elements.floating.style, {
+            maxWidth: autoWidth ? `${rects.reference.width}px` : 'auto',
+          });
+        },
+        padding: 12,
+      }),
+    ],
   });
 
-  const showDropdown = isOpen || open;
+  const click = useClick(context, { event: 'mousedown' });
+  const dismiss = useDismiss(context, {
+    escapeKey: true,
+  });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    dismiss,
+    click,
+  ]);
 
   return (
     <>
-      <div className={s.dropdownTrigger} {...triggerProps} onClick={toggle}>
+      <div
+        ref={refs.setReference}
+        className={s.dropdownTrigger}
+        {...getReferenceProps()}
+      >
         {children}
       </div>
 
-      {renderLayer(
+      {
         <AnimatePresence>
           {showDropdown && (
-            <motion.div
-              {...layerProps}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.1 }}
-              className={s.dropdownContent}
-            >
-              {dropdown}
-            </motion.div>
+            <FloatingPortal>
+              <motion.div
+                ref={refs.setFloating}
+                {...getFloatingProps()}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.1 }}
+                style={{
+                  ...floatingStyles,
+                  maxHeight,
+                  top: y ?? 0,
+                  left: x ?? 0,
+                }}
+                className={s.dropdownContent}
+              >
+                <div
+                  className={s.dropdownContentScrollable}
+                  style={{
+                    maxHeight,
+                    overflowY: 'scroll',
+                  }}
+                >
+                  {dropdown}
+                </div>
+              </motion.div>
+            </FloatingPortal>
           )}
-        </AnimatePresence>,
-      )}
+        </AnimatePresence>
+      }
     </>
   );
 };

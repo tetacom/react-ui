@@ -14,6 +14,8 @@ export interface InputProps
   // Значение входного содержимого
   value?: string;
 
+  readonly?: boolean;
+
   // Размер поля ввода. Примечание: по умолчанию используется средний размер
   size?: SizeType;
 

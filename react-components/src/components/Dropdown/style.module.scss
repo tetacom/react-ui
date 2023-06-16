@@ -6,4 +6,32 @@
   width: 100%;
   max-width: calc(10 * var(--spacing-32));
   box-shadow: var(--shadow-2);
+  border-radius: var(--radius-8);
+  overflow: hidden;
+  border: 1px solid var(--color-text-5);
+
+  &Scrollable {
+    scrollbar-color: var(--color-text-50) transparent;
+    scrollbar-width: thin;
+    border: 3px solid var(--color-global-bgcard);
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--color-global-bgcard);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: var(--radius-8);
+      background-color: var(--color-text-30);
+      background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: var(--color-primary-50);
+    }
+  }
 }
