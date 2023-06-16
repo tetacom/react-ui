@@ -22,7 +22,6 @@ type Story = StoryObj<typeof Input>;
 export const Default: Story = {
   args: {
     defaultValue: '',
-    value: '',
     size: 'middle',
     shape: 'round',
     label: 'Label',
@@ -31,6 +30,7 @@ export const Default: Story = {
     errorMessage: '',
     allowClear: false,
     disabled: false,
+    readonly: true,
     maxLength: 0,
     icon: <Icon name="user" size={64} />,
     onChange: undefined,
