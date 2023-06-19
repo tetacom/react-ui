@@ -18,6 +18,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref) => {
       possiblePlacements={['bottom', 'top']}
       placement="bottom"
       autoWidth={true}
+      resizable={false}
       open={props.disabled ? false : open}
       onOpenChange={(e) => !props.disabled && setOpen(e)}
       dropdown={
@@ -47,7 +48,6 @@ export const Select = forwardRef<any, SelectProps>((props, ref) => {
       <div style={{ position: 'relative' }}>
         <Input
           {...props}
-          tabIndex={0}
           ref={useMergeRefs([inputRef, ref])}
           value={foundValue?.headline}
           readonly

@@ -32,16 +32,21 @@ export const Dropdown: FC<DropdownProps> = ({
 
   const showDropdown = open !== undefined ? open : isOpen;
 
-  const { x, y, refs, floatingStyles, context } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     placement,
     open: showDropdown,
+    transform: false,
     onOpenChange: (e) => {
       setOpen(e);
       if (onOpenChange) {
         onOpenChange(e);
       }
     },
-    whileElementsMounted: resizable ? autoUpdate : undefined,
+    whileElementsMounted: (reference, floating, update) => {
+      return autoUpdate(reference, floating, update, {
+        ancestorScroll: resizable,
+      });
+    },
     middleware: [
       autoPlacement({
         allowedPlacements: possiblePlacements,
@@ -49,12 +54,16 @@ export const Dropdown: FC<DropdownProps> = ({
       flip(),
       size({
         apply({ rects, elements, availableHeight, x }) {
+          const height = maxHeight === 0 ? availableHeight : maxHeight;
+
           // Force update
           flushSync(() => {
-            setMaxHeight(maxHeight === 0 ? availableHeight : maxHeight);
+            setMaxHeight(height);
           });
+
           Object.assign(elements.floating.style, {
             maxWidth: autoWidth ? `${rects.reference.width}px` : 'auto',
+            maxHeight: `${availableHeight}px`,
           });
         },
         padding: 12,
@@ -95,9 +104,6 @@ export const Dropdown: FC<DropdownProps> = ({
                 transition={{ duration: 0.1 }}
                 style={{
                   ...floatingStyles,
-                  maxHeight,
-                  top: y ?? 0,
-                  left: x ?? 0,
                 }}
                 className={s.dropdownContent}
               >

@@ -13,8 +13,10 @@ type Story = StoryObj<typeof Select>;
 
 export const Default: Story = {
   render: (props) => (
-    <div>
-      <Select {...props} />
+    <div style={{ height: 10000 }}>
+      <div style={{ marginTop: 300 }}>
+        <Select {...props} />
+      </div>
     </div>
   ),
   args: {
