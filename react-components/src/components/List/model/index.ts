@@ -1,8 +1,9 @@
+import React from 'react';
 import { ListItem } from './listItem';
 
 export interface ListProps {
   // Содержание пунктов списка
-  items: ListItem[];
+  items: Array<ListItem>;
 
   // Размер изображений
   imageSize?: 'small' | 'large';
@@ -15,4 +16,7 @@ export interface ListProps {
 
   // Можно ли выбирать несколько пунков списка
   checked?: boolean;
+
+  // Обратный вызов при клике на элемент
+  onClick?: (event: object) => any;
 }

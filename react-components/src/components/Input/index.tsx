@@ -38,6 +38,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       onPressEnter = null,
       className,
       style,
+      readonly = false,
       ...props
     },
     ref,
@@ -136,6 +137,7 @@ export const Input = forwardRef<InputRef, InputProps>(
             onChange={handleChange}
             onKeyDown={handleEnterKeyPress}
             disabled={disabled}
+            readOnly={readonly}
           />
 
           <span className={s.placeholder}>{placeholder}</span>
