@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Select } from '../index';
+import { BaseSelectProps } from '../model';
+
+interface ModelItem extends BaseSelectProps {
+  color?: string;
+}
 
 const meta: Meta<typeof Select> = {
   title: 'Data Entry/Select',
@@ -11,15 +15,37 @@ export default meta;
 
 type Story = StoryObj<typeof Select>;
 
-export const Default: Story = {
-  render: (props) => (
-    <div style={{ height: 10000 }}>
-      <div style={{ marginTop: 300 }}>
-        <Select {...props} />
-      </div>
+const CustomItem = (props: ModelItem) => {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <div
+        style={{
+          height: 12,
+          width: 12,
+          background: props?.color,
+        }}
+      />
+      <div>{props?.headline}</div>
     </div>
-  ),
+  );
+};
+
+export const Default: Story = {
+  render: (props) => {
+    return (
+      <div>
+        <Select<ModelItem>
+          {...props}
+          onChangeItem={(item) => item.color}
+          onItemRender={(item) => <CustomItem {...item} />}
+        />
+      </div>
+    );
+  },
   args: {
+    onChangeItem: (item: ModelItem) => {
+      console.log(item);
+    },
     size: 'middle',
     shape: 'round',
     label: '',
@@ -36,8 +62,9 @@ export const Default: Story = {
     className: '',
     items: Array.from({ length: 50 }).map((item, index) => {
       return {
-        key: index,
+        key: index.toString(),
         headline: `Item ${index}`,
+        color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
       };
     }),
   },
