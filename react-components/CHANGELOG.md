@@ -2,6 +2,19 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.0](https://github.com/tetacom/react-ui/compare/react-components-0.2.4...react-components-0.3.0) (2023-06-20)
+
+
+### Features
+
+* move tooltip & dropdown to floating-ui, add single select ([8c3f05a](https://github.com/tetacom/react-ui/commit/8c3f05a4f528d7c5029f60e3cb49b98cf0419c4e))
+
+
+### Bug Fixes
+
+* **library:** add ancestorScroll property ([ebf4db3](https://github.com/tetacom/react-ui/commit/ebf4db3f0c39b07eee5b869e944c89acdf47d368))
+* **library:** add onItemRender callback for customize ([a3b774c](https://github.com/tetacom/react-ui/commit/a3b774cf61c19e1ded98f53d513bffd714dd4109))
+
 ### [0.2.4](https://github.com/tetacom/react-ui/compare/react-components-0.2.3...react-components-0.2.4) (2023-06-07)
 
 

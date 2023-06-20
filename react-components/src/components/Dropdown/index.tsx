@@ -1,58 +1,126 @@
-import React, { FC } from 'react';
-import { useLayer } from 'react-laag';
+import React, { FC, useState } from 'react';
+
+import {
+  useFloating,
+  size,
+  autoPlacement,
+  autoUpdate,
+  useInteractions,
+  useClick,
+  useDismiss,
+  FloatingPortal,
+  flip,
+} from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { DropdownProps } from './model';
 import s from './style.module.scss';
+import { flushSync } from 'react-dom';
 
 export const Dropdown: FC<DropdownProps> = ({
   dropdown,
-  placement = 'bottom-center',
-  autoPlacement = true,
-  open = false,
+  placement = 'bottom',
+  possiblePlacements = ['left-end', 'right-end'],
+  open,
+  autoWidth = false,
   children,
+  onOpenChange,
+  resizable = false,
 }) => {
   const [isOpen, setOpen] = React.useState(false);
-  const toggle = () => {
-    setOpen(!isOpen);
-  };
-  const close = () => {
-    setOpen(false);
-  };
+  const [maxHeight, setMaxHeight] = useState<number>(0);
 
-  const { renderLayer, triggerProps, layerProps } = useLayer({
-    isOpen,
-    onOutsideClick: close,
-    possiblePlacements: ['left-end', 'right-end'],
-    overflowContainer: false,
-    auto: autoPlacement,
+  const showDropdown = open !== undefined ? open : isOpen;
+
+  const { refs, floatingStyles, context } = useFloating({
     placement,
+    open: showDropdown,
+    transform: false,
+    onOpenChange: (e) => {
+      setOpen(e);
+      if (onOpenChange) {
+        onOpenChange(e);
+      }
+    },
+    whileElementsMounted: (reference, floating, update) => {
+      return autoUpdate(reference, floating, update, {
+        ancestorScroll: resizable,
+      });
+    },
+    middleware: [
+      autoPlacement({
+        allowedPlacements: possiblePlacements,
+      }),
+      flip(),
+      size({
+        apply({ rects, elements, availableHeight, x }) {
+          const height = maxHeight === 0 ? availableHeight : maxHeight;
+
+          // Force update
+          flushSync(() => {
+            setMaxHeight(height);
+          });
+
+          Object.assign(elements.floating.style, {
+            maxWidth: autoWidth ? `${rects.reference.width}px` : 'auto',
+            maxHeight: `${availableHeight}px`,
+          });
+        },
+        padding: 12,
+      }),
+    ],
   });
 
-  const showDropdown = isOpen || open;
+  const click = useClick(context, { event: 'mousedown' });
+  const dismiss = useDismiss(context, {
+    escapeKey: true,
+  });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    dismiss,
+    click,
+  ]);
 
   return (
     <>
-      <div className={s.dropdownTrigger} {...triggerProps} onClick={toggle}>
+      <div
+        ref={refs.setReference}
+        className={s.dropdownTrigger}
+        {...getReferenceProps()}
+      >
         {children}
       </div>
 
-      {renderLayer(
+      {
         <AnimatePresence>
           {showDropdown && (
-            <motion.div
-              {...layerProps}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.1 }}
-              className={s.dropdownContent}
-            >
-              {dropdown}
-            </motion.div>
+            <FloatingPortal>
+              <motion.div
+                ref={refs.setFloating}
+                {...getFloatingProps()}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.1 }}
+                style={{
+                  ...floatingStyles,
+                }}
+                className={s.dropdownContent}
+              >
+                <div
+                  className={s.dropdownContentScrollable}
+                  style={{
+                    maxHeight,
+                    overflowY: 'scroll',
+                  }}
+                >
+                  {dropdown}
+                </div>
+              </motion.div>
+            </FloatingPortal>
           )}
-        </AnimatePresence>,
-      )}
+        </AnimatePresence>
+      }
     </>
   );
 };

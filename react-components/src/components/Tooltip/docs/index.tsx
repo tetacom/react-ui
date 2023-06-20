@@ -6,7 +6,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import { Unstyled } from '@storybook/blocks';
-import { Placement } from 'react-laag';
+import { Placement } from '@floating-ui/react';
 
 import { Tooltip } from '../index';
 import { Typography } from '../../Typography';

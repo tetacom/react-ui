@@ -12,70 +12,64 @@ export const List: FC<ListProps> = ({
   imageRound = true,
   divider = true,
   checked = false,
+  onClick,
 }) => {
   return (
     <ul className={s.list}>
-      {items.map(
-        ({
-          key,
-          headline,
-          caption = '',
-          picture = '',
-          leftIcon = null,
-          rightIcon = null,
-          disabled = false,
-        }) => (
-          <li
-            key={key}
-            className={classNames(
-              s.item,
-              divider && s.itemDivider,
-              disabled && s.itemDisabled,
-            )}
-          >
-            {checked && (
-              <span className={s.checkbox}>
-                <Checkbox />
-              </span>
-            )}
-
-            {picture && (
-              <span
-                className={classNames(
-                  s.picture,
-                  imageSize === 'large' && s.pictureLarge,
-                  imageRound && s.pictureRound,
-                )}
-              >
-                <img src={picture} alt="" />
-              </span>
-            )}
-
-            {leftIcon && <span className={s.leftIcon}>{leftIcon}</span>}
-
-            <span
-              className={s.text}
-              style={{
-                maxWidth: getTextBlockWidth(
-                  {
-                    checkbox: checked,
-                    picture: Boolean(picture),
-                    leftIcon: Boolean(leftIcon),
-                    rightIcon: Boolean(rightIcon),
-                  },
-                  imageSize,
-                ),
-              }}
-            >
-              <span className={s.textHeadline}>{headline}</span>
-
-              {caption && <span className={s.textCaption}>Caption</span>}
+      {items.map((item) => (
+        <li
+          key={item.key}
+          onClick={() => (onClick ? onClick(item) : onClick)}
+          className={classNames(
+            s.item,
+            divider && s.itemDivider,
+            item.disabled && s.itemDisabled,
+          )}
+        >
+          {checked && (
+            <span className={s.checkbox}>
+              <Checkbox />
             </span>
+          )}
 
-            {rightIcon && <span className={s.rightIcon}>{rightIcon}</span>}
-          </li>
-        ),
-      )}
+          {item.picture && (
+            <span
+              className={classNames(
+                s.picture,
+                imageSize === 'large' && s.pictureLarge,
+                imageRound && s.pictureRound,
+              )}
+            >
+              <img src={item.picture} alt="" />
+            </span>
+          )}
+
+          {item.leftIcon && <span className={s.leftIcon}>{item.leftIcon}</span>}
+
+          <span
+            className={s.text}
+            style={{
+              maxWidth: getTextBlockWidth(
+                {
+                  checkbox: checked,
+                  picture: Boolean(item.picture),
+                  leftIcon: Boolean(item.leftIcon),
+                  rightIcon: Boolean(item.rightIcon),
+                },
+                imageSize,
+              ),
+            }}
+          >
+            <span className={s.textHeadline}>{item.headline}</span>
+
+            {item.caption && <span className={s.textCaption}>Caption</span>}
+          </span>
+
+          {item.rightIcon && (
+            <span className={s.rightIcon}>{item.rightIcon}</span>
+          )}
+        </li>
+      ))}
     </ul>
   );
 };
