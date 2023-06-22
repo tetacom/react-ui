@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import classNames from 'classnames';
 
@@ -16,7 +16,7 @@ const spring = {
 export const Toggle = forwardRef<ToggleRef, ToggleProps>(
   (
     {
-      defaultChecked = false,
+      defaultChecked,
       checked = false,
       disabled = false,
       loading = false,
@@ -26,15 +26,19 @@ export const Toggle = forwardRef<ToggleRef, ToggleProps>(
     },
     ref,
   ) => {
-    const [isOn, setIsOn] = useState(defaultChecked);
+    const isUncontrolledToggle = useMemo(
+      () => defaultChecked === undefined,
+      [defaultChecked],
+    );
+    const [isOn, setIsOn] = useState(defaultChecked || checked);
 
     const toggleSwitch = () => {
-      setIsOn(!isOn);
+      if (!isUncontrolledToggle) setIsOn(!isOn);
 
-      onChange && onChange(!isOn);
+      if (onChange) onChange(!isOn);
     };
 
-    const isChecked = isOn || checked;
+    const isChecked = isUncontrolledToggle ? checked : isOn;
     const isDisabled = disabled || loading;
 
     return (
@@ -42,7 +46,7 @@ export const Toggle = forwardRef<ToggleRef, ToggleProps>(
         ref={ref}
         type="button"
         role="switch"
-        aria-checked={isOn}
+        aria-checked={isChecked}
         className={classNames(
           s.toggle,
           isChecked && s.toggleChecked,

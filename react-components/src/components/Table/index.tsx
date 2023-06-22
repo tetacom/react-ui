@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import {
   createColumnHelper,
@@ -8,62 +8,85 @@ import {
   CellContext,
 } from '@tanstack/react-table';
 
-import { TableProps, TableRef } from './model';
-import { TableColumn } from './model/public-api';
+import { TableProps } from './model';
+import { Toggle } from '../Toggle';
+
 import s from './style.module.scss';
+import { FilterType } from './model/enum/filter-type.enum';
 
-export const Table = forwardRef<TableRef, TableProps>(
-  ({ dataSource, columns, className, ...props }, ref) => {
-    const data = useMemo(() => {
-      return [...dataSource];
-    }, [dataSource]);
+const cellMap: Map<FilterType, null | FC<{ value: any }>> = new Map();
+cellMap.set(2, ({ value }) => {
+  if (!(typeof value === 'object')) {
+    return value;
+  }
 
-    const columnHelper = createColumnHelper<object>();
-    const tableColumns = columns.map(({ name, caption }) =>
-      columnHelper.accessor(name as keyof TableColumn, {
-        id: name,
-        cell: (info: CellContext<object, number>) => info.getValue(),
-        header: () => caption,
-        footer: () => caption,
-      }),
-    );
+  return Object.values(value).join(' — ');
+});
+cellMap.set(4, ({ value }) => <Toggle checked={value} />);
 
-    const table = useReactTable({
-      data,
-      columns: tableColumns,
-      getCoreRowModel: getCoreRowModel(),
+export function Table<T>({
+  dataSource,
+  columns,
+  sticky = false,
+  className,
+  ...props
+}: TableProps<T>): JSX.Element {
+  const columnHelper = createColumnHelper<T>();
+  const tableColumns = columns.map(({ name, caption, filterType }) => {
+    const Cell = cellMap.get(filterType as FilterType) || null;
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return columnHelper.accessor(name, {
+      id: name,
+      cell: (info: CellContext<T, number>) => {
+        if (!Cell) {
+          return info.getValue();
+        }
+
+        return <Cell value={info.getValue()} />;
+      },
+      header: () => caption,
+      footer: () => caption,
     });
+  });
 
-    return (
-      <table {...props} ref={ref} className={classNames(s.table, className)}>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    );
-  },
-);
+  const table = useReactTable({
+    data: dataSource,
+    columns: tableColumns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
+  return (
+    <table {...props} className={classNames(s.table, className)}>
+      <thead className={classNames(sticky && s.sticky)}>
+        {table.getHeaderGroups().map((headerGroup) => (
+          <tr key={headerGroup.id}>
+            {headerGroup.headers.map((header) => (
+              <th key={header.id}>
+                {header.isPlaceholder
+                  ? null
+                  : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext(),
+                    )}
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+
+      <tbody>
+        {table.getRowModel().rows.map((row) => (
+          <tr key={row.id}>
+            {row.getVisibleCells().map((cell) => (
+              <td key={cell.id}>
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}

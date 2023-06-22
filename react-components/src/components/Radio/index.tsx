@@ -1,11 +1,11 @@
 import React, { FC, useContext } from 'react';
 import classNames from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { RadioProps } from './model';
 import { RadioGroup } from './group';
 import RadioGroupContext from './context';
 import s from './style.module.scss';
-import { AnimatePresence, motion } from 'framer-motion';
 
 const spring = {
   type: 'spring',

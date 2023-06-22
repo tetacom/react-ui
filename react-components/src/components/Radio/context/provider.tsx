@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren, useMemo, useState } from 'react';
 
-import { RadioValueType } from '../model';
 import RadioGroupContext, { RadioGroupContextData } from './index';
+import { RadioValueType } from '../model/radioValueType';
 
 interface RadioGroupContextProviderProps extends PropsWithChildren {
   initValue: RadioValueType;

@@ -1,5 +1,7 @@
 import { StringUtil } from '../../../utils/strign-util';
 import { FilterType } from './enum/filter-type.enum';
+import { StringFilterType } from './enum/string-filter-type.enum';
+import { ListFilterType } from './enum/list-filter-type.enum';
 
 export class TableColumn {
   /**
@@ -38,6 +40,27 @@ export class TableColumn {
    * Тип фильтра
    */
   filterType: FilterType | null;
+  /**
+   * Тип сравнения строкового фильтра
+   */
+  stringFilterType: StringFilterType;
+  /**
+   * Тип сравнения строкового фильтра
+   */
+  listFilterType: ListFilterType;
+  /**
+   * Строгое сравнение
+   */
+  strict: boolean;
+  /**
+   * Компонент для рендера фильтра
+   */
+  filterComponent: any;
+
+  /**
+   * Дочерние элементы
+   */
+  columns: TableColumn[];
 
   constructor(options?: {
     sortOrder?: number;
@@ -49,6 +72,11 @@ export class TableColumn {
     filterable?: boolean;
     filterField?: string;
     filterType?: FilterType | null;
+    stringFilterType?: StringFilterType;
+    listFilterType?: ListFilterType;
+    strict?: boolean;
+    filterComponent?: any;
+    columns?: TableColumn[];
   }) {
     this.sortOrder = options?.sortOrder ?? Number.MAX_VALUE;
     this.name = options?.name ?? '';
@@ -62,6 +90,12 @@ export class TableColumn {
     this.filterField = StringUtil.firstLetterToLower(
       options?.filterField ?? this.name,
     );
-    this.filterType = options?.filterType || null;
+    this.filterType = options?.filterType ?? null;
+    this.stringFilterType =
+      options?.stringFilterType ?? StringFilterType.Contains;
+    this.listFilterType = options?.listFilterType ?? ListFilterType.None;
+    this.strict = options?.strict ?? false;
+    this.filterComponent = options?.filterComponent;
+    this.columns = options?.columns?.map((_) => new TableColumn(_)) ?? [];
   }
 }

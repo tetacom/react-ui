@@ -1,5 +1,4 @@
 import { InputProps } from '../../Input/model';
-import React from 'react';
 
 export type BaseSelectProps = { key: string; headline: string };
 export interface SelectProps<T extends BaseSelectProps> extends InputProps {
