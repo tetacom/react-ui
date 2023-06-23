@@ -9,30 +9,42 @@
   td {
     background-color: var(--color-global-bgcard);
     padding: var(--radius-6) var(--radius-8);
-  }
-
-  thead th {
-    border-bottom: 1px solid var(--color-text-5);
+    transition: background-color 0.2s ease-in-out;
   }
 
   thead th {
     @include fontCaptionBold;
 
     color: var(--color-text-60);
+    border-bottom: 1px solid var(--color-text-5);
   }
 
-  tbody tr {
-    &:nth-child(2n) {
-      td {
-        background-color: var(--color-global-bgmain);
+  tbody {
+    tr {
+      &:nth-child(2n) {
+        td {
+          background-color: var(--color-global-bgmain);
+        }
       }
-    }
 
-    td {
-      @include fontBody3;
+      td {
+        @include fontBody3;
 
-      color: var(--color-text-90);
-      white-space: nowrap;
+        color: var(--color-text-90);
+        white-space: nowrap;
+      }
+
+      &:hover {
+        td {
+          background-color: var(--color-primary-5);
+        }
+      }
+
+      &.active {
+        td {
+          background-color: var(--color-primary-10);
+        }
+      }
     }
   }
 

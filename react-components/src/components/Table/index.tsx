@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import {
   createColumnHelper,
@@ -70,6 +70,11 @@ export function Table<T>({
     getCoreRowModel: getCoreRowModel(),
   });
 
+  const [selectedRowId, setSelectedRowId] = useState<null | string>(null);
+  const selectRow = (rowId: string) => {
+    setSelectedRowId(rowId);
+  };
+
   return (
     <table {...props} className={classNames(s.table, className)}>
       <thead className={classNames(sticky && s.sticky)}>
@@ -91,7 +96,13 @@ export function Table<T>({
 
       <tbody>
         {table.getRowModel().rows.map((row) => (
-          <tr key={row.id}>
+          <tr
+            key={row.id}
+            className={classNames(selectedRowId === row.id && s.active)}
+            onClick={() => {
+              selectRow(row.id);
+            }}
+          >
             {row.getVisibleCells().map((cell) => (
               <td key={cell.id}>
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
