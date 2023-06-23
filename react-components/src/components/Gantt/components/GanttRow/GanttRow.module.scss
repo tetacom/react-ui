@@ -1,0 +1,31 @@
+.root {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  .track {
+    display: flex;
+    height: 32px;
+
+    &Item {
+      position: relative;
+      max-height: 32px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .name {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background-color: #292e3c;
+    padding: 10px 16px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: column;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}

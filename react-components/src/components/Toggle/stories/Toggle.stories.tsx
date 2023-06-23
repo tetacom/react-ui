@@ -31,7 +31,6 @@ export const Default: Story = {
 const TabsWithHooks = () => {
   const [isOn, setIsOn] = useState(false);
   const handleChange = (checked: boolean) => {
-    console.log(checked);
     setIsOn(!isOn);
   };
 

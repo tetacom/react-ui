@@ -1,6 +1,10 @@
 import React, { FC, useState } from 'react';
 import {
+  autoUpdate,
+  flip,
+  FloatingPortal,
   offset as offsetFn,
+  shift,
   useFloating,
   useHover,
   useInteractions,
@@ -17,11 +21,13 @@ export const Tooltip: FC<TooltipProps> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { x, y, refs, floatingStyles, context } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     placement,
+    transform: false,
     onOpenChange: setIsOpen,
-    middleware: [offsetFn(offset)],
+    whileElementsMounted: autoUpdate,
+    middleware: [offsetFn(offset), flip(), shift()],
   });
 
   const hover = useHover(context);
@@ -30,24 +36,27 @@ export const Tooltip: FC<TooltipProps> = ({
 
   return (
     <>
-      <span ref={refs.setReference} {...getReferenceProps()}>
-        {children}
-      </span>
+      {React.cloneElement(children as React.ReactElement, {
+        ref: refs.setReference,
+        ...getReferenceProps(),
+      })}
       {
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              className={s.tooltip}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.1 }}
-              ref={refs.setFloating}
-              style={{ ...floatingStyles, top: y, left: x }}
-              {...getFloatingProps()}
-            >
-              {title}
-            </motion.div>
+            <FloatingPortal>
+              <motion.div
+                className={s.tooltip}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.1 }}
+                ref={refs.setFloating}
+                style={{ ...floatingStyles, zIndex: 100 }}
+                {...getFloatingProps()}
+              >
+                {title}
+              </motion.div>
+            </FloatingPortal>
           )}
         </AnimatePresence>
       }
