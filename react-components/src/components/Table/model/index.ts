@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react';
 import { TableColumn } from './table-column';
+import { DictionaryType } from './dictionary';
 
 export type TableRef = HTMLTableElement;
 
@@ -12,4 +13,6 @@ export interface TableProps<T> extends HTMLAttributes<TableRef> {
 
   // Зафиксировать шапку при скролле
   sticky?: boolean;
+
+  dictionary?: DictionaryType;
 }

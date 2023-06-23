@@ -1,72 +1,120 @@
-import { StringUtil } from '../../../utils/strign-util';
-import { FilterType } from './enum/filter-type.enum';
+import { FilterItem } from './filter-item';
+import { ICellInstance } from './i-cell-instance';
+import { HeadDropdownTabConfig } from './head-dropdown-tab';
+import { AggregationType } from './enum/aggregation-type.enum';
 import { StringFilterType } from './enum/string-filter-type.enum';
 import { ListFilterType } from './enum/list-filter-type.enum';
+import { FilterType } from './enum/filter-type.enum';
 
-export class TableColumn {
+export class TableColumn extends FilterItem {
   /**
-   * Порядковый номер
+   * Ширина
    */
-  sortOrder: number = Number.MAX_VALUE;
+  width = 80;
   /**
-   * Название столбца для заголовка таблицы
+   * Коэффициент растяжения ячейки
    */
-  caption: string;
+  flex = 1;
   /**
-   * Подсказка
+   * Стобец закреплен
    */
-  hint: string;
+  locked: boolean;
   /**
    * Название столбца в строке результатов
    */
-  name: string;
+  override name: string;
   /**
-   * Возможность сортировать поле
+   * Название столбца родителя
    */
-  sortable = true;
+  parentName: string;
   /**
-   * Возможность фильтровать поле
+   * Название поля столбца в словаре
    */
-  filterable = true;
+  propertyName?: string;
   /**
-   * Поле для сортировки
+   * Название столбца для заголовка таблицы
    */
-  sortField: string;
+  override caption: string;
   /**
-   * Поле для фильтрации
+   * Единицы измерения
    */
-  filterField: string;
+  unit: string;
+  unitMeasureParameterId: number;
+  unitId: number;
   /**
-   * Тип фильтра
+   * список style классов для шапки таблицы
    */
-  filterType: FilterType | null;
+  headCellClass: string[];
   /**
-   * Тип сравнения строкового фильтра
+   * список style классов для ячейки таблицы
    */
-  stringFilterType: StringFilterType;
+  cellClass: string[];
   /**
-   * Тип сравнения строкового фильтра
+   * Дополнительные данные, свободное описание, доступны внутри компонета ячейки, можно прокинуть callback например
    */
-  listFilterType: ListFilterType;
+  data: any;
   /**
-   * Строгое сравнение
+   * Колонка доступна для редактирования
    */
-  strict: boolean;
+  editable: boolean | ((coordinates: ICellInstance<any>) => boolean);
   /**
-   * Компонент для рендера фильтра
+   * Компонент для рендера ячейки
    */
-  filterComponent: any;
+  cellComponent: any;
+  /**
+   * Компонент для рендера заголовка столбца ячейки
+   */
+  headCellComponent: any;
+  /**
+   * Custom head dropdown for column
+   */
+  headDropdownConfig: HeadDropdownTabConfig | null;
+  /**
+   * Дочерние колонки
+   */
+  override columns: TableColumn[];
 
   /**
-   * Дочерние элементы
+   * Aggregate type
    */
-  columns: TableColumn[];
+  aggregate: AggregationType;
 
+  /**
+   * Значение по умолчанию при создании записи
+   */
+  defaultValue: any;
+
+  /**
+   * Значение по умолчанию при создании записи
+   */
+  maxValue: number;
+
+  /**
+   * Значение по умолчанию при создании записи
+   */
+  minValue: number;
+
+  /**
+   * Поле обязательно для заполнения
+   */
+  required: boolean;
+
+  /**
+   * Инициализация из анонимного объекта
+   */
   constructor(options?: {
+    width?: number;
+    flex?: number;
     sortOrder?: number;
+    locked?: boolean;
     name?: string;
+    parentName?: string;
+    propertyName?: string;
     caption?: string;
     hint?: string;
+    unit?: string;
+    unitMeasureParameterId?: number;
+    unitId?: number;
     sortable?: boolean;
     sortField?: string;
     filterable?: boolean;
@@ -75,27 +123,45 @@ export class TableColumn {
     stringFilterType?: StringFilterType;
     listFilterType?: ListFilterType;
     strict?: boolean;
+    headCellClass?: string[];
+    cellClass?: string[];
+    data?: any;
+    editable?: boolean | ((coordinates: ICellInstance<any>) => boolean);
+    objectType?: boolean;
+    cellComponent?: any;
+    headCellComponent?: any;
+    headDropdownConfig?: HeadDropdownTabConfig;
     filterComponent?: any;
-    columns?: TableColumn[];
+    columns?: any[];
+    aggregate?: AggregationType;
+    defaultValue?: any;
+    maxValue?: number;
+    minValue?: number;
+    required?: boolean;
   }) {
-    this.sortOrder = options?.sortOrder ?? Number.MAX_VALUE;
+    super(options);
+    this.width = options?.width ?? 80;
+    this.flex = options?.flex ?? 1;
+    this.headCellClass = options?.headCellClass ?? [];
+    this.cellClass = options?.cellClass ?? [];
+    this.locked = options?.locked ?? false;
     this.name = options?.name ?? '';
-    this.caption = options?.caption ?? this.name;
-    this.hint = options?.hint ?? '';
-    this.sortable = options?.sortable ?? true;
-    this.filterable = options?.filterable ?? true;
-    this.sortField = StringUtil.firstLetterToLower(
-      options?.sortField ?? this.name,
-    );
-    this.filterField = StringUtil.firstLetterToLower(
-      options?.filterField ?? this.name,
-    );
-    this.filterType = options?.filterType ?? null;
-    this.stringFilterType =
-      options?.stringFilterType ?? StringFilterType.Contains;
-    this.listFilterType = options?.listFilterType ?? ListFilterType.None;
-    this.strict = options?.strict ?? false;
-    this.filterComponent = options?.filterComponent;
-    this.columns = options?.columns?.map((_) => new TableColumn(_)) ?? [];
+    this.parentName = options?.parentName ?? '';
+    this.propertyName = options?.propertyName;
+    this.caption = options?.caption ?? '';
+    this.unit = options?.unit ?? '';
+    this.unitMeasureParameterId = options?.unitMeasureParameterId ?? Date.now();
+    this.unitId = options?.unitId ?? Date.now();
+    this.data = options?.data;
+    this.editable = options?.editable ?? true;
+    this.headCellComponent = options?.headCellComponent;
+    this.headDropdownConfig = options?.headDropdownConfig ?? null;
+    this.cellComponent = options?.cellComponent;
+    this.aggregate = options?.aggregate ?? AggregationType.none;
+    this.defaultValue = options?.defaultValue;
+    this.maxValue = options?.maxValue ?? Number.MAX_VALUE;
+    this.minValue = options?.minValue ?? 0;
+    this.required = options?.required ?? false;
+    this.columns = options?.columns?.map((x) => new TableColumn(x)) ?? [];
   }
 }
