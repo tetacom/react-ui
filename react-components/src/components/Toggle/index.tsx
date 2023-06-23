@@ -16,8 +16,8 @@ const spring = {
 export const Toggle = forwardRef<ToggleRef, ToggleProps>(
   (
     {
-      defaultChecked,
-      checked = false,
+      defaultChecked = false,
+      checked,
       disabled = false,
       loading = false,
       autoFocus = false,
@@ -27,18 +27,18 @@ export const Toggle = forwardRef<ToggleRef, ToggleProps>(
     ref,
   ) => {
     const isUncontrolledToggle = useMemo(
-      () => defaultChecked === undefined,
-      [defaultChecked],
+      () => checked === undefined,
+      [checked],
     );
-    const [isOn, setIsOn] = useState(defaultChecked || checked);
+    const [isOn, setIsOn] = useState(checked || defaultChecked);
 
     const toggleSwitch = () => {
-      if (!isUncontrolledToggle) setIsOn(!isOn);
+      if (isUncontrolledToggle) setIsOn(!isOn);
 
       if (onChange) onChange(!isOn);
     };
 
-    const isChecked = isUncontrolledToggle ? checked : isOn;
+    const isChecked = isUncontrolledToggle ? isOn : checked;
     const isDisabled = disabled || loading;
 
     return (

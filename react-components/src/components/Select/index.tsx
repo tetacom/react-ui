@@ -79,5 +79,5 @@ const SelectInner = forwardRef(
 );
 
 export const Select = SelectInner as <T extends BaseSelectProps>(
-  props: SelectProps<T> & { ref: Ref<any> },
+  props: SelectProps<T> & { ref?: Ref<any> },
 ) => JSX.Element;

@@ -26,7 +26,7 @@ export class TableColumn extends FilterItem {
   /**
    * Название столбца родителя
    */
-  parentName: string;
+  parentName: string | null;
   /**
    * Название поля столбца в словаре
    */
@@ -38,21 +38,21 @@ export class TableColumn extends FilterItem {
   /**
    * Единицы измерения
    */
-  unit: string;
-  unitMeasureParameterId: number;
-  unitId: number;
+  unit: string | null;
+  unitMeasureParameterId?: number;
+  unitId?: number;
   /**
    * список style классов для шапки таблицы
    */
-  headCellClass: string[];
+  headCellClass: string[] | null;
   /**
    * список style классов для ячейки таблицы
    */
-  cellClass: string[];
+  cellClass: string[] | null;
   /**
    * Дополнительные данные, свободное описание, доступны внутри компонета ячейки, можно прокинуть callback например
    */
-  data: any;
+  data?: any;
   /**
    * Колонка доступна для редактирования
    */
@@ -60,15 +60,15 @@ export class TableColumn extends FilterItem {
   /**
    * Компонент для рендера ячейки
    */
-  cellComponent: any;
+  cellComponent?: any;
   /**
    * Компонент для рендера заголовка столбца ячейки
    */
-  headCellComponent: any;
+  headCellComponent?: any;
   /**
    * Custom head dropdown for column
    */
-  headDropdownConfig: HeadDropdownTabConfig | null;
+  headDropdownConfig?: HeadDropdownTabConfig | null;
   /**
    * Дочерние колонки
    */
@@ -87,12 +87,12 @@ export class TableColumn extends FilterItem {
   /**
    * Значение по умолчанию при создании записи
    */
-  maxValue: number;
+  maxValue: number | null;
 
   /**
    * Значение по умолчанию при создании записи
    */
-  minValue: number;
+  minValue: number | null;
 
   /**
    * Поле обязательно для заполнения

@@ -43,19 +43,19 @@ export class FilterItem {
   /**
    * Тип сравнения строкового фильтра
    */
-  stringFilterType: StringFilterType;
+  stringFilterType?: StringFilterType;
   /**
    * Тип сравнения строкового фильтра
    */
-  listFilterType: ListFilterType;
+  listFilterType?: ListFilterType;
   /**
    * Строгое сравнение
    */
-  strict: boolean;
+  strict?: boolean | null;
   /**
    * Компонент для рендера фильтра
    */
-  filterComponent: any;
+  filterComponent?: any;
 
   /**
    * Дочерние элементы
@@ -74,7 +74,7 @@ export class FilterItem {
     filterType?: FilterType | null;
     stringFilterType?: StringFilterType;
     listFilterType?: ListFilterType;
-    strict?: boolean;
+    strict?: boolean | null;
     filterComponent?: any;
     columns?: FilterItem[];
   }) {

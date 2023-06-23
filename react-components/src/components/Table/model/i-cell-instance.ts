@@ -12,3 +12,7 @@ export interface ICellInstanceEvent<T> extends ICellInstance<T> {
 export interface ICellInstanceValue<T> extends ICellInstance<T> {
   value: any;
 }
+
+export interface ICustomCell {
+  value: any;
+}
