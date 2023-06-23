@@ -14,5 +14,9 @@ export interface TableProps<T> extends HTMLAttributes<TableRef> {
   // Зафиксировать шапку при скролле
   sticky?: boolean;
 
+  // Словать
   dictionary?: DictionaryType;
+
+  // Установить статус загрузки таблицы
+  loading?: boolean;
 }

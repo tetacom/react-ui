@@ -10,6 +10,7 @@ import {
 
 import { TableProps } from './model';
 import { Toggle } from '../Toggle';
+import { Spinner } from '../Spinner';
 import { FilterType } from './model/enum/filter-type.enum';
 
 import s from './style.module.scss';
@@ -29,6 +30,7 @@ export function Table<T>({
   columns,
   sticky = false,
   dictionary,
+  loading = false,
   className,
   ...props
 }: TableProps<T>): JSX.Element {
@@ -74,6 +76,31 @@ export function Table<T>({
   const selectRow = (rowId: string) => {
     setSelectedRowId(rowId);
   };
+
+  if (loading) {
+    const loadingRows: string[] = [];
+    for (let i = 1; i <= 20; i++) {
+      loadingRows.push(String(i));
+    }
+
+    return (
+      <div className={s.loadTable}>
+        <table {...props} className={classNames(s.table, className)}>
+          <tbody>
+            {loadingRows.map((item) => (
+              <tr key={item}>
+                <td></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className={s.loadTableSpinner}>
+          <Spinner color="var(--color-primary-50)" size={20} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <table {...props} className={classNames(s.table, className)}>

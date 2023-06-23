@@ -22,11 +22,15 @@ export default meta;
 
 type Story = StoryObj<typeof Table>;
 
-const TableStory: FC<{ sticky?: boolean }> = ({ sticky = false }) => (
+const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
+  sticky = false,
+  loading = false,
+}) => (
   <Table
     dataSource={dataResponse}
     columns={configResponse as unknown as TableColumn[]}
     sticky={sticky}
+    loading={loading}
     dictionary={dictResponse}
   />
 );
@@ -35,5 +39,6 @@ export const Default: Story = {
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
     sticky: true,
+    loading: false,
   },
 };
