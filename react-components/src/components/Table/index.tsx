@@ -17,32 +17,34 @@ export function Table<T>({
   dataSource,
   columns,
   sticky = false,
-  dictionary,
   loading = false,
   className,
   ...props
 }: TableProps<T>): JSX.Element {
   const columnHelper = createColumnHelper<T>();
-  const tableColumns = columns.map(({ name, caption, cellComponent }) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return columnHelper.accessor(name, {
-      id: name,
-      cell: (info: CellContext<T, number>) => {
-        const infoValue = info.getValue();
+  const tableColumns = columns.map(
+    ({ name, caption, cellComponent, propertyName }) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      return columnHelper.accessor(name, {
+        id: name,
+        cell: (info: CellContext<T, number>) => {
+          const infoValue = info.getValue();
 
-        if (cellComponent) {
-          return React.createElement(cellComponent, {
-            value: infoValue,
-          });
-        }
+          if (cellComponent) {
+            return React.createElement(cellComponent, {
+              value: infoValue,
+              propertyName,
+            });
+          }
 
-        return infoValue;
-      },
-      header: () => caption,
-      footer: () => caption,
-    });
-  });
+          return infoValue;
+        },
+        header: () => caption,
+        footer: () => caption,
+      });
+    },
+  );
 
   const table = useReactTable({
     data: dataSource,

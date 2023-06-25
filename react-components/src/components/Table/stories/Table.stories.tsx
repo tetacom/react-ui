@@ -25,6 +25,20 @@ export default meta;
 
 type Story = StoryObj<typeof Table>;
 
+type Dictionary = {
+  id: string | number;
+  name: string;
+  parentId: string | null;
+  iconId: string | null;
+};
+
+interface IDictionary {
+  [key: string]: Dictionary[];
+}
+
+const initColumns: TableColumn[] = configResponse;
+const initDictionary: IDictionary = dictResponse;
+
 const CustomComponentWithToggle: FC<ICustomCell> = ({ value }) => (
   <Toggle checked={value} />
 );
@@ -37,15 +51,28 @@ const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
   return Object.values(value).join(' — ');
 };
 
+const CustomComponentWithDict: FC<ICustomCell> = ({
+  value,
+  propertyName = '',
+}) => {
+  if (propertyName) {
+    return (
+      initDictionary[propertyName].find(({ id }) => id === value)?.name ?? value
+    );
+  }
+
+  return value;
+};
+
 const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
+customComponents.set(FilterType.list, CustomComponentWithDict);
 
 const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
   sticky = false,
   loading = false,
 }) => {
-  const initColumns: TableColumn[] = configResponse;
   const columns = initColumns.map((item) => {
     const cellComponent = item.filterType
       ? customComponents.get(item.filterType)
@@ -64,7 +91,6 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
       columns={columns}
       sticky={sticky}
       loading={loading}
-      dictionary={dictResponse}
     />
   );
 };

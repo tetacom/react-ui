@@ -15,4 +15,5 @@ export interface ICellInstanceValue<T> extends ICellInstance<T> {
 
 export interface ICustomCell {
   value: any;
+  propertyName?: string;
 }
