@@ -47,6 +47,10 @@ export function Table<T>({
             });
           }
 
+          if (typeof value === 'object' && value !== null) {
+            return Object.values(value).join(' — ');
+          }
+
           return value;
         },
         header: () => caption,
