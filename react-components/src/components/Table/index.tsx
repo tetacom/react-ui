@@ -1,15 +1,15 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import {
   CellContext,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
-  Row,
   useReactTable,
 } from '@tanstack/react-table';
 
 import { TableProps } from './model';
+import TableRow from './components/RowTable';
 import { Spinner } from '../Spinner';
 import { FilterType } from './model/enum/filter-type.enum';
 
@@ -27,9 +27,7 @@ export function Table<T>({
   const columnHelper = createColumnHelper<T>();
   const tableColumns = columns.map(
     ({ name, caption, cellComponent, propertyName, filterType }) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      return columnHelper.accessor(name, {
+      return columnHelper.accessor(name as any, {
         id: name,
         cell: (info: CellContext<T, number>) => {
           const infoValue = info.getValue();
@@ -114,31 +112,15 @@ export function Table<T>({
         ))}
       </thead>
 
-      <tbody>{table.getRowModel().rows.map((row) => TableRow(row))}</tbody>
-    </table>
-  );
-}
-
-function TableRow<T>(row: Row<T>) {
-  const { id, getIsSelected, toggleSelected, getVisibleCells } = row;
-  const isSelected = getIsSelected();
-
-  return useMemo(
-    () => (
-      <tr
-        key={id}
-        className={classNames(isSelected && s.active)}
-        onClick={() => {
-          toggleSelected();
-        }}
-      >
-        {getVisibleCells().map((cell) => (
-          <td key={cell.id}>
-            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-          </td>
+      <tbody>
+        {table.getRowModel().rows.map((row) => (
+          <TableRow
+            key={row.id}
+            row={row}
+            isSelectedRow={row.getIsSelected()}
+          />
         ))}
-      </tr>
-    ),
-    [id, isSelected, toggleSelected, getVisibleCells],
+      </tbody>
+    </table>
   );
 }
