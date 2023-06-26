@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.3](https://github.com/tetacom/react-ui/compare/react-components-0.3.2...react-components-0.3.3) (2023-06-26)
+
+
+### Bug Fixes
+
+* export button type, and table filter type ([da42ae4](https://github.com/tetacom/react-ui/commit/da42ae46fd8f98c57be972997bee6ae00c20bd96))
+
 ## [0.3.2](https://github.com/tetacom/react-ui/compare/react-components-0.3.1...react-components-0.3.2) (2023-06-26)
 
 
