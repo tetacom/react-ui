@@ -34,7 +34,7 @@ const CustomComponentWithToggle: FC<ICustomCell> = ({ value }) => (
 );
 
 const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
-  if (!(typeof value === 'object')) {
+  if (!(typeof value === 'object' && value !== null)) {
     return value;
   }
 

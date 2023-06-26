@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.3.6](https://github.com/tetacom/react-ui/compare/react-components-0.3.5...react-components-0.3.6) (2023-06-26)
+
+
+### Bug Fixes
+
+* cell object type ([729d573](https://github.com/tetacom/react-ui/commit/729d573f64f6f860ed284b60cc79b3c1015fa708))
+
 ### [0.3.5](https://github.com/tetacom/react-ui/compare/react-components-0.3.4...react-components-0.3.5) (2023-06-26)
 
 
