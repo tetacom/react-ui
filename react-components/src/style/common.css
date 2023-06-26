@@ -20,3 +20,6 @@ body {
   color: var(--color-primary-50);
   cursor: pointer;
 }
+#storybook-root {
+  height: auto;
+}
