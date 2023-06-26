@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.2](https://github.com/tetacom/react-ui/compare/react-components-0.3.1...react-components-0.3.2) (2023-06-26)
+
+
+### Bug Fixes
+
+* move custom cell outside the table ([e7c675f](https://github.com/tetacom/react-ui/commit/e7c675f2e0fe4d2be41d8be0ed561556596d1da8))
+* table dictionary ([4d63948](https://github.com/tetacom/react-ui/commit/4d6394875656b33942a50e6447472d41462f5831))
+
 ## [0.3.1](https://github.com/tetacom/react-ui/compare/react-components-0.3.0...react-components-0.3.1) (2023-06-23)
 
 
