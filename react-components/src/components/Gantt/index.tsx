@@ -1,7 +1,7 @@
 import s from './Gantt.module.scss';
 import { useTimeAxis } from './hooks/useTimeAxis';
 import dayjs from 'dayjs';
-import 'dayjs/locale/ru';
+
 import { GanttRowComponent } from './components/GanttRow/GanttRow';
 import {
   GanttProps,
@@ -129,7 +129,7 @@ export function Gantt<T extends MilestoneOptions>(props: GanttProps<T>) {
                           : 'max-content',
                       }}
                     >
-                      {dayjs(tick).locale('ru').format('MMMM')}
+                      {dayjs(tick).format('MMMM')}
                     </Typography.Text>
                   );
                 })}

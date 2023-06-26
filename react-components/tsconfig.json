@@ -3,7 +3,7 @@
     "jsx": "react-jsx",
     "allowJs": false,
     "resolveJsonModule": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "types": ["vite/client"],

@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Gantt } from '../index';
-import rigs from '../rigs.json';
-import * as dayjs from 'dayjs';
-import { fakerRU } from '@faker-js/faker';
+import dayjs from 'dayjs';
 import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
+import { fakerRU } from '@faker-js/faker';
+import { rigs } from '../rigs';
 
 const meta: Meta<typeof Gantt> = {
   title: 'Data Display/Gantt',
@@ -21,6 +21,7 @@ class ScheduleItem {
   operationType?: number;
   startTime: Date;
   endTime: Date;
+
   constructor(options: {
     DrillingRigId?: number;
     ClusterId?: number;
@@ -33,8 +34,8 @@ class ScheduleItem {
     this.clusterId = options?.ClusterId;
     this.wellId = options?.WellId!;
     this.operationType = options?.OperationType;
-    this.startTime = dayjs(options?.StartTime).startOf('day').toDate();
-    this.endTime = dayjs(options?.EndTime).endOf('day').toDate();
+    this.startTime = dayjs(options?.StartTime)?.startOf('day').toDate();
+    this.endTime = dayjs(options?.EndTime)?.endOf('day').toDate();
   }
 }
 
@@ -45,7 +46,7 @@ interface CustomMilestone extends MilestoneOptions {
   items?: ScheduleItem[];
 }
 
-const scheduleItems = (rigs.ScheduleLibs as [])?.map((_) => {
+const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
   return new ScheduleItem(_);
 });
 
@@ -96,8 +97,6 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
   rigItems.push(rigItem);
 });
-
-console.log(rigItems);
 
 export const Default: Story = {
   args: {
