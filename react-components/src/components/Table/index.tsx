@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import {
+  CellContext,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
-  CellContext,
 } from '@tanstack/react-table';
 
 import { TableProps } from './model';
 import { Spinner } from '../Spinner';
+import { FilterType } from './model/enum/filter-type.enum';
 
 import s from './style.module.scss';
 
@@ -18,27 +19,36 @@ export function Table<T>({
   columns,
   sticky = false,
   loading = false,
+  dictionary = {},
   className,
   ...props
 }: TableProps<T>): JSX.Element {
   const columnHelper = createColumnHelper<T>();
   const tableColumns = columns.map(
-    ({ name, caption, cellComponent, propertyName }) => {
+    ({ name, caption, cellComponent, propertyName, filterType }) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return columnHelper.accessor(name, {
         id: name,
         cell: (info: CellContext<T, number>) => {
           const infoValue = info.getValue();
+          let dictValue = '';
+
+          if (filterType === FilterType.list && propertyName) {
+            dictValue =
+              dictionary[propertyName]?.find(({ id }) => id === infoValue)
+                ?.name ?? '';
+          }
+
+          const value = dictValue || infoValue;
 
           if (cellComponent) {
             return React.createElement(cellComponent, {
-              value: infoValue,
-              propertyName,
+              value,
             });
           }
 
-          return infoValue;
+          return value;
         },
         header: () => caption,
         footer: () => caption,

@@ -7,6 +7,7 @@ import { TableColumn } from '../model/table-column';
 import { FilterType } from '../model/enum/filter-type.enum';
 import { Toggle } from '../../Toggle';
 import { ICustomCell } from '../model/i-cell-instance';
+import { IDictionary } from '../model/dictionary';
 
 import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
@@ -25,17 +26,6 @@ export default meta;
 
 type Story = StoryObj<typeof Table>;
 
-type Dictionary = {
-  id: string | number;
-  name: string;
-  parentId: string | null;
-  iconId: string | null;
-};
-
-interface IDictionary {
-  [key: string]: Dictionary[];
-}
-
 const initColumns: TableColumn[] = configResponse;
 const initDictionary: IDictionary = dictResponse;
 
@@ -51,23 +41,9 @@ const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
   return Object.values(value).join(' — ');
 };
 
-const CustomComponentWithDict: FC<ICustomCell> = ({
-  value,
-  propertyName = '',
-}) => {
-  if (propertyName) {
-    return (
-      initDictionary[propertyName].find(({ id }) => id === value)?.name ?? value
-    );
-  }
-
-  return value;
-};
-
 const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
-customComponents.set(FilterType.list, CustomComponentWithDict);
 
 const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
   sticky = false,
@@ -91,6 +67,7 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
       columns={columns}
       sticky={sticky}
       loading={loading}
+      dictionary={initDictionary}
     />
   );
 };
