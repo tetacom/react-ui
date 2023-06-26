@@ -168,7 +168,7 @@ export const ButtonDocs = () => (
     <Stack size={[24, 96]} wrap style={{ margin: '24px 0' }}>
       {buttonTypes.map(({ key, title, view, square }) => (
         <div key={key}>
-          <Paragraph fontVariant="captionSemi">{title}</Paragraph>
+          <Paragraph fontVariant="captionBold">{title}</Paragraph>
           <Button view={view} square={square}>
             Загрузить <Icon name="user" />
           </Button>
@@ -200,7 +200,7 @@ export const ButtonDocs = () => (
     <Stack size={[24, 96]} wrap style={{ margin: '24px 0' }}>
       {buttonStates.map(({ key, title, disabled }) => (
         <div key={key}>
-          <Paragraph fontVariant="captionSemi">{title}</Paragraph>
+          <Paragraph fontVariant="captionBold">{title}</Paragraph>
           <Button disabled={disabled}>
             Загрузить <Icon name="user" />
           </Button>
@@ -218,7 +218,7 @@ export const ButtonDocs = () => (
     <Stack size={[24, 96]} wrap style={{ margin: '24px 0' }}>
       {buttonSizes.map(({ key, title, size }) => (
         <div key={key}>
-          <Paragraph fontVariant="captionSemi">{title}</Paragraph>
+          <Paragraph fontVariant="captionBold">{title}</Paragraph>
           <Button size={size}>
             Загрузить <Icon name="user" color="white" />
           </Button>

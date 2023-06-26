@@ -79,7 +79,7 @@ export const TabsDocs = () => {
 
         <div className={s.example}>
           <div>
-            <Paragraph fontVariant="captionSemi">Horizontal</Paragraph>
+            <Paragraph fontVariant="captionBold">Horizontal</Paragraph>
             <Tabs
               defaultActiveKey="1"
               items={[
@@ -91,7 +91,7 @@ export const TabsDocs = () => {
             />
           </div>
           <div>
-            <Paragraph fontVariant="captionSemi">Vertical</Paragraph>
+            <Paragraph fontVariant="captionBold">Vertical</Paragraph>
             <Tabs
               defaultActiveKey="1"
               direction="vertical"
@@ -126,7 +126,7 @@ export const TabsDocs = () => {
 
         <div className={s.example}>
           <div>
-            <Paragraph fontVariant="captionSemi">Rest</Paragraph>
+            <Paragraph fontVariant="captionBold">Rest</Paragraph>
             <Tabs
               items={[
                 {
@@ -137,7 +137,7 @@ export const TabsDocs = () => {
             />
           </div>
           <div>
-            <Paragraph fontVariant="captionSemi">Select</Paragraph>
+            <Paragraph fontVariant="captionBold">Select</Paragraph>
             <Tabs
               defaultActiveKey="1"
               items={[
@@ -149,7 +149,7 @@ export const TabsDocs = () => {
             />
           </div>
           <div>
-            <Paragraph fontVariant="captionSemi">Hover me</Paragraph>
+            <Paragraph fontVariant="captionBold">Hover me</Paragraph>
             <Tabs
               items={[
                 {
@@ -160,7 +160,7 @@ export const TabsDocs = () => {
             />
           </div>
           <div>
-            <Paragraph fontVariant="captionSemi">Disabled</Paragraph>
+            <Paragraph fontVariant="captionBold">Disabled</Paragraph>
             <Tabs
               defaultActiveKey="1"
               items={[

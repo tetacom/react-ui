@@ -66,11 +66,11 @@ export const ToggleDocs = () => (
       </Paragraph>
       <Stack size={96} style={{ margin: '24px 0' }}>
         <>
-          <Paragraph fontVariant="captionSemi">Off</Paragraph>
+          <Paragraph fontVariant="captionBold">Off</Paragraph>
           <Toggle />
         </>
         <>
-          <Paragraph fontVariant="captionSemi">On</Paragraph>
+          <Paragraph fontVariant="captionBold">On</Paragraph>
           <Toggle defaultChecked />
         </>
       </Stack>
@@ -98,35 +98,35 @@ export const ToggleDocs = () => (
       </ol>
       <Stack size={96} wrap style={{ margin: '24px 0' }}>
         <>
-          <Paragraph fontVariant="captionSemi">Rest</Paragraph>
+          <Paragraph fontVariant="captionBold">Rest</Paragraph>
           <Stack size={12} direction="column">
             <Toggle />
             <Toggle defaultChecked />
           </Stack>
         </>
         <>
-          <Paragraph fontVariant="captionSemi">Hover me</Paragraph>
+          <Paragraph fontVariant="captionBold">Hover me</Paragraph>
           <Stack size={12} direction="column">
             <Toggle />
             <Toggle defaultChecked />
           </Stack>
         </>
         <>
-          <Paragraph fontVariant="captionSemi">Press me</Paragraph>
+          <Paragraph fontVariant="captionBold">Press me</Paragraph>
           <Stack size={12} direction="column">
             <Toggle />
             <Toggle defaultChecked />
           </Stack>
         </>
         <>
-          <Paragraph fontVariant="captionSemi">Focus with keyboard</Paragraph>
+          <Paragraph fontVariant="captionBold">Focus with keyboard</Paragraph>
           <Stack size={12} direction="column">
             <Toggle />
             <Toggle defaultChecked />
           </Stack>
         </>
         <>
-          <Paragraph fontVariant="captionSemi">Disable</Paragraph>
+          <Paragraph fontVariant="captionBold">Disable</Paragraph>
           <Stack size={12} direction="column">
             <Toggle disabled />
             <Toggle defaultChecked disabled />

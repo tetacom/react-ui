@@ -21,6 +21,7 @@ export function Table<T>({
   sticky = false,
   loading = false,
   dictionary = {},
+  onClick,
   className,
   ...props
 }: TableProps<T>): JSX.Element {
@@ -122,6 +123,7 @@ export function Table<T>({
             key={row.id}
             row={row}
             isSelectedRow={row.getIsSelected()}
+            onClick={onClick}
           />
         ))}
       </tbody>

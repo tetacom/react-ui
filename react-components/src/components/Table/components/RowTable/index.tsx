@@ -7,18 +7,22 @@ import s from '../../style.module.scss';
 export interface ITableRow<T> {
   row: Row<T>;
   isSelectedRow?: boolean;
+  onClick?: (
+    row: Row<T>['original'],
+    event?: React.MouseEvent<HTMLElement>,
+  ) => void;
 }
 
-function TableRow<T>({ row, isSelectedRow = false }: ITableRow<T>) {
+function TableRow<T>({ row, isSelectedRow = false, onClick }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    toggleSelected();
+    onClick && onClick(row.original, event);
+  };
+
   return (
-    <tr
-      className={classNames(isSelectedRow && s.active)}
-      onClick={() => {
-        toggleSelected();
-      }}
-    >
+    <tr className={classNames(isSelectedRow && s.active)} onClick={handleClick}>
       {getVisibleCells().map((cell) => (
         <td key={cell.id}>
           {flexRender(cell.column.columnDef.cell, cell.getContext())}

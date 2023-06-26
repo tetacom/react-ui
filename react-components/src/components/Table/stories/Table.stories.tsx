@@ -13,6 +13,31 @@ import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
 
+type ID = string | number;
+
+interface IData {
+  id: ID;
+  year: number;
+  name: string;
+  fieldId: ID;
+  ngduId: ID;
+  investmentDate: string;
+  landAllocationDuration: number;
+  transmissionLineDuration: number;
+  sitePreparationDuration: number;
+  canDrillWithoutFillRoad: boolean;
+  canDrillWithoutSiteBackfill: boolean;
+  floodPeriodSpring: {
+    floodStart: string;
+    floodEnd: string;
+  };
+  floodPeriodAutumn: {
+    floodStart: string;
+    floodEnd: string;
+  };
+  existInExternal: boolean;
+}
+
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
   component: Table,
@@ -61,6 +86,10 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
     return item;
   });
 
+  const handleClick = (row: IData) => {
+    console.log('###', row);
+  };
+
   return (
     <Table
       dataSource={dataResponse}
@@ -68,6 +97,7 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
       sticky={sticky}
       loading={loading}
       dictionary={initDictionary}
+      onClick={handleClick}
     />
   );
 };
