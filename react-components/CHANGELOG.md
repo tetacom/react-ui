@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.3.5](https://github.com/tetacom/react-ui/compare/react-components-0.3.4...react-components-0.3.5) (2023-06-26)
+
+
+### Bug Fixes
+
+* fix table ([1cad976](https://github.com/tetacom/react-ui/commit/1cad97643c019f5219307be4eaa1de7c56b88bdc))
+
 ## [0.3.4](https://github.com/tetacom/react-ui/compare/react-components-0.3.3...react-components-0.3.4) (2023-06-26)
 
 
