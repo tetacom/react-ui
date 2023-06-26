@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import classNames from 'classnames';
 import {
   CellContext,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  Row,
   useReactTable,
 } from '@tanstack/react-table';
 
@@ -51,21 +52,23 @@ export function Table<T>({
           return value;
         },
         header: () => caption,
-        footer: () => caption,
       });
     },
   );
 
+  const [rowSelection, setRowSelection] = useState({});
+
   const table = useReactTable({
     data: dataSource,
     columns: tableColumns,
+    state: {
+      rowSelection,
+    },
+    enableRowSelection: true,
+    enableMultiRowSelection: false,
+    onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
   });
-
-  const [selectedRowId, setSelectedRowId] = useState<null | string>(null);
-  const selectRow = (rowId: string) => {
-    setSelectedRowId(rowId);
-  };
 
   if (loading) {
     const loadingRows: string[] = [];
@@ -111,23 +114,31 @@ export function Table<T>({
         ))}
       </thead>
 
-      <tbody>
-        {table.getRowModel().rows.map((row) => (
-          <tr
-            key={row.id}
-            className={classNames(selectedRowId === row.id && s.active)}
-            onClick={() => {
-              selectRow(row.id);
-            }}
-          >
-            {row.getVisibleCells().map((cell) => (
-              <td key={cell.id}>
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
+      <tbody>{table.getRowModel().rows.map((row) => TableRow(row))}</tbody>
     </table>
+  );
+}
+
+function TableRow<T>(row: Row<T>) {
+  const { id, getIsSelected, toggleSelected, getVisibleCells } = row;
+  const isSelected = getIsSelected();
+
+  return useMemo(
+    () => (
+      <tr
+        key={id}
+        className={classNames(isSelected && s.active)}
+        onClick={() => {
+          toggleSelected();
+        }}
+      >
+        {getVisibleCells().map((cell) => (
+          <td key={cell.id}>
+            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+          </td>
+        ))}
+      </tr>
+    ),
+    [id, isSelected, toggleSelected, getVisibleCells],
   );
 }
