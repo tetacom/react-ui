@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref, useRef, useState } from 'react';
+import React, { forwardRef, Ref, useRef, useState } from 'react';
 import { BaseSelectProps, SelectProps } from './model';
 import { Dropdown, Icon, Input } from 'tetacom/react-components';
 import { useMergeRefs } from '@floating-ui/react';
@@ -25,7 +25,7 @@ const SelectInner = forwardRef(
         dropdown={
           <ul className={listStyle.list}>
             <>
-              {props.items?.map((item, index) => (
+              {props.items?.map((item) => (
                 <li
                   key={item.key}
                   role="option"
@@ -33,7 +33,7 @@ const SelectInner = forwardRef(
                     listStyle.item,
                     item === foundValue ? s.selected : null,
                   ])}
-                  onClick={(event) => {
+                  onClick={() => {
                     setValue(item);
                     setOpen(false);
                     props.onChangeItem && props.onChangeItem(item);
@@ -79,5 +79,5 @@ const SelectInner = forwardRef(
 );
 
 export const Select = SelectInner as <T extends BaseSelectProps>(
-  props: SelectProps<T> & { ref: Ref<any> },
+  props: SelectProps<T> & { ref?: Ref<any> },
 ) => JSX.Element;

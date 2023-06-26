@@ -1,0 +1,3500 @@
+[
+  {
+    "id": 1,
+    "year": 2024,
+    "name": "10",
+    "fieldId": 4,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 2,
+    "year": 2024,
+    "name": "53",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 3,
+    "year": 2024,
+    "name": "70",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 4,
+    "year": 2024,
+    "name": "74",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 5,
+    "year": 2024,
+    "name": "78",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 6,
+    "year": 2024,
+    "name": "83",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 7,
+    "year": 2024,
+    "name": "294",
+    "fieldId": 6,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 8,
+    "year": 2024,
+    "name": "476",
+    "fieldId": 7,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 9,
+    "year": 2024,
+    "name": "791",
+    "fieldId": 8,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 10,
+    "year": 2024,
+    "name": "15П",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 11,
+    "year": 2024,
+    "name": "17АзН",
+    "fieldId": 4,
+    "ngduId": 1,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 12,
+    "year": 2024,
+    "name": "2П",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 13,
+    "year": 2024,
+    "name": "3П",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 14,
+    "year": 2024,
+    "name": "4П",
+    "fieldId": 5,
+    "ngduId": 1,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 15,
+    "year": 2024,
+    "name": "9",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 16,
+    "year": 2024,
+    "name": "116",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 17,
+    "year": 2024,
+    "name": "153",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 18,
+    "year": 2024,
+    "name": "190",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 19,
+    "year": 2024,
+    "name": "192",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 20,
+    "year": 2024,
+    "name": "221",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 21,
+    "year": 2024,
+    "name": "228",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 22,
+    "year": 2024,
+    "name": "417",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 23,
+    "year": 2024,
+    "name": "437",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 24,
+    "year": 2024,
+    "name": "1219",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 25,
+    "year": 2024,
+    "name": "2267",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 26,
+    "year": 2024,
+    "name": "2290",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 27,
+    "year": 2024,
+    "name": "2293",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 28,
+    "year": 2024,
+    "name": "2295",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 29,
+    "year": 2024,
+    "name": "2312",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 30,
+    "year": 2024,
+    "name": "2411",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 31,
+    "year": 2024,
+    "name": "3051",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 32,
+    "year": 2024,
+    "name": "3130",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 33,
+    "year": 2024,
+    "name": "3180",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 34,
+    "year": 2024,
+    "name": "3186",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 35,
+    "year": 2024,
+    "name": "3474",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 36,
+    "year": 2024,
+    "name": "3697",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 37,
+    "year": 2024,
+    "name": "5589",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 38,
+    "year": 2024,
+    "name": "9589",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 39,
+    "year": 2024,
+    "name": "9650",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 40,
+    "year": 2024,
+    "name": "10047",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 41,
+    "year": 2024,
+    "name": "10048",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 42,
+    "year": 2024,
+    "name": "10789",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 43,
+    "year": 2024,
+    "name": "10809",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 44,
+    "year": 2024,
+    "name": "11248",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 45,
+    "year": 2024,
+    "name": "14751",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 46,
+    "year": 2024,
+    "name": "14958",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 47,
+    "year": 2024,
+    "name": "15250",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 48,
+    "year": 2024,
+    "name": "16485",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 49,
+    "year": 2024,
+    "name": "20311",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 50,
+    "year": 2024,
+    "name": "20430",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 51,
+    "year": 2024,
+    "name": "20501",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 52,
+    "year": 2024,
+    "name": "20549",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 53,
+    "year": 2024,
+    "name": "20733",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 54,
+    "year": 2024,
+    "name": "27043",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 55,
+    "year": 2024,
+    "name": "29828",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 56,
+    "year": 2024,
+    "name": "2275-22",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 57,
+    "year": 2024,
+    "name": "ГЗУ-12Б",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 58,
+    "year": 2024,
+    "name": "СМПГОРОД",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 59,
+    "year": 2024,
+    "name": "УТНСГОРОД",
+    "fieldId": 8,
+    "ngduId": 2,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 60,
+    "year": 2024,
+    "name": "к-4566",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 61,
+    "year": 2024,
+    "name": "к-6886",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 62,
+    "year": 2024,
+    "name": "к-6923",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 63,
+    "year": 2024,
+    "name": "к-6995",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 64,
+    "year": 2024,
+    "name": "к-7075",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 65,
+    "year": 2024,
+    "name": "к-7094",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 66,
+    "year": 2024,
+    "name": "к-7095",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 67,
+    "year": 2024,
+    "name": "к-7530",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 68,
+    "year": 2024,
+    "name": "к-7538",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 69,
+    "year": 2024,
+    "name": "к-7546",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 70,
+    "year": 2024,
+    "name": "к-7553",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 71,
+    "year": 2024,
+    "name": "к-7559",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 72,
+    "year": 2024,
+    "name": "к-7560",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 73,
+    "year": 2024,
+    "name": "к-7563",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 74,
+    "year": 2024,
+    "name": "к-7570",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 75,
+    "year": 2024,
+    "name": "к-7574",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 76,
+    "year": 2024,
+    "name": "к-7577",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 77,
+    "year": 2024,
+    "name": "к-7583",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 78,
+    "year": 2024,
+    "name": "к-7588",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 79,
+    "year": 2024,
+    "name": "к-7593",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 80,
+    "year": 2024,
+    "name": "к-7601",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 81,
+    "year": 2024,
+    "name": "к-7609",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 82,
+    "year": 2024,
+    "name": "к-7613",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 83,
+    "year": 2024,
+    "name": "к-7618",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 84,
+    "year": 2024,
+    "name": "к-7620",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 85,
+    "year": 2024,
+    "name": "к-7622",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 86,
+    "year": 2024,
+    "name": "к-7623",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 87,
+    "year": 2024,
+    "name": "к-7659",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 88,
+    "year": 2024,
+    "name": "к-8046",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 89,
+    "year": 2024,
+    "name": "к-8176",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 90,
+    "year": 2024,
+    "name": "к-8723",
+    "fieldId": 9,
+    "ngduId": 3,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 91,
+    "year": 2024,
+    "name": "23504",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 92,
+    "year": 2024,
+    "name": "23739",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 93,
+    "year": 2024,
+    "name": "23770",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 94,
+    "year": 2024,
+    "name": "23811",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 95,
+    "year": 2024,
+    "name": "23816",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 96,
+    "year": 2024,
+    "name": "23832",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 97,
+    "year": 2024,
+    "name": "23840",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 98,
+    "year": 2024,
+    "name": "23855",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 99,
+    "year": 2024,
+    "name": "23890",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 100,
+    "year": 2024,
+    "name": "24114",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 101,
+    "year": 2024,
+    "name": "35306",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 102,
+    "year": 2024,
+    "name": "39504",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 103,
+    "year": 2024,
+    "name": "23834Г",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 104,
+    "year": 2024,
+    "name": "9314Б",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 105,
+    "year": 2024,
+    "name": "9324Б",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 106,
+    "year": 2024,
+    "name": "один2",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 107,
+    "year": 2024,
+    "name": "один3",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 108,
+    "year": 2024,
+    "name": "один4",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 109,
+    "year": 2024,
+    "name": "один5",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 110,
+    "year": 2024,
+    "name": "один6",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 111,
+    "year": 2024,
+    "name": "один7",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 112,
+    "year": 2024,
+    "name": "один9",
+    "fieldId": 8,
+    "ngduId": 4,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 113,
+    "year": 2024,
+    "name": "98137",
+    "fieldId": 10,
+    "ngduId": 5,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 114,
+    "year": 2024,
+    "name": "98162",
+    "fieldId": 10,
+    "ngduId": 5,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 115,
+    "year": 2024,
+    "name": "98163",
+    "fieldId": 10,
+    "ngduId": 5,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 116,
+    "year": 2024,
+    "name": "98234",
+    "fieldId": 10,
+    "ngduId": 5,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 117,
+    "year": 2024,
+    "name": "98281",
+    "fieldId": 10,
+    "ngduId": 5,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 118,
+    "year": 2024,
+    "name": "98330",
+    "fieldId": 10,
+    "ngduId": 5,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 119,
+    "year": 2024,
+    "name": "98376",
+    "fieldId": 10,
+    "ngduId": 5,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 120,
+    "year": 2024,
+    "name": "1858",
+    "fieldId": 11,
+    "ngduId": 6,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 121,
+    "year": 2024,
+    "name": "1862",
+    "fieldId": 11,
+    "ngduId": 6,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 122,
+    "year": 2024,
+    "name": "1868",
+    "fieldId": 11,
+    "ngduId": 6,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 123,
+    "year": 2024,
+    "name": "3782",
+    "fieldId": 12,
+    "ngduId": 6,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 124,
+    "year": 2024,
+    "name": "3901",
+    "fieldId": 13,
+    "ngduId": 6,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 125,
+    "year": 2024,
+    "name": "3909",
+    "fieldId": 13,
+    "ngduId": 6,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 126,
+    "year": 2024,
+    "name": "4611",
+    "fieldId": 12,
+    "ngduId": 6,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 127,
+    "year": 2024,
+    "name": "459Д",
+    "fieldId": 12,
+    "ngduId": 6,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 128,
+    "year": 2024,
+    "name": "12012",
+    "fieldId": 14,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 129,
+    "year": 2024,
+    "name": "12017",
+    "fieldId": 14,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 130,
+    "year": 2024,
+    "name": "17040",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 131,
+    "year": 2024,
+    "name": "17046",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 132,
+    "year": 2024,
+    "name": "17047",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 133,
+    "year": 2024,
+    "name": "17055",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 134,
+    "year": 2024,
+    "name": "17056",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 135,
+    "year": 2024,
+    "name": "17062",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 136,
+    "year": 2024,
+    "name": "30032",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 137,
+    "year": 2024,
+    "name": "30050",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 138,
+    "year": 2024,
+    "name": "30057",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 139,
+    "year": 2024,
+    "name": "30066",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 140,
+    "year": 2024,
+    "name": "30076",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 141,
+    "year": 2024,
+    "name": "30099",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 142,
+    "year": 2024,
+    "name": "30101",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 60,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 143,
+    "year": 2024,
+    "name": "30108",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 144,
+    "year": 2024,
+    "name": "30129",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 145,
+    "year": 2024,
+    "name": "30132",
+    "fieldId": 16,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 146,
+    "year": 2024,
+    "name": "31001",
+    "fieldId": 17,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 147,
+    "year": 2024,
+    "name": "31043",
+    "fieldId": 17,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 148,
+    "year": 2024,
+    "name": "31055",
+    "fieldId": 17,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 149,
+    "year": 2024,
+    "name": "31056",
+    "fieldId": 17,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 150,
+    "year": 2024,
+    "name": "32062",
+    "fieldId": 18,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 151,
+    "year": 2024,
+    "name": "32067",
+    "fieldId": 18,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 152,
+    "year": 2024,
+    "name": "32072",
+    "fieldId": 18,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 153,
+    "year": 2024,
+    "name": "32075",
+    "fieldId": 18,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 154,
+    "year": 2024,
+    "name": "33005",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 30,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": false,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 155,
+    "year": 2024,
+    "name": "33028",
+    "fieldId": 15,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 0,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": false,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 156,
+    "year": 2024,
+    "name": "34094",
+    "fieldId": 19,
+    "ngduId": 7,
+    "investmentDate": "2023-01-06",
+    "landAllocationDuration": 270,
+    "transmissionLineDuration": 3,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 157,
+    "year": 2024,
+    "name": "34103",
+    "fieldId": 19,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 158,
+    "year": 2024,
+    "name": "34108",
+    "fieldId": 19,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 180,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  },
+  {
+    "id": 159,
+    "year": 2024,
+    "name": "34109",
+    "fieldId": 19,
+    "ngduId": 7,
+    "investmentDate": "2023-01-05",
+    "landAllocationDuration": 90,
+    "transmissionLineDuration": 60,
+    "sitePreparationDuration": 0,
+    "canDrillWithoutFillRoad": true,
+    "canDrillWithoutSiteBackfill": true,
+    "floodPeriodSpring": {
+      "floodStart": "2024-01-04",
+      "floodEnd": "2024-05-05"
+    },
+    "floodPeriodAutumn": {
+      "floodStart": "2024-01-10",
+      "floodEnd": "2024-03-10"
+    },
+    "existInExternal": true
+  }
+]

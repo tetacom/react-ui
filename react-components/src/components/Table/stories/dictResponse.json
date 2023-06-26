@@ -1,0 +1,162 @@
+{
+  "FieldId": [
+    {
+      "id": 1,
+      "name": "Контузлинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 2,
+      "name": "Соколкинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 3,
+      "name": "Елабужское ",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 4,
+      "name": "Южно-Ферганское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 5,
+      "name": "Агбязовский лицензионный участок",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 6,
+      "name": "Гарейское Тл-Т.р.з.",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 7,
+      "name": "Татсуксинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 8,
+      "name": "Ромашкинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 9,
+      "name": "Ново-Елховское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 10,
+      "name": "Нурлатское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 11,
+      "name": "Бондюжское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 12,
+      "name": "Первомайское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 13,
+      "name": "Зычебашское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 14,
+      "name": "Екатериновское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 15,
+      "name": "Ямашинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 16,
+      "name": "Березовское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 17,
+      "name": "Красногорское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 18,
+      "name": "Шегурчинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 19,
+      "name": "Сиреневское",
+      "parentId": null,
+      "iconId": null
+    }
+  ],
+  "NgduId": [
+    {
+      "id": 1,
+      "name": "АзН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 2,
+      "name": "АН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 3,
+      "name": "ЕН ",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 4,
+      "name": "ЛН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 5,
+      "name": "НН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 6,
+      "name": "ПН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 7,
+      "name": "ЯН",
+      "parentId": null,
+      "iconId": null
+    }
+  ]
+}
