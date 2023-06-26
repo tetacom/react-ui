@@ -26,7 +26,6 @@ export const Default: Story = {
   args: {
     title:
       'Это поле не может содержать значение меньше 0,1, потому что это не поле, а кнопка',
-    autoPlacement: true,
     offset: 0,
   },
 };

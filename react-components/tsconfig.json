@@ -5,6 +5,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "strict": true,
     "types": ["vite/client"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
@@ -24,3 +25,5 @@
   ],
   "extends": "../tsconfig.json"
 }
+
+

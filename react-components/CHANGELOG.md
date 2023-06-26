@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.1](https://github.com/tetacom/react-ui/compare/react-components-0.3.0...react-components-0.3.1) (2023-06-23)
+
+
+### Bug Fixes
+
+* add dictionary to table ([b7a4b57](https://github.com/tetacom/react-ui/commit/b7a4b57f542bc3a1d2cf2098c441f5fd84a20257))
+* add loading to table ([8958e45](https://github.com/tetacom/react-ui/commit/8958e45e9e2e2887bfd787ecfcaf025ffabed787))
+* **style:** hover and active row for table ([13f85c1](https://github.com/tetacom/react-ui/commit/13f85c1467e5ba850aadd1cfacd7e19a16a89984))
+* **style:** update table data ([87210c2](https://github.com/tetacom/react-ui/commit/87210c23a061d5e4f074609186ae0503fa55e4d3))
+
 ## [0.3.0](https://github.com/tetacom/react-ui/compare/react-components-0.2.4...react-components-0.3.0) (2023-06-20)
 
 
