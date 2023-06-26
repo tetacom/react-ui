@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.4](https://github.com/tetacom/react-ui/compare/react-components-0.3.3...react-components-0.3.4) (2023-06-26)
+
+
+### Bug Fixes
+
+* fix row selection ([d027891](https://github.com/tetacom/react-ui/commit/d0278911a409f7debb47213fe3c46a282c4af905))
+* move dict login to table ([705fac4](https://github.com/tetacom/react-ui/commit/705fac4195f0922a6e9bd034bcc3b074e0d69e44))
+
 ## [0.3.3](https://github.com/tetacom/react-ui/compare/react-components-0.3.2...react-components-0.3.3) (2023-06-26)
 
 
