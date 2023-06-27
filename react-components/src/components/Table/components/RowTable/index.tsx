@@ -7,18 +7,15 @@ import s from '../../style.module.scss';
 export interface ITableRow<T> {
   row: Row<T>;
   isSelectedRow?: boolean;
-  onClick?: (
-    row: Row<T>['original'],
-    event?: React.MouseEvent<HTMLElement>,
-  ) => void;
+  onClick?: (row: Row<T>['original']) => void;
 }
 
 function TableRow<T>({ row, isSelectedRow = false, onClick }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = () => {
     toggleSelected();
-    onClick && onClick(row.original, event);
+    onClick && onClick(row.original);
   };
 
   return (

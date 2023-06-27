@@ -21,6 +21,10 @@ export function Table<T>({
   sticky = false,
   loading = false,
   dictionary = {},
+  cellParams = {
+    verticalClamp: 1,
+    maxWidth: 20,
+  },
   onClick,
   className,
   ...props
@@ -42,17 +46,19 @@ export function Table<T>({
 
           const value = dictValue || infoValue;
 
+          let result;
+
           if (cellComponent) {
-            return React.createElement(cellComponent, {
+            result = React.createElement(cellComponent, {
               value,
             });
+          } else if (typeof value === 'object' && value !== null) {
+            result = Object.values(value).join(' — ');
+          } else {
+            result = value;
           }
 
-          if (typeof value === 'object' && value !== null) {
-            return Object.values(value).join(' — ');
-          }
-
-          return value;
+          return <span>{result}</span>;
         },
         header: () => caption,
       });
@@ -98,6 +104,11 @@ export function Table<T>({
     );
   }
 
+  const cellStyles = {
+    '--cell-vert-clamp': cellParams?.verticalClamp,
+    '--cell-max-width': `${cellParams?.maxWidth}vw`,
+  } as React.CSSProperties;
+
   return (
     <table {...props} className={classNames(s.table, className)}>
       <thead className={classNames(sticky && s.sticky)}>
@@ -117,7 +128,7 @@ export function Table<T>({
         ))}
       </thead>
 
-      <tbody>
+      <tbody style={cellStyles}>
         {table.getRowModel().rows.map((row) => (
           <TableRow
             key={row.id}

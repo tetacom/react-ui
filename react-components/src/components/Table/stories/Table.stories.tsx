@@ -12,6 +12,7 @@ import { IDictionary } from '../model/dictionary';
 import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
+import { CellParamsType } from '../model/cell-params';
 
 type ID = string | number;
 
@@ -70,10 +71,11 @@ const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
 
-const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
-  sticky = false,
-  loading = false,
-}) => {
+const TableStory: FC<{
+  sticky?: boolean;
+  loading?: boolean;
+  cellParams?: CellParamsType;
+}> = ({ sticky = false, loading = false, cellParams }) => {
   const columns = initColumns.map((item) => {
     const cellComponent = item.filterType
       ? customComponents.get(item.filterType)
@@ -97,6 +99,7 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
       sticky={sticky}
       loading={loading}
       dictionary={initDictionary}
+      cellParams={cellParams}
       onClick={handleClick}
     />
   );
@@ -107,5 +110,9 @@ export const Default: Story = {
   args: {
     sticky: true,
     loading: false,
+    cellParams: {
+      verticalClamp: 3,
+      maxWidth: 20,
+    },
   },
 };
