@@ -7,7 +7,7 @@ import { getContrastColor } from '../../../../utils/getContrastColor';
 
 export interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
-  scaleTime: any;
+  scaleTime: d3.ScaleTime<number, number>;
 }
 
 const defaultColorMap = d3

@@ -20,11 +20,13 @@ type Story = StoryObj<typeof Dropdown>;
 
 export const Default: Story = {
   render: ({ ...args }) => (
-    <Dropdown {...args} dropdown={<DropdownList />}>
+    <Dropdown
+      placement="bottom"
+      possiblePlacements={['top', 'bottom']}
+      {...args}
+      dropdown={<DropdownList />}
+    >
       <Button size="large">Click me</Button>
     </Dropdown>
   ),
-  args: {
-    open: false,
-  },
 };

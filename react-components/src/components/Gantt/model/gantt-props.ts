@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 export interface MilestoneOptions {
   startTime: Date;
   endTime: Date;
@@ -12,5 +14,11 @@ export interface GanttProps<T extends MilestoneOptions> {
   items: Array<MilestoneItem<T>>;
 
   // Обратный вызов для кастомного рендера вехи
-  onMilestoneRender?: (item: T) => JSX.Element;
+  onMilestoneRender?: (
+    item: MilestoneItem<T>,
+    scale: d3.ScaleTime<number, number>,
+  ) => JSX.Element;
+
+  // Обратный вызов для кастомного рендера айтема левой панели
+  onItemRender?: (item: MilestoneItem<T>) => JSX.Element;
 }

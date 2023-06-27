@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { scaleTime } from 'd3';
+import { scaleTime, timeDay, timeMonth } from 'd3';
 import dayjs from 'dayjs';
 import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
 import { ZoomSize } from '../model/enum/zoom-size.enum';
@@ -9,7 +9,7 @@ export const useTimeAxis = <T extends MilestoneOptions>(
   items: Array<MilestoneItem<T>>,
   zoomSize: ZoomSize = ZoomSize.month,
   size: Size,
-): [number, Date[], any] => {
+): [number, Date[], d3.ScaleTime<number, number>] => {
   const min = d3.min(items, (item) =>
     d3.min(item.milestones, (_) => _.startTime),
   );
@@ -26,7 +26,9 @@ export const useTimeAxis = <T extends MilestoneOptions>(
     .copy()
     .domain([dayjs(min).startOf('month'), dayjs(max).endOf('month')])
     .ticks(
-      zoomSize === ZoomSize.month ? d3.timeDay.every(1) : d3.timeMonth.every(1),
+      zoomSize === ZoomSize.month
+        ? (timeDay.every(1) as unknown as number)
+        : (timeMonth.every(1) as unknown as number),
     );
 
   return [scale(max || new Date()), ticks, scale];

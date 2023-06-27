@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import {
   useFloating,
@@ -10,6 +10,7 @@ import {
   useDismiss,
   FloatingPortal,
   flip,
+  shift,
 } from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -51,9 +52,8 @@ export const Dropdown: FC<DropdownProps> = ({
       autoPlacement({
         allowedPlacements: possiblePlacements,
       }),
-      flip(),
       size({
-        apply({ rects, elements, availableHeight, x }) {
+        apply({ rects, elements, availableHeight }) {
           const height = maxHeight === 0 ? availableHeight : maxHeight;
 
           // Force update
@@ -83,14 +83,10 @@ export const Dropdown: FC<DropdownProps> = ({
 
   return (
     <>
-      <div
-        ref={refs.setReference}
-        className={s.dropdownTrigger}
-        {...getReferenceProps()}
-      >
-        {children}
-      </div>
-
+      {React.cloneElement(children as React.ReactElement, {
+        ref: refs.setReference,
+        ...getReferenceProps(),
+      })}
       {
         <AnimatePresence>
           {showDropdown && (

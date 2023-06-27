@@ -54,7 +54,7 @@ const SelectInner = forwardRef(
           </ul>
         }
       >
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', width: 'max-content' }}>
           <Input
             {...props}
             ref={useMergeRefs([inputRef, ref])}

@@ -6,5 +6,5 @@ export function getContrastColor(hexColor: string) {
   const g = parseInt(color.substring(2, 4), 16);
   const b = parseInt(color.substring(4, 6), 16);
   const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? 'var(--color-text-90)' : 'var(--color-global-white)';
+  return yiq >= 128 ? 'black' : 'var(--color-global-white)';
 }

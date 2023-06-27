@@ -124,6 +124,7 @@ export function Gantt<T extends MilestoneOptions>(props: GanttProps<T>) {
                         background: '#292e3c',
                         left: 0,
                         display: 'inline-block',
+                        color: 'var(--color-text-50)',
                         width: ticks[index + 1]
                           ? Math.abs(scale(ticks[index + 1]) - scale(tick))
                           : 'max-content',
@@ -138,6 +139,10 @@ export function Gantt<T extends MilestoneOptions>(props: GanttProps<T>) {
         </div>
         <div style={{ width: maxWidth, position: 'relative', paddingTop: 32 }}>
           {props.items?.map((item: MilestoneItem<T>, index) => {
+            if (props.onMilestoneRender) {
+              return props.onMilestoneRender(item, scale);
+            }
+
             return (
               <GanttRowComponent key={item.id} item={item} scaleTime={scale} />
             );
