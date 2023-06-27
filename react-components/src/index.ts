@@ -33,3 +33,5 @@ export * from './components/Toggle';
 export * from './components/Input';
 
 export * from './components/Result';
+
+export * from './components/Skeleton';

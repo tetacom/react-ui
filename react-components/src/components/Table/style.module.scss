@@ -24,6 +24,19 @@
       &:nth-child(2n) {
         td {
           background-color: var(--color-global-bgmain);
+
+          //background: linear-gradient(
+          //  90deg,
+          //  rgba(0, 0, 0, 0.06) 25%,
+          //  rgba(0, 0, 0, 0.15) 37%,
+          //  rgba(0, 0, 0, 0.06) 63%
+          //);
+          //background-size: 400% 100%;
+          //
+          //animation-name: shine;
+          //animation-duration: 1.4s;
+          //animation-timing-function: ease;
+          //animation-iteration-count: infinite;
         }
       }
 
@@ -64,12 +77,35 @@
 }
 
 .loadTable {
-  position: relative;
+  tbody {
+    tr {
+      &:nth-child(2n) {
+        td {
+          background-color: var(--color-global-bgcard);
 
-  &Spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+          background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.06) 25%,
+            rgba(0, 0, 0, 0.15) 37%,
+            rgba(0, 0, 0, 0.06) 63%
+          );
+          background-size: 400% 100%;
+
+          animation-name: shine;
+          animation-duration: 1.4s;
+          animation-timing-function: ease;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes shine {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
   }
 }

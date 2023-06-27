@@ -10,7 +10,6 @@ import {
 
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
-import { Spinner } from '../Spinner';
 import { FilterType } from './model/enum/filter-type.enum';
 
 import s from './style.module.scss';
@@ -81,26 +80,21 @@ export function Table<T>({
 
   if (loading) {
     const loadingRows: string[] = [];
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 15; i++) {
       loadingRows.push(String(i));
     }
 
     return (
-      <div className={s.loadTable}>
-        <table {...props} className={classNames(s.table, className)}>
-          <tbody>
-            {loadingRows.map((item) => (
-              <tr key={item}>
-                <td></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className={s.loadTableSpinner}>
-          <Spinner color="var(--color-primary-50)" size={20} />
-        </div>
-      </div>
+      <table {...props} className={classNames(s.table, s.loadTable, className)}>
+        <tbody>
+          {loadingRows.map((item) => (
+            <tr key={item}>
+              {/*<td></td>*/}
+              <td>&nbsp;</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     );
   }
 
