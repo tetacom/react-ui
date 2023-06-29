@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.1](https://github.com/tetacom/react-ui/compare/react-components-0.4.0...react-components-0.4.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* fix table click event type ([79f94f5](https://github.com/tetacom/react-ui/commit/79f94f58fdd0fba1bca43f2acab119ed936a24db))
+
 ## [0.4.0](https://github.com/tetacom/react-ui/compare/react-components-0.3.6...react-components-0.4.0) (2023-06-29)
 
 
