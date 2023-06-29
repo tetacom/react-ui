@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.4.2](https://github.com/tetacom/react-ui/compare/react-components-0.4.1...react-components-0.4.2) (2023-06-29)
+
+
+### Bug Fixes
+
+* put custom skeleton to table ([eb68724](https://github.com/tetacom/react-ui/commit/eb68724c2c21073dbe39b2cd2d59df5fe40f174e))
+
 ## [0.4.1](https://github.com/tetacom/react-ui/compare/react-components-0.4.0...react-components-0.4.1) (2023-06-29)
 
 
