@@ -2,6 +2,28 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.1](https://github.com/tetacom/react-ui/compare/react-components-0.4.0...react-components-0.4.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* fix table click event type ([79f94f5](https://github.com/tetacom/react-ui/commit/79f94f58fdd0fba1bca43f2acab119ed936a24db))
+
+## [0.4.0](https://github.com/tetacom/react-ui/compare/react-components-0.3.6...react-components-0.4.0) (2023-06-29)
+
+
+### Features
+
+* add skeleton component ([139fec4](https://github.com/tetacom/react-ui/commit/139fec454cf93faa63be1d9ef5b878de0aabe62f))
+
+
+### Bug Fixes
+
+* add vertical clamp and max width for table cell ([b8c131f](https://github.com/tetacom/react-ui/commit/b8c131fbf151319167cca2e1d6919219ea0addc1))
+* table onclick ([912e1d9](https://github.com/tetacom/react-ui/commit/912e1d9c25246e831466aea66a94f7ea5cfa5d1e))
+* table onClick return column ([d938a7c](https://github.com/tetacom/react-ui/commit/d938a7c07ac4cdff120af50aa24f597d22bdf75d))
+* update skeleton and add it to table ([5f4e5a4](https://github.com/tetacom/react-ui/commit/5f4e5a4d5c00d51563496cdae1ac9ed011b3b2ed))
+
 ### [0.3.6](https://github.com/tetacom/react-ui/compare/react-components-0.3.5...react-components-0.3.6) (2023-06-26)
 
 

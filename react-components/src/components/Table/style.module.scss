@@ -30,8 +30,16 @@
       td {
         @include fontBody3;
 
+        vertical-align: top;
         color: var(--color-text-90);
-        white-space: nowrap;
+        max-width: var(--cell-max-width);
+
+        > span {
+          display: -webkit-box;
+          -webkit-line-clamp: var(--cell-vert-clamp);
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
       }
 
       &:hover {
@@ -52,16 +60,5 @@
     position: sticky;
     top: 0;
     z-index: 1;
-  }
-}
-
-.loadTable {
-  position: relative;
-
-  &Spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }

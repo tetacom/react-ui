@@ -8,9 +8,9 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 
+import { Skeleton } from '../Skeleton';
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
-import { Spinner } from '../Spinner';
 import { FilterType } from './model/enum/filter-type.enum';
 
 import s from './style.module.scss';
@@ -21,6 +21,11 @@ export function Table<T>({
   sticky = false,
   loading = false,
   dictionary = {},
+  cellParams = {
+    verticalClamp: 1,
+    maxWidth: 100,
+  },
+  onClick,
   className,
   ...props
 }: TableProps<T>): JSX.Element {
@@ -41,17 +46,19 @@ export function Table<T>({
 
           const value = dictValue || infoValue;
 
+          let result;
+
           if (cellComponent) {
-            return React.createElement(cellComponent, {
+            result = React.createElement(cellComponent, {
               value,
             });
+          } else if (typeof value === 'object' && value !== null) {
+            result = JSON.stringify(value);
+          } else {
+            result = value;
           }
 
-          if (typeof value === 'object' && value !== null) {
-            return Object.values(value).join(' — ');
-          }
-
-          return value;
+          return <span>{result}</span>;
         },
         header: () => caption,
       });
@@ -73,29 +80,23 @@ export function Table<T>({
   });
 
   if (loading) {
-    const loadingRows: string[] = [];
-    for (let i = 1; i <= 20; i++) {
-      loadingRows.push(String(i));
-    }
-
     return (
-      <div className={s.loadTable}>
-        <table {...props} className={classNames(s.table, className)}>
-          <tbody>
-            {loadingRows.map((item) => (
-              <tr key={item}>
-                <td></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className={s.loadTableSpinner}>
-          <Spinner color="var(--color-primary-50)" size={20} />
-        </div>
-      </div>
+      <Skeleton
+        rows={16}
+        columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+        columnsUnit="fr"
+        isTable
+      />
     );
   }
+
+  const { maxWidth, verticalClamp } = cellParams;
+  const cellMaxWidth =
+    typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`;
+  const cellStyles = {
+    '--cell-vert-clamp': verticalClamp,
+    '--cell-max-width': cellMaxWidth,
+  } as React.CSSProperties;
 
   return (
     <table {...props} className={classNames(s.table, className)}>
@@ -116,12 +117,14 @@ export function Table<T>({
         ))}
       </thead>
 
-      <tbody>
+      <tbody style={cellStyles}>
         {table.getRowModel().rows.map((row) => (
           <TableRow
             key={row.id}
             row={row}
+            columns={columns}
             isSelectedRow={row.getIsSelected()}
+            onClick={onClick}
           />
         ))}
       </tbody>

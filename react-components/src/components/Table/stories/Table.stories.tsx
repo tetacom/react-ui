@@ -6,12 +6,38 @@ import { TypographyDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
 import { FilterType } from '../model/enum/filter-type.enum';
 import { Toggle } from '../../Toggle';
-import { ICustomCell } from '../model/i-cell-instance';
+import { ICellInstance, ICustomCell } from '../model/i-cell-instance';
 import { IDictionary } from '../model/dictionary';
 
 import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
+import { CellParamsType } from '../model/cell-params';
+
+type ID = string | number;
+
+interface IData {
+  id: ID;
+  year: number;
+  name: string;
+  fieldId: ID;
+  ngduId: ID;
+  investmentDate: string;
+  landAllocationDuration: number;
+  transmissionLineDuration: number;
+  sitePreparationDuration: number;
+  canDrillWithoutFillRoad: boolean;
+  canDrillWithoutSiteBackfill: boolean;
+  floodPeriodSpring: {
+    floodStart: string;
+    floodEnd: string;
+  };
+  floodPeriodAutumn: {
+    floodStart: string;
+    floodEnd: string;
+  };
+  existInExternal: boolean;
+}
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
@@ -38,17 +64,22 @@ const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
     return value;
   }
 
-  return Object.values(value).join(' — ');
+  return (
+    <div style={{ whiteSpace: 'nowrap' }}>
+      {Object.values(value).join(' — ')}
+    </div>
+  );
 };
 
 const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
 
-const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
-  sticky = false,
-  loading = false,
-}) => {
+const TableStory: FC<{
+  sticky?: boolean;
+  loading?: boolean;
+  cellParams?: CellParamsType;
+}> = ({ sticky = false, loading = false, cellParams }) => {
   const columns = initColumns.map((item) => {
     const cellComponent = item.filterType
       ? customComponents.get(item.filterType)
@@ -61,6 +92,10 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
     return item;
   });
 
+  const handleClick = (cell: ICellInstance<IData>) => {
+    console.log('table onClick:', cell);
+  };
+
   return (
     <Table
       dataSource={dataResponse}
@@ -68,6 +103,8 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
       sticky={sticky}
       loading={loading}
       dictionary={initDictionary}
+      cellParams={cellParams}
+      onClick={handleClick}
     />
   );
 };
@@ -77,5 +114,9 @@ export const Default: Story = {
   args: {
     sticky: true,
     loading: false,
+    cellParams: {
+      verticalClamp: 3,
+      maxWidth: 420,
+    },
   },
 };
