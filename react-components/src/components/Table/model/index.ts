@@ -4,6 +4,7 @@ import { TableColumn } from './table-column';
 import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
+import { Skeleton } from '../../Skeleton';
 
 export type TableRef = HTMLTableElement;
 
@@ -18,8 +19,8 @@ export interface TableProps<T>
   // Зафиксировать шапку при скролле
   sticky?: boolean;
 
-  // Установить статус загрузки таблицы
-  loading?: boolean;
+  // Установить заполнитель таблицы
+  skeleton?: JSX.Element | null;
 
   // Словарь
   dictionary?: IDictionary;

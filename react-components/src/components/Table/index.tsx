@@ -8,7 +8,6 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 
-import { Skeleton } from '../Skeleton';
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
 import { FilterType } from './model/enum/filter-type.enum';
@@ -19,7 +18,7 @@ export function Table<T>({
   dataSource,
   columns,
   sticky = false,
-  loading = false,
+  skeleton = null,
   dictionary = {},
   cellParams = {
     verticalClamp: 1,
@@ -79,16 +78,7 @@ export function Table<T>({
     getCoreRowModel: getCoreRowModel(),
   });
 
-  if (loading) {
-    return (
-      <Skeleton
-        rows={16}
-        columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
-        columnsUnit="fr"
-        isTable
-      />
-    );
-  }
+  if (skeleton) return skeleton;
 
   const { maxWidth, verticalClamp } = cellParams;
   const cellMaxWidth =

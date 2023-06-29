@@ -13,6 +13,7 @@ import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
 import { CellParamsType } from '../model/cell-params';
+import { Skeleton } from '../../Skeleton';
 
 type ID = string | number;
 
@@ -101,7 +102,14 @@ const TableStory: FC<{
       dataSource={dataResponse}
       columns={columns}
       sticky={sticky}
-      loading={loading}
+      skeleton={
+        <Skeleton
+          rows={16}
+          columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+          columnsUnit="fr"
+          isTable
+        />
+      }
       dictionary={initDictionary}
       cellParams={cellParams}
       onClick={handleClick}
@@ -113,7 +121,6 @@ export const Default: Story = {
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
     sticky: true,
-    loading: false,
     cellParams: {
       verticalClamp: 3,
       maxWidth: 420,
