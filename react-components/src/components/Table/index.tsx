@@ -8,12 +8,12 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 
+import { Skeleton } from '../Skeleton';
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
 import { FilterType } from './model/enum/filter-type.enum';
 
 import s from './style.module.scss';
-import { Skeleton } from '../Skeleton';
 
 export function Table<T>({
   dataSource,
@@ -122,6 +122,7 @@ export function Table<T>({
           <TableRow
             key={row.id}
             row={row}
+            columns={columns}
             isSelectedRow={row.getIsSelected()}
             onClick={onClick}
           />

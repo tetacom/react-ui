@@ -27,5 +27,5 @@ export interface TableProps<T>
   cellParams?: CellParamsType;
 
   // Событие клика по строке
-  onClick?: (row: T) => void;
+  onClick?: (row: T, column?: TableColumn) => void;
 }

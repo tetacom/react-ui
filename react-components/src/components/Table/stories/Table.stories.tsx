@@ -92,8 +92,8 @@ const TableStory: FC<{
     return item;
   });
 
-  const handleClick = (row: IData) => {
-    console.log('###', row);
+  const handleClick = (row: IData, column?: TableColumn) => {
+    console.log('table onClick:', row, column);
   };
 
   return (
