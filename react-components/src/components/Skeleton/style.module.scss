@@ -1,40 +1,14 @@
-.root {
-  display: grid;
-  gap: var(--spacing-16);
+.skeleton {
+  overflow: hidden;
 
-  .row {
+  .rows {
     display: grid;
-    grid-template-columns: 5fr 20fr 25fr 15fr 15fr 20fr;
-    gap: var(--spacing-32);
+    gap: var(--spacing-16);
   }
 
-  .skeleton {
-    width: 100%;
-    height: var(--spacing-16);
-    border-radius: var(--radius-4);
-
-    background-color: var(--color-global-bgcard);
-
-    background: linear-gradient(
-      90deg,
-      var(--color-text-5) 25%,
-      var(--color-text-10) 37%,
-      var(--color-text-5) 63%
-    );
-    background-size: 400% 100%;
-
-    animation-name: skeleton;
-    animation-duration: 1.4s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
-  }
-}
-
-@keyframes skeleton {
-  from {
-    background-position: 100% 50%;
-  }
-  to {
-    background-position: 0 50%;
+  .divider {
+    margin: 0.5em 0;
+    height: 1px;
+    background-color: var(--color-text-5);
   }
 }

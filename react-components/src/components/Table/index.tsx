@@ -13,6 +13,7 @@ import TableRow from './components/RowTable';
 import { FilterType } from './model/enum/filter-type.enum';
 
 import s from './style.module.scss';
+import { Skeleton } from '../Skeleton';
 
 export function Table<T>({
   dataSource,
@@ -22,7 +23,7 @@ export function Table<T>({
   dictionary = {},
   cellParams = {
     verticalClamp: 1,
-    maxWidth: 20,
+    maxWidth: 100,
   },
   onClick,
   className,
@@ -52,7 +53,7 @@ export function Table<T>({
               value,
             });
           } else if (typeof value === 'object' && value !== null) {
-            result = Object.values(value).join(' — ');
+            result = JSON.stringify(value);
           } else {
             result = value;
           }
@@ -79,28 +80,22 @@ export function Table<T>({
   });
 
   if (loading) {
-    const loadingRows: string[] = [];
-    for (let i = 1; i <= 15; i++) {
-      loadingRows.push(String(i));
-    }
-
     return (
-      <table {...props} className={classNames(s.table, s.loadTable, className)}>
-        <tbody>
-          {loadingRows.map((item) => (
-            <tr key={item}>
-              {/*<td></td>*/}
-              <td>&nbsp;</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Skeleton
+        rows={16}
+        columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+        columnsUnit="fr"
+        isTable
+      />
     );
   }
 
+  const { maxWidth, verticalClamp } = cellParams;
+  const cellMaxWidth =
+    typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`;
   const cellStyles = {
-    '--cell-vert-clamp': cellParams?.verticalClamp,
-    '--cell-max-width': `${cellParams?.maxWidth}vw`,
+    '--cell-vert-clamp': verticalClamp,
+    '--cell-max-width': cellMaxWidth,
   } as React.CSSProperties;
 
   return (

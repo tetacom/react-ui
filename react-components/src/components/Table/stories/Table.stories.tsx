@@ -64,7 +64,11 @@ const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
     return value;
   }
 
-  return Object.values(value).join(' — ');
+  return (
+    <div style={{ whiteSpace: 'nowrap' }}>
+      {Object.values(value).join(' — ')}
+    </div>
+  );
 };
 
 const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
@@ -112,7 +116,7 @@ export const Default: Story = {
     loading: false,
     cellParams: {
       verticalClamp: 3,
-      maxWidth: 20,
+      maxWidth: 420,
     },
   },
 };

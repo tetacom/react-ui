@@ -18,7 +18,24 @@ type Story = StoryObj<typeof Skeleton>;
 
 export const Default: Story = {
   args: {
+    columns: 200,
+  },
+};
+
+export const TextBlock: Story = {
+  args: {
     rows: 10,
-    columns: [5, 20, 25, 15, 15, 20],
+    columns: 50,
+    columnsUnit: '%',
+    isTable: false,
+  },
+};
+
+export const Table: Story = {
+  args: {
+    rows: 10,
+    columns: [5, 20, 25, 15, 15],
+    isTable: true,
+    columnsUnit: 'fr',
   },
 };

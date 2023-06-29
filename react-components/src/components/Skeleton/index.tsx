@@ -1,44 +1,38 @@
 import React, { FC } from 'react';
 
-import { SkeletonProps } from './model';
+import { defaultValues, SkeletonProps } from './model';
+import { Row } from './components/Row';
 
 import s from './style.module.scss';
 
-export const Skeleton: FC<SkeletonProps> = ({ rows = 1, columns = 100 }) => {
+export const Skeleton: FC<SkeletonProps> = ({
+  rows = defaultValues.rows,
+  columns = defaultValues.columns,
+  columnsUnit = defaultValues.columnsUnit,
+  isTable = defaultValues.isTable,
+}) => {
   const rowsList: string[] = [];
   for (let i = 1; i <= rows; i++) {
     rowsList.push(String(i));
   }
 
-  const RowElement = () => {
-    if (Array.isArray(columns)) {
-      return (
-        <div className={s.row}>
-          {columns.map((column, index) => (
-            <div key={index}>
-              <div
-                className={s.skeleton}
-                // style={{ width: `${column}%` }}
-              />
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-    return (
-      <div className={s.row}>
-        <div className={s.skeleton} style={{ width: `${columns}%` }} />
-      </div>
-    );
-  };
-
   return (
-    <div className={s.root}>
-      {rowsList.map((row) => (
-        <RowElement key={row} />
-        // <div key={row} className={s.skeleton} />
-      ))}
+    <div className={s.skeleton}>
+      {isTable && (
+        <>
+          <div className={s.rows}>
+            <Row columns={columns} columnsUnit={columnsUnit} />
+          </div>
+
+          <div className={s.divider} />
+        </>
+      )}
+
+      <div className={s.rows}>
+        {rowsList.map((row) => (
+          <Row key={row} columns={columns} columnsUnit={columnsUnit} />
+        ))}
+      </div>
     </div>
   );
 };

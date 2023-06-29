@@ -1,4 +1,4 @@
 export type CellParamsType = {
-  maxWidth: number;
+  maxWidth: number | string;
   verticalClamp: number;
 };
