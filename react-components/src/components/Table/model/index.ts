@@ -3,6 +3,7 @@ import { HTMLAttributes } from 'react';
 import { TableColumn } from './table-column';
 import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
+import { ICellInstance } from './i-cell-instance';
 
 export type TableRef = HTMLTableElement;
 
@@ -27,5 +28,5 @@ export interface TableProps<T>
   cellParams?: CellParamsType;
 
   // Событие клика по строке
-  onClick?: (row: T, column?: TableColumn) => void;
+  onClick?: (cell: ICellInstance<T>) => void;
 }

@@ -6,7 +6,7 @@ import { TypographyDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
 import { FilterType } from '../model/enum/filter-type.enum';
 import { Toggle } from '../../Toggle';
-import { ICustomCell } from '../model/i-cell-instance';
+import { ICellInstance, ICustomCell } from '../model/i-cell-instance';
 import { IDictionary } from '../model/dictionary';
 
 import configResponse from './configResponse.json';
@@ -92,8 +92,8 @@ const TableStory: FC<{
     return item;
   });
 
-  const handleClick = (row: IData, column?: TableColumn) => {
-    console.log('table onClick:', row, column);
+  const handleClick = (cell: ICellInstance<IData>) => {
+    console.log('table onClick:', cell);
   };
 
   return (

@@ -2,15 +2,16 @@ import React, { memo } from 'react';
 import { flexRender, Row } from '@tanstack/react-table';
 import classNames from 'classnames';
 
-import s from '../../style.module.scss';
 import { TableProps } from '../../model';
-import { TableColumn } from 'tetacom/react-components';
+import { ICellInstance } from 'tetacom/react-components';
+
+import s from '../../style.module.scss';
 
 export interface ITableRow<T> {
   row: Row<T>;
   columns: TableProps<T>['columns'];
   isSelectedRow?: boolean;
-  onClick?: (row: Row<T>['original'], column?: TableColumn) => void;
+  onClick?: (cell: ICellInstance<T>) => void;
 }
 
 function TableRow<T>({
@@ -25,7 +26,12 @@ function TableRow<T>({
     toggleSelected();
 
     const column = columns.find((item) => item.name === columnId);
-    onClick && onClick(row, column);
+    if (onClick && column) {
+      onClick({
+        row,
+        column,
+      });
+    }
   };
 
   return (
