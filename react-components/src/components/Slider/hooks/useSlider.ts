@@ -1,15 +1,11 @@
-import { Slider } from '../model';
+import { SliderProps } from '../model';
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { getValueForClientX, roundToStep } from '../lib';
 
 export type SliderPointer = {
   value: number;
   isActive: boolean;
-  onMouseDown: (
-    e: React.MouseEvent<HTMLButtonElement>,
-    index: number,
-    ref: EventTarget,
-  ) => void;
+  onMouseDown: (e: React.MouseEvent<HTMLButtonElement>, index: number) => void;
 };
 
 export type SliderSteps = {
@@ -22,7 +18,7 @@ export const sortList = (arr: ReadonlyArray<number | string>) =>
   [...arr].map(Number).sort((a, b) => a - b);
 
 export function useSlider(
-  props: Slider,
+  props: SliderProps,
 ): [
   React.RefObject<HTMLDivElement>,
   Array<SliderPointer>,
@@ -93,7 +89,6 @@ export function useSlider(
   const handlePress = (
     e: React.MouseEvent<HTMLButtonElement>,
     index: number,
-    eventTarget: EventTarget,
   ) => {
     activeIndex.current = index;
     setInnerValues([...sortList(innerValues)]);
@@ -106,11 +101,8 @@ export function useSlider(
     return {
       value,
       isActive: index === activeIndex.current,
-      onMouseDown: (
-        e: React.MouseEvent<HTMLButtonElement>,
-        index: number,
-        eventTarget: EventTarget,
-      ) => handlePress(e, index, eventTarget),
+      onMouseDown: (e: React.MouseEvent<HTMLButtonElement>, index: number) =>
+        handlePress(e, index),
     };
   });
 
@@ -123,7 +115,9 @@ export function useSlider(
 
       let active;
 
-      if (values.length === 2) {
+      const isSingle = values.length === 2;
+
+      if (isSingle) {
         active = index === 0;
       } else {
         active =

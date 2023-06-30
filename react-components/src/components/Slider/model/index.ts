@@ -1,4 +1,4 @@
-export interface Slider {
+export interface SliderProps {
   // Начальные позиции поинтов
   values: Array<number>;
 

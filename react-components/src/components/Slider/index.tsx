@@ -2,14 +2,13 @@ import s from './Slider.module.scss';
 import React, { useState } from 'react';
 import { useSlider } from './hooks/useSlider';
 import { Tooltip } from 'tetacom/react-components';
-import { Slider } from './model';
-import { motion } from 'framer-motion';
+import { SliderProps } from './model';
 
-export function SliderComponent(props: Slider) {
+export function Slider(props: SliderProps) {
   const [sliderRef, pointers, steps, getPercentageForValue] = useSlider({
-    min: -1000,
-    max: 1000,
-    step: 10,
+    min: props.min,
+    max: props.max,
+    step: props.step,
     values: props.values,
     onMouseUp: () => {
       setTooltipOpen(false);
@@ -35,18 +34,22 @@ export function SliderComponent(props: Slider) {
         <div {...containerProps} className={s.containerControl}>
           <div className={s.line}>
             {steps.map((step) => {
+              const styles = {
+                '--line-width': `${step.width}%`,
+              } as React.CSSProperties;
               return (
                 <div
                   className={step.active ? s.lineActive : s.lineInActive}
-                  style={{
-                    '--line-width': `${step.width}%`,
-                  }}
+                  style={styles}
                 ></div>
               );
             })}
           </div>
 
           {pointers.map(({ value, onMouseDown, isActive }, index) => {
+            const styles = {
+              '--pointer-left': `${getPercentageForValue(value)}%`,
+            } as React.CSSProperties;
             return (
               <Tooltip
                 title={value.toString()}
@@ -57,16 +60,15 @@ export function SliderComponent(props: Slider) {
                   key={index}
                   className={s.button}
                   role="slider"
-                  custom={getPercentageForValue(value)}
                   aria-valuenow={value}
                   onMouseDown={(e) => {
                     setTooltipOpen(true);
-                    onMouseDown(e, index, e.target);
+                    onMouseDown(e, index);
                   }}
                   style={{
                     top: '50%',
                     transform: 'translate(-50%, -50%)',
-                    '--pointer-left': `${getPercentageForValue(value)}%`,
+                    ...styles,
                   }}
                 ></button>
               </Tooltip>
@@ -77,5 +79,3 @@ export function SliderComponent(props: Slider) {
     </>
   );
 }
-
-export default SliderComponent;
