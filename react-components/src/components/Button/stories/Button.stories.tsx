@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from '../index';
 import { Icon } from '../../Icons';
 import { ButtonDocs } from '../docs';
+import { Typography } from '../../Typography';
+
+const { Paragraph, Text } = Typography;
 
 const meta: Meta<typeof Button> = {
   title: 'General/Button',
@@ -107,4 +111,36 @@ export const ShapeCircle: Story = {
     ...Default.args,
     shape: 'circle',
   },
+};
+
+const FileButton = () => {
+  const [file, setFile] = useState<File | null>(null);
+  const handleChange = (uploadFile: File) => {
+    setFile(uploadFile);
+  };
+
+  return (
+    <div>
+      <Button
+        file={{
+          inputId: 'file-upload',
+          acceptList: ['xls', 'xlsx', 'png', 'jpeg', 'jpg', 'svg'],
+          onChange: handleChange,
+        }}
+      >
+        Загрузить файл
+      </Button>
+
+      {file && (
+        <Paragraph>
+          Uploaded file: <Text fontVariant="title2">{file.name}</Text>
+        </Paragraph>
+      )}
+    </div>
+  );
+};
+
+export const FileButtonStory: Story = {
+  name: 'File',
+  render: () => <FileButton />,
 };

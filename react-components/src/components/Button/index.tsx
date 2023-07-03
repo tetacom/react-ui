@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -35,6 +35,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
       block = false,
       loading = false,
       disabled = false,
+      file = null,
       className = '',
       ...props
     },
@@ -43,6 +44,48 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
     const utilityClasses = `button_${view} button-${
       palette === 'none' ? 'primary' : palette
     }`;
+    const classes = classNames(
+      utilityClasses,
+      s.button,
+      sizeClasses[size],
+      shapeClasses[shape],
+      square && s.buttonSquare,
+      block && s.buttonBlock,
+      loading && s.buttonLoading,
+      file && s.buttonFile,
+      disabled && disabledClasses[view],
+      className,
+    );
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      if (event.target.files?.length) {
+        const uploadFile = event.target.files[0];
+        const { name } = uploadFile;
+        const uploadFileType = name.slice(name.lastIndexOf('.') + 1);
+
+        if (file?.acceptList.includes(uploadFileType)) {
+          file?.onChange(uploadFile);
+        }
+      }
+    };
+
+    if (file) {
+      return (
+        <label
+          htmlFor={file.inputId}
+          className={classes}
+          style={{ cursor: 'pointer' }}
+        >
+          {children}
+          <input
+            type="file"
+            id={file.inputId}
+            disabled={loading || disabled}
+            onChange={handleChange}
+          />
+        </label>
+      );
+    }
 
     return (
       <button
@@ -50,21 +93,10 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
         ref={ref}
         type={type || 'button'}
         disabled={loading || disabled}
-        className={classNames(
-          utilityClasses,
-          s.button,
-          sizeClasses[size],
-          shapeClasses[shape],
-          square && s.buttonSquare,
-          block && s.buttonBlock,
-          loading && s.buttonLoading,
-          disabled && disabledClasses[view],
-          className,
-        )}
+        className={classes}
       >
         <span className={s.children}>{children}</span>
 
-        {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
         <AnimatePresence initial={false}>
           {loading && (
             <motion.span
