@@ -32,4 +32,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<ButtonRef> {
 
   // Отключить кнопку
   disabled?: boolean;
+
+  // Загрузить файл
+  file?: {
+    inputId: string;
+    acceptList: string[];
+    onChange: (file: File) => void;
+  };
 }
