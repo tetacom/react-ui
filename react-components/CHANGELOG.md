@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.3](https://github.com/tetacom/react-ui/compare/react-components-0.4.1...react-components-0.4.2) (2023-07-03)
+
+
+### Bug Fixes
+
+* add type file to button ([9a85df1](https://github.com/tetacom/react-ui/commit/9a85df1cf1ebc21bc40c4abde3d74ecb5765e05c))
+
 ### [0.4.2](https://github.com/tetacom/react-ui/compare/react-components-0.4.1...react-components-0.4.2) (2023-06-29)
 
 
