@@ -7,7 +7,11 @@
     "resolveJsonModule": true,
     "strict": true,
     "types": ["vite/client"],
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "files": [],
   "include": [],
@@ -19,10 +23,8 @@
       "path": "./tsconfig.spec.json"
     },
     {
-      "path": "./.storybook/tsconfig.json"
+      "path": "./tsconfig.storybook.json"
     }
   ],
   "extends": "../tsconfig.json"
 }
-
-
