@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import {
   CellContext,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  Row,
   useReactTable,
 } from '@tanstack/react-table';
+import { useVirtual } from 'react-virtual';
 
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
@@ -78,6 +80,25 @@ export function Table<T>({
     getCoreRowModel: getCoreRowModel(),
   });
 
+  const tableContainerRef = useRef<HTMLDivElement>(null);
+  const { rows } = table.getRowModel();
+  const rowVirtualizer = useVirtual({
+    parentRef: tableContainerRef,
+    size: rows.length,
+    overscan: 5,
+  });
+
+  const { virtualItems: virtualRows, totalSize } = rowVirtualizer;
+
+  const paddingTop = virtualRows.length > 0 ? virtualRows?.[0]?.start || 0 : 0;
+  const paddingBottom =
+    virtualRows.length > 0
+      ? totalSize - (virtualRows?.[virtualRows.length - 1]?.end || 0)
+      : 0;
+
+  console.log('paddingTop', paddingTop);
+  console.log('paddingBottom', paddingBottom);
+
   if (skeleton) return skeleton;
 
   const { maxWidth, verticalClamp } = cellParams;
@@ -89,35 +110,61 @@ export function Table<T>({
   } as React.CSSProperties;
 
   return (
-    <table {...props} className={classNames(s.table, className)}>
-      <thead className={classNames(sticky && s.sticky)}>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <th key={header.id}>
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
+    <div ref={tableContainerRef} className={s.root}>
+      <table {...props} className={classNames(s.table, className)}>
+        <thead className={classNames(sticky && s.sticky)}>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      )}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
 
-      <tbody style={cellStyles}>
-        {table.getRowModel().rows.map((row) => (
-          <TableRow
-            key={row.id}
-            row={row}
-            columns={columns}
-            isSelectedRow={row.getIsSelected()}
-            onClick={onClick}
-          />
-        ))}
-      </tbody>
-    </table>
+        <tbody style={cellStyles}>
+          {paddingTop > 0 && (
+            <tr>
+              <td
+                style={{
+                  height: `${paddingTop}px`,
+                  backgroundColor: 'transparent',
+                }}
+              />
+            </tr>
+          )}
+          {virtualRows.map((virtualRow) => {
+            const row = rows[virtualRow.index] as Row<T>;
+
+            return (
+              <TableRow
+                key={row.id}
+                row={row}
+                columns={columns}
+                isSelectedRow={row.getIsSelected()}
+                onClick={onClick}
+              />
+            );
+          })}
+          {paddingBottom > 0 && (
+            <tr>
+              <td
+                style={{
+                  height: `${paddingBottom}px`,
+                  backgroundColor: 'transparent',
+                }}
+              />
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 }

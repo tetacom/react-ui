@@ -14,6 +14,7 @@ import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
+import { Tabs } from '../../Tabs';
 
 type ID = string | number;
 
@@ -98,22 +99,61 @@ const TableStory: FC<{
   };
 
   return (
-    <Table
-      dataSource={dataResponse}
-      columns={columns}
-      sticky={sticky}
-      skeleton={
-        <Skeleton
-          rows={16}
-          columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
-          columnsUnit="fr"
-          isTable
-        />
-      }
-      dictionary={initDictionary}
-      cellParams={cellParams}
-      onClick={handleClick}
-    />
+    <div>
+      <Tabs
+        defaultActiveKey="1"
+        items={[
+          {
+            key: '1',
+            label: 'Table 1',
+            children: (
+              <Table
+                dataSource={dataResponse}
+                columns={columns}
+                sticky={sticky}
+                skeleton={
+                  loading ? (
+                    <Skeleton
+                      rows={16}
+                      columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+                      columnsUnit="fr"
+                      isTable
+                    />
+                  ) : undefined
+                }
+                dictionary={initDictionary}
+                cellParams={cellParams}
+                onClick={handleClick}
+              />
+            ),
+          },
+          {
+            key: '2',
+            label: 'Table 2',
+            children: (
+              <Table
+                dataSource={dataResponse}
+                columns={columns}
+                sticky={sticky}
+                skeleton={
+                  loading ? (
+                    <Skeleton
+                      rows={16}
+                      columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+                      columnsUnit="fr"
+                      isTable
+                    />
+                  ) : undefined
+                }
+                dictionary={initDictionary}
+                cellParams={cellParams}
+                onClick={handleClick}
+              />
+            ),
+          },
+        ]}
+      />
+    </div>
   );
 };
 
@@ -122,7 +162,7 @@ export const Default: Story = {
   args: {
     sticky: true,
     cellParams: {
-      verticalClamp: 3,
+      verticalClamp: 1,
       maxWidth: 420,
     },
   },

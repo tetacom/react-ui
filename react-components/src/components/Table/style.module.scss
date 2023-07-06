@@ -1,64 +1,71 @@
 @import 'react-components/src/style/mixins';
 
-.table {
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
+.root {
+  height: 500px;
+  overflow: auto;
 
-  th,
-  td {
-    background-color: var(--color-global-bgcard);
-    padding: var(--radius-6) var(--radius-8);
-    transition: background-color 0.2s ease-in-out;
-  }
+  .table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
 
-  thead th {
-    @include fontCaptionBold;
+    th,
+    td {
+      background-color: var(--color-global-bgcard);
+      padding: var(--radius-6) var(--radius-8);
+      transition: background-color 0.2s ease-in-out;
+    }
 
-    color: var(--color-text-60);
-    border-bottom: 1px solid var(--color-text-5);
-  }
+    thead th {
+      @include fontCaptionBold;
 
-  tbody {
-    tr {
-      &:nth-child(2n) {
-        td {
-          background-color: var(--color-global-bgmain);
+      color: var(--color-text-60);
+      border-bottom: 1px solid var(--color-text-5);
+    }
+
+    tbody {
+      tr {
+        &:nth-child(2n) {
+          td {
+            background-color: var(--color-global-bgmain);
+          }
         }
-      }
 
-      td {
-        @include fontBody3;
-
-        vertical-align: top;
-        color: var(--color-text-90);
-        max-width: var(--cell-max-width);
-
-        > span {
-          display: -webkit-box;
-          -webkit-line-clamp: var(--cell-vert-clamp);
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      }
-
-      &:hover {
         td {
-          background-color: var(--color-primary-5);
-        }
-      }
+          @include fontBody3;
 
-      &.active {
-        td {
-          background-color: var(--color-primary-10);
+          vertical-align: top;
+          color: var(--color-text-90);
+          max-width: var(--cell-max-width);
+
+          > span {
+            display: -webkit-box;
+            -webkit-line-clamp: var(--cell-vert-clamp);
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
+
+        &:hover {
+          td {
+            background-color: var(--color-primary-5);
+          }
+        }
+
+        &.active {
+          td {
+            background-color: var(--color-primary-10);
+          }
         }
       }
     }
-  }
 
-  .sticky {
-    position: sticky;
-    top: 0;
-    z-index: 1;
+    .sticky {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
   }
 }
