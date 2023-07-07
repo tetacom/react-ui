@@ -3,18 +3,16 @@
 /*
   Generate css variables for each theme
  */
-html {
-  @each $name, $theme in map-keys($themes) {
-    &.#{$name} {
-      @each $paletteName, $palette in map-get($themes, $name) {
-        @each $paletteColorName, $paletteColor in $palette {
-          --color-#{'' + $paletteName}-#{'' + $paletteColorName}: #{'' +
+@each $name, $theme in map-keys($themes) {
+  &.#{$name} {
+    @each $paletteName, $palette in map-get($themes, $name) {
+      @each $paletteColorName, $paletteColor in $palette {
+        --color-#{'' + $paletteName}-#{'' + $paletteColorName}: #{'' +
             $paletteColor};
-        }
       }
-      @each $name, $value in map-get($shadows, $name) {
-        --shadow-#{'' + $name}: #{$value}
-      }
+    }
+    @each $name, $value in map-get($shadows, $name) {
+      --shadow-#{'' + $name}: #{$value}
     }
   }
 }
