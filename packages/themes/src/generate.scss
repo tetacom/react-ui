@@ -4,7 +4,7 @@
   Generate css variables for each theme
  */
 @each $name, $theme in map-keys($themes) {
-  &.#{$name} {
+  .#{$name} {
     @each $paletteName, $palette in map-get($themes, $name) {
       @each $paletteColorName, $paletteColor in $palette {
         --color-#{'' + $paletteName}-#{'' + $paletteColorName}: #{'' +
