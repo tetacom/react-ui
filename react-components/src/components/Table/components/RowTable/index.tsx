@@ -8,6 +8,7 @@ import { ICellInstance } from 'tetacom/react-components';
 import s from '../../style.module.scss';
 
 export interface ITableRow<T> {
+  virtualIndex: number;
   row: Row<T>;
   columns: TableProps<T>['columns'];
   isSelectedRow?: boolean;
@@ -16,6 +17,7 @@ export interface ITableRow<T> {
 }
 
 function TableRow<T>({
+  virtualIndex,
   row,
   columns,
   isSelectedRow = false,
@@ -37,7 +39,11 @@ function TableRow<T>({
   };
 
   return (
-    <tr ref={rowRef} className={classNames(isSelectedRow && s.active)}>
+    <tr
+      ref={rowRef}
+      className={classNames(isSelectedRow && s.active)}
+      data-index={virtualIndex}
+    >
       {getVisibleCells().map((cell) => (
         <td
           key={cell.id}

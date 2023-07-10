@@ -3376,10 +3376,10 @@
     "@testing-library/dom" "^9.0.0"
     "@types/react-dom" "^18.0.0"
 
-"@tetacom/themes@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@tetacom/themes/-/themes-0.0.11.tgz"
-  integrity sha512-eoRPO+tWvjARed1aqcD+2c7+L1NPuqsr7NTNQMvV8dkRGciTX5PPZCP2SHeSoIdR4kFZDOore4vOsHWeShKAgw==
+"@tetacom/themes@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.npmjs.org/@tetacom/themes/-/themes-0.0.15.tgz"
+  integrity sha512-aGTsGrNZp4/MxqxBhrbh0enY4/eRRrIYCo7Ww27Qd6ztCvVbxDOfAXPnAh+YPTZLJM/ZXvWokIkg7KaqalsTFQ==
 
 "@tootallnate/once@2":
   version "2.0.0"

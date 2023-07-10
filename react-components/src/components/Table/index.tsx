@@ -143,7 +143,7 @@ export function Table<T>({
             return (
               <TableRow
                 key={virtualRow.key}
-                data-index={virtualRow.index}
+                virtualIndex={virtualRow.index}
                 rowRef={virtualizer.measureElement}
                 row={row}
                 columns={columns}
