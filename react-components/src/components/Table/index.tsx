@@ -95,7 +95,7 @@ export function Table<T>({
 
   const cellStyles = {
     '--cell-vert-clamp': cellParams.verticalClamp,
-    '--tbody-transform': `${virtualizer.getVirtualItems()[0].start}px`,
+    '--tbody-transform': `${virtualizer.getVirtualItems()[0]?.start}px`,
   };
 
   if (skeleton) return skeleton;

@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.8](https://github.com/tetacom/react-ui/compare/react-components-0.4.7...react-components-0.4.8) (2023-07-10)
+
+
+### Bug Fixes
+
+* fix empty virtual rows bug ([a88d6ac](https://github.com/tetacom/react-ui/commit/a88d6ac76688b4b9f6d796a9ebd4b2f392ba7c06))
+
 ## [0.4.7](https://github.com/tetacom/react-ui/compare/react-components-0.4.6...react-components-0.4.7) (2023-07-10)
 
 
