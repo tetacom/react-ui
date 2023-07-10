@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.6](https://github.com/tetacom/react-ui/compare/react-components-0.4.5...react-components-0.4.6) (2023-07-10)
+
+
+### Bug Fixes
+
+* fix import bug, move styles to scss file ([3658169](https://github.com/tetacom/react-ui/commit/3658169de6365b75218f299fe2ac4daa87a952ea))
+
 ## [0.4.5](https://github.com/tetacom/react-ui/compare/react-components-0.4.4...react-components-0.4.5) (2023-07-10)
 
 
