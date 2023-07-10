@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.4](https://github.com/tetacom/react-ui/compare/react-components-0.4.3...react-components-0.4.4) (2023-07-10)
+
+
+### Bug Fixes
+
+* add custom scroll to tables ([9061b31](https://github.com/tetacom/react-ui/commit/9061b31c400343e5036443a8bdf01f81ab1d896c))
+* add virtual scroll on react-virtual ([5f3e81b](https://github.com/tetacom/react-ui/commit/5f3e81bcf3db27093d06bbd8513e5108b7b6c6bf))
+* add virtual scroll to table ([0ca3209](https://github.com/tetacom/react-ui/commit/0ca3209f19d4764eb0e9884064f067728428e875))
+* upgrade nx to version 16 ([b0fceb8](https://github.com/tetacom/react-ui/commit/b0fceb8d4285015798fcfb65e811736515fb1493))
+
 ## [0.4.3](https://github.com/tetacom/react-ui/compare/react-components-0.4.1...react-components-0.4.2) (2023-07-03)
 
 
