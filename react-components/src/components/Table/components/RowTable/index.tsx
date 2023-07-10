@@ -12,6 +12,7 @@ export interface ITableRow<T> {
   columns: TableProps<T>['columns'];
   isSelectedRow?: boolean;
   onClick?: (cell: ICellInstance<T>) => void;
+  rowRef: (node: Element | null) => void;
 }
 
 function TableRow<T>({
@@ -19,6 +20,7 @@ function TableRow<T>({
   columns,
   isSelectedRow = false,
   onClick,
+  rowRef,
 }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
@@ -35,13 +37,14 @@ function TableRow<T>({
   };
 
   return (
-    <tr className={classNames(isSelectedRow && s.active)}>
+    <tr ref={rowRef} className={classNames(isSelectedRow && s.active)}>
       {getVisibleCells().map((cell) => (
         <td
           key={cell.id}
           onClick={() => {
             handleClick(cell.column.id, cell.row.original);
           }}
+          style={{ width: cell.column.getSize() }}
         >
           {flexRender(cell.column.columnDef.cell, cell.getContext())}
         </td>

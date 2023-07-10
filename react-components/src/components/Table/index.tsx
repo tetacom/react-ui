@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   CellContext,
@@ -8,7 +8,7 @@ import {
   Row,
   useReactTable,
 } from '@tanstack/react-table';
-import { useVirtual } from 'react-virtual';
+import { useVirtualizer } from '@tanstack/react-virtual';
 
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
@@ -24,47 +24,50 @@ export function Table<T>({
   dictionary = {},
   cellParams = {
     verticalClamp: 1,
-    maxWidth: 100,
   },
+  height = '100vh',
   onClick,
   className,
   ...props
-}: TableProps<T>): JSX.Element {
+}: TableProps<T>): React.ReactElement {
   const columnHelper = createColumnHelper<T>();
-  const tableColumns = columns.map(
-    ({ name, caption, cellComponent, propertyName, filterType }) => {
-      return columnHelper.accessor(name as any, {
-        id: name,
-        cell: (info: CellContext<T, number>) => {
-          const infoValue = info.getValue();
-          let dictValue = '';
+  const tableColumns = useMemo(() => {
+    return columns.map(
+      ({ name, caption, cellComponent, propertyName, filterType, width }) => {
+        return columnHelper.accessor(name as any, {
+          id: name,
+          cell: (info: CellContext<T, number>) => {
+            const infoValue = info.getValue();
+            let dictValue = '';
 
-          if (filterType === FilterType.list && propertyName) {
-            dictValue =
-              dictionary[propertyName]?.find(({ id }) => id === infoValue)
-                ?.name ?? '';
-          }
+            if (filterType === FilterType.list && propertyName) {
+              dictValue =
+                dictionary[propertyName]?.find(({ id }) => id === infoValue)
+                  ?.name ?? '';
+            }
 
-          const value = dictValue || infoValue;
+            const value = dictValue || infoValue;
 
-          let result;
+            let result;
 
-          if (cellComponent) {
-            result = React.createElement(cellComponent, {
-              value,
-            });
-          } else if (typeof value === 'object' && value !== null) {
-            result = JSON.stringify(value);
-          } else {
-            result = value;
-          }
+            if (cellComponent) {
+              result = React.createElement(cellComponent, {
+                value,
+              });
+            } else if (typeof value === 'object' && value !== null) {
+              result = JSON.stringify(value);
+            } else {
+              result = value;
+            }
 
-          return <span>{result}</span>;
-        },
-        header: () => caption,
-      });
-    },
-  );
+            return <span>{result}</span>;
+          },
+          header: () => caption,
+          size: width,
+        });
+      },
+    );
+  }, [columns, dictionary, columnHelper]);
 
   const [rowSelection, setRowSelection] = useState({});
 
@@ -80,43 +83,37 @@ export function Table<T>({
     getCoreRowModel: getCoreRowModel(),
   });
 
-  const tableContainerRef = useRef<HTMLDivElement>(null);
+  const parentRef = useRef<HTMLDivElement>(null);
   const { rows } = table.getRowModel();
-  const rowVirtualizer = useVirtual({
-    parentRef: tableContainerRef,
-    size: rows.length,
+  const virtualizer = useVirtualizer({
+    count: rows.length,
+    paddingStart: parentRef.current?.querySelector('thead')?.offsetHeight ?? 28,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 28,
     overscan: 5,
   });
 
-  const { virtualItems: virtualRows, totalSize } = rowVirtualizer;
-
-  const paddingTop = virtualRows.length > 0 ? virtualRows?.[0]?.start || 0 : 0;
-  const paddingBottom =
-    virtualRows.length > 0
-      ? totalSize - (virtualRows?.[virtualRows.length - 1]?.end || 0)
-      : 0;
-
-  console.log('paddingTop', paddingTop);
-  console.log('paddingBottom', paddingBottom);
+  const cellStyles = {
+    '--cell-vert-clamp': cellParams.verticalClamp,
+  };
 
   if (skeleton) return skeleton;
 
-  const { maxWidth, verticalClamp } = cellParams;
-  const cellMaxWidth =
-    typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`;
-  const cellStyles = {
-    '--cell-vert-clamp': verticalClamp,
-    '--cell-max-width': cellMaxWidth,
-  } as React.CSSProperties;
-
   return (
-    <div ref={tableContainerRef} className={s.root}>
-      <table {...props} className={classNames(s.table, className)}>
+    <div className={s.root} ref={parentRef} style={{ height }}>
+      <table
+        {...props}
+        className={classNames(s.table, className)}
+        style={{
+          ...cellStyles,
+          height: virtualizer.getTotalSize(),
+        }}
+      >
         <thead className={classNames(sticky && s.sticky)}>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>
+                <th key={header.id} style={{ width: header.getSize() }}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -129,23 +126,25 @@ export function Table<T>({
           ))}
         </thead>
 
-        <tbody style={cellStyles}>
-          {paddingTop > 0 && (
-            <tr>
-              <td
-                style={{
-                  height: `${paddingTop}px`,
-                  backgroundColor: 'transparent',
-                }}
-              />
-            </tr>
-          )}
-          {virtualRows.map((virtualRow) => {
+        <tbody
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            transform: `translateY(${
+              virtualizer.getVirtualItems()[0].start
+            }px)`,
+          }}
+        >
+          {virtualizer.getVirtualItems().map((virtualRow) => {
             const row = rows[virtualRow.index] as Row<T>;
 
             return (
               <TableRow
-                key={row.id}
+                key={virtualRow.key}
+                data-index={virtualRow.index}
+                rowRef={virtualizer.measureElement}
                 row={row}
                 columns={columns}
                 isSelectedRow={row.getIsSelected()}
@@ -153,16 +152,6 @@ export function Table<T>({
               />
             );
           })}
-          {paddingBottom > 0 && (
-            <tr>
-              <td
-                style={{
-                  height: `${paddingBottom}px`,
-                  backgroundColor: 'transparent',
-                }}
-              />
-            </tr>
-          )}
         </tbody>
       </table>
     </div>
