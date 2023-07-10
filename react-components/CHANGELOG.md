@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.7](https://github.com/tetacom/react-ui/compare/react-components-0.4.6...react-components-0.4.7) (2023-07-10)
+
+
+### Bug Fixes
+
+* fix build css file name ([b72db4e](https://github.com/tetacom/react-ui/commit/b72db4ef7b1ade1f3a1169a700e146098f1bba7d))
+
 ## [0.4.6](https://github.com/tetacom/react-ui/compare/react-components-0.4.5...react-components-0.4.6) (2023-07-10)
 
 
