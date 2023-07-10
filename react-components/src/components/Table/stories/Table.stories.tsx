@@ -65,11 +65,7 @@ const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
     return value;
   }
 
-  return (
-    <div style={{ whiteSpace: 'nowrap' }}>
-      {Object.values(value).join(' — ')}
-    </div>
-  );
+  return <div>{Object.values(value).join(' — ')}</div>;
 };
 
 const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
@@ -99,16 +95,19 @@ const TableStory: FC<{
 
   return (
     <Table
+      height="calc(100vh - 16px)"
       dataSource={dataResponse}
       columns={columns}
       sticky={sticky}
       skeleton={
-        <Skeleton
-          rows={16}
-          columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
-          columnsUnit="fr"
-          isTable
-        />
+        loading ? (
+          <Skeleton
+            rows={16}
+            columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+            columnsUnit="fr"
+            isTable
+          />
+        ) : undefined
       }
       dictionary={initDictionary}
       cellParams={cellParams}
@@ -123,7 +122,6 @@ export const Default: Story = {
     sticky: true,
     cellParams: {
       verticalClamp: 3,
-      maxWidth: 420,
     },
   },
 };
