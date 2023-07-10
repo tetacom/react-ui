@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.5](https://github.com/tetacom/react-ui/compare/react-components-0.4.4...react-components-0.4.5) (2023-07-10)
+
+
+### Bug Fixes
+
+* update themes, fix table scroll bug ([ecd4998](https://github.com/tetacom/react-ui/commit/ecd4998354880e991a911f587322915daeffabab))
+
 ## [0.4.4](https://github.com/tetacom/react-ui/compare/react-components-0.4.3...react-components-0.4.4) (2023-07-10)
 
 
