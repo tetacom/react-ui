@@ -83,6 +83,11 @@
 
     tbody {
       display: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateY(var(--tbody-transform));
 
       tr {
         width: 100%;
