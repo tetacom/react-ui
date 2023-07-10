@@ -95,6 +95,7 @@ export function Table<T>({
 
   const cellStyles = {
     '--cell-vert-clamp': cellParams.verticalClamp,
+    '--tbody-transform': `${virtualizer.getVirtualItems()[0].start}px`,
   };
 
   if (skeleton) return skeleton;
@@ -126,17 +127,7 @@ export function Table<T>({
           ))}
         </thead>
 
-        <tbody
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            transform: `translateY(${
-              virtualizer.getVirtualItems()[0].start
-            }px)`,
-          }}
-        >
+        <tbody>
           {virtualizer.getVirtualItems().map((virtualRow) => {
             const row = rows[virtualRow.index] as Row<T>;
 
