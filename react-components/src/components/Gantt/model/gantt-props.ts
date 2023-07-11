@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import { ZoomSize } from './enum/zoom-size.enum';
 
 export interface MilestoneOptions {
   startTime: Date;
@@ -12,6 +13,8 @@ export interface MilestoneItem<T extends MilestoneOptions> {
 
 export interface GanttProps<T extends MilestoneOptions> {
   items: Array<MilestoneItem<T>>;
+
+  zoom?: ZoomSize;
 
   // Обратный вызов для кастомного рендера вехи
   onMilestoneRender?: (

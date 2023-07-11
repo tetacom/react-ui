@@ -4,6 +4,7 @@ import { MilestoneItem, MilestoneOptions } from '../../model/gantt-props';
 import { Tooltip } from '../../../Tooltip';
 import * as d3 from 'd3';
 import { getContrastColor } from '../../../../utils/getContrastColor';
+import dayjs from 'dayjs';
 
 export interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
@@ -30,11 +31,34 @@ export function GanttRowComponent<T extends MilestoneOptions>(
             .domain([milestone.startTime, milestone.endTime])
             .range([0, itemWidth]);
 
+          const uniqIds = new Set(
+            (milestone as any)?.items?.map((_: any) => _.wellId),
+          );
+
+          let prodSum = 0;
+
+          const tooltipString = [...uniqIds]?.map((id: any) => {
+            const foundMilestone = (milestone as any)?.items.find(
+              (_: any) => _.wellId === id,
+            );
+
+            prodSum += foundMilestone.production;
+
+            return `${foundMilestone.wellId}|idd:${foundMilestone.idd}|prod:${foundMilestone.production}\n`;
+          });
+
+          tooltipString[tooltipString.length - 1] += `\n\nsum|${prodSum.toFixed(
+            0,
+          )}`;
+
+          tooltipString[tooltipString.length - 1] += `\n${dayjs(
+            milestone.startTime,
+          ).format('DD.MM.YYYY')} - ${dayjs(milestone.endTime).format(
+            'DD.MM.YYYY',
+          )}`;
+
           return (
-            <Tooltip
-              title={`${milestone.startTime.toString()} / ${milestone.endTime.toString()}`}
-              placement="top-start"
-            >
+            <Tooltip title={tooltipString} placement="top-start">
               <div
                 style={{
                   position: 'absolute',
@@ -141,7 +165,11 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                               left: scaleTimeInCluster(well.startTime) + 6,
                             }}
                           >
-                            {well.wellId}
+                            {(milestone as any).clusterType === 'drilling' &&
+                              well.wellId}
+
+                            {(milestone as any).clusterType === 'move' &&
+                              (milestone as any)?.items[0]?.distance.toFixed(0)}
                           </Typography.Text>
                         );
                       },

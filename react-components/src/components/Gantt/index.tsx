@@ -20,11 +20,7 @@ export function Gantt<T extends MilestoneOptions>(props: GanttProps<T>) {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  const [maxWidth, ticks, scale] = useTimeAxis(
-    props.items,
-    ZoomSize.month,
-    size,
-  );
+  const [maxWidth, ticks, scale] = useTimeAxis(props.items, props.zoom, size);
 
   const handleScrollSidebar = (scroll: any) => {
     if (trackScrollRef?.current) {

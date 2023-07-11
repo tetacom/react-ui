@@ -5,10 +5,18 @@ import { fakerRU } from '@faker-js/faker';
 import { Gantt } from '../index';
 import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
 import { rigs } from '../rigs';
+import { ZoomSize } from '../model/enum/zoom-size.enum';
 
 const meta: Meta<typeof Gantt> = {
   title: 'Data Display/Gantt',
   component: Gantt,
+  argTypes: {
+    zoom: {
+      defaultValue: ZoomSize.year,
+      options: [ZoomSize.year, ZoomSize.month],
+      control: { type: 'select' },
+    },
+  },
 };
 
 export default meta;
@@ -22,6 +30,9 @@ class ScheduleItem {
   operationType?: number;
   startTime: Date;
   endTime: Date;
+  distance?: number;
+  production?: number;
+  idd?: number;
 
   constructor(options: {
     DrillingRigId?: number;
@@ -30,6 +41,9 @@ class ScheduleItem {
     OperationType?: number;
     StartTime?: Date;
     EndTime?: Date;
+    distance?: number;
+    production?: number;
+    idd?: number;
   }) {
     this.drillingRigId = options?.DrillingRigId;
     this.clusterId = options?.ClusterId;
@@ -37,6 +51,9 @@ class ScheduleItem {
     this.operationType = options?.OperationType;
     this.startTime = dayjs(options?.StartTime)?.startOf('day').toDate();
     this.endTime = dayjs(options?.EndTime)?.endOf('day').toDate();
+    this.production = options?.production;
+    this.idd = options?.idd;
+    this.distance = options?.distance;
   }
 }
 
