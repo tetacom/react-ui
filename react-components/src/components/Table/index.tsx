@@ -27,6 +27,7 @@ export function Table<T>({
   },
   height = '100vh',
   onClick,
+  acrossLine = false,
   className,
   ...props
 }: TableProps<T>): React.ReactElement {
@@ -140,6 +141,7 @@ export function Table<T>({
                 columns={columns}
                 isSelectedRow={row.getIsSelected()}
                 onClick={onClick}
+                acrossLine={acrossLine}
               />
             );
           })}

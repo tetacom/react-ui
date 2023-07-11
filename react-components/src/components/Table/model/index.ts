@@ -32,4 +32,7 @@ export interface TableProps<T>
 
   // Событие клика по строке
   onClick?: (cell: ICellInstance<T>) => void;
+
+  // Выделять строчки таблицы через одну
+  acrossLine?: boolean;
 }
