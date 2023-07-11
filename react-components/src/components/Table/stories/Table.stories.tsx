@@ -76,7 +76,9 @@ const TableStory: FC<{
   sticky?: boolean;
   loading?: boolean;
   cellParams?: CellParamsType;
-}> = ({ sticky = false, loading = false, cellParams }) => {
+  height?: React.CSSProperties['height'];
+  acrossLine?: boolean;
+}> = ({ sticky = false, loading = false, cellParams, height, acrossLine }) => {
   const columns = initColumns.map((item) => {
     const cellComponent = item.filterType
       ? customComponents.get(item.filterType)
@@ -95,7 +97,8 @@ const TableStory: FC<{
 
   return (
     <Table
-      height="calc(100vh - 16px)"
+      height={height}
+      acrossLine={acrossLine}
       dataSource={dataResponse}
       columns={columns}
       sticky={sticky}
@@ -123,5 +126,7 @@ export const Default: Story = {
     cellParams: {
       verticalClamp: 3,
     },
+    height: 'calc(100vh - 16px)',
+    acrossLine: false,
   },
 };

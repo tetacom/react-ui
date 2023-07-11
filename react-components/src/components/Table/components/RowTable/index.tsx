@@ -14,6 +14,7 @@ export interface ITableRow<T> {
   isSelectedRow?: boolean;
   onClick?: (cell: ICellInstance<T>) => void;
   rowRef: (node: Element | null) => void;
+  acrossLine?: TableProps<T>['acrossLine'];
 }
 
 function TableRow<T>({
@@ -23,6 +24,7 @@ function TableRow<T>({
   isSelectedRow = false,
   onClick,
   rowRef,
+  acrossLine = false,
 }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
@@ -38,10 +40,14 @@ function TableRow<T>({
     }
   };
 
+  const rowsClassName = acrossLine
+    ? (row.index % 2 && s.highlight) || ''
+    : s.underline;
+
   return (
     <tr
       ref={rowRef}
-      className={classNames(isSelectedRow && s.active)}
+      className={classNames(rowsClassName, isSelectedRow && s.active)}
       data-index={virtualIndex}
     >
       {getVisibleCells().map((cell) => (

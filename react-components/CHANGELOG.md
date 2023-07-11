@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.9](https://github.com/tetacom/react-ui/compare/react-components-0.4.8...react-components-0.4.9) (2023-07-11)
+
+
+### Bug Fixes
+
+* add across line prop to table ([178fd19](https://github.com/tetacom/react-ui/commit/178fd1922fff93ce9e6d6d32975938f137e9cda6))
+* add useId and callback, when file not loaded ([81fd657](https://github.com/tetacom/react-ui/commit/81fd657ba42db4f9047dff45537810b598172e56))
+* fix across the lane highlight ([3533d2c](https://github.com/tetacom/react-ui/commit/3533d2c1d4eaf4bdab5273c15f756913255bda8d))
+
 ## [0.4.8](https://github.com/tetacom/react-ui/compare/react-components-0.4.7...react-components-0.4.8) (2023-07-10)
 
 

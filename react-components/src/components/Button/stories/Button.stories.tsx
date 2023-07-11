@@ -123,9 +123,11 @@ const FileButton = () => {
     <div>
       <Button
         file={{
-          inputId: 'file-upload',
           acceptList: ['xls', 'xlsx', 'png', 'jpeg', 'jpg', 'svg'],
           onChange: handleChange,
+          errorCallback: () => {
+            console.log('Error callback');
+          },
         }}
       >
         Загрузить файл

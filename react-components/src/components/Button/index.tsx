@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef } from 'react';
+import React, { ChangeEvent, forwardRef, useId } from 'react';
 import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -63,23 +63,34 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
         const { name } = uploadFile;
         const uploadFileType = name.slice(name.lastIndexOf('.') + 1);
 
-        if (file?.acceptList.includes(uploadFileType)) {
+        if (
+          !file?.acceptList ||
+          !file?.acceptList?.length ||
+          file?.acceptList.includes(uploadFileType)
+        ) {
           file?.onChange(uploadFile);
+        } else {
+          console.warn(
+            'Загруженный файл не соответствует ни одному из разрешенных типов',
+          );
+          file?.errorCallback && file?.errorCallback();
         }
       }
     };
 
+    const inputId = useId();
+
     if (file) {
       return (
         <label
-          htmlFor={file.inputId}
+          htmlFor={inputId}
           className={classes}
           style={{ cursor: 'pointer' }}
         >
           {children}
           <input
             type="file"
-            id={file.inputId}
+            id={inputId}
             disabled={loading || disabled}
             onChange={handleChange}
           />

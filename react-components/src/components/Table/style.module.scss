@@ -40,13 +40,14 @@
     text-align: left;
     border-collapse: collapse;
     border-spacing: 0;
+    background-color: var(--color-global-bgcard);
 
     th,
     td {
       background-color: var(--color-global-bgcard);
       padding: var(--radius-6) var(--radius-8);
       vertical-align: top;
-      transition: background-color 0.2s ease-in-out;
+      transition: background-color 0.075s;
 
       > span {
         display: -webkit-box;
@@ -92,25 +93,41 @@
       tr {
         width: 100%;
 
-        &:nth-child(2n) {
+        td {
+          @include fontBody3;
+
+          position: relative;
+          color: var(--color-text-90);
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: transparent;
+            transition: background-color 0.075s;
+          }
+        }
+
+        &.underline {
+          td {
+            &::after {
+              background-color: var(--color-text-10);
+            }
+          }
+        }
+
+        &.highlight {
           td {
             background-color: var(--color-global-bgmain);
           }
         }
 
-        td {
-          @include fontBody3;
-
-          color: var(--color-text-90);
-        }
-
         &:hover {
           td {
             background-color: var(--color-primary-5);
-
-            &:hover {
-              background-color: var(--color-primary-10);
-            }
           }
         }
 
