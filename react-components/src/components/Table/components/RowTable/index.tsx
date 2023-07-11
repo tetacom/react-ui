@@ -41,7 +41,10 @@ function TableRow<T>({
   return (
     <tr
       ref={rowRef}
-      className={classNames(isSelectedRow && s.active)}
+      className={classNames(
+        row.index % 2 && s.highlight,
+        isSelectedRow && s.active,
+      )}
       data-index={virtualIndex}
     >
       {getVisibleCells().map((cell) => (

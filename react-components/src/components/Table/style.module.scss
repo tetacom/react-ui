@@ -40,6 +40,7 @@
     text-align: left;
     border-collapse: collapse;
     border-spacing: 0;
+    background-color: var(--color-global-bgcard);
 
     th,
     td {
@@ -92,7 +93,7 @@
       tr {
         width: 100%;
 
-        &:nth-child(2n) {
+        &.highlight {
           td {
             background-color: var(--color-global-bgmain);
           }
