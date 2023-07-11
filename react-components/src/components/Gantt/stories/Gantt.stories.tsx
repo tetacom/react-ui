@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Gantt } from '../index';
 import dayjs from 'dayjs';
-import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
 import { fakerRU } from '@faker-js/faker';
+
+import { Gantt } from '../index';
+import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
 import { rigs } from '../rigs';
 
 const meta: Meta<typeof Gantt> = {
@@ -52,7 +53,7 @@ const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
 
 const drillingRigIds = new Set(scheduleItems.map((_) => _.drillingRigId));
 
-const rigItems: MilestoneItem<CustomMilestone>[] = [];
+export const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
 [...drillingRigIds].forEach((rigId) => {
   const clusters = scheduleItems.filter((_) => _.drillingRigId === rigId);

@@ -1,6 +1,8 @@
-import s from './Gantt.module.scss';
-import { useTimeAxis } from './hooks/useTimeAxis';
 import dayjs from 'dayjs';
+
+import { useTimeAxis } from './hooks/useTimeAxis';
+
+import s from './Gantt.module.scss';
 
 import { GanttRowComponent } from './components/GanttRow/GanttRow';
 import {
@@ -36,6 +38,15 @@ export function Gantt<T extends MilestoneOptions>(props: GanttProps<T>) {
       timelineRef.current.scrollLeft = scroll.target?.scrollLeft;
     }
   };
+
+  const yearsMap: Map<number, Date> = new Map();
+  ticks.forEach((date) => {
+    const year = dayjs(date).year();
+    if (!yearsMap.get(year)) {
+      yearsMap.set(year, date);
+    }
+  });
+  const years = Array.from(yearsMap).map(([, date]) => date);
 
   return (
     <div className={s.container}>
@@ -99,16 +110,34 @@ export function Gantt<T extends MilestoneOptions>(props: GanttProps<T>) {
             }}
           >
             <div style={{ height: 16, display: 'flex' }}>
-              <Typography.Text
-                fontVariant="overline"
-                style={{
-                  position: 'sticky',
-                  background: '#292e3c',
-                  left: 0,
-                }}
-              >
-                2023
-              </Typography.Text>
+              {years.map((yearTick, index, yearTicks) => {
+                const width = yearTicks[index + 1]
+                  ? Math.abs(scale(yearTicks[index + 1]) - scale(yearTick))
+                  : 'max-content';
+
+                return (
+                  <div
+                    key={yearTick.getTime()}
+                    style={{
+                      width,
+                      flexGrow: yearTicks.length - 1 !== index ? 0 : 1,
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography.Text
+                      fontVariant="overline"
+                      style={{
+                        position: 'sticky',
+                        left: 0,
+                        color: 'var(--color-text-50)',
+                      }}
+                    >
+                      {dayjs(yearTick).year()}
+                    </Typography.Text>
+                  </div>
+                );
+              })}
             </div>
             <div style={{ height: 16, display: 'flex' }}>
               {ticks
@@ -117,28 +146,35 @@ export function Gantt<T extends MilestoneOptions>(props: GanttProps<T>) {
                 })
                 .map((tick, index, ticks) => {
                   return (
-                    <Typography.Text
-                      fontVariant="overline"
+                    <div
+                      key={tick.getTime()}
                       style={{
-                        position: 'sticky',
-                        background: '#292e3c',
-                        left: 0,
-                        display: 'inline-block',
-                        color: 'var(--color-text-50)',
                         width: ticks[index + 1]
                           ? Math.abs(scale(ticks[index + 1]) - scale(tick))
                           : 'max-content',
+                        flexGrow: ticks.length - 1 !== index ? 0 : 1,
+                        display: 'flex',
+                        alignItems: 'center',
                       }}
                     >
-                      {dayjs(tick).format('MMMM')}
-                    </Typography.Text>
+                      <Typography.Text
+                        fontVariant="overline"
+                        style={{
+                          position: 'sticky',
+                          left: 0,
+                          color: 'var(--color-text-50)',
+                        }}
+                      >
+                        {dayjs(tick).format('MMMM')}
+                      </Typography.Text>
+                    </div>
                   );
                 })}
             </div>
           </div>
         </div>
         <div style={{ width: maxWidth, position: 'relative', paddingTop: 32 }}>
-          {props.items?.map((item: MilestoneItem<T>, index) => {
+          {props.items?.map((item: MilestoneItem<T>) => {
             if (props.onMilestoneRender) {
               return props.onMilestoneRender(item, scale);
             }
