@@ -4,6 +4,7 @@ export * from './components/Button';
 export * from './components/Button/model/public-api';
 
 export * from './components/Typography';
+export * from './components/Typography/model/public-api';
 
 export * from './components/Icons';
 
