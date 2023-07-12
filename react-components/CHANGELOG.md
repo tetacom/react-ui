@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.11](https://github.com/tetacom/react-ui/compare/react-components-0.4.10...react-components-0.4.11) (2023-07-12)
+
+
+### Bug Fixes
+
+* fix export typo font variant type ([ff331a6](https://github.com/tetacom/react-ui/commit/ff331a6c3ae327ccf1ffaafd2add6e7f8822f7e3))
+
 ## [0.4.10](https://github.com/tetacom/react-ui/compare/react-components-0.4.9...react-components-0.4.10) (2023-07-12)
 
 

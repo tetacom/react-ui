@@ -1,3 +1,1 @@
-import { FontVariant } from './index';
-
-export { FontVariant as FontVariantType };
+export type { FontVariant as FontVariantType } from './index';
