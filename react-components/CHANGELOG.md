@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.12](https://github.com/tetacom/react-ui/compare/react-components-0.4.11...react-components-0.4.12) (2023-07-13)
+
+
+### Bug Fixes
+
+* fix tabs highlight position ([aad6d55](https://github.com/tetacom/react-ui/commit/aad6d559fad86517bdb040ddd4f2be5a4e2859a9))
+* fix tabs highlight position ([8264e52](https://github.com/tetacom/react-ui/commit/8264e527449d3ecadb30b3045d78d5dafe95260b))
+
 ## [0.4.11](https://github.com/tetacom/react-ui/compare/react-components-0.4.10...react-components-0.4.11) (2023-07-12)
 
 
