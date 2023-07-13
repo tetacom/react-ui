@@ -8,7 +8,6 @@ import { Direction } from '../../model';
 import s from './style.module.scss';
 
 const SIZE = 2;
-const POSITION = -1 * SIZE;
 
 interface Props {
   tabsRef: HTMLUListElement | null;
@@ -43,12 +42,12 @@ export const Highlight: FC<Props> = ({
 
   const horizontal = {
     x: offsetWidth,
-    y: POSITION,
+    y: -1 * SIZE,
     width: currentTabWidth,
     height: SIZE,
   };
   const vertical = {
-    x: POSITION,
+    x: 0,
     y: offsetHeight,
     width: SIZE,
     height: currentTabHeight,
