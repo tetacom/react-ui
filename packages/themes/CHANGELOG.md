@@ -2,6 +2,30 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.15](https://github.com/tetacom/react-ui/compare/themes-0.0.14...themes-0.0.15) (2023-07-10)
+
+
+### Bug Fixes
+
+* **style:** design tokens updated ([8c2cbb1](https://github.com/tetacom/react-ui/commit/8c2cbb10ee8cb71d29c7f52246857ad102b9f34d))
+
+## [0.0.14](https://github.com/tetacom/react-ui/compare/themes-0.0.13...themes-0.0.14) (2023-07-10)
+
+
+### Bug Fixes
+
+* **library:** cleanup ([c12e1da](https://github.com/tetacom/react-ui/commit/c12e1da871daaf97b09d24cdbe074a637e1d657d))
+* **library:** move theme classes, fix button icon fill color ([adf0774](https://github.com/tetacom/react-ui/commit/adf07748e07c831ab9fd36bee25cfbf473be486e))
+* **style:** design tokens updated ([8c2cbb1](https://github.com/tetacom/react-ui/commit/8c2cbb10ee8cb71d29c7f52246857ad102b9f34d))
+
+## [0.0.14](https://github.com/tetacom/react-ui/compare/themes-0.0.13...themes-0.0.14) (2023-07-07)
+
+
+### Bug Fixes
+
+* **library:** cleanup ([c12e1da](https://github.com/tetacom/react-ui/commit/c12e1da871daaf97b09d24cdbe074a637e1d657d))
+* **library:** move theme classes, fix button icon fill color ([adf0774](https://github.com/tetacom/react-ui/commit/adf07748e07c831ab9fd36bee25cfbf473be486e))
+
 ### [0.0.13](https://github.com/tetacom/react-ui/compare/themes-0.0.12...themes-0.0.13) (2023-06-08)
 
 

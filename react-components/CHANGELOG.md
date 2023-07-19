@@ -2,6 +2,118 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.13](https://github.com/tetacom/react-ui/compare/react-components-0.4.12...react-components-0.4.13) (2023-07-19)
+
+
+### Bug Fixes
+
+* export list ([a1395fd](https://github.com/tetacom/react-ui/commit/a1395fdefa0f2ec5de39af698a16eb3053e2cdae))
+
+## [0.4.12](https://github.com/tetacom/react-ui/compare/react-components-0.4.11...react-components-0.4.12) (2023-07-13)
+
+
+### Bug Fixes
+
+* fix tabs highlight position ([aad6d55](https://github.com/tetacom/react-ui/commit/aad6d559fad86517bdb040ddd4f2be5a4e2859a9))
+* fix tabs highlight position ([8264e52](https://github.com/tetacom/react-ui/commit/8264e527449d3ecadb30b3045d78d5dafe95260b))
+
+## [0.4.11](https://github.com/tetacom/react-ui/compare/react-components-0.4.10...react-components-0.4.11) (2023-07-12)
+
+
+### Bug Fixes
+
+* fix export typo font variant type ([ff331a6](https://github.com/tetacom/react-ui/commit/ff331a6c3ae327ccf1ffaafd2add6e7f8822f7e3))
+
+## [0.4.10](https://github.com/tetacom/react-ui/compare/react-components-0.4.9...react-components-0.4.10) (2023-07-12)
+
+
+### Bug Fixes
+
+* export typo font variant type ([27d98ff](https://github.com/tetacom/react-ui/commit/27d98ff1ef06ff07ed7e30035411dc2b520d1f43))
+
+## [0.4.9](https://github.com/tetacom/react-ui/compare/react-components-0.4.8...react-components-0.4.9) (2023-07-11)
+
+
+### Bug Fixes
+
+* add across line prop to table ([178fd19](https://github.com/tetacom/react-ui/commit/178fd1922fff93ce9e6d6d32975938f137e9cda6))
+* add useId and callback, when file not loaded ([81fd657](https://github.com/tetacom/react-ui/commit/81fd657ba42db4f9047dff45537810b598172e56))
+* fix across the lane highlight ([3533d2c](https://github.com/tetacom/react-ui/commit/3533d2c1d4eaf4bdab5273c15f756913255bda8d))
+
+## [0.4.8](https://github.com/tetacom/react-ui/compare/react-components-0.4.7...react-components-0.4.8) (2023-07-10)
+
+
+### Bug Fixes
+
+* fix empty virtual rows bug ([a88d6ac](https://github.com/tetacom/react-ui/commit/a88d6ac76688b4b9f6d796a9ebd4b2f392ba7c06))
+
+## [0.4.7](https://github.com/tetacom/react-ui/compare/react-components-0.4.6...react-components-0.4.7) (2023-07-10)
+
+
+### Bug Fixes
+
+* fix build css file name ([b72db4e](https://github.com/tetacom/react-ui/commit/b72db4ef7b1ade1f3a1169a700e146098f1bba7d))
+
+## [0.4.6](https://github.com/tetacom/react-ui/compare/react-components-0.4.5...react-components-0.4.6) (2023-07-10)
+
+
+### Bug Fixes
+
+* fix import bug, move styles to scss file ([3658169](https://github.com/tetacom/react-ui/commit/3658169de6365b75218f299fe2ac4daa87a952ea))
+
+## [0.4.5](https://github.com/tetacom/react-ui/compare/react-components-0.4.4...react-components-0.4.5) (2023-07-10)
+
+
+### Bug Fixes
+
+* update themes, fix table scroll bug ([ecd4998](https://github.com/tetacom/react-ui/commit/ecd4998354880e991a911f587322915daeffabab))
+
+## [0.4.4](https://github.com/tetacom/react-ui/compare/react-components-0.4.3...react-components-0.4.4) (2023-07-10)
+
+
+### Bug Fixes
+
+* add custom scroll to tables ([9061b31](https://github.com/tetacom/react-ui/commit/9061b31c400343e5036443a8bdf01f81ab1d896c))
+* add virtual scroll on react-virtual ([5f3e81b](https://github.com/tetacom/react-ui/commit/5f3e81bcf3db27093d06bbd8513e5108b7b6c6bf))
+* add virtual scroll to table ([0ca3209](https://github.com/tetacom/react-ui/commit/0ca3209f19d4764eb0e9884064f067728428e875))
+* upgrade nx to version 16 ([b0fceb8](https://github.com/tetacom/react-ui/commit/b0fceb8d4285015798fcfb65e811736515fb1493))
+
+## [0.4.3](https://github.com/tetacom/react-ui/compare/react-components-0.4.1...react-components-0.4.2) (2023-07-03)
+
+
+### Bug Fixes
+
+* add type file to button ([9a85df1](https://github.com/tetacom/react-ui/commit/9a85df1cf1ebc21bc40c4abde3d74ecb5765e05c))
+
+### [0.4.2](https://github.com/tetacom/react-ui/compare/react-components-0.4.1...react-components-0.4.2) (2023-06-29)
+
+
+### Bug Fixes
+
+* put custom skeleton to table ([eb68724](https://github.com/tetacom/react-ui/commit/eb68724c2c21073dbe39b2cd2d59df5fe40f174e))
+
+## [0.4.1](https://github.com/tetacom/react-ui/compare/react-components-0.4.0...react-components-0.4.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* fix table click event type ([79f94f5](https://github.com/tetacom/react-ui/commit/79f94f58fdd0fba1bca43f2acab119ed936a24db))
+
+## [0.4.0](https://github.com/tetacom/react-ui/compare/react-components-0.3.6...react-components-0.4.0) (2023-06-29)
+
+
+### Features
+
+* add skeleton component ([139fec4](https://github.com/tetacom/react-ui/commit/139fec454cf93faa63be1d9ef5b878de0aabe62f))
+
+
+### Bug Fixes
+
+* add vertical clamp and max width for table cell ([b8c131f](https://github.com/tetacom/react-ui/commit/b8c131fbf151319167cca2e1d6919219ea0addc1))
+* table onclick ([912e1d9](https://github.com/tetacom/react-ui/commit/912e1d9c25246e831466aea66a94f7ea5cfa5d1e))
+* table onClick return column ([d938a7c](https://github.com/tetacom/react-ui/commit/d938a7c07ac4cdff120af50aa24f597d22bdf75d))
+* update skeleton and add it to table ([5f4e5a4](https://github.com/tetacom/react-ui/commit/5f4e5a4d5c00d51563496cdae1ac9ed011b3b2ed))
+
 ### [0.3.6](https://github.com/tetacom/react-ui/compare/react-components-0.3.5...react-components-0.3.6) (2023-06-26)
 
 

@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
+import { UploadFile } from './upload-file';
 
 export type ButtonRef = HTMLButtonElement;
 
@@ -32,4 +33,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<ButtonRef> {
 
   // Отключить кнопку
   disabled?: boolean;
+
+  // Загрузить файл
+  file?: UploadFile;
 }

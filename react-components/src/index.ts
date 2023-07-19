@@ -4,6 +4,7 @@ export * from './components/Button';
 export * from './components/Button/model/public-api';
 
 export * from './components/Typography';
+export * from './components/Typography/model/public-api';
 
 export * from './components/Icons';
 
@@ -33,5 +34,10 @@ export * from './components/Toggle';
 export * from './components/Input';
 
 export * from './components/Result';
+
+export * from './components/Skeleton';
+
+export * from './components/List';
+export * from './components/List/model/public-api';
 
 export * from './components/Slider';

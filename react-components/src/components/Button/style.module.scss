@@ -108,6 +108,12 @@
     }
   }
 
+  &File {
+    input {
+      display: none;
+    }
+  }
+
   &:hover:enabled {
     cursor: pointer;
   }
