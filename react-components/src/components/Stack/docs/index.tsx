@@ -10,6 +10,7 @@ import { Unstyled } from '@storybook/blocks';
 import { Stack } from '../index';
 import { Typography } from '../../Typography';
 import { Button } from '../../Button';
+import { Avatar } from '../../Avatar';
 
 import stackClassNames from '../style.module.scss';
 
@@ -45,10 +46,11 @@ export const StackDocs = () => (
       интервалом и разделителями между каждым дочерним элементом.
     </Paragraph>
 
-    <Stack style={{ margin: '24px 0' }}>
+    <Stack divider align="start" style={{ margin: '24px 0' }}>
       <Button>Item 1</Button>
       <Button>Item 2</Button>
       <Button>Item 3</Button>
+      <Avatar name="tmp" size="128" />
     </Stack>
 
     <br />

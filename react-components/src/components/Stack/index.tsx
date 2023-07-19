@@ -1,10 +1,11 @@
 import React, { Children, FC } from 'react';
 import classNames from 'classnames';
 
+import { Divider } from '../Divider';
 import { StackProps } from './model';
+import { getGaps } from './utils/getGaps';
 
 import s from './style.module.scss';
-import { getGaps } from './utils/getGaps';
 
 export const Stack: FC<StackProps> = ({
   direction = 'row',
@@ -43,7 +44,9 @@ export const Stack: FC<StackProps> = ({
       {Children.map(children, (child, index) => {
         const dividerElement =
           Children.count(children) !== index + 1 ? (
-            <div className={s.divider} />
+            <div className={s.divider}>
+              <Divider height="var(--spacing-16)" />
+            </div>
           ) : null;
 
         if (!child) return null;

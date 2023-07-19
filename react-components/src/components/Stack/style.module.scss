@@ -10,24 +10,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &::after {
-      content: '';
-      width: 100%;
-      height: var(--spacing-16);
-      background-color: var(--color-text-10);
-    }
   }
 
   &ColumnDirection {
     .divider {
       width: inherit;
       height: 1px;
-
-      &::after {
-        width: var(--spacing-16);
-        height: 100%;
-      }
     }
   }
 
