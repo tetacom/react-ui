@@ -50,7 +50,7 @@ export const Stack: FC<StackProps> = ({
 
         return (
           <>
-            <div>{child}</div>
+            <div className={s.childWrapper}>{child}</div>
 
             {divider && dividerElement}
           </>

@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+
+  &Control {
+    align-items: center;
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.button {
+  align-items: center;
+  background-color: var(--color-primary-50);
+  border: 2px solid var(--color-global-bgcard);
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  left: var(--pointer-left);
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 16px;
+  z-index: 1;
+  box-shadow: var(--shadow-1);
+}
+
+.line {
+  align-items: center;
+  border-radius: 16px;
+  display: inline-flex;
+  overflow: hidden;
+  width: 100%;
+
+  &Active {
+    height: 4px;
+    background-color: var(--color-primary-50);
+    width: var(--line-width);
+  }
+
+  &InActive {
+    height: 4px;
+    background-color: var(--color-text-20);
+    width: var(--line-width);
+  }
+}

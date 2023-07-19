@@ -39,3 +39,5 @@ export * from './components/Skeleton';
 
 export * from './components/List';
 export * from './components/List/model/public-api';
+
+export * from './components/Slider';
