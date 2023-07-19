@@ -2,6 +2,19 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.5.0](https://github.com/tetacom/react-ui/compare/react-components-0.4.13...react-components-0.5.0) (2023-07-19)
+
+
+### Features
+
+* fix stack styles, export slider ([bd8b30f](https://github.com/tetacom/react-ui/commit/bd8b30f5de406cbaeecf0c93ad60d246fdef3f82))
+
+
+### Bug Fixes
+
+* **library:** cleanup ([9a53d1c](https://github.com/tetacom/react-ui/commit/9a53d1c85a9606cd39a54c3f59fcd302e416ff39))
+* **library:** controlled tooltip, slider fixes ([c7b542d](https://github.com/tetacom/react-ui/commit/c7b542d4aa9a6ec77ae494ffb548ed9fc63fd22f))
+
 ## [0.4.13](https://github.com/tetacom/react-ui/compare/react-components-0.4.12...react-components-0.4.13) (2023-07-19)
 
 
