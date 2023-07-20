@@ -20,6 +20,6 @@ type Story = StoryObj<typeof Divider>;
 export const Default: Story = {
   args: {
     type: 'horizontal',
-    height: '50%',
+    length: 200,
   },
 };

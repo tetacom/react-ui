@@ -4,6 +4,6 @@ export interface DividerProps {
   // Направление
   type?: 'horizontal' | 'vertical';
 
-  // Высота
-  height?: React.CSSProperties['height'];
+  // Длина
+  length?: React.CSSProperties['height'];
 }

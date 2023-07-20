@@ -3,11 +3,11 @@
 
   &Vertical {
     width: 1px;
-    height: var(--divider-size);
+    height: var(--divider-length);
   }
 
   &Horizontal {
-    width: var(--divider-size);
+    width: var(--divider-length);
     height: 1px;
   }
 }

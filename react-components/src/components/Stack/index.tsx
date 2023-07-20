@@ -42,10 +42,15 @@ export const Stack: FC<StackProps> = ({
       }}
     >
       {Children.map(children, (child, index) => {
+        const dividerType = isColumnDirection ? 'horizontal' : 'vertical';
         const dividerElement =
           Children.count(children) !== index + 1 ? (
             <div className={s.divider}>
-              <Divider height="var(--spacing-16)" />
+              {isBoolean(divider) ? (
+                <Divider length="var(--spacing-16)" type={dividerType} />
+              ) : (
+                divider
+              )}
             </div>
           ) : null;
 
@@ -62,3 +67,7 @@ export const Stack: FC<StackProps> = ({
     </div>
   );
 };
+
+function isBoolean(value: StackProps['divider']): value is boolean {
+  return typeof value === 'boolean';
+}

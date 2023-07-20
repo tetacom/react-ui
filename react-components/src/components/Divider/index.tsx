@@ -6,10 +6,10 @@ import classNames from 'classnames';
 
 export const Divider: FC<DividerProps> = ({
   type = 'vertical',
-  height = '100%',
+  length = '100%',
 }) => {
   const style = {
-    '--divider-size': isNumber(height) ? `${height}px` : height,
+    '--divider-length': isNumber(length) ? `${length}px` : length,
   } as React.CSSProperties;
 
   return (
@@ -23,6 +23,6 @@ export const Divider: FC<DividerProps> = ({
   );
 };
 
-function isNumber(value: DividerProps['height']): value is number {
+function isNumber(value: DividerProps['length']): value is number {
   return typeof value === 'number';
 }

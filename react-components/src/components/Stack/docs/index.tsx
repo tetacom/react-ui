@@ -11,6 +11,7 @@ import { Stack } from '../index';
 import { Typography } from '../../Typography';
 import { Button } from '../../Button';
 import { Avatar } from '../../Avatar';
+import { Divider } from '../../Divider';
 
 import stackClassNames from '../style.module.scss';
 
@@ -46,7 +47,7 @@ export const StackDocs = () => (
       интервалом и разделителями между каждым дочерним элементом.
     </Paragraph>
 
-    <Stack divider align="start" style={{ margin: '24px 0' }}>
+    <Stack divider={<Divider length={64} />} style={{ margin: '24px 0' }}>
       <Button>Item 1</Button>
       <Button>Item 2</Button>
       <Button>Item 3</Button>
