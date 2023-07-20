@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.0](https://github.com/tetacom/react-ui/compare/react-components-0.5.0...react-components-0.6.0) (2023-07-20)
+
+
+### Features
+
+* add divider component ([eea854e](https://github.com/tetacom/react-ui/commit/eea854ecb2a7b382414eeba9d28d841fcc387308))
+
+
+### Bug Fixes
+
+* add divider component ([793279d](https://github.com/tetacom/react-ui/commit/793279d6216a6f35943ab9301c9e1a8bc6e22c1c))
+
 ## [0.5.0](https://github.com/tetacom/react-ui/compare/react-components-0.4.13...react-components-0.5.0) (2023-07-19)
 
 

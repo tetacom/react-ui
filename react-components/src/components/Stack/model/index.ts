@@ -1,4 +1,4 @@
-import { CSSProperties, PropsWithChildren } from 'react';
+import React, { CSSProperties, PropsWithChildren } from 'react';
 
 type DirectionType = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 type AlignType = 'stretch' | 'start' | 'end' | 'center' | 'baseline';
@@ -14,7 +14,7 @@ export interface StackProps extends PropsWithChildren {
   size?: number | [number, number];
 
   // Установить разделитель
-  divider?: boolean;
+  divider?: boolean | React.ReactElement;
 
   // Автоматическая линия переноса, бывает необходима при горизонтальном направлении
   wrap?: boolean;
