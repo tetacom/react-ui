@@ -1,4 +1,3 @@
-import React from 'react';
 import { ListItem } from './listItem';
 
 export interface ListProps {
@@ -18,5 +17,5 @@ export interface ListProps {
   checked?: boolean;
 
   // Обратный вызов при клике на элемент
-  onClick?: (event: object) => any;
+  onClick?: (event: ListItem) => void;
 }

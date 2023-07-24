@@ -2,6 +2,27 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.3](https://github.com/tetacom/react-ui/compare/react-components-0.6.2...react-components-0.6.3) (2023-07-24)
+
+
+### Bug Fixes
+
+* **style:** fix list onclick and caption ([1f0d04e](https://github.com/tetacom/react-ui/commit/1f0d04ef1034f4c47dcc2d345d7a4020bde0fa16))
+
+## [0.6.2](https://github.com/tetacom/react-ui/compare/react-components-0.6.1...react-components-0.6.2) (2023-07-20)
+
+
+### Bug Fixes
+
+* **style:** fix stack child styles ([3c7958d](https://github.com/tetacom/react-ui/commit/3c7958d0b249517e61e8098aeb018def067eb883))
+
+## [0.6.1](https://github.com/tetacom/react-ui/compare/react-components-0.6.0...react-components-0.6.1) (2023-07-20)
+
+
+### Bug Fixes
+
+* **style:** fix stack child styles ([83ef4ee](https://github.com/tetacom/react-ui/commit/83ef4ee2cf5e5ee92fad686f19ebd947836a0fcc))
+
 ## [0.6.0](https://github.com/tetacom/react-ui/compare/react-components-0.5.0...react-components-0.6.0) (2023-07-20)
 
 
