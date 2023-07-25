@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.5](https://github.com/tetacom/react-ui/compare/react-components-0.6.4...react-components-0.6.5) (2023-07-25)
+
+
+### Bug Fixes
+
+* **style:** add reset margin prop to typography ([09004e7](https://github.com/tetacom/react-ui/commit/09004e7985c5b0f6b30f51ade7e37a3aabf769b8))
+
 ## [0.6.4](https://github.com/tetacom/react-ui/compare/react-components-0.6.3...react-components-0.6.4) (2023-07-25)
 
 
