@@ -22,6 +22,7 @@ export const Default: Story = {
   args: {
     children: 'Typography',
     fontVariant: undefined,
+    resetMargin: false,
   },
 };
 

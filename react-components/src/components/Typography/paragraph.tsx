@@ -7,11 +7,25 @@ import s from './style.module.scss';
 
 type ParagraphRef = HTMLParagraphElement;
 export const Paragraph = forwardRef<ParagraphRef, BaseProps>(
-  ({ children, fontVariant = DEFAULT_TYPE_FACE, className, ...props }, ref) => (
+  (
+    {
+      children,
+      fontVariant = DEFAULT_TYPE_FACE,
+      resetMargin = false,
+      className,
+      ...props
+    },
+    ref,
+  ) => (
     <p
       {...props}
       ref={ref}
-      className={classNames(s.typo, typoClasses[fontVariant], className)}
+      className={classNames(
+        s.typo,
+        typoClasses[fontVariant],
+        resetMargin && s.resetMargin,
+        className,
+      )}
     >
       {children}
     </p>

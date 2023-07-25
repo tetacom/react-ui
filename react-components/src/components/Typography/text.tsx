@@ -7,11 +7,25 @@ import s from './style.module.scss';
 
 type TextRef = HTMLSpanElement;
 export const Text = forwardRef<TextRef, BaseProps>(
-  ({ children, fontVariant = DEFAULT_TYPE_FACE, className, ...props }, ref) => (
+  (
+    {
+      children,
+      fontVariant = DEFAULT_TYPE_FACE,
+      resetMargin = false,
+      className,
+      ...props
+    },
+    ref,
+  ) => (
     <span
       {...props}
       ref={ref}
-      className={classNames(s.typo, typoClasses[fontVariant], className)}
+      className={classNames(
+        s.typo,
+        typoClasses[fontVariant],
+        resetMargin && s.resetMargin,
+        className,
+      )}
     >
       {children}
     </span>

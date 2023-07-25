@@ -23,6 +23,7 @@ export const Default: Story = {
     children: 'Typography',
     level: undefined,
     fontVariant: undefined,
+    resetMargin: false,
   },
 };
 

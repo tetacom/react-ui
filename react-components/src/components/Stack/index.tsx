@@ -9,6 +9,7 @@ import s from './style.module.scss';
 
 export const Stack: FC<StackProps> = ({
   direction = 'row',
+  justifyContent = 'flex-start',
   align = 'center',
   size,
   divider = false,
@@ -29,15 +30,16 @@ export const Stack: FC<StackProps> = ({
     <div
       className={classNames(
         s.stack,
-        isColumnDirection && s.stackColumnDirection,
-        wrap && s.stackWrap,
-        block && s.stackBlock,
+        isColumnDirection && s.columnDirection,
+        wrap && s.wrapper,
+        block && s.block,
         className,
       )}
       style={{
         ...style,
         flexDirection: direction,
         gap,
+        justifyContent: justifyContent,
         alignItems: align,
       }}
     >
@@ -58,7 +60,7 @@ export const Stack: FC<StackProps> = ({
 
         return (
           <>
-            <div>{child}</div>
+            <div className={s.childWrapper}>{child}</div>
 
             {divider && dividerElement}
           </>
