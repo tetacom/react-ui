@@ -7,11 +7,25 @@ import s from './style.module.scss';
 
 type LinkRef = HTMLAnchorElement;
 export const Link = forwardRef<LinkRef, LinkProps>(
-  ({ children, fontVariant = DEFAULT_TYPE_FACE, className, ...props }, ref) => (
+  (
+    {
+      children,
+      fontVariant = DEFAULT_TYPE_FACE,
+      resetMargin = false,
+      className,
+      ...props
+    },
+    ref,
+  ) => (
     <a
       {...props}
       ref={ref}
-      className={classNames(s.typo, typoClasses[fontVariant], className)}
+      className={classNames(
+        s.typo,
+        typoClasses[fontVariant],
+        resetMargin && s.resetMargin,
+        className,
+      )}
     >
       {children}
     </a>

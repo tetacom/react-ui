@@ -8,7 +8,17 @@ import s from './style.module.scss';
 type TitleRef = HTMLHeadingElement;
 
 export const Title = forwardRef<TitleRef, TitleProps>(
-  ({ children, fontVariant = null, level = 1, className, ...props }, ref) => {
+  (
+    {
+      children,
+      fontVariant = null,
+      resetMargin = false,
+      level = 1,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
     const titleClassname = fontVariant
       ? typoClasses[fontVariant]
       : levelClasses[level];
@@ -18,7 +28,12 @@ export const Title = forwardRef<TitleRef, TitleProps>(
       {
         ...props,
         ref,
-        className: classNames(s.typo, titleClassname, className),
+        className: classNames(
+          s.typo,
+          titleClassname,
+          resetMargin && s.resetMargin,
+          className,
+        ),
       },
       children,
     );

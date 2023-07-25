@@ -4,6 +4,10 @@
   color: var(--color-text-90);
   transition: color 0.2s;
 
+  &.resetMargin {
+    margin: 0;
+  }
+
   &H1 {
     @include fontH1;
   }
