@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.6](https://github.com/tetacom/react-ui/compare/react-components-0.6.5...react-components-0.6.6) (2023-07-25)
+
+
+### Bug Fixes
+
+* **style:** fix result component ([f2bad1e](https://github.com/tetacom/react-ui/commit/f2bad1ec0f499f730508b5fb5959087e6e07726f))
+* **style:** update play icon ([67e9cff](https://github.com/tetacom/react-ui/commit/67e9cff2ab34c29a5deb985560e933a12148d8af))
+
 ## [0.6.5](https://github.com/tetacom/react-ui/compare/react-components-0.6.4...react-components-0.6.5) (2023-07-25)
 
 
