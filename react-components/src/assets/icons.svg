@@ -508,7 +508,7 @@
     <path fill-rule="evenodd" clip-rule="evenodd" d="M1.6466 13.6672L5.18213 10.1317L5.88924 10.8388L2.3537 14.3744L1.6466 13.6672Z" fill="currentColor" fill-opacity="0.87" />
   </symbol>
   <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="play">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 2.00021L12.4434 7.90234L3 13.8045V2.00021ZM4 3.80446V12.0002L10.5566 7.90234L4 3.80446Z" fill="currentColor" fill-opacity="0.87" />
+    <path d="M3.5 12.9023V2.90234L11.5 7.90234L3.5 12.9023Z" fill="currentColor" fill-opacity="0.87" />
   </symbol>
   <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="playBackRight">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.00098 2.99982V12.9998H5.00098V8.1958L5.2216 8.34674L11.2216 12.4517L12.0039 12.987L12.0039 12.0391L12.0039 3.93408L12.0039 2.99982L11.2266 3.51805L5.22658 7.51805L5.00098 7.66845V2.99982H4.00098ZM11.0039 4.86833L11.0039 11.0912L6.39726 7.93944L11.0039 4.86833Z" fill="currentColor" fill-opacity="0.87" />
