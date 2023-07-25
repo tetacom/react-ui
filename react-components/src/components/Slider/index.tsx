@@ -1,8 +1,10 @@
-import s from './Slider.module.scss';
 import React, { useState } from 'react';
+
 import { useSlider } from './hooks/useSlider';
-import { Tooltip } from 'tetacom/react-components';
+import { Tooltip } from '../Tooltip';
 import { SliderProps } from './model';
+
+import s from './Slider.module.scss';
 
 export function Slider(props: SliderProps) {
   const [sliderRef, pointers, steps, getPercentageForValue] = useSlider({
@@ -33,12 +35,13 @@ export function Slider(props: SliderProps) {
       <div className={s.container}>
         <div {...containerProps} className={s.containerControl}>
           <div className={s.line}>
-            {steps.map((step) => {
+            {steps.map((step, index) => {
               const styles = {
                 '--line-width': `${step.width}%`,
               } as React.CSSProperties;
               return (
                 <div
+                  key={index}
                   className={step.active ? s.lineActive : s.lineInActive}
                   style={styles}
                 ></div>
@@ -52,6 +55,7 @@ export function Slider(props: SliderProps) {
             } as React.CSSProperties;
             return (
               <Tooltip
+                key={index}
                 title={value.toString()}
                 open={tooltipOpen}
                 placement="bottom"
