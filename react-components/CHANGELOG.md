@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.4](https://github.com/tetacom/react-ui/compare/react-components-0.6.3...react-components-0.6.4) (2023-07-25)
+
+
+### Bug Fixes
+
+* **style:** fix slider console warnings ([109d2e6](https://github.com/tetacom/react-ui/commit/109d2e6c60b3a37e6bb24823b660d0ecf1dcc8a0))
+* **style:** update stack and add justify-content prop ([01c7d4b](https://github.com/tetacom/react-ui/commit/01c7d4b4a57f76a303c238bf11b6868baaf988cf))
+
 ## [0.6.3](https://github.com/tetacom/react-ui/compare/react-components-0.6.2...react-components-0.6.3) (2023-07-24)
 
 
