@@ -2,6 +2,27 @@
   display: inline-flex;
   height: auto;
 
+  &.wrapper {
+    flex-wrap: wrap;
+  }
+
+  &.columnDirection {
+    .divider {
+      width: inherit;
+      height: 1px;
+    }
+  }
+
+  &.block {
+    width: 100%;
+  }
+
+  &.columnDirection.block {
+    .childWrapper {
+      width: 100%;
+    }
+  }
+
   .divider {
     position: relative;
     width: 1px;
@@ -10,20 +31,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  &ColumnDirection {
-    .divider {
-      width: inherit;
-      height: 1px;
-    }
-  }
-
-  &Wrap {
-    flex-wrap: wrap;
-  }
-
-  &Block {
-    width: 100%;
   }
 }
