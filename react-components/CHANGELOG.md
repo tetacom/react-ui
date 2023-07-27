@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.7](https://github.com/tetacom/react-ui/compare/react-components-0.6.6...react-components-0.6.7) (2023-07-27)
+
+
+### Bug Fixes
+
+* **style:** fix toggle bug ([1b2a369](https://github.com/tetacom/react-ui/commit/1b2a3692aedb541daf85b0ff1a4a5f79afc3801d))
+* **style:** slider update points type, add hover,active effects, fix bug with update values ([d0d0cde](https://github.com/tetacom/react-ui/commit/d0d0cde93c9db6e2d380be9a87915b5d450e7b57))
+
 ## [0.6.6](https://github.com/tetacom/react-ui/compare/react-components-0.6.5...react-components-0.6.6) (2023-07-25)
 
 
