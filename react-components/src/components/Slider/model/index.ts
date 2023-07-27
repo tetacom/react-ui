@@ -1,6 +1,8 @@
+import { SliderPoint } from './point';
+
 export interface SliderProps {
   // Начальные позиции поинтов
-  values: Array<number>;
+  values: Array<SliderPoint>;
 
   // Минимальное значение
   min: number;
@@ -11,7 +13,9 @@ export interface SliderProps {
   // Шаг
   step: number;
 
-  onMouseUp?: () => void;
+  // Обратный вызов при изменений значений слайдера
+  onChange?: (values: Array<SliderPoint>) => void;
 
-  onChange?: (values: Array<number>) => void;
+  // Расположение подсказки
+  tooltipPlacement?: 'top' | 'bottom';
 }

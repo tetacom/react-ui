@@ -4,19 +4,26 @@ import { useSlider } from './hooks/useSlider';
 import { Tooltip } from '../Tooltip';
 import { SliderProps } from './model';
 
-import s from './Slider.module.scss';
+import s from './style.module.scss';
 
-export function Slider(props: SliderProps) {
+export function Slider({
+  min,
+  max,
+  step,
+  values,
+  onChange,
+  tooltipPlacement = 'bottom',
+}: SliderProps) {
   const [sliderRef, pointers, steps, getPercentageForValue] = useSlider({
-    min: props.min,
-    max: props.max,
-    step: props.step,
-    values: props.values,
+    min,
+    max,
+    step,
+    values,
     onMouseUp: () => {
       setTooltipOpen(false);
     },
     onChange: (values) => {
-      props.onChange?.(values);
+      onChange?.(values);
     },
   });
 
@@ -31,55 +38,53 @@ export function Slider(props: SliderProps) {
   };
 
   return (
-    <>
-      <div className={s.container}>
-        <div {...containerProps} className={s.containerControl}>
-          <div className={s.line}>
-            {steps.map((step, index) => {
-              const styles = {
-                '--line-width': `${step.width}%`,
-              } as React.CSSProperties;
-              return (
-                <div
-                  key={index}
-                  className={step.active ? s.lineActive : s.lineInActive}
-                  style={styles}
-                ></div>
-              );
-            })}
-          </div>
-
-          {pointers.map(({ value, onMouseDown, isActive }, index) => {
+    <div className={s.slider}>
+      <div {...containerProps} className={s.sliderControl}>
+        <div className={s.line}>
+          {steps.map((step, index) => {
             const styles = {
-              '--pointer-left': `${getPercentageForValue(value)}%`,
+              '--line-width': `${step.width}%`,
             } as React.CSSProperties;
+
             return (
-              <Tooltip
+              <div
                 key={index}
-                title={value.toString()}
-                open={tooltipOpen}
-                placement="bottom"
-              >
-                <button
-                  key={index}
-                  className={s.button}
-                  role="slider"
-                  aria-valuenow={value}
-                  onMouseDown={(e) => {
-                    setTooltipOpen(true);
-                    onMouseDown(e, index);
-                  }}
-                  style={{
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    ...styles,
-                  }}
-                ></button>
-              </Tooltip>
+                className={step.active ? s.lineActive : s.lineInActive}
+                style={styles}
+              />
             );
           })}
         </div>
+
+        {pointers.map(({ value: point, onMouseDown }, index) => {
+          const { key, value } = point;
+          const styles = {
+            '--pointer-left': `${getPercentageForValue(value)}%`,
+          } as React.CSSProperties;
+
+          return (
+            <Tooltip
+              key={index}
+              title={value.toString()}
+              open={tooltipOpen}
+              placement={tooltipPlacement}
+            >
+              <button
+                type="button"
+                key={index}
+                className={s.button}
+                role="slider"
+                aria-valuenow={value}
+                onMouseDown={(e) => {
+                  setTooltipOpen(true);
+                  onMouseDown(e, index, key);
+                }}
+                style={styles}
+              />
+            </Tooltip>
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 }

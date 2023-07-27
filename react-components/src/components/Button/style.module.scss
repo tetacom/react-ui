@@ -6,7 +6,6 @@
   align-items: center;
   border: 1px solid transparent;
   position: relative;
-  //TODO забирать color для primary из утилити классов
   color: var(--color-global-white);
   padding: 0 var(--spacing-10);
   border-radius: var(--radius-btn-round);
@@ -15,7 +14,7 @@
   text-overflow: ellipsis;
   background-color: transparent;
   box-shadow: 0 0 0 0 transparent;
-  //TODO возможно стоит завести токены с транзишенами
+  //TODO стоит завести токены с транзишенами
   transition: background 0.2s, color 0.2s, border 0.2s;
 
   .children {
@@ -119,7 +118,6 @@
   }
 
   &:focus-visible {
-    //TODO нужны токены для теней
     box-shadow: 0 0 0 4px var(--color-primary-10);
     transition: background 0.4s, box-shadow 0.2s;
   }
