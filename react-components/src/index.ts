@@ -41,5 +41,6 @@ export * from './components/List';
 export * from './components/List/model/public-api';
 
 export * from './components/Slider';
+export * from './components/Slider/model/public-api';
 
 export * from './components/Divider';

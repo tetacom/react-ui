@@ -1,22 +1,23 @@
+import React from 'react';
+import { SliderPoint } from '../model/point';
+
 export const roundToStep = (
   val: number,
   min: number,
   max: number,
   step: number,
-) => {
+  activeKey: string,
+): SliderPoint => {
   let left = min;
-  let right = max;
 
   while (left < val && left + step < val) {
     left += step;
   }
 
-  right = Math.min(left + step, max);
+  const right = Math.min(left + step, max);
+  const resulValue = val - left < right - val ? left : right;
 
-  if (val - left < right - val) {
-    return left;
-  }
-  return right;
+  return { key: activeKey, value: resulValue };
 };
 
 export const getValueForClientX = (

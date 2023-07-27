@@ -1,4 +1,4 @@
-.container {
+.slider {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -13,38 +13,47 @@
 }
 
 .button {
-  align-items: center;
   background-color: var(--color-primary-50);
   border: 2px solid var(--color-global-bgcard);
-  border-radius: 16px;
   cursor: pointer;
-  display: flex;
-  height: 16px;
-  justify-content: center;
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  border-radius: 50%;
   left: var(--pointer-left);
   padding: 0;
   position: absolute;
-  top: 0;
-  width: 16px;
   z-index: 1;
   box-shadow: var(--shadow-1);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border 0.2s ease-in-out;
+
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    background-color: var(--color-primary-60);
+  }
+
+  &:active {
+    background-color: var(--color-primary-70);
+  }
 }
 
 .line {
-  align-items: center;
-  border-radius: 16px;
+  border-radius: var(--radius-2);
   display: inline-flex;
   overflow: hidden;
   width: 100%;
+  height: var(--spacing-4);
 
   &Active {
-    height: 4px;
+    height: 100%;
     background-color: var(--color-primary-50);
     width: var(--line-width);
   }
 
   &InActive {
-    height: 4px;
+    height: 100%;
     background-color: var(--color-text-20);
     width: var(--line-width);
   }
