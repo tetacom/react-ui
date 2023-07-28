@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.0](https://github.com/tetacom/react-ui/compare/react-components-0.6.7...react-components-0.7.0) (2023-07-28)
+
+
+### Features
+
+* **style:** add toast component ([b89d790](https://github.com/tetacom/react-ui/commit/b89d79077ceacbbf23e037756a4fc6b8ac53a396))
+
 ## [0.6.7](https://github.com/tetacom/react-ui/compare/react-components-0.6.6...react-components-0.6.7) (2023-07-27)
 
 

@@ -44,3 +44,5 @@ export * from './components/Slider';
 export * from './components/Slider/model/public-api';
 
 export * from './components/Divider';
+
+export * from './components/Toast';
