@@ -1,11 +1,9 @@
-import React, { FC, ReactElement, ReactNode, useState } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import {
   autoUpdate,
   FloatingPortal,
   offset as offsetFn,
   shift,
-  useClick,
-  useDismiss,
   useFloating,
   useHover,
   useInteractions,

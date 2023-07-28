@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-
+import { flushSync } from 'react-dom';
 import {
   useFloating,
   size,
@@ -14,8 +14,8 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { DropdownProps } from './model';
+
 import s from './style.module.scss';
-import { flushSync } from 'react-dom';
 
 export const Dropdown: FC<DropdownProps> = ({
   dropdown,
@@ -53,7 +53,7 @@ export const Dropdown: FC<DropdownProps> = ({
       }),
       flip(),
       size({
-        apply({ rects, elements, availableHeight, x }) {
+        apply({ rects, elements, availableHeight }) {
           const height = maxHeight === 0 ? availableHeight : maxHeight;
 
           // Force update
