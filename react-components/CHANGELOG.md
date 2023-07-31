@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.1](https://github.com/tetacom/react-ui/compare/react-components-0.7.0...react-components-0.7.1) (2023-07-31)
+
+
+### Bug Fixes
+
+* add error message to upload file button ([70451d7](https://github.com/tetacom/react-ui/commit/70451d75834f33fb31d64581925fb7747c9fbef3))
+
 ## [0.7.0](https://github.com/tetacom/react-ui/compare/react-components-0.6.7...react-components-0.7.0) (2023-07-28)
 
 

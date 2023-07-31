@@ -70,10 +70,10 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
         ) {
           file?.onChange(uploadFile);
         } else {
-          console.warn(
-            'Загруженный файл не соответствует ни одному из разрешенных типов',
-          );
-          file?.errorCallback && file?.errorCallback();
+          const errorMessage =
+            'Загруженный файл не соответствует ни одному из разрешенных типов';
+          console.warn(errorMessage);
+          file?.errorCallback && file?.errorCallback(errorMessage);
         }
       }
     };

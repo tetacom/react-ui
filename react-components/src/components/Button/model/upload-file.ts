@@ -6,5 +6,5 @@ export type UploadFile = {
   acceptList?: string[];
 
   // Обратный вызов при несоответствие загруженного файла списку разширения
-  errorCallback?: () => void;
+  errorCallback?: (errorMessage: string) => void;
 };
