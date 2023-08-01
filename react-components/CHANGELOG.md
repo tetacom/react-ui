@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.2](https://github.com/tetacom/react-ui/compare/react-components-0.7.1...react-components-0.7.2) (2023-08-01)
+
+
+### Bug Fixes
+
+* add right icon to input ([3a44cb1](https://github.com/tetacom/react-ui/commit/3a44cb14794a594bee315468f7cd20764fe884be))
+
 ## [0.7.1](https://github.com/tetacom/react-ui/compare/react-components-0.7.0...react-components-0.7.1) (2023-07-31)
 
 
