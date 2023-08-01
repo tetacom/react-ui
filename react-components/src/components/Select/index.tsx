@@ -60,18 +60,18 @@ const SelectInner = forwardRef(
             ref={useMergeRefs([inputRef, ref])}
             value={foundValue?.headline}
             readonly
-          ></Input>
-          <div className={s.arrow}>
-            <Icon
-              style={{
-                color: props.disabled
-                  ? 'var(--color-text-20)'
-                  : 'var(--color-text-50)',
-                transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-              }}
-              name={'arrowDownKey'}
-            />
-          </div>
+            rightIcon={{
+              icon: (
+                <Icon
+                  style={{
+                    transition: 'transform 0.2s',
+                    transform: `rotate(${open ? 180 : 0}deg)`,
+                  }}
+                  name={'arrowDownKey'}
+                />
+              ),
+            }}
+          />
         </div>
       </Dropdown>
     );
@@ -80,4 +80,4 @@ const SelectInner = forwardRef(
 
 export const Select = SelectInner as <T extends BaseSelectProps>(
   props: SelectProps<T> & { ref?: Ref<any> },
-) => JSX.Element;
+) => React.ReactElement;

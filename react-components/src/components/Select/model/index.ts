@@ -1,4 +1,5 @@
 import { InputProps } from '../../Input/model';
+import React from 'react';
 
 export type BaseSelectProps = { key: string; headline: string };
 export interface SelectProps<T extends BaseSelectProps> extends InputProps {
@@ -12,5 +13,5 @@ export interface SelectProps<T extends BaseSelectProps> extends InputProps {
   onChangeItem?: (item: T) => void;
 
   // Обратный вызов для кастомного рендера
-  onItemRender?: (item: T) => JSX.Element;
+  onItemRender?: (item: T) => React.ReactElement;
 }
