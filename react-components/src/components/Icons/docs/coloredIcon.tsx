@@ -23,6 +23,9 @@ export const ColoredIconDocs = () => {
       ),
     [searchQuery],
   );
+  const handleClear = () => {
+    setSearchQuery('');
+  };
 
   return (
     <Unstyled>
@@ -51,7 +54,7 @@ export const ColoredIconDocs = () => {
           size="large"
           value={searchQuery}
           onChange={handleSearch}
-          allowClear
+          rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
           style={{ width: '100%' }}
         />
 

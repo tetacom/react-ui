@@ -43,16 +43,12 @@ export const Default: Story = {
     );
   },
   args: {
-    onChangeItem: (item: ModelItem) => {
-      console.log(item);
-    },
     size: 'middle',
     shape: 'round',
     label: '',
     labelPosition: 'top',
     placeholder: 'Выберите скважину',
     errorMessage: '',
-    allowClear: false,
     disabled: false,
     readonly: true,
     allowNull: true,
