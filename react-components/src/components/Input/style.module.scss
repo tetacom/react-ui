@@ -71,7 +71,8 @@
 
       &:-webkit-autofill {
         ~ .icon,
-        ~ .rightIcon {
+        ~ .rightIcon,
+        ~ .rightIcon:hover {
           color: #000000;
         }
       }
