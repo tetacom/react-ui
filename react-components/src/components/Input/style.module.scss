@@ -32,6 +32,69 @@
     position: relative;
     overflow: hidden;
 
+    .fieldTag {
+      @include field;
+
+      border: 1px solid transparent;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-text-5);
+      color: var(--color-text-90);
+      border-radius: inherit;
+      transition: background-color 0.2s, border 0.2s, color 0.2s;
+
+      &:read-only {
+        cursor: default;
+      }
+
+      &:disabled {
+        background-color: var(--color-text-5);
+        color: var(--color-text-20);
+      }
+
+      &:hover:enabled {
+        background-color: var(--color-text-10);
+      }
+
+      &:focus {
+        background-color: transparent;
+        border-color: var(--color-primary-50);
+      }
+
+      &HasValue,
+      &:-webkit-autofill {
+        + .placeholder {
+          transform: translate(-24px);
+          opacity: 0;
+        }
+      }
+
+      &:-webkit-autofill {
+        ~ .icon,
+        ~ .rightIcon {
+          color: #000000;
+        }
+      }
+
+      &HasError:enabled {
+        background-color: transparent;
+        border-color: var(--color-red-50);
+      }
+    }
+
+    .placeholder {
+      @include field;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: var(--color-text-40);
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
     .icon {
       position: absolute;
       top: 0;
@@ -73,62 +136,6 @@
       &:disabled {
         color: var(--color-text-20);
       }
-    }
-
-    .fieldTag {
-      @include field;
-
-      border: 1px solid transparent;
-      width: 100%;
-      height: 100%;
-      background-color: var(--color-text-5);
-      color: var(--color-text-90);
-      border-radius: inherit;
-      transition: background-color 0.2s, border 0.2s, color 0.2s;
-
-      &:read-only {
-        cursor: default;
-      }
-
-      &:disabled {
-        background-color: var(--color-text-5);
-        color: var(--color-text-20);
-      }
-
-      &:hover:enabled {
-        background-color: var(--color-text-10);
-      }
-
-      &:focus {
-        background-color: transparent;
-        border-color: var(--color-primary-50);
-      }
-
-      &HasValue,
-      &:-webkit-autofill {
-        + .placeholder {
-          transform: translate(-24px);
-          opacity: 0;
-        }
-      }
-
-      &HasError:enabled {
-        background-color: transparent;
-        border-color: var(--color-red-50);
-      }
-    }
-
-    .placeholder {
-      @include field;
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: var(--color-text-40);
-      pointer-events: none;
-      transition: opacity 0.2s, transform 0.2s;
     }
 
     &Size {
