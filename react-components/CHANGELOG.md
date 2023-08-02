@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.5](https://github.com/tetacom/react-ui/compare/react-components-0.7.4...react-components-0.7.5) (2023-08-02)
+
+
+### Bug Fixes
+
+* fix chrome autofill icon colors ([aa01d6a](https://github.com/tetacom/react-ui/commit/aa01d6a491373f38053a8af3e1148be339933909))
+
 ## [0.7.4](https://github.com/tetacom/react-ui/compare/react-components-0.7.3...react-components-0.7.4) (2023-08-02)
 
 
