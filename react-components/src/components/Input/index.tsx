@@ -103,6 +103,24 @@ export const Input = forwardRef<InputRef, InputProps>(
             rightIcon && s.fieldRightIcon,
           )}
         >
+          <input
+            {...props}
+            ref={ref}
+            className={classNames(
+              s.fieldTag,
+              finalValue && s.fieldTagHasValue,
+              isErrorStatus && s.fieldTagHasError,
+              className,
+            )}
+            value={finalValue}
+            onChange={handleChange}
+            onKeyDown={handleEnterKeyPress}
+            disabled={disabled}
+            readOnly={readonly}
+          />
+
+          <span className={s.placeholder}>{placeholder}</span>
+
           {leftIconName && (
             <span className={s.icon}>
               <Icon name={leftIconName} size={16} />
@@ -122,24 +140,6 @@ export const Input = forwardRef<InputRef, InputProps>(
               {typeof rightIcon.icon !== 'string' && rightIcon.icon}
             </button>
           )}
-
-          <input
-            {...props}
-            ref={ref}
-            className={classNames(
-              s.fieldTag,
-              finalValue && s.fieldTagHasValue,
-              isErrorStatus && s.fieldTagHasError,
-              className,
-            )}
-            value={finalValue}
-            onChange={handleChange}
-            onKeyDown={handleEnterKeyPress}
-            disabled={disabled}
-            readOnly={readonly}
-          />
-
-          <span className={s.placeholder}>{placeholder}</span>
         </span>
 
         <div className={s.footer}>
