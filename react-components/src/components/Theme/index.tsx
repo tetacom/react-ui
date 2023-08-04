@@ -1,49 +1,51 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import { ThemeProps } from './model';
 
-const DOMHtmlElement = document.querySelector('html');
-
 export interface ThemeContextData {
-  mode: string;
-  toggleMode: (selectedMode: string) => void;
+  theme: string;
+  toggleTheme: (selectedTheme: string) => void;
 }
 
 const ThemeContext = React.createContext<ThemeContextData>({
-  mode: 'baselight',
-  toggleMode: () => {
-    throw new Error('ToggleMode not implemented');
+  theme: 'baselight',
+  toggleTheme: () => {
+    throw new Error('ToggleTheme not implemented');
   },
 });
 
-const MODE_KEY = 'tetacom_theme_mode';
+const THEME_KEY = 'tetacom_theme_theme';
 
 const ThemeContextProvider: FC<ThemeProps> = ({ defaultTheme, children }) => {
   const savedValue: string =
-    localStorage.getItem(MODE_KEY) || defaultTheme || 'baselight';
+    localStorage.getItem(THEME_KEY) || defaultTheme || 'baselight';
 
-  const [mode, setMode] = useState<string>(savedValue);
+  const [theme, setTheme] = useState<string>(savedValue);
+  const DOMHtmlElement = useMemo(() => {
+    return document.querySelector('html');
+  }, [theme]);
 
   useEffect(() => {
-    localStorage.setItem(MODE_KEY, mode);
-  }, [mode]);
+    localStorage.setItem(THEME_KEY, theme);
+  }, [theme]);
 
   useEffect(() => {
+    console.log('DOMHtmlElement', DOMHtmlElement);
     if (DOMHtmlElement) {
       DOMHtmlElement.classList.remove(
         ...Object.values(DOMHtmlElement.classList),
       );
-      DOMHtmlElement.classList.add(mode);
+      DOMHtmlElement.classList.add(theme);
     }
-  }, [mode]);
+  }, [theme, DOMHtmlElement]);
 
   const themeContextValue: ThemeContextData = useMemo(() => {
     return {
-      mode,
-      toggleMode: (selectedMode: string) => {
-        setMode(selectedMode);
+      theme,
+      toggleTheme: (selectedTheme: string) => {
+        setTheme(selectedTheme);
       },
     };
-  }, [mode]);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={themeContextValue}>
