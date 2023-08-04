@@ -15,7 +15,7 @@
     "@floating-ui/react": "^0.24.3",
     "@tanstack/react-table": "^8.8.5",
     "@tanstack/react-virtual": "3.0.0-beta.54",
-    "@tetacom/themes": "^0.0.15",
+    "@tetacom/themes": "^0.0.18",
     "classnames": "^2.3.2",
     "framer-motion": "^10.12.4",
     "react": "18.2.0",
