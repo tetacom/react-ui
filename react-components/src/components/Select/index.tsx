@@ -1,18 +1,20 @@
 import React, { forwardRef, Ref, useRef, useState } from 'react';
-import { BaseSelectProps, SelectProps } from './model';
-import { Dropdown, Icon, Input } from 'tetacom/react-components';
+import classNames from 'classnames';
 import { useMergeRefs } from '@floating-ui/react';
+
+import { Dropdown, Icon, Input } from 'tetacom/react-components';
+import { SelectProps } from './model';
+import { BaseSelectProps } from './model/base-select-item';
+
 import s from './style.module.scss';
 import listStyle from '../List/style.module.scss';
-import classNames from 'classnames';
 
 const SelectInner = forwardRef(
   <T extends BaseSelectProps>(props: SelectProps<T>, ref: any) => {
-    const [value, setValue] = useState<any>(props.value);
+    const [value, setValue] = useState<T | null>(props?.value ?? null);
     const [open, setOpen] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
-
-    const foundValue = props.items?.find((item) => item === value);
+    const foundValue = props.items?.find(({ key }) => key === value?.key);
 
     return (
       <Dropdown

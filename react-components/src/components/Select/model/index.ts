@@ -1,8 +1,13 @@
-import { InputProps } from '../../Input/model';
 import React from 'react';
 
-export type BaseSelectProps = { key: string; headline: string };
-export interface SelectProps<T extends BaseSelectProps> extends InputProps {
+import { InputProps } from '../../Input/model';
+import { BaseSelectProps } from './base-select-item';
+
+export interface SelectProps<T extends BaseSelectProps>
+  extends Omit<InputProps, 'value'> {
+  // Значение селекта
+  value?: T;
+
   // Список опции селекта
   items: Array<T>;
 
