@@ -16,6 +16,11 @@ const SelectInner = forwardRef(
     const inputRef = useRef<HTMLInputElement>(null);
     const foundValue = props.items?.find(({ key }) => key === value?.key);
 
+    const propsClone = { ...props };
+    delete propsClone.allowNull;
+    delete propsClone.onChangeItem;
+    delete propsClone.onItemRender;
+
     return (
       <Dropdown
         possiblePlacements={['bottom', 'top']}
@@ -58,7 +63,7 @@ const SelectInner = forwardRef(
       >
         <div style={{ position: 'relative' }}>
           <Input
-            {...props}
+            {...propsClone}
             ref={useMergeRefs([inputRef, ref])}
             value={foundValue?.headline}
             readonly
