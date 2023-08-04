@@ -1,6 +1,6 @@
 {
   "name": "@tetacom/react-components",
-  "version": "0.7.9",
+  "version": "0.7.10",
   "main": "./index.js",
   "types": "./index.d.ts",
   "peerDependencies": {
