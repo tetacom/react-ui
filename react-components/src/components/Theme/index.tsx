@@ -18,11 +18,10 @@ const ThemeContext = React.createContext<ThemeContextData>({
 const MODE_KEY = 'tetacom_theme_mode';
 
 const ThemeContextProvider: FC<ThemeProps> = ({ defaultTheme, children }) => {
-  const savedValue: string = localStorage.getItem(MODE_KEY) ?? 'tatneftlight';
+  const savedValue: string =
+    localStorage.getItem(MODE_KEY) || defaultTheme || 'baselight';
 
-  const [mode, setMode] = useState<string>(
-    savedValue || defaultTheme || 'baselight',
-  );
+  const [mode, setMode] = useState<string>(savedValue);
 
   useEffect(() => {
     localStorage.setItem(MODE_KEY, mode);
