@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.9](https://github.com/tetacom/react-ui/compare/react-components-0.7.8...react-components-0.7.9) (2023-08-04)
+
+
+### Bug Fixes
+
+* fix theme switcher ([4a0d8a8](https://github.com/tetacom/react-ui/commit/4a0d8a882d07923d7913d4a95d803524326c880a))
+
 ## [0.7.8](https://github.com/tetacom/react-ui/compare/react-components-0.7.7...react-components-0.7.8) (2023-08-04)
 
 
