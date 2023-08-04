@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.7](https://github.com/tetacom/react-ui/compare/react-components-0.7.6...react-components-0.7.7) (2023-08-04)
+
+
+### Bug Fixes
+
+* add custom scrollbar ([8ae701e](https://github.com/tetacom/react-ui/commit/8ae701ec1e2f459d78698d332d53e75764bea45f))
+* add theme switcher ([70c2589](https://github.com/tetacom/react-ui/commit/70c2589d3371900df1916e42045d23da6c8e325f))
+* filter select properties for include input ([40b302a](https://github.com/tetacom/react-ui/commit/40b302abaf0d06802d730f5df104fec702764110))
+* fix stack with empty childs ([f7edefc](https://github.com/tetacom/react-ui/commit/f7edefccfa6ec17ea4751d822b0f797d55b95725))
+
 ## [0.7.6](https://github.com/tetacom/react-ui/compare/react-components-0.7.5...react-components-0.7.6) (2023-08-02)
 
 
