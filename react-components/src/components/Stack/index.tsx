@@ -44,17 +44,23 @@ export const Stack: FC<StackProps> = ({
       }}
     >
       {Children.map(children, (child, index) => {
+        let existNextChild = Children.count(children) - 1 !== index;
+        if (Children.count(children) - 2 === index) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          existNextChild = Boolean(children[index + 1]);
+        }
+
         const dividerType = isColumnDirection ? 'horizontal' : 'vertical';
-        const dividerElement =
-          Children.count(children) !== index + 1 ? (
-            <div className={s.divider}>
-              {isBoolean(divider) ? (
-                <Divider length="var(--spacing-16)" type={dividerType} />
-              ) : (
-                divider
-              )}
-            </div>
-          ) : null;
+        const dividerElement = existNextChild ? (
+          <div className={s.divider}>
+            {isBoolean(divider) ? (
+              <Divider length="var(--spacing-16)" type={dividerType} />
+            ) : (
+              divider
+            )}
+          </div>
+        ) : null;
 
         if (!child) return null;
 

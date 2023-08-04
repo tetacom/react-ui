@@ -5,6 +5,7 @@ import '../src/style/normalize.css';
 import '../src/style/common.css';
 import '../src/style/globalTokens.css';
 import '../src/style/tokens.scss';
+import '../src/style/scrollbar.css';
 
 export const globalTypes = {
   theme: {
