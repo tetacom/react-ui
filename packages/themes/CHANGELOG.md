@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.17](https://github.com/tetacom/react-ui/compare/themes-0.0.16...themes-0.0.17) (2023-08-04)
+
+
+### Bug Fixes
+
+* add scrollbar-gutter: stable ([abc4d5f](https://github.com/tetacom/react-ui/commit/abc4d5f820a13b356444d2eec351f39dcdf128cf))
+
 ## [0.0.16](https://github.com/tetacom/react-ui/compare/themes-0.0.15...themes-0.0.16) (2023-08-04)
 
 
