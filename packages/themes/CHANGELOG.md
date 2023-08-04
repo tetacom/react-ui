@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.18](https://github.com/tetacom/react-ui/compare/themes-0.0.17...themes-0.0.18) (2023-08-04)
+
+
+### Bug Fixes
+
+* fix custom scrollbar ([7fa6d52](https://github.com/tetacom/react-ui/commit/7fa6d52b0c30961e0244a206b4ce8d699a66e9bd))
+
 ## [0.0.17](https://github.com/tetacom/react-ui/compare/themes-0.0.16...themes-0.0.17) (2023-08-04)
 
 
