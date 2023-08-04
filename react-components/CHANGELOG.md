@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.8](https://github.com/tetacom/react-ui/compare/react-components-0.7.7...react-components-0.7.8) (2023-08-04)
+
+
+### Bug Fixes
+
+* fix default theme ([44d1c7a](https://github.com/tetacom/react-ui/commit/44d1c7a40f12d4f5696f6b2d879b75d957f10e6d))
+
 ## [0.7.7](https://github.com/tetacom/react-ui/compare/react-components-0.7.6...react-components-0.7.7) (2023-08-04)
 
 
