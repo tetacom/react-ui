@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.16](https://github.com/tetacom/react-ui/compare/themes-0.0.15...themes-0.0.16) (2023-08-04)
+
+
+### Bug Fixes
+
+* add scrollbar styles ([d57a059](https://github.com/tetacom/react-ui/commit/d57a05992a2573a043e9d07ef8f9c37402a7e5a6))
+* upgrade nx to version 16 ([b0fceb8](https://github.com/tetacom/react-ui/commit/b0fceb8d4285015798fcfb65e811736515fb1493))
+
 ## [0.0.15](https://github.com/tetacom/react-ui/compare/themes-0.0.14...themes-0.0.15) (2023-07-10)
 
 
