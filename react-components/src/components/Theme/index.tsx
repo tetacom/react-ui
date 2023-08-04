@@ -29,7 +29,6 @@ const ThemeContextProvider: FC<ThemeProps> = ({ defaultTheme, children }) => {
   }, [theme]);
 
   useEffect(() => {
-    console.log('DOMHtmlElement', DOMHtmlElement);
     if (DOMHtmlElement) {
       DOMHtmlElement.classList.remove(
         ...Object.values(DOMHtmlElement.classList),
