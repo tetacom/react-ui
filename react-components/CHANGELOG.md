@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.10](https://github.com/tetacom/react-ui/compare/react-components-0.7.9...react-components-0.7.10) (2023-08-04)
+
+
+### Bug Fixes
+
+* remove console log ([8a3e78f](https://github.com/tetacom/react-ui/commit/8a3e78f6c6973667a329f9d518e6071edd7837b4))
+
 ## [0.7.9](https://github.com/tetacom/react-ui/compare/react-components-0.7.8...react-components-0.7.9) (2023-08-04)
 
 
