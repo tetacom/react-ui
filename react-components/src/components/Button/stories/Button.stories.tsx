@@ -24,13 +24,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    children: (
-      <>
-        <Icon name="update" />
-        Push me
-        <Icon name="user" />
-      </>
-    ),
+    children: [<Icon name="update" />, 'Push me', <Icon name="user" />],
     view: 'primary',
     size: 'middle',
     palette: undefined,
