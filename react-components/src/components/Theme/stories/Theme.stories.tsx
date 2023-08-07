@@ -25,7 +25,7 @@ const DefaultStory = () => (
 );
 
 const Content = () => {
-  const { toggleMode } = useContext(Context);
+  const { toggleTheme } = useContext(Context);
 
   return (
     <Stack direction="column" align="start">
@@ -42,7 +42,7 @@ const Content = () => {
           { key: 'tatneftdark', headline: 'Tatneft Dark' },
         ]}
         onChangeItem={(item) => {
-          toggleMode(item.key);
+          toggleTheme(item.key);
         }}
       />
 
