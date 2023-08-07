@@ -170,7 +170,7 @@ export const ButtonDocs = () => (
         <div key={key}>
           <Paragraph fontVariant="captionBold">{title}</Paragraph>
           <Button view={view} square={square}>
-            Загрузить <Icon name="user" />
+            <Icon name="user" /> Загрузить
           </Button>
         </div>
       ))}

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useId } from 'react';
+import React, { ChangeEvent, Children, forwardRef, useId } from 'react';
 import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -78,7 +78,12 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
       }
     };
 
+    const buttonContent = Children.map(children, (child, index) => {
+      if (square && index > 0) return null;
+      return <span className={s.child}>{child}</span>;
+    });
     const inputId = useId();
+    const isDisabledButton = loading || disabled;
 
     if (file) {
       return (
@@ -87,11 +92,11 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
           className={classes}
           style={{ cursor: 'pointer' }}
         >
-          {children}
+          {buttonContent}
           <input
             type="file"
             id={inputId}
-            disabled={loading || disabled}
+            disabled={isDisabledButton}
             onChange={handleChange}
           />
         </label>
@@ -103,11 +108,10 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
         {...props}
         ref={ref}
         type={type || 'button'}
-        disabled={loading || disabled}
+        disabled={isDisabledButton}
         className={classes}
       >
-        <span className={s.children}>{children}</span>
-
+        {buttonContent}
         <AnimatePresence initial={false}>
           {loading && (
             <motion.span
