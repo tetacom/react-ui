@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.11](https://github.com/tetacom/react-ui/compare/react-components-0.7.10...react-components-0.7.11) (2023-08-07)
+
+
+### Bug Fixes
+
+* fix button bug ([6d7ae84](https://github.com/tetacom/react-ui/commit/6d7ae849b7634f44529281b4462d16ab65f754ba))
+* theme story ([7135c40](https://github.com/tetacom/react-ui/commit/7135c40a2ca4021d3bb4e0881a6de21addb8e724))
+
 ## [0.7.10](https://github.com/tetacom/react-ui/compare/react-components-0.7.9...react-components-0.7.10) (2023-08-04)
 
 
