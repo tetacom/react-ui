@@ -5,13 +5,17 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getSortedRowModel,
   Row,
+  SortingState,
   useReactTable,
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
+import { Icon } from '../Icons';
+import { sortIconNames } from './sortIconNames';
 import { FilterType } from './model/enum/filter-type.enum';
 
 import s from './style.module.scss';
@@ -32,11 +36,22 @@ export function Table<T>({
   ...props
 }: TableProps<T>): React.ReactElement {
   const columnHelper = createColumnHelper<T>();
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+
   const tableColumns = useMemo(() => {
     return columns.map(
-      ({ name, caption, cellComponent, propertyName, filterType, width }) => {
+      ({
+        name,
+        caption,
+        cellComponent,
+        propertyName,
+        filterType,
+        width,
+        sortable,
+      }) => {
         return columnHelper.accessor(name as any, {
           id: name,
+          enableSorting: sortable,
           cell: (info: CellContext<T, number>) => {
             const infoValue = info.getValue();
             let dictValue = '';
@@ -61,7 +76,7 @@ export function Table<T>({
               result = value;
             }
 
-            return <span>{result}</span>;
+            return <span className={s.tdContent}>{result}</span>;
           },
           header: () => caption,
           size: width,
@@ -77,11 +92,15 @@ export function Table<T>({
     columns: tableColumns,
     state: {
       rowSelection,
+      sorting,
     },
+    onSortingChange: setSorting,
     enableRowSelection: true,
     enableMultiRowSelection: false,
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    debugTable: true,
   });
 
   const parentRef = useRef<HTMLDivElement>(null);
@@ -114,16 +133,37 @@ export function Table<T>({
         <thead className={classNames(sticky && s.sticky)}>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id} style={{ width: header.getSize() }}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                </th>
-              ))}
+              {headerGroup.headers.map((header) => {
+                const isSorted = header.column.getIsSorted();
+
+                return (
+                  <th
+                    key={header.id}
+                    onClick={header.column.getToggleSortingHandler()}
+                    className={classNames(
+                      header.column.getCanSort() && s.isSortable,
+                    )}
+                    style={{
+                      width: header.getSize(),
+                    }}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div className={s.thContent}>
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                        {isSorted ? (
+                          <Icon
+                            name={sortIconNames.get(isSorted) ?? ''}
+                            className={s.thContentIcon}
+                          />
+                        ) : null}
+                      </div>
+                    )}
+                  </th>
+                );
+              })}
             </tr>
           ))}
         </thead>
