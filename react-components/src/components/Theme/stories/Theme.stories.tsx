@@ -19,13 +19,13 @@ export default meta;
 type Story = StoryObj<typeof Provider>;
 
 const DefaultStory = () => (
-  <Provider>
+  <Provider postfix="sb">
     <Content />
   </Provider>
 );
 
 const Content = () => {
-  const { toggleTheme } = useContext(Context);
+  const { changeTheme } = useContext(Context);
 
   return (
     <Stack direction="column" align="start">
@@ -42,7 +42,7 @@ const Content = () => {
           { key: 'tatneftdark', headline: 'Tatneft Dark' },
         ]}
         onChangeItem={(item) => {
-          toggleTheme(item.key);
+          changeTheme(item.key);
         }}
       />
 
