@@ -2,6 +2,17 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.12](https://github.com/tetacom/react-ui/compare/react-components-0.7.11...react-components-0.7.12) (2023-08-09)
+
+
+### Bug Fixes
+
+* add postfix and rename toggleTheme ([26d1862](https://github.com/tetacom/react-ui/commit/26d18628c0798780bd551b9140f789789a16e734))
+* add sorting to tables ([24024e3](https://github.com/tetacom/react-ui/commit/24024e34b96aeaff9482ee8fc45df9ee36295020))
+* add table columns resizing ([c2b6d0e](https://github.com/tetacom/react-ui/commit/c2b6d0e160d20783bf18a5000bf39a56f04f6b08))
+* add useLocalStorage hook ([a58f0a0](https://github.com/tetacom/react-ui/commit/a58f0a0e368a1e6fac5262967ec09dffeb9f1481))
+* rename theme storage key prop ([eb8c8fd](https://github.com/tetacom/react-ui/commit/eb8c8fd4a0237423414a73f769c6691f848ceb16))
+
 ## [0.7.11](https://github.com/tetacom/react-ui/compare/react-components-0.7.10...react-components-0.7.11) (2023-08-07)
 
 

@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { flexRender, Row } from '@tanstack/react-table';
+import { Column, flexRender, Row } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
@@ -65,4 +65,15 @@ function TableRow<T>({
   );
 }
 
-export default memo(TableRow) as typeof TableRow;
+const getColumnsSum = (acc: number, { column }: { column: Column<any> }) => {
+  return acc + column.getSize();
+};
+
+function equalTableWidth(prevProps: ITableRow<any>, nextProps: ITableRow<any>) {
+  const prevWidth = prevProps.row.getVisibleCells().reduce(getColumnsSum, 0);
+  const nextWidth = nextProps.row.getVisibleCells().reduce(getColumnsSum, 0);
+
+  return prevWidth !== nextWidth;
+}
+
+export default memo(TableRow, equalTableWidth) as typeof TableRow;

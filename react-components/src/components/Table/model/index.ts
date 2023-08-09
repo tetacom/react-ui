@@ -35,4 +35,7 @@ export interface TableProps<T>
 
   // Выделять строчки таблицы через одну
   acrossLine?: boolean;
+
+  // Имя таблицы для хренения клиентских настроек в локальном хранилище
+  localStorageKey?: string;
 }
