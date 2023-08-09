@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import {
   CellContext,
@@ -17,8 +17,12 @@ import TableRow from './components/RowTable';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
 import { FilterType } from './model/enum/filter-type.enum';
+import { useLocalStorage } from '../../utils/useLocalStorage';
 
 import s from './style.module.scss';
+
+const STORAGE_KEY = '_table_settings';
+const RESIZER_ATTRIBUTE_NAME = 'resizer';
 
 export function Table<T>({
   dataSource,
@@ -32,14 +36,29 @@ export function Table<T>({
   height = '100vh',
   onClick,
   acrossLine = false,
+  localStorageKey,
   className,
   ...props
 }: TableProps<T>): React.ReactElement {
+  const storageKey = `${localStorageKey}${STORAGE_KEY}`;
   const columnHelper = createColumnHelper<T>();
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnsSettings, setColumnsSettings] = useLocalStorage(
+    storageKey,
+    columns,
+  );
+
+  useLayoutEffect(() => {
+    const mergedColumns = columnsSettings.map((item) => ({
+      ...item,
+      cellComponent: columns.find(({ name }) => name === item.name)
+        ?.cellComponent,
+    }));
+    setColumnsSettings(mergedColumns);
+  }, []);
 
   const tableColumns = useMemo(() => {
-    return columns.map(
+    return columnsSettings.map(
       ({
         name,
         caption,
@@ -98,9 +117,9 @@ export function Table<T>({
     enableRowSelection: true,
     enableMultiRowSelection: false,
     onRowSelectionChange: setRowSelection,
+    columnResizeMode: 'onChange',
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    debugTable: true,
   });
 
   const parentRef = useRef<HTMLDivElement>(null);
@@ -127,6 +146,7 @@ export function Table<T>({
         className={classNames(s.table, className)}
         style={{
           ...cellStyles,
+          width: table.getCenterTotalSize(),
           height: virtualizer.getTotalSize(),
         }}
       >
@@ -139,7 +159,16 @@ export function Table<T>({
                 return (
                   <th
                     key={header.id}
-                    onClick={header.column.getToggleSortingHandler()}
+                    onClick={(event: React.MouseEvent<HTMLElement>) => {
+                      if (
+                        (event.target as HTMLElement).dataset.type ===
+                        RESIZER_ATTRIBUTE_NAME
+                      )
+                        return;
+
+                      const handler = header.column.getToggleSortingHandler();
+                      handler?.(event);
+                    }}
                     className={classNames(
                       header.column.getCanSort() && s.isSortable,
                     )}
@@ -159,6 +188,28 @@ export function Table<T>({
                             className={s.thContentIcon}
                           />
                         ) : null}
+                        <div
+                          data-type={RESIZER_ATTRIBUTE_NAME}
+                          className={classNames(
+                            s.resizer,
+                            header.column.getIsResizing() &&
+                              s.resizerIsResizing,
+                          )}
+                          onMouseDown={header.getResizeHandler()}
+                          onTouchStart={header.getResizeHandler()}
+                          onMouseUp={() => {
+                            const newColumnsSettings = columns.map(
+                              ({ cellComponent, ...rest }) => ({
+                                ...rest,
+                                width:
+                                  headerGroup.headers
+                                    .find(({ id }) => id === rest.name)
+                                    ?.getSize() ?? rest.width,
+                              }),
+                            );
+                            setColumnsSettings(newColumnsSettings);
+                          }}
+                        />
                       </div>
                     )}
                   </th>
@@ -171,6 +222,8 @@ export function Table<T>({
         <tbody>
           {virtualizer.getVirtualItems().map((virtualRow) => {
             const row = rows[virtualRow.index] as Row<T>;
+
+            // console.log('row', row.getVisibleCells());
 
             return (
               <TableRow

@@ -97,6 +97,7 @@ const TableStory: FC<{
 
   return (
     <Table
+      localStorageKey="sb"
       height={height}
       acrossLine={acrossLine}
       dataSource={dataResponse}
