@@ -18,8 +18,10 @@ export default meta;
 
 type Story = StoryObj<typeof Provider>;
 
+const DEFAULT_THEME = 'baselight';
+
 const DefaultStory = () => (
-  <Provider postfix="sb">
+  <Provider postfix="sb" defaultTheme={DEFAULT_THEME}>
     <Content />
   </Provider>
 );
@@ -34,10 +36,10 @@ const Content = () => {
       </Typography.Title>
 
       <Select<BaseSelectProps>
-        value={{ key: 'tatneftlight', headline: 'Light' }}
+        value={{ key: DEFAULT_THEME, headline: 'Base Light' }}
         items={[
-          { key: 'baselight', headline: 'Base Light' },
-          { key: 'basedark', headline: 'Base Light' },
+          { key: DEFAULT_THEME, headline: 'Base Light' },
+          { key: 'basedark', headline: 'Base Dark' },
           { key: 'tatneftlight', headline: 'Tatneft Light' },
           { key: 'tatneftdark', headline: 'Tatneft Dark' },
         ]}

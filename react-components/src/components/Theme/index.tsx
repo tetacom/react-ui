@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
+
 import { ThemeProps } from './model';
+import { useLocalStorage } from '../../utils/useLocalStorage';
 
 export interface ThemeContextData {
   theme: string;
@@ -21,16 +23,14 @@ const ThemeContextProvider: FC<ThemeProps> = ({
   children,
 }) => {
   const storageKey = `${THEME_KEY}_${postfix}`;
-  const savedValue: string =
-    localStorage.getItem(storageKey) || defaultTheme || 'baselight';
+  const [savedValue, setValue] = useLocalStorage(
+    storageKey,
+    defaultTheme || 'baselight',
+  );
 
   const [theme, setTheme] = useState<string>(savedValue);
   const DOMHtmlElement = useMemo(() => {
     return document.querySelector('html');
-  }, [theme]);
-
-  useEffect(() => {
-    localStorage.setItem(storageKey, theme);
   }, [theme]);
 
   useEffect(() => {
@@ -47,6 +47,7 @@ const ThemeContextProvider: FC<ThemeProps> = ({
       theme,
       changeTheme: (selectedTheme: string) => {
         setTheme(selectedTheme);
+        setValue(theme);
       },
     };
   }, [theme]);
