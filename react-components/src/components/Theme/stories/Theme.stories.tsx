@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Provider>;
 const DEFAULT_THEME = 'baselight';
 
 const DefaultStory = () => (
-  <Provider postfix="sb" defaultTheme={DEFAULT_THEME}>
+  <Provider localStorageKey="sb" defaultTheme={DEFAULT_THEME}>
     <Content />
   </Provider>
 );
