@@ -15,30 +15,7 @@ import dictResponse from './dictResponse.json';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
 
-type ID = string | number;
-
-interface IData {
-  id: ID;
-  year: number;
-  name: string;
-  fieldId: ID;
-  ngduId: ID;
-  investmentDate: string;
-  landAllocationDuration: number;
-  transmissionLineDuration: number;
-  sitePreparationDuration: number;
-  canDrillWithoutFillRoad: boolean;
-  canDrillWithoutSiteBackfill: boolean;
-  floodPeriodSpring: {
-    floodStart: string;
-    floodEnd: string;
-  };
-  floodPeriodAutumn: {
-    floodStart: string;
-    floodEnd: string;
-  };
-  existInExternal: boolean;
-}
+type IData = any;
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
