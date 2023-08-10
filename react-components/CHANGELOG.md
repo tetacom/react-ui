@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.13](https://github.com/tetacom/react-ui/compare/react-components-0.7.12...react-components-0.7.13) (2023-08-10)
+
+
+### Bug Fixes
+
+* move save fn width to local storage ([f81c8f6](https://github.com/tetacom/react-ui/commit/f81c8f65c4e8eab93ce6aa3b92542807c904464f))
+
 ## [0.7.12](https://github.com/tetacom/react-ui/compare/react-components-0.7.11...react-components-0.7.12) (2023-08-09)
 
 
