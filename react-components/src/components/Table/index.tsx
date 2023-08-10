@@ -6,6 +6,7 @@ import {
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
+  Header,
   Row,
   SortingState,
   useReactTable,
@@ -47,6 +48,14 @@ export function Table<T>({
     storageKey,
     columns,
   );
+  const handleSaveColumnsWidth = (headers: Header<T, unknown>[]) => {
+    const newColumnsSettings = columns.map(({ cellComponent, ...rest }) => ({
+      ...rest,
+      width:
+        headers.find(({ id }) => id === rest.name)?.getSize() ?? rest.width,
+    }));
+    setColumnsSettings(newColumnsSettings);
+  };
 
   useLayoutEffect(() => {
     const mergedColumns = columnsSettings.map((item) => ({
@@ -198,16 +207,7 @@ export function Table<T>({
                           onMouseDown={header.getResizeHandler()}
                           onTouchStart={header.getResizeHandler()}
                           onMouseUp={() => {
-                            const newColumnsSettings = columns.map(
-                              ({ cellComponent, ...rest }) => ({
-                                ...rest,
-                                width:
-                                  headerGroup.headers
-                                    .find(({ id }) => id === rest.name)
-                                    ?.getSize() ?? rest.width,
-                              }),
-                            );
-                            setColumnsSettings(newColumnsSettings);
+                            handleSaveColumnsWidth(headerGroup.headers);
                           }}
                         />
                       </div>

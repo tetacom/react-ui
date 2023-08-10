@@ -84,7 +84,7 @@
           user-select: none;
           touch-action: none;
           opacity: 0;
-          transition: opacity 0.2s, background-color 0.2s;
+          transition: opacity 0.15s, background-color 0.15s;
 
           &IsResizing {
             background: var(--color-primary-50);
