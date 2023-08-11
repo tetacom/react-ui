@@ -24,6 +24,7 @@ export const Default: Story = {
     </Tooltip>
   ),
   args: {
+    target: 'hover',
     title:
       'Это поле не может содержать значение меньше 0,1, потому что это не поле, а кнопка',
     offset: 0,

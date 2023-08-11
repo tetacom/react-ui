@@ -18,14 +18,14 @@ const ThemeContext = React.createContext<ThemeContextData>({
 const THEME_KEY = '_tetacom_theme';
 
 const ThemeContextProvider: FC<ThemeProps> = ({
-  defaultTheme = '',
+  defaultTheme,
   localStorageKey,
   children,
 }) => {
-  const storageKey = `${localStorageKey}${THEME_KEY}`;
+  const storageKey = localStorageKey ? `${localStorageKey}${THEME_KEY}` : '';
   const [savedValue, setValue] = useLocalStorage<string>(
     storageKey,
-    defaultTheme || 'baselight',
+    defaultTheme,
   );
 
   const [theme, setTheme] = useState<string>(savedValue);
@@ -47,7 +47,7 @@ const ThemeContextProvider: FC<ThemeProps> = ({
       theme,
       changeTheme: (selectedTheme: string) => {
         setTheme(selectedTheme);
-        setValue(theme);
+        if (storageKey) setValue(theme);
       },
     };
   }, [theme]);

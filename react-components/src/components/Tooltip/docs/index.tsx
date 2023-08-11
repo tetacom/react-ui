@@ -161,6 +161,7 @@ export const TooltipDocs = () => {
               return (
                 <div key={id} className={s.tooltip}>
                   <Tooltip
+                    target="hover"
                     title="Это поле не может содержать значение меньше 0,1, потому что это не поле, а кнопка"
                     placement={selectedPlacement as Placement}
                   >

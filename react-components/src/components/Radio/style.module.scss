@@ -19,7 +19,6 @@
     background-color: var(--color-global-bgcard);
     border: 1px solid var(--color-primary-50);
     box-shadow: 0 0 0 0 transparent;
-    overflow: hidden;
     transition: border 0.2s, background-color 0.2s, box-shadow 0.2s;
 
     .checked {

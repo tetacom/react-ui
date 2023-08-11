@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.14](https://github.com/tetacom/react-ui/compare/react-components-0.7.13...react-components-0.7.14) (2023-08-11)
+
+
+### Bug Fixes
+
+* fix empty theme key for localstorage ([f090b8c](https://github.com/tetacom/react-ui/commit/f090b8cb08125a9997f9d34c47c82284da27f7dd))
+* fix table bug with localstorage ([9ba5445](https://github.com/tetacom/react-ui/commit/9ba54450924b50acab4764560c50d89a77aec653))
+* fix table width, radio, tooltips hover ([26acdb0](https://github.com/tetacom/react-ui/commit/26acdb020515cad14f16821c54b91961ea57ec64))
+
 ## [0.7.13](https://github.com/tetacom/react-ui/compare/react-components-0.7.12...react-components-0.7.13) (2023-08-10)
 
 

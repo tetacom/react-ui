@@ -56,7 +56,7 @@ const Radio: FC<RadioProps> & RadioComposition = ({
           {isChecked && (
             <motion.span
               className={s.checked}
-              initial={{ scale: 1.5 }}
+              initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               transition={spring}

@@ -19,6 +19,7 @@ export const Tooltip: FC<TooltipProps> = ({
   offset = 4,
   children,
   open,
+  target = 'click',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,7 +32,14 @@ export const Tooltip: FC<TooltipProps> = ({
     middleware: [offsetFn(offset), shift()],
   });
 
-  const hover = useHover(context, { enabled: false });
+  const hover = useHover(context, {
+    enabled: target === 'hover',
+    move: false,
+    delay: {
+      open: 500,
+      close: 0,
+    },
+  });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 
