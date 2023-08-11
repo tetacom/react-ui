@@ -4,6 +4,15 @@ export function useLocalStorage<T>(
   key: string,
   initialValue: T,
 ): [storedValue: T, setValue: (value: T) => void] {
+  if (!key) {
+    return [
+      initialValue,
+      () => {
+        console.error('Key for localstorage is not selected');
+      },
+    ];
+  }
+
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);

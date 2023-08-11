@@ -19,6 +19,8 @@ import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
 import { FilterType } from './model/enum/filter-type.enum';
 import { useLocalStorage } from '../../utils/useLocalStorage';
+import { mergeSettings, separateSettings } from './storageUtils';
+import type { TableColumn } from './model/table-column';
 
 import s from './style.module.scss';
 
@@ -41,33 +43,36 @@ export function Table<T>({
   className,
   ...props
 }: TableProps<T>): React.ReactElement {
-  const storageKey = `${localStorageKey}${STORAGE_KEY}`;
+  const storageKey = localStorageKey ? `${localStorageKey}${STORAGE_KEY}` : '';
+  const initStorageColumns = separateSettings(
+    columns,
+    columns.map(({ name, width }) => ({ name, width })),
+  );
   const columnHelper = createColumnHelper<T>();
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnsSettings, setColumnsSettings] = useLocalStorage(
     storageKey,
-    columns,
+    initStorageColumns,
   );
-  const handleSaveColumnsWidth = (headers: Header<T, unknown>[]) => {
-    const newColumnsSettings = columns.map(({ cellComponent, ...rest }) => ({
-      ...rest,
-      width:
-        headers.find(({ id }) => id === rest.name)?.getSize() ?? rest.width,
-    }));
+  const columnsWithSavedData = useMemo(() => {
+    return mergeSettings(columns, columnsSettings);
+  }, [columns, columnsSettings]);
+
+  const handleSaveColumnsWidth = (
+    dataToSave: TableColumn[],
+    headers: Header<T, unknown>[],
+  ) => {
+    if (!localStorageKey) return;
+
+    const newColumnsSettings = separateSettings(
+      dataToSave,
+      headers.map((item) => ({ name: item.id, width: item.getSize() })),
+    );
     setColumnsSettings(newColumnsSettings);
   };
 
-  useLayoutEffect(() => {
-    const mergedColumns = columnsSettings.map((item) => ({
-      ...item,
-      cellComponent: columns.find(({ name }) => name === item.name)
-        ?.cellComponent,
-    }));
-    setColumnsSettings(mergedColumns);
-  }, []);
-
   const tableColumns = useMemo(() => {
-    return columnsSettings.map(
+    return columnsWithSavedData.map(
       ({
         name,
         caption,
@@ -111,7 +116,7 @@ export function Table<T>({
         });
       },
     );
-  }, [columns, dictionary, columnHelper]);
+  }, [columnsWithSavedData, dictionary, columnHelper]);
 
   const [rowSelection, setRowSelection] = useState({});
 
@@ -207,7 +212,10 @@ export function Table<T>({
                           onMouseDown={header.getResizeHandler()}
                           onTouchStart={header.getResizeHandler()}
                           onMouseUp={() => {
-                            handleSaveColumnsWidth(headerGroup.headers);
+                            handleSaveColumnsWidth(
+                              columnsWithSavedData,
+                              headerGroup.headers,
+                            );
                           }}
                         />
                       </div>
@@ -223,15 +231,13 @@ export function Table<T>({
           {virtualizer.getVirtualItems().map((virtualRow) => {
             const row = rows[virtualRow.index] as Row<T>;
 
-            // console.log('row', row.getVisibleCells());
-
             return (
               <TableRow
                 key={virtualRow.key}
                 virtualIndex={virtualRow.index}
                 rowRef={virtualizer.measureElement}
                 row={row}
-                columns={columns}
+                columns={columnsWithSavedData}
                 isSelectedRow={row.getIsSelected()}
                 onClick={onClick}
                 acrossLine={acrossLine}
