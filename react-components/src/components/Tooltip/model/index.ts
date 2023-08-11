@@ -13,4 +13,7 @@ export interface TooltipProps extends PropsWithChildren {
 
   // Контролируемое состояние открытия/закрытия
   open?: boolean;
+
+  // Событие для показа подсказки
+  target?: 'click' | 'hover';
 }

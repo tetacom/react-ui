@@ -50,17 +50,24 @@ function TableRow<T>({
       className={classNames(rowsClassName, isSelectedRow && s.active)}
       data-index={virtualIndex}
     >
-      {getVisibleCells().map((cell) => (
-        <td
-          key={cell.id}
-          onClick={() => {
-            handleClick(cell.column.id, cell.row.original);
-          }}
-          style={{ width: cell.column.getSize() }}
-        >
-          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-        </td>
-      ))}
+      {getVisibleCells().map((cell) => {
+        const cellWidth = cell.column.getSize();
+
+        return (
+          <td
+            key={cell.id}
+            onClick={() => {
+              handleClick(cell.column.id, cell.row.original);
+            }}
+            style={{
+              width: cellWidth,
+              flex: `0 0 ${cellWidth}px`,
+            }}
+          >
+            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+          </td>
+        );
+      })}
     </tr>
   );
 }

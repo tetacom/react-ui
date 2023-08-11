@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo, useLayoutEffect } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   CellContext,
@@ -21,6 +21,7 @@ import { FilterType } from './model/enum/filter-type.enum';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 import { mergeSettings, separateSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
+import { Tooltip } from '../Tooltip';
 
 import s from './style.module.scss';
 
@@ -54,9 +55,10 @@ export function Table<T>({
     storageKey,
     initStorageColumns,
   );
-  const columnsWithSavedData = useMemo(() => {
-    return mergeSettings(columns, columnsSettings);
-  }, [columns, columnsSettings]);
+  const columnsWithSavedData = useMemo(
+    () => mergeSettings(columns, columnsSettings),
+    [columns, columnsSettings],
+  );
 
   const handleSaveColumnsWidth = (
     dataToSave: TableColumn[],
@@ -71,52 +73,52 @@ export function Table<T>({
     setColumnsSettings(newColumnsSettings);
   };
 
-  const tableColumns = useMemo(() => {
-    return columnsWithSavedData.map(
-      ({
-        name,
-        caption,
-        cellComponent,
-        propertyName,
-        filterType,
-        width,
-        sortable,
-      }) => {
-        return columnHelper.accessor(name as any, {
-          id: name,
-          enableSorting: sortable,
-          cell: (info: CellContext<T, number>) => {
-            const infoValue = info.getValue();
-            let dictValue = '';
+  const tableColumns = useMemo(
+    () =>
+      columnsWithSavedData.map(
+        ({
+          name,
+          caption,
+          cellComponent,
+          propertyName,
+          filterType,
+          width,
+          sortable,
+        }) =>
+          columnHelper.accessor(name as any, {
+            id: name,
+            enableSorting: sortable,
+            cell: (info: CellContext<T, number>) => {
+              const infoValue = info.getValue();
+              let dictValue = '';
 
-            if (filterType === FilterType.list && propertyName) {
-              dictValue =
-                dictionary[propertyName]?.find(({ id }) => id === infoValue)
-                  ?.name ?? '';
-            }
+              if (filterType === FilterType.list && propertyName) {
+                dictValue =
+                  dictionary[propertyName]?.find(({ id }) => id === infoValue)
+                    ?.name ?? '';
+              }
 
-            const value = dictValue || infoValue;
+              const value = dictValue || infoValue;
+              let result;
 
-            let result;
+              if (cellComponent) {
+                result = React.createElement(cellComponent, {
+                  value,
+                });
+              } else if (typeof value === 'object' && value !== null) {
+                result = JSON.stringify(value);
+              } else {
+                result = value;
+              }
 
-            if (cellComponent) {
-              result = React.createElement(cellComponent, {
-                value,
-              });
-            } else if (typeof value === 'object' && value !== null) {
-              result = JSON.stringify(value);
-            } else {
-              result = value;
-            }
-
-            return <span className={s.tdContent}>{result}</span>;
-          },
-          header: () => caption,
-          size: width,
-        });
-      },
-    );
-  }, [columnsWithSavedData, dictionary, columnHelper]);
+              return <span className={s.tdContent}>{result}</span>;
+            },
+            header: () => caption,
+            size: width,
+          }),
+      ),
+    [columnsWithSavedData, dictionary, columnHelper],
+  );
 
   const [rowSelection, setRowSelection] = useState({});
 
@@ -169,58 +171,69 @@ export function Table<T>({
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 const isSorted = header.column.getIsSorted();
+                const thContent = flexRender(
+                  header.column.columnDef.header,
+                  header.getContext(),
+                );
+                const thCaption =
+                  columnsWithSavedData.find(({ name }) => name === header.id)
+                    ?.caption ?? '';
 
                 return (
-                  <th
+                  <Tooltip
                     key={header.id}
-                    onClick={(event: React.MouseEvent<HTMLElement>) => {
-                      if (
-                        (event.target as HTMLElement).dataset.type ===
-                        RESIZER_ATTRIBUTE_NAME
-                      )
-                        return;
-
-                      const handler = header.column.getToggleSortingHandler();
-                      handler?.(event);
-                    }}
-                    className={classNames(
-                      header.column.getCanSort() && s.isSortable,
-                    )}
-                    style={{
-                      width: header.getSize(),
-                    }}
+                    title={thCaption}
+                    target="hover"
+                    placement="bottom-start"
                   >
-                    {header.isPlaceholder ? null : (
-                      <div className={s.thContent}>
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
-                        {isSorted ? (
-                          <Icon
-                            name={sortIconNames.get(isSorted) ?? ''}
-                            className={s.thContentIcon}
+                    <th
+                      onClick={(event: React.MouseEvent<HTMLElement>) => {
+                        if (
+                          (event.target as HTMLElement).dataset.type ===
+                          RESIZER_ATTRIBUTE_NAME
+                        )
+                          return;
+
+                        const handler = header.column.getToggleSortingHandler();
+                        handler?.(event);
+                      }}
+                      className={classNames(
+                        header.column.getCanSort() && s.isSortable,
+                      )}
+                      style={{
+                        width: header.getSize(),
+                      }}
+                    >
+                      {header.isPlaceholder ? null : (
+                        <div className={s.thContent}>
+                          <span>{thContent}</span>
+
+                          {isSorted ? (
+                            <Icon
+                              name={sortIconNames.get(isSorted) ?? ''}
+                              className={s.thContentIcon}
+                            />
+                          ) : null}
+                          <div
+                            data-type={RESIZER_ATTRIBUTE_NAME}
+                            className={classNames(
+                              s.resizer,
+                              header.column.getIsResizing() &&
+                                s.resizerIsResizing,
+                            )}
+                            onMouseDown={header.getResizeHandler()}
+                            onTouchStart={header.getResizeHandler()}
+                            onMouseUp={() => {
+                              handleSaveColumnsWidth(
+                                columnsWithSavedData,
+                                headerGroup.headers,
+                              );
+                            }}
                           />
-                        ) : null}
-                        <div
-                          data-type={RESIZER_ATTRIBUTE_NAME}
-                          className={classNames(
-                            s.resizer,
-                            header.column.getIsResizing() &&
-                              s.resizerIsResizing,
-                          )}
-                          onMouseDown={header.getResizeHandler()}
-                          onTouchStart={header.getResizeHandler()}
-                          onMouseUp={() => {
-                            handleSaveColumnsWidth(
-                              columnsWithSavedData,
-                              headerGroup.headers,
-                            );
-                          }}
-                        />
-                      </div>
-                    )}
-                  </th>
+                        </div>
+                      )}
+                    </th>
+                  </Tooltip>
                 );
               })}
             </tr>
