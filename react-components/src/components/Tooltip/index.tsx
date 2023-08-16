@@ -1,6 +1,7 @@
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   autoUpdate,
+  flip,
   FloatingPortal,
   offset as offsetFn,
   shift,
@@ -18,41 +19,30 @@ export const Tooltip: FC<TooltipProps> = ({
   placement = 'top',
   offset = 4,
   children,
-  open,
-  target = 'click',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const showTooltip = open !== undefined ? open : isOpen;
-  const { x, y, refs, floatingStyles, context } = useFloating({
-    open: showTooltip,
+  const { refs, floatingStyles, context } = useFloating({
+    open: isOpen,
     placement,
+    transform: false,
     onOpenChange: setIsOpen,
     whileElementsMounted: autoUpdate,
-    middleware: [offsetFn(offset), shift()],
+    middleware: [offsetFn(offset), flip(), shift()],
   });
 
-  const hover = useHover(context, {
-    enabled: target === 'hover',
-    move: false,
-    delay: {
-      open: 500,
-      close: 0,
-    },
-  });
+  const hover = useHover(context);
 
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 
   return (
     <>
-      {React.cloneElement(children as ReactElement, {
+      {React.cloneElement(children as React.ReactElement, {
         ref: refs.setReference,
         ...getReferenceProps(),
       })}
-
       {
         <AnimatePresence>
-          {showTooltip && (
+          {isOpen && (
             <FloatingPortal>
               <motion.div
                 className={s.tooltip}
@@ -61,7 +51,7 @@ export const Tooltip: FC<TooltipProps> = ({
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.1 }}
                 ref={refs.setFloating}
-                style={{ ...floatingStyles, top: y, left: x }}
+                style={{ ...floatingStyles, zIndex: 100 }}
                 {...getFloatingProps()}
               >
                 {title}

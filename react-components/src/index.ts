@@ -51,3 +51,5 @@ export * from './components/Select';
 export * from './components/Select/model/public-api';
 
 export * from './components/Theme';
+
+export * from './components/Gantt';
