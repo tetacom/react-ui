@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.2](https://github.com/tetacom/react-ui/compare/react-components-0.8.1...react-components-0.8.2) (2023-08-16)
+
+
+### Bug Fixes
+
+* export gantt types ([c13db64](https://github.com/tetacom/react-ui/commit/c13db64876737e5dd7e5e4980f257ed11108ec57))
+
 ## [0.8.1](https://github.com/tetacom/react-ui/compare/react-components-0.8.0...react-components-0.8.1) (2023-08-16)
 
 
