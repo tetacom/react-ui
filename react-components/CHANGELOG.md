@@ -2,6 +2,21 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.0](https://github.com/tetacom/react-ui/compare/react-components-0.7.15...react-components-0.8.0) (2023-08-16)
+
+
+### Features
+
+* **library:** temporary stub for gantt, and fix tooltip cloneElement ([6a759bb](https://github.com/tetacom/react-ui/commit/6a759bb9b7a06bba7d667e3f505aaf572cb48ab0))
+
+
+### Bug Fixes
+
+* **library:**  esmoduleinterop true, ([65509b3](https://github.com/tetacom/react-ui/commit/65509b359730b6c8f5a0733b18c37e44865d4620))
+* **library:** contrast color fn, fix dropdown ([38943a3](https://github.com/tetacom/react-ui/commit/38943a3601bd94cbf1fe93a0062d8569d980648a))
+* **library:** gantt test renderer ([653d8df](https://github.com/tetacom/react-ui/commit/653d8dfc1fc91117ed6392008c070bd854df1271))
+* update sticky for dates ([3f9a383](https://github.com/tetacom/react-ui/commit/3f9a383757a8811bdb1c085174dc5d92290b5eca))
+
 ## [0.7.15](https://github.com/tetacom/react-ui/compare/react-components-0.7.14...react-components-0.7.15) (2023-08-16)
 
 
