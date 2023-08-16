@@ -1,0 +1,13 @@
+.divider {
+  background-color: var(--color-text-10);
+
+  &Vertical {
+    width: 1px;
+    height: var(--divider-length);
+  }
+
+  &Horizontal {
+    width: var(--divider-length);
+    height: 1px;
+  }
+}

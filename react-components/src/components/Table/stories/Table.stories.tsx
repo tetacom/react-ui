@@ -6,11 +6,16 @@ import { TypographyDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
 import { FilterType } from '../model/enum/filter-type.enum';
 import { Toggle } from '../../Toggle';
-import { ICustomCell } from '../model/i-cell-instance';
+import { ICellInstance, ICustomCell } from '../model/i-cell-instance';
+import { IDictionary } from '../model/dictionary';
 
 import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
+import { CellParamsType } from '../model/cell-params';
+import { Skeleton } from '../../Skeleton';
+
+type IData = any;
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
@@ -25,17 +30,6 @@ export default meta;
 
 type Story = StoryObj<typeof Table>;
 
-type Dictionary = {
-  id: string | number;
-  name: string;
-  parentId: string | null;
-  iconId: string | null;
-};
-
-interface IDictionary {
-  [key: string]: Dictionary[];
-}
-
 const initColumns: TableColumn[] = configResponse;
 const initDictionary: IDictionary = dictResponse;
 
@@ -44,35 +38,24 @@ const CustomComponentWithToggle: FC<ICustomCell> = ({ value }) => (
 );
 
 const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
-  if (!(typeof value === 'object')) {
+  if (!(typeof value === 'object' && value !== null)) {
     return value;
   }
 
-  return Object.values(value).join(' — ');
-};
-
-const CustomComponentWithDict: FC<ICustomCell> = ({
-  value,
-  propertyName = '',
-}) => {
-  if (propertyName) {
-    return (
-      initDictionary[propertyName].find(({ id }) => id === value)?.name ?? value
-    );
-  }
-
-  return value;
+  return <div>{Object.values(value).join(' — ')}</div>;
 };
 
 const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
-customComponents.set(FilterType.list, CustomComponentWithDict);
 
-const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
-  sticky = false,
-  loading = false,
-}) => {
+const TableStory: FC<{
+  sticky?: boolean;
+  loading?: boolean;
+  cellParams?: CellParamsType;
+  height?: React.CSSProperties['height'];
+  acrossLine?: boolean;
+}> = ({ sticky = false, loading = false, cellParams, height, acrossLine }) => {
   const columns = initColumns.map((item) => {
     const cellComponent = item.filterType
       ? customComponents.get(item.filterType)
@@ -85,12 +68,31 @@ const TableStory: FC<{ sticky?: boolean; loading?: boolean }> = ({
     return item;
   });
 
+  const handleClick = (cell: ICellInstance<IData>) => {
+    console.log('table onClick:', cell);
+  };
+
   return (
     <Table
+      localStorageKey="sb"
+      height={height}
+      acrossLine={acrossLine}
       dataSource={dataResponse}
       columns={columns}
       sticky={sticky}
-      loading={loading}
+      skeleton={
+        loading ? (
+          <Skeleton
+            rows={16}
+            columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+            columnsUnit="fr"
+            isTable
+          />
+        ) : undefined
+      }
+      dictionary={initDictionary}
+      cellParams={cellParams}
+      onClick={handleClick}
     />
   );
 };
@@ -99,6 +101,10 @@ export const Default: Story = {
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
     sticky: true,
-    loading: false,
+    cellParams: {
+      verticalClamp: 3,
+    },
+    height: 'calc(100vh - 16px)',
+    acrossLine: false,
   },
 };

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Input } from '../index';
 import { InputDocs } from '../docs';
-import { Icon } from '../../Icons';
 import { useState } from 'react';
 
 const meta: Meta<typeof Input> = {
@@ -28,28 +27,65 @@ export const Default: Story = {
     labelPosition: 'top',
     placeholder: 'Text',
     errorMessage: '',
-    allowClear: false,
     disabled: false,
-    readonly: true,
+    readonly: false,
     maxLength: 0,
-    icon: <Icon name="user" size={64} />,
+    leftIconName: 'user',
     onChange: undefined,
     onPressEnter: undefined,
     className: '',
   },
 };
 
-const InputFieldWithHooks = () => {
+const ClearableInput = () => {
   const [value, setValue] = useState('Start value');
   const handleChange = (value: string) => {
     setValue(value);
   };
+  const handleClear = () => {
+    setValue('');
+  };
 
   return (
-    <Input value={value} onChange={handleChange} maxLength={32} allowClear />
+    <Input
+      value={value}
+      onChange={handleChange}
+      maxLength={32}
+      rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
+    />
   );
 };
 
-export const ControlledInput: Story = {
-  render: () => <InputFieldWithHooks />,
+export const ClearableInputStory: Story = {
+  render: () => <ClearableInput />,
+};
+
+const PasswordTypeInput = () => {
+  const [value, setValue] = useState('Он не понимает, я не понимаю');
+  const handleChange = (value: string) => {
+    setValue(value);
+  };
+
+  const [inputType, setInputType] = useState<'text' | 'password'>('password');
+  const toggleInputType = () => {
+    setInputType(inputType === 'text' ? 'password' : 'text');
+  };
+
+  return (
+    <Input
+      type={inputType}
+      value={value}
+      onChange={handleChange}
+      maxLength={32}
+      rightIcon={{
+        icon: inputType === 'text' ? 'eyeCrossed' : 'eye',
+        onClick: toggleInputType,
+      }}
+      style={{ width: 240 }}
+    />
+  );
+};
+
+export const PasswordInputStory: Story = {
+  render: () => <PasswordTypeInput />,
 };

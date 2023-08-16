@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from '../index';
 import { Icon } from '../../Icons';
 import { ButtonDocs } from '../docs';
+import { Typography } from '../../Typography';
+
+const { Paragraph, Text } = Typography;
 
 const meta: Meta<typeof Button> = {
   title: 'General/Button',
@@ -20,13 +24,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    children: (
-      <>
-        <Icon name="update" />
-        Push me
-        <Icon name="user" />
-      </>
-    ),
+    children: [<Icon name="update" />, 'Push me', <Icon name="user" />],
     view: 'primary',
     size: 'middle',
     palette: undefined,
@@ -107,4 +105,38 @@ export const ShapeCircle: Story = {
     ...Default.args,
     shape: 'circle',
   },
+};
+
+const FileButton = () => {
+  const [file, setFile] = useState<File | null>(null);
+  const handleChange = (uploadFile: File) => {
+    setFile(uploadFile);
+  };
+
+  return (
+    <div>
+      <Button
+        file={{
+          acceptList: ['xls', 'xlsx', 'png', 'jpeg', 'jpg', 'svg'],
+          onChange: handleChange,
+          errorCallback: () => {
+            console.log('Error callback');
+          },
+        }}
+      >
+        Загрузить файл
+      </Button>
+
+      {file && (
+        <Paragraph>
+          Uploaded file: <Text fontVariant="title2">{file.name}</Text>
+        </Paragraph>
+      )}
+    </div>
+  );
+};
+
+export const FileButtonStory: Story = {
+  name: 'File',
+  render: () => <FileButton />,
 };

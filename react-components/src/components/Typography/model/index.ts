@@ -22,6 +22,9 @@ export type Levels = 1 | 2 | 3 | 4 | 5 | 6;
 type Base = {
   // Начертание из определенных в дизайн токенах
   fontVariant?: FontVariant;
+
+  // Сбросить внешние отступы
+  resetMargin?: boolean;
 };
 
 export type BaseProps = Base & HTMLAttributes<HTMLElement>;

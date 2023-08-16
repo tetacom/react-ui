@@ -20,7 +20,8 @@ type Story = StoryObj<typeof Toggle>;
 
 export const Default: Story = {
   args: {
-    checked: false,
+    defaultChecked: true,
+    checked: undefined,
     disabled: false,
     loading: false,
     autoFocus: false,
@@ -31,7 +32,7 @@ export const Default: Story = {
 const TabsWithHooks = () => {
   const [isOn, setIsOn] = useState(false);
   const handleChange = (checked: boolean) => {
-    setIsOn(!isOn);
+    setIsOn(checked);
   };
 
   return <Toggle checked={isOn} onChange={handleChange} />;

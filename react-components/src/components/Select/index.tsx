@@ -1,18 +1,25 @@
 import React, { forwardRef, Ref, useRef, useState } from 'react';
-import { BaseSelectProps, SelectProps } from './model';
-import { Dropdown, Icon, Input } from 'tetacom/react-components';
+import classNames from 'classnames';
 import { useMergeRefs } from '@floating-ui/react';
+
+import { Dropdown, Icon, Input } from 'tetacom/react-components';
+import { SelectProps } from './model';
+import { BaseSelectProps } from './model/base-select-item';
+
 import s from './style.module.scss';
 import listStyle from '../List/style.module.scss';
-import classNames from 'classnames';
 
 const SelectInner = forwardRef(
   <T extends BaseSelectProps>(props: SelectProps<T>, ref: any) => {
-    const [value, setValue] = useState<any>(props.value);
+    const [value, setValue] = useState<T | null>(props?.value ?? null);
     const [open, setOpen] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
+    const foundValue = props.items?.find(({ key }) => key === value?.key);
 
-    const foundValue = props.items?.find((item) => item === value);
+    const propsClone = { ...props };
+    delete propsClone.allowNull;
+    delete propsClone.onChangeItem;
+    delete propsClone.onItemRender;
 
     return (
       <Dropdown
@@ -56,22 +63,22 @@ const SelectInner = forwardRef(
       >
         <div style={{ position: 'relative', width: 'max-content' }}>
           <Input
-            {...props}
+            {...propsClone}
             ref={useMergeRefs([inputRef, ref])}
             value={foundValue?.headline}
             readonly
-          ></Input>
-          <div className={s.arrow}>
-            <Icon
-              style={{
-                color: props.disabled
-                  ? 'var(--color-text-20)'
-                  : 'var(--color-text-50)',
-                transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-              }}
-              name={'arrowDownKey'}
-            />
-          </div>
+            rightIcon={{
+              icon: (
+                <Icon
+                  style={{
+                    transition: 'transform 0.2s',
+                    transform: `rotate(${open ? 180 : 0}deg)`,
+                  }}
+                  name={'arrowDownKey'}
+                />
+              ),
+            }}
+          />
         </div>
       </Dropdown>
     );
@@ -80,4 +87,4 @@ const SelectInner = forwardRef(
 
 export const Select = SelectInner as <T extends BaseSelectProps>(
   props: SelectProps<T> & { ref?: Ref<any> },
-) => JSX.Element;
+) => React.ReactElement;

@@ -24,7 +24,8 @@ export const Result: FC<ResultProps> = ({
     <Stack
       direction="column"
       size={24}
-      block
+      justifyContent="center"
+      align="center"
       className={classNames(s.result, className)}
       style={style}
     >

@@ -1,123 +1,264 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
 import {
+  CellContext,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getSortedRowModel,
+  Header,
+  Row,
+  SortingState,
   useReactTable,
-  CellContext,
 } from '@tanstack/react-table';
+import { useVirtualizer } from '@tanstack/react-virtual';
 
 import { TableProps } from './model';
-import { Spinner } from '../Spinner';
+import TableRow from './components/RowTable';
+import { Icon } from '../Icons';
+import { sortIconNames } from './sortIconNames';
+import { FilterType } from './model/enum/filter-type.enum';
+import { useLocalStorage } from '../../utils/useLocalStorage';
+import { mergeSettings, separateSettings } from './storageUtils';
+import type { TableColumn } from './model/table-column';
+import { Tooltip } from '../Tooltip';
 
 import s from './style.module.scss';
+
+const STORAGE_KEY = '_table_settings';
+const RESIZER_ATTRIBUTE_NAME = 'resizer';
 
 export function Table<T>({
   dataSource,
   columns,
   sticky = false,
-  loading = false,
+  skeleton = null,
+  dictionary = {},
+  cellParams = {
+    verticalClamp: 1,
+  },
+  height = '100vh',
+  onClick,
+  acrossLine = false,
+  localStorageKey,
   className,
   ...props
-}: TableProps<T>): JSX.Element {
-  const columnHelper = createColumnHelper<T>();
-  const tableColumns = columns.map(
-    ({ name, caption, cellComponent, propertyName }) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      return columnHelper.accessor(name, {
-        id: name,
-        cell: (info: CellContext<T, number>) => {
-          const infoValue = info.getValue();
-
-          if (cellComponent) {
-            return React.createElement(cellComponent, {
-              value: infoValue,
-              propertyName,
-            });
-          }
-
-          return infoValue;
-        },
-        header: () => caption,
-        footer: () => caption,
-      });
-    },
+}: TableProps<T>): React.ReactElement {
+  const storageKey = localStorageKey ? `${localStorageKey}${STORAGE_KEY}` : '';
+  const initStorageColumns = separateSettings(
+    columns,
+    columns.map(({ name, width }) => ({ name, width })),
   );
+  const columnHelper = createColumnHelper<T>();
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnsSettings, setColumnsSettings] = useLocalStorage(
+    storageKey,
+    initStorageColumns,
+  );
+  const columnsWithSavedData = useMemo(
+    () => mergeSettings(columns, columnsSettings),
+    [columns, columnsSettings],
+  );
+
+  const handleSaveColumnsWidth = (
+    dataToSave: TableColumn[],
+    headers: Header<T, unknown>[],
+  ) => {
+    if (!localStorageKey) return;
+
+    const newColumnsSettings = separateSettings(
+      dataToSave,
+      headers.map((item) => ({ name: item.id, width: item.getSize() })),
+    );
+    setColumnsSettings(newColumnsSettings);
+  };
+
+  const tableColumns = useMemo(
+    () =>
+      columnsWithSavedData.map(
+        ({
+          name,
+          caption,
+          cellComponent,
+          propertyName,
+          filterType,
+          width,
+          sortable,
+        }) =>
+          columnHelper.accessor(name as any, {
+            id: name,
+            enableSorting: sortable,
+            cell: (info: CellContext<T, number>) => {
+              const infoValue = info.getValue();
+              let dictValue = '';
+
+              if (filterType === FilterType.list && propertyName) {
+                dictValue =
+                  dictionary[propertyName]?.find(({ id }) => id === infoValue)
+                    ?.name ?? '';
+              }
+
+              const value = dictValue || infoValue;
+              let result;
+
+              if (cellComponent) {
+                result = React.createElement(cellComponent, {
+                  value,
+                });
+              } else if (typeof value === 'object' && value !== null) {
+                result = JSON.stringify(value);
+              } else {
+                result = value;
+              }
+
+              return <span className={s.tdContent}>{result}</span>;
+            },
+            header: () => caption,
+            size: width,
+          }),
+      ),
+    [columnsWithSavedData, dictionary, columnHelper],
+  );
+
+  const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
     data: dataSource,
     columns: tableColumns,
+    state: {
+      rowSelection,
+      sorting,
+    },
+    onSortingChange: setSorting,
+    enableRowSelection: true,
+    enableMultiRowSelection: false,
+    onRowSelectionChange: setRowSelection,
+    columnResizeMode: 'onChange',
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   });
 
-  const [selectedRowId, setSelectedRowId] = useState<null | string>(null);
-  const selectRow = (rowId: string) => {
-    setSelectedRowId(rowId);
+  const parentRef = useRef<HTMLDivElement>(null);
+  const { rows } = table.getRowModel();
+  const virtualizer = useVirtualizer({
+    count: rows.length,
+    paddingStart: parentRef.current?.querySelector('thead')?.offsetHeight ?? 28,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 28,
+    overscan: 5,
+  });
+
+  const cellStyles = {
+    '--cell-vert-clamp': cellParams.verticalClamp,
+    '--tbody-transform': `${virtualizer.getVirtualItems()[0]?.start}px`,
   };
 
-  if (loading) {
-    const loadingRows: string[] = [];
-    for (let i = 1; i <= 20; i++) {
-      loadingRows.push(String(i));
-    }
-
-    return (
-      <div className={s.loadTable}>
-        <table {...props} className={classNames(s.table, className)}>
-          <tbody>
-            {loadingRows.map((item) => (
-              <tr key={item}>
-                <td></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className={s.loadTableSpinner}>
-          <Spinner color="var(--color-primary-50)" size={20} />
-        </div>
-      </div>
-    );
-  }
+  if (skeleton) return skeleton;
 
   return (
-    <table {...props} className={classNames(s.table, className)}>
-      <thead className={classNames(sticky && s.sticky)}>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <th key={header.id}>
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
+    <div className={s.root} ref={parentRef} style={{ height }}>
+      <table
+        {...props}
+        className={classNames(s.table, className)}
+        style={{
+          ...cellStyles,
+          width: table.getCenterTotalSize(),
+          height: virtualizer.getTotalSize(),
+        }}
+      >
+        <thead className={classNames(sticky && s.sticky)}>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                const isSorted = header.column.getIsSorted();
+                const thContent = flexRender(
+                  header.column.columnDef.header,
+                  header.getContext(),
+                );
+                const thCaption =
+                  columnsWithSavedData.find(({ name }) => name === header.id)
+                    ?.caption ?? '';
 
-      <tbody>
-        {table.getRowModel().rows.map((row) => (
-          <tr
-            key={row.id}
-            className={classNames(selectedRowId === row.id && s.active)}
-            onClick={() => {
-              selectRow(row.id);
-            }}
-          >
-            {row.getVisibleCells().map((cell) => (
-              <td key={cell.id}>
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+                return (
+                  <Tooltip
+                    key={header.id}
+                    title={thCaption}
+                    target="hover"
+                    placement="bottom-start"
+                  >
+                    <th
+                      onClick={(event: React.MouseEvent<HTMLElement>) => {
+                        if (
+                          (event.target as HTMLElement).dataset.type ===
+                          RESIZER_ATTRIBUTE_NAME
+                        )
+                          return;
+
+                        const handler = header.column.getToggleSortingHandler();
+                        handler?.(event);
+                      }}
+                      className={classNames(
+                        header.column.getCanSort() && s.isSortable,
+                      )}
+                      style={{
+                        width: header.getSize(),
+                      }}
+                    >
+                      {header.isPlaceholder ? null : (
+                        <div className={s.thContent}>
+                          <span>{thContent}</span>
+
+                          {isSorted ? (
+                            <Icon
+                              name={sortIconNames.get(isSorted) ?? ''}
+                              className={s.thContentIcon}
+                            />
+                          ) : null}
+                          <div
+                            data-type={RESIZER_ATTRIBUTE_NAME}
+                            className={classNames(
+                              s.resizer,
+                              header.column.getIsResizing() &&
+                                s.resizerIsResizing,
+                            )}
+                            onMouseDown={header.getResizeHandler()}
+                            onTouchStart={header.getResizeHandler()}
+                            onMouseUp={() => {
+                              handleSaveColumnsWidth(
+                                columnsWithSavedData,
+                                headerGroup.headers,
+                              );
+                            }}
+                          />
+                        </div>
+                      )}
+                    </th>
+                  </Tooltip>
+                );
+              })}
+            </tr>
+          ))}
+        </thead>
+
+        <tbody>
+          {virtualizer.getVirtualItems().map((virtualRow) => {
+            const row = rows[virtualRow.index] as Row<T>;
+
+            return (
+              <TableRow
+                key={virtualRow.key}
+                virtualIndex={virtualRow.index}
+                rowRef={virtualizer.measureElement}
+                row={row}
+                columns={columnsWithSavedData}
+                isSelectedRow={row.getIsSelected()}
+                onClick={onClick}
+                acrossLine={acrossLine}
+              />
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }

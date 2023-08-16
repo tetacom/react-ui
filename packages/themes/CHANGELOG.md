@@ -2,6 +2,52 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.18](https://github.com/tetacom/react-ui/compare/themes-0.0.17...themes-0.0.18) (2023-08-04)
+
+
+### Bug Fixes
+
+* fix custom scrollbar ([7fa6d52](https://github.com/tetacom/react-ui/commit/7fa6d52b0c30961e0244a206b4ce8d699a66e9bd))
+
+## [0.0.17](https://github.com/tetacom/react-ui/compare/themes-0.0.16...themes-0.0.17) (2023-08-04)
+
+
+### Bug Fixes
+
+* add scrollbar-gutter: stable ([abc4d5f](https://github.com/tetacom/react-ui/commit/abc4d5f820a13b356444d2eec351f39dcdf128cf))
+
+## [0.0.16](https://github.com/tetacom/react-ui/compare/themes-0.0.15...themes-0.0.16) (2023-08-04)
+
+
+### Bug Fixes
+
+* add scrollbar styles ([d57a059](https://github.com/tetacom/react-ui/commit/d57a05992a2573a043e9d07ef8f9c37402a7e5a6))
+* upgrade nx to version 16 ([b0fceb8](https://github.com/tetacom/react-ui/commit/b0fceb8d4285015798fcfb65e811736515fb1493))
+
+## [0.0.15](https://github.com/tetacom/react-ui/compare/themes-0.0.14...themes-0.0.15) (2023-07-10)
+
+
+### Bug Fixes
+
+* **style:** design tokens updated ([8c2cbb1](https://github.com/tetacom/react-ui/commit/8c2cbb10ee8cb71d29c7f52246857ad102b9f34d))
+
+## [0.0.14](https://github.com/tetacom/react-ui/compare/themes-0.0.13...themes-0.0.14) (2023-07-10)
+
+
+### Bug Fixes
+
+* **library:** cleanup ([c12e1da](https://github.com/tetacom/react-ui/commit/c12e1da871daaf97b09d24cdbe074a637e1d657d))
+* **library:** move theme classes, fix button icon fill color ([adf0774](https://github.com/tetacom/react-ui/commit/adf07748e07c831ab9fd36bee25cfbf473be486e))
+* **style:** design tokens updated ([8c2cbb1](https://github.com/tetacom/react-ui/commit/8c2cbb10ee8cb71d29c7f52246857ad102b9f34d))
+
+## [0.0.14](https://github.com/tetacom/react-ui/compare/themes-0.0.13...themes-0.0.14) (2023-07-07)
+
+
+### Bug Fixes
+
+* **library:** cleanup ([c12e1da](https://github.com/tetacom/react-ui/commit/c12e1da871daaf97b09d24cdbe074a637e1d657d))
+* **library:** move theme classes, fix button icon fill color ([adf0774](https://github.com/tetacom/react-ui/commit/adf07748e07c831ab9fd36bee25cfbf473be486e))
+
 ### [0.0.13](https://github.com/tetacom/react-ui/compare/themes-0.0.12...themes-0.0.13) (2023-06-08)
 
 

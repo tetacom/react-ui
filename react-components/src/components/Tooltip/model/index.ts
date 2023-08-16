@@ -10,4 +10,10 @@ export interface TooltipProps extends PropsWithChildren {
 
   // Отступ от компонента, из которого появляется всплывающее окно
   offset?: number;
+
+  // Контролируемое состояние открытия/закрытия
+  open?: boolean;
+
+  // Событие для показа подсказки
+  target?: 'click' | 'hover';
 }

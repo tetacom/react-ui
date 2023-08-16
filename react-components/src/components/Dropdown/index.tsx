@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
+import { flushSync } from 'react-dom';
 
 import {
   useFloating,
@@ -15,8 +16,8 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { DropdownProps } from './model';
+
 import s from './style.module.scss';
-import { flushSync } from 'react-dom';
 
 export const Dropdown: FC<DropdownProps> = ({
   dropdown,

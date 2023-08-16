@@ -10,7 +10,6 @@ import { Unstyled } from '@storybook/blocks';
 import { Input } from '../index';
 import { Typography } from '../../Typography';
 import { Stack } from '../../Stack';
-import { Icon } from '../../Icons';
 
 import inputClassNames from '../style.module.scss';
 
@@ -75,7 +74,7 @@ export const InputDocs = () => {
         Разрешено использовать иконки в названии и в самом инпуте.
       </Paragraph>
       <div style={{ margin: '24px 0' }}>
-        <Input icon={<Icon name="user" />} />
+        <Input leftIconName="user" />
       </div>
 
       <Paragraph>

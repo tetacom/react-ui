@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { ChangeEvent, Children, forwardRef, useId } from 'react';
 import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -35,6 +35,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
       block = false,
       loading = false,
       disabled = false,
+      file = null,
       className = '',
       ...props
     },
@@ -43,28 +44,74 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
     const utilityClasses = `button_${view} button-${
       palette === 'none' ? 'primary' : palette
     }`;
+    const classes = classNames(
+      utilityClasses,
+      s.button,
+      sizeClasses[size],
+      shapeClasses[shape],
+      square && s.buttonSquare,
+      block && s.buttonBlock,
+      loading && s.buttonLoading,
+      file && s.buttonFile,
+      disabled && disabledClasses[view],
+      className,
+    );
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      if (event.target.files?.length) {
+        const uploadFile = event.target.files[0];
+        const { name } = uploadFile;
+        const uploadFileType = name.slice(name.lastIndexOf('.') + 1);
+
+        if (
+          !file?.acceptList ||
+          !file?.acceptList?.length ||
+          file?.acceptList.includes(uploadFileType)
+        ) {
+          file?.onChange(uploadFile);
+        } else {
+          const errorMessage =
+            'Загруженный файл не соответствует ни одному из разрешенных типов';
+          console.warn(errorMessage);
+          file?.errorCallback && file?.errorCallback(errorMessage);
+        }
+      }
+    };
+
+    const buttonContent = Children.map(children, (child, index) => {
+      if (square && index > 0) return null;
+      return <span className={s.child}>{child}</span>;
+    });
+    const inputId = useId();
+    const isDisabledButton = loading || disabled;
+
+    if (file) {
+      return (
+        <label
+          htmlFor={inputId}
+          className={classes}
+          style={{ cursor: 'pointer' }}
+        >
+          {buttonContent}
+          <input
+            type="file"
+            id={inputId}
+            disabled={isDisabledButton}
+            onChange={handleChange}
+          />
+        </label>
+      );
+    }
 
     return (
       <button
         {...props}
         ref={ref}
         type={type || 'button'}
-        disabled={loading || disabled}
-        className={classNames(
-          utilityClasses,
-          s.button,
-          sizeClasses[size],
-          shapeClasses[shape],
-          square && s.buttonSquare,
-          block && s.buttonBlock,
-          loading && s.buttonLoading,
-          disabled && disabledClasses[view],
-          className,
-        )}
+        disabled={isDisabledButton}
+        className={classes}
       >
-        <span className={s.children}>{children}</span>
-
-        {/*TODO в макете не нашел состояние лоадинг, нужно доавить*/}
+        {buttonContent}
         <AnimatePresence initial={false}>
           {loading && (
             <motion.span

@@ -2,6 +2,27 @@
   display: inline-flex;
   height: auto;
 
+  &.wrapper {
+    flex-wrap: wrap;
+  }
+
+  &.columnDirection {
+    .divider {
+      width: inherit;
+      height: 1px;
+    }
+  }
+
+  &.block {
+    width: 100%;
+  }
+
+  &.columnDirection.block {
+    .childWrapper {
+      width: 100%;
+    }
+  }
+
   .divider {
     position: relative;
     width: 1px;
@@ -10,32 +31,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &::after {
-      content: '';
-      width: 100%;
-      height: var(--spacing-16);
-      background-color: var(--color-text-10);
-    }
-  }
-
-  &ColumnDirection {
-    .divider {
-      width: inherit;
-      height: 1px;
-
-      &::after {
-        width: var(--spacing-16);
-        height: 100%;
-      }
-    }
-  }
-
-  &Wrap {
-    flex-wrap: wrap;
-  }
-
-  &Block {
-    width: 100%;
   }
 }

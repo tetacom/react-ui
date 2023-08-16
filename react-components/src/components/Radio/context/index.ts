@@ -1,5 +1,6 @@
-import { RadioValueType } from '../model';
 import React from 'react';
+
+import { RadioValueType } from '../model/radioValueType';
 
 export interface RadioGroupContextData {
   value: null | RadioValueType;

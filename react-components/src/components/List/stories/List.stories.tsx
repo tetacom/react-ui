@@ -52,5 +52,8 @@ export const Default: Story = {
         rightIcon: <Icon name="home" />,
       },
     ],
+    onClick: (event) => {
+      console.info(event);
+    },
   },
 };

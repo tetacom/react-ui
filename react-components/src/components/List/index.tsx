@@ -62,7 +62,9 @@ export const List: FC<ListProps> = ({
           >
             <span className={s.textHeadline}>{item.headline}</span>
 
-            {item.caption && <span className={s.textCaption}>Caption</span>}
+            {item.caption && (
+              <span className={s.textCaption}>{item.caption}</span>
+            )}
           </span>
 
           {item.rightIcon && (

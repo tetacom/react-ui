@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Select } from '../index';
-import { BaseSelectProps } from '../model';
+import { BaseSelectProps } from '../model/base-select-item';
 
 interface ModelItem extends BaseSelectProps {
   color?: string;
@@ -43,16 +44,12 @@ export const Default: Story = {
     );
   },
   args: {
-    onChangeItem: (item: ModelItem) => {
-      console.log(item);
-    },
     size: 'middle',
     shape: 'round',
     label: '',
     labelPosition: 'top',
     placeholder: 'Выберите скважину',
     errorMessage: '',
-    allowClear: false,
     disabled: false,
     readonly: true,
     allowNull: true,

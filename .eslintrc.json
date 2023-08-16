@@ -1,25 +1,17 @@
 {
   "extends": [
-    "plugin:@nrwl/nx/react",
+    "plugin:@nx/react",
     "./.eslintrc.base.json",
     "plugin:storybook/recommended"
   ],
-  "ignorePatterns": [
-    "!**/*"
-  ],
+  "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "rules": {}
     },
     {
-      "files": [
-        "*.js",
-        "*.jsx"
-      ],
+      "files": ["*.js", "*.jsx"],
       "rules": {}
     }
   ]

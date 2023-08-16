@@ -35,17 +35,23 @@ export interface InputProps
   // Сообщение об ошибке
   errorMessage?: string;
 
-  // Если разрешить удаление входного содержимого с помощью значка очистки
-  allowClear?: boolean;
-
   // Отключен ли ввод
   disabled?: boolean;
 
   // Максимальное количество символов во вводе
   maxLength?: number;
 
-  // Иконка текстового поля
-  icon?: React.ReactElement;
+  // Название левой иконки
+  leftIconName?: string;
+
+  // Правая иконки
+  rightIcon?: {
+    // Название правой иконки
+    icon: string | React.ReactElement;
+
+    // Функция обратного вызова при клике по правой иконке
+    onClick?: () => void;
+  };
 
   // Обратный вызов при вводе пользователем
   onChange?: (value: string) => void;

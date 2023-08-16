@@ -35,7 +35,7 @@ export const Name: FC<Props> = ({ name, size = '28' }) => {
           .toUpperCase();
   const bgColor = getBgHex(initials);
   const fontVariant: FontVariant = isNumber(size)
-    ? 'captionSemi'
+    ? 'captionBold'
     : fontSizes[size];
   const fontSize = isNumber(size)
     ? Math.round(Math.pow(size, 0.675))

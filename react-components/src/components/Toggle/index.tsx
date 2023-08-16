@@ -30,16 +30,18 @@ export const Toggle = forwardRef<ToggleRef, ToggleProps>(
       () => checked === undefined,
       [checked],
     );
-    const [isOn, setIsOn] = useState(checked || defaultChecked);
+    const [isOn, setIsOn] = useState(
+      isUncontrolledToggle ? defaultChecked : checked ?? false,
+    );
+
+    const isChecked = isUncontrolledToggle ? isOn : checked;
+    const isDisabled = disabled || loading;
 
     const toggleSwitch = () => {
       if (isUncontrolledToggle) setIsOn(!isOn);
 
-      if (onChange) onChange(!isOn);
+      if (onChange) onChange(!isChecked);
     };
-
-    const isChecked = isUncontrolledToggle ? isOn : checked;
-    const isDisabled = disabled || loading;
 
     return (
       <button
