@@ -1,10 +1,12 @@
-import s from './GanttRow.module.scss';
+import dayjs from 'dayjs';
+import * as d3 from 'd3';
+
 import { Typography } from '../../../Typography';
 import { MilestoneItem, MilestoneOptions } from '../../model/gantt-props';
 import { Tooltip } from '../../../Tooltip';
-import * as d3 from 'd3';
 import { getContrastColor } from '../../../../utils/getContrastColor';
-import dayjs from 'dayjs';
+
+import s from './GanttRow.module.scss';
 
 export interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
@@ -58,7 +60,7 @@ export function GanttRowComponent<T extends MilestoneOptions>(
           )}`;
 
           return (
-            <Tooltip title={tooltipString} placement="top-start">
+            <Tooltip title={tooltipString?.join('')} placement="top-start">
               <div
                 style={{
                   position: 'absolute',
@@ -69,7 +71,8 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                   overflow: 'hidden',
                   border:
                     (milestone as any).clusterType === 'drilling'
-                      ? `1px solid ${d3
+                      ? // @ts-ignore
+                        `1px solid ${d3
                           .color(defaultColorMap((milestone as any).production))
                           .hex()}`
                       : 'none',
@@ -103,6 +106,7 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                       fontVariant="captionBold"
                       style={{
                         color: getContrastColor(
+                          // @ts-ignore
                           d3
                             .color(
                               defaultColorMap((milestone as any).production),
@@ -120,7 +124,8 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                       height: 16,
                       background:
                         (milestone as any).clusterType === 'drilling'
-                          ? `${d3
+                          ? // @ts-ignore
+                            `${d3
                               .color(
                                 defaultColorMap((milestone as any).production),
                               )
