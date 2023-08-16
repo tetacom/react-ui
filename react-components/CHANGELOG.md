@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.15](https://github.com/tetacom/react-ui/compare/react-components-0.7.14...react-components-0.7.15) (2023-08-16)
+
+
+### Bug Fixes
+
+* update table rows after resize end ([155f2e6](https://github.com/tetacom/react-ui/commit/155f2e65203282e727c1bfe780a4d7b596822ea3))
+
 ## [0.7.14](https://github.com/tetacom/react-ui/compare/react-components-0.7.13...react-components-0.7.14) (2023-08-11)
 
 
