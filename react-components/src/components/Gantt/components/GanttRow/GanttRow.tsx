@@ -2,13 +2,12 @@ import dayjs from 'dayjs';
 import * as d3 from 'd3';
 
 import { Typography } from '../../../Typography';
-import { MilestoneItem, MilestoneOptions } from '../../model/gantt-props';
-import { Tooltip } from '../../../Tooltip';
+import { MilestoneItem, MilestoneOptions } from '../../model';
 import { getContrastColor } from '../../../../utils/getContrastColor';
 
 import s from './GanttRow.module.scss';
 
-export interface GanttRowProps<T extends MilestoneOptions> {
+interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
   scaleTime: d3.ScaleTime<number, number>;
 }
@@ -60,129 +59,123 @@ export function GanttRowComponent<T extends MilestoneOptions>(
           )}`;
 
           return (
-            <Tooltip title={tooltipString?.join('')} placement="top-start">
+            <div
+              style={{
+                position: 'absolute',
+                zIndex: 4,
+                left: props.scaleTime(milestone.startTime),
+                width: itemWidth === 0 ? 1 : itemWidth,
+                borderRadius: 4,
+                overflow: 'hidden',
+                border:
+                  (milestone as any).clusterType === 'drilling'
+                    ? // @ts-ignore
+                      `1px solid ${d3
+                        .color(defaultColorMap((milestone as any).production))
+                        .hex()}`
+                    : 'none',
+                background:
+                  (milestone as any).clusterType === 'drilling'
+                    ? 'transparent'
+                    : 'repeating-linear-gradient(-60deg, var(--color-text-20) 0, var(--color-text-20) 1px, transparent 1.5px, transparent 5px)',
+              }}
+              className={s.trackItem}
+            >
               <div
                 style={{
-                  position: 'absolute',
-                  zIndex: 4,
-                  left: props.scaleTime(milestone.startTime),
-                  width: itemWidth === 0 ? 1 : itemWidth,
-                  borderRadius: 4,
-                  overflow: 'hidden',
-                  border:
-                    (milestone as any).clusterType === 'drilling'
-                      ? // @ts-ignore
-                        `1px solid ${d3
-                          .color(defaultColorMap((milestone as any).production))
-                          .hex()}`
-                      : 'none',
-                  background:
-                    (milestone as any).clusterType === 'drilling'
-                      ? 'transparent'
-                      : 'repeating-linear-gradient(-60deg, var(--color-text-20) 0, var(--color-text-20) 1px, transparent 1.5px, transparent 5px)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: '100%',
                 }}
-                className={s.trackItem}
               >
                 <div
                   style={{
+                    paddingLeft: 6,
+                    height: 16,
                     display: 'flex',
-                    flexDirection: 'column',
-                    width: '100%',
+                    overflow: 'hidden',
+                    background:
+                      (milestone as any).clusterType === 'drilling'
+                        ? defaultColorMap((milestone as any).production)
+                        : 'transparent',
                   }}
                 >
-                  <div
+                  <Typography.Text
+                    fontVariant="captionBold"
                     style={{
-                      paddingLeft: 6,
-                      height: 16,
-                      display: 'flex',
-                      overflow: 'hidden',
-                      background:
-                        (milestone as any).clusterType === 'drilling'
-                          ? defaultColorMap((milestone as any).production)
-                          : 'transparent',
+                      color: getContrastColor(
+                        // @ts-ignore
+                        d3
+                          .color(defaultColorMap((milestone as any).production))
+                          .hex(),
+                      ),
                     }}
                   >
-                    <Typography.Text
-                      fontVariant="captionBold"
-                      style={{
-                        color: getContrastColor(
-                          // @ts-ignore
-                          d3
+                    {(milestone as any).clusterId}
+                  </Typography.Text>
+                </div>
+                <div
+                  style={{
+                    position: 'relative',
+                    height: 16,
+                    background:
+                      (milestone as any).clusterType === 'drilling'
+                        ? // @ts-ignore
+                          `${d3
                             .color(
                               defaultColorMap((milestone as any).production),
                             )
-                            .hex(),
-                        ),
-                      }}
-                    >
-                      {(milestone as any).clusterId}
-                    </Typography.Text>
-                  </div>
-                  <div
-                    style={{
-                      position: 'relative',
-                      height: 16,
-                      background:
-                        (milestone as any).clusterType === 'drilling'
-                          ? // @ts-ignore
-                            `${d3
-                              .color(
-                                defaultColorMap((milestone as any).production),
-                              )
-                              .hex()}30`
-                          : 'transparent',
-                    }}
-                  >
-                    {(milestone as any).items?.map(
-                      (well: any, index: any, wells: any) => {
-                        const isMoveBetweenWells =
-                          wells[index + 1]?.operationType === 0 &&
-                          wells[index]?.operationType === 2;
+                            .hex()}30`
+                        : 'transparent',
+                  }}
+                >
+                  {(milestone as any).items?.map(
+                    (well: any, index: any, wells: any) => {
+                      const isMoveBetweenWells =
+                        wells[index + 1]?.operationType === 0 &&
+                        wells[index]?.operationType === 2;
 
-                        if (isMoveBetweenWells) {
-                          return (
-                            <div
-                              style={{
-                                position: 'absolute',
-                                left: scaleTimeInCluster(
-                                  wells[index]?.startTime,
-                                ),
-                                height: '100%',
-                                background: defaultColorMap(
-                                  (milestone as any).production,
-                                ),
-                                width: Math.abs(
-                                  scaleTimeInCluster(wells[index]?.startTime) -
-                                    scaleTimeInCluster(
-                                      wells[index + 1]?.startTime,
-                                    ),
-                                ),
-                              }}
-                            ></div>
-                          );
-                        }
-
+                      if (isMoveBetweenWells) {
                         return (
-                          <Typography.Text
-                            fontVariant="caption"
+                          <div
                             style={{
                               position: 'absolute',
-                              left: scaleTimeInCluster(well.startTime) + 6,
+                              left: scaleTimeInCluster(wells[index]?.startTime),
+                              height: '100%',
+                              background: defaultColorMap(
+                                (milestone as any).production,
+                              ),
+                              width: Math.abs(
+                                scaleTimeInCluster(wells[index]?.startTime) -
+                                  scaleTimeInCluster(
+                                    wells[index + 1]?.startTime,
+                                  ),
+                              ),
                             }}
-                          >
-                            {(milestone as any).clusterType === 'drilling' &&
-                              well.wellId}
-
-                            {(milestone as any).clusterType === 'move' &&
-                              (milestone as any)?.items[0]?.distance.toFixed(0)}
-                          </Typography.Text>
+                          />
                         );
-                      },
-                    )}
-                  </div>
+                      }
+
+                      return (
+                        <Typography.Text
+                          fontVariant="caption"
+                          style={{
+                            position: 'absolute',
+                            left: scaleTimeInCluster(well.startTime) + 6,
+                          }}
+                        >
+                          {(milestone as any).clusterType === 'drilling' &&
+                            well.wellId}
+
+                          {(milestone as any).clusterType === 'move' &&
+                            (milestone as any)?.items[0]?.distance.toFixed(0)}
+                        </Typography.Text>
+                      );
+                    },
+                  )}
                 </div>
               </div>
-            </Tooltip>
+            </div>
           );
         })}
       </div>

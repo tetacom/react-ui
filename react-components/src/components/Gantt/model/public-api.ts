@@ -1,2 +1,2 @@
-export * from './gantt-props';
+export * from './index';
 export * from './enum/zoom-size.enum';

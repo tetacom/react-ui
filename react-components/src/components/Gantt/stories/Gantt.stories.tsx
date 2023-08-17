@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { fakerRU } from '@faker-js/faker';
 
 import { Gantt } from '../index';
-import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
+import { MilestoneItem, MilestoneOptions } from '../model';
 import { rigs } from '../rigs';
 import { ZoomSize } from '../model/enum/zoom-size.enum';
 

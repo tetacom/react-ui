@@ -1,4 +1,6 @@
+import React from 'react';
 import * as d3 from 'd3';
+
 import { ZoomSize } from './enum/zoom-size.enum';
 
 export interface MilestoneOptions {
@@ -20,7 +22,7 @@ export interface GanttProps<T extends MilestoneOptions> {
   onMilestoneRender?: (
     item: MilestoneItem<T>,
     scale: d3.ScaleTime<number, number>,
-  ) => JSX.Element;
+  ) => React.ReactElement;
 
   // Обратный вызов для кастомного рендера айтема левой панели
   onItemRender?: (item: MilestoneItem<T>) => JSX.Element;

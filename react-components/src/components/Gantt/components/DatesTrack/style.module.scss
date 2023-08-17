@@ -1,0 +1,14 @@
+.root {
+  position: absolute;
+  top: 0;
+  z-index: 20;
+  height: 32px;
+  background: #292e3c;
+  border-bottom: 1px solid var(--color-text-10);
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    inline-size: 0 !important;
+    display: none;
+  }
+}

@@ -1,0 +1,42 @@
+.root {
+  display: grid;
+  overflow: scroll;
+  background-color: var(--main-bg);
+
+  &::-webkit-scrollbar {
+    inline-size: 0;
+  }
+
+  .patch {
+    position: sticky;
+    top: 0;
+    height: 32px;
+    background-color: var(--main-bg);
+  }
+
+  .drillingRig {
+    padding: 10px 16px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: column;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    &Name {
+      background-color: var(--main-bg);
+    }
+
+    &Company {
+      background-color: var(--main-bg);
+    }
+
+    &Lifting {
+      background-color: var(--main-bg);
+    }
+
+    &Drive {
+      background-color: var(--main-bg);
+    }
+  }
+}

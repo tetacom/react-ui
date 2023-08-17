@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { scaleTime, timeDay, timeMonth } from 'd3';
 import dayjs from 'dayjs';
-import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
+import { MilestoneItem, MilestoneOptions } from '../model';
 import { ZoomSize } from '../model/enum/zoom-size.enum';
 import { Size } from '../../hooks/useElementSize';
 
