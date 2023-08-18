@@ -122,5 +122,6 @@ export const rigItems: MilestoneItem<CustomMilestone>[] = [];
 export const Default: Story = {
   args: {
     items: rigItems,
+    height: 'calc(100vh - 32px)',
   },
 };

@@ -30,4 +30,7 @@ export interface GanttProps<T extends MilestoneOptions> {
 
   // Обратный вызов для кастомного рендера айтема левой панели
   onItemRender?: (item: MilestoneItem<T>) => React.ReactElement;
+
+  // высота диаграммы
+  height?: React.CSSProperties['height'];
 }

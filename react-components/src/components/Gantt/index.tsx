@@ -13,6 +13,7 @@ export function Gantt<T extends MilestoneOptions>({
   items,
   zoom,
   onMilestoneRender,
+  height = '100vh',
 }: GanttProps<T>) {
   const [trackScrollRef, size] = useElementSize<HTMLDivElement>();
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ export function Gantt<T extends MilestoneOptions>({
   };
 
   return (
-    <div className={s.container}>
+    <div className={s.container} style={{ height, minHeight: height }}>
       <GanttSidebar
         ref={sidebarRef}
         handleScrollSidebar={handleScrollSidebar}
