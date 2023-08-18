@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import React, { useRef } from 'react';
 
 import { useTimeAxis } from './hooks/useTimeAxis';
@@ -21,14 +20,13 @@ export function Gantt<T extends MilestoneOptions>({
 
   const [maxWidth, ticks, scale] = useTimeAxis(items, zoom, size);
 
-  const handleScrollSidebar = (scroll: any) => {
-    console.log('scroll', scroll);
+  const handleScrollSidebar = (scroll: React.BaseSyntheticEvent) => {
     if (trackScrollRef?.current) {
       trackScrollRef.current.scrollTop = scroll.target?.scrollTop;
     }
   };
 
-  const handleScrollTimeline = (scroll: any) => {
+  const handleScrollTimeline = (scroll: React.BaseSyntheticEvent) => {
     if (sidebarRef?.current && timelineRef?.current) {
       sidebarRef.current.scrollTop = scroll.target?.scrollTop;
       timelineRef.current.scrollLeft = scroll.target?.scrollLeft;
@@ -55,11 +53,14 @@ export function Gantt<T extends MilestoneOptions>({
           ticks={ticks}
         />
 
-        <div style={{ width: maxWidth, position: 'relative', paddingTop: 32 }}>
+        <div
+          className={s.timelineContent}
+          style={{
+            width: maxWidth,
+          }}
+        >
           {items.map((item: MilestoneItem<T>) => {
-            if (onMilestoneRender) {
-              return onMilestoneRender(item, scale);
-            }
+            if (onMilestoneRender) return onMilestoneRender(item, scale);
 
             return (
               <GanttRowComponent key={item.id} item={item} scaleTime={scale} />

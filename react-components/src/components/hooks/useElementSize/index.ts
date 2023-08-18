@@ -1,10 +1,8 @@
 import { MutableRefObject, useLayoutEffect, useRef, useState } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
 
-export type Size = {
-  width: number;
-  height: number;
-};
+import type { Size } from '../../Gantt/model/size';
+
 export const useElementSize = <T extends HTMLElement>(): [
   MutableRefObject<T | null>,
   Size,

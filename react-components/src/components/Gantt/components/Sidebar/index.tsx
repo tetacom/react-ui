@@ -1,12 +1,16 @@
-import React, { forwardRef, useEffect, useRef } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Typography } from '../../../Typography';
+import { Icon } from '../../../Icons';
+import { GanttProps } from '../../model';
 
 import s from './style.module.scss';
 
+const { Text } = Typography;
+
 interface Props {
-  items: any[];
-  handleScrollSidebar: (scroll: any) => void;
+  items: GanttProps<any>['items'];
+  handleScrollSidebar: (scroll: React.BaseSyntheticEvent) => void;
 }
 
 export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
@@ -20,22 +24,18 @@ export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
       {items.map((item) => {
         return (
           <div key={item.id} className={s.drillingRig}>
-            <Typography.Text fontVariant="body3" className={s.drillingRigName}>
+            <Text fontVariant="title3" className={s.drillingRigName}>
               {item.id}
-            </Typography.Text>
-            <Typography.Text
-              fontVariant="caption"
-              className={s.drillingRigCompany}
-            >
-              ООО "Татбурнефть"
-            </Typography.Text>
-            <Typography.Text
-              fontVariant="caption"
-              className={s.drillingRigLifting}
-            >
+            </Text>
+            <Text fontVariant="caption" className={s.drillingRigCompany}>
+              ООО "Татбурнефть"ООО
+            </Text>
+            <Text fontVariant="caption" className={s.drillingRigLifting}>
               125 т
-            </Typography.Text>
-            <div className={s.drillingRigDrive}>Icon</div>
+            </Text>
+            <div className={s.drillingRigDrive}>
+              <Icon name="home" />
+            </div>
           </div>
         );
       })}

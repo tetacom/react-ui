@@ -1,14 +1,16 @@
 .container {
-  --sidebar-width: 300px;
+  --sidebar-width: 296px;
   --main-bg: var(--color-global-bgcard);
-  --row-height: 60px;
+  --dates: calc(2 * var(--spacing-16));
+  --row-height: calc(2 * var(--spacing-26));
 
   position: relative;
   overflow: hidden;
-  height: calc(100vh - 32px);
-  min-height: calc(100vh - 32px);
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
+  border-top: 1px solid var(--color-text-5);
+  height: calc(100vh - 32px);
+  min-height: calc(100vh - 32px);
 
   &::after {
     content: '';
@@ -22,6 +24,11 @@
 
   .timeline {
     overflow-x: scroll;
-    background-color: var(--color-text-5);
+    background-color: var(--color-global-bgmain);
+
+    &Content {
+      position: relative;
+      padding-top: 32px;
+    }
   }
 }

@@ -1,9 +1,10 @@
 import * as d3 from 'd3';
 import { scaleTime, timeDay, timeMonth } from 'd3';
 import dayjs from 'dayjs';
+
 import { MilestoneItem, MilestoneOptions } from '../model';
-import { ZoomSize } from '../model/enum/zoom-size.enum';
-import { Size } from '../../hooks/useElementSize';
+import { ZoomSize } from '../model/public-api';
+import { Size } from '../model/size';
 
 export const useTimeAxis = <T extends MilestoneOptions>(
   items: Array<MilestoneItem<T>>,

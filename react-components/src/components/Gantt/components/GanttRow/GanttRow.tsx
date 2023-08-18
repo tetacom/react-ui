@@ -21,7 +21,7 @@ export function GanttRowComponent<T extends MilestoneOptions>(
 ) {
   return (
     <div className={s.root}>
-      <div className={s.track} style={{ position: 'relative' }}>
+      <div className={s.track}>
         {props?.item.milestones?.map((milestone) => {
           const itemWidth =
             props.scaleTime(milestone.endTime) -
@@ -60,16 +60,14 @@ export function GanttRowComponent<T extends MilestoneOptions>(
 
           return (
             <div
+              className={s.trackItem}
               style={{
-                position: 'absolute',
-                zIndex: 4,
                 left: props.scaleTime(milestone.startTime),
                 width: itemWidth === 0 ? 1 : itemWidth,
-                borderRadius: 4,
-                overflow: 'hidden',
                 border:
                   (milestone as any).clusterType === 'drilling'
-                    ? // @ts-ignore
+                    ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore
                       `1px solid ${d3
                         .color(defaultColorMap((milestone as any).production))
                         .hex()}`
@@ -79,21 +77,11 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                     ? 'transparent'
                     : 'repeating-linear-gradient(-60deg, var(--color-text-20) 0, var(--color-text-20) 1px, transparent 1.5px, transparent 5px)',
               }}
-              className={s.trackItem}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  width: '100%',
-                }}
-              >
+              <div className={s.milestone}>
                 <div
+                  className={s.milestoneTop}
                   style={{
-                    paddingLeft: 6,
-                    height: 16,
-                    display: 'flex',
-                    overflow: 'hidden',
                     background:
                       (milestone as any).clusterType === 'drilling'
                         ? defaultColorMap((milestone as any).production)
@@ -104,6 +92,7 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                     fontVariant="captionBold"
                     style={{
                       color: getContrastColor(
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         d3
                           .color(defaultColorMap((milestone as any).production))
@@ -115,12 +104,12 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                   </Typography.Text>
                 </div>
                 <div
+                  className={s.milestoneBottom}
                   style={{
-                    position: 'relative',
-                    height: 16,
                     background:
                       (milestone as any).clusterType === 'drilling'
-                        ? // @ts-ignore
+                        ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                          // @ts-ignore
                           `${d3
                             .color(
                               defaultColorMap((milestone as any).production),
@@ -138,10 +127,9 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                       if (isMoveBetweenWells) {
                         return (
                           <div
+                            className={s.milestoneBottomItem}
                             style={{
-                              position: 'absolute',
                               left: scaleTimeInCluster(wells[index]?.startTime),
-                              height: '100%',
                               background: defaultColorMap(
                                 (milestone as any).production,
                               ),
@@ -159,8 +147,8 @@ export function GanttRowComponent<T extends MilestoneOptions>(
                       return (
                         <Typography.Text
                           fontVariant="caption"
+                          className={s.milestoneBottomItem}
                           style={{
-                            position: 'absolute',
                             left: scaleTimeInCluster(well.startTime) + 6,
                           }}
                         >

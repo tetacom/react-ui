@@ -1,15 +1,17 @@
 import React, { forwardRef, useMemo } from 'react';
 import dayjs from 'dayjs';
+import * as d3 from 'd3';
 
-import { Typography } from '../../../Typography';
+import { Size } from '../../model/size';
+import { TextContent } from './TextContent';
 
 import s from './style.module.scss';
 
 interface Props {
-  size: any;
-  maxWidth: any;
-  scale: any;
-  ticks: any[];
+  size: Size;
+  maxWidth: number;
+  scale: d3.ScaleTime<number, number>;
+  ticks: Date[];
 }
 
 export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
@@ -37,23 +39,12 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
       }}
     >
       <div
-        className="dates"
+        className={s.dates}
         style={{
-          position: 'relative',
           width: maxWidth,
-          display: 'flex',
-          flexDirection: 'column',
-          border: '3px dashed red',
         }}
       >
-        <div
-          className="years"
-          style={{
-            height: 16,
-            display: 'flex',
-            border: '3px dashed green',
-          }}
-        >
+        <div className={s.scale}>
           {years.map((yearTick, index, yearTicks) => {
             const width = yearTicks[index + 1]
               ? Math.abs(scale(yearTicks[index + 1]) - scale(yearTick))
@@ -62,38 +53,19 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
             return (
               <div
                 key={yearTick.getTime()}
-                className="yearsItem"
+                className={s.scaleItem}
                 style={{
                   width,
                   flexGrow: yearTicks.length - 1 !== index ? 0 : 1,
-                  display: 'flex',
-                  alignItems: 'center',
                 }}
               >
-                <Typography.Text
-                  className="yearsItemText"
-                  fontVariant="overline"
-                  style={{
-                    position: 'sticky',
-                    left: 0,
-                    color: 'var(--color-text-50)',
-                  }}
-                >
-                  {dayjs(yearTick).year()}
-                </Typography.Text>
+                <TextContent>{dayjs(yearTick).year()}</TextContent>
               </div>
             );
           })}
         </div>
 
-        <div
-          className="yearsItem"
-          style={{
-            height: 16,
-            display: 'flex',
-            border: '3px dashed orange',
-          }}
-        >
+        <div className={s.scale}>
           {ticks
             .filter((_) => {
               return dayjs(_).date() === 1;
@@ -102,25 +74,15 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
               return (
                 <div
                   key={tick.getTime()}
+                  className={s.scaleItem}
                   style={{
                     width: ticks[index + 1]
                       ? Math.abs(scale(ticks[index + 1]) - scale(tick))
                       : 'max-content',
                     flexGrow: ticks.length - 1 !== index ? 0 : 1,
-                    display: 'flex',
-                    alignItems: 'center',
                   }}
                 >
-                  <Typography.Text
-                    fontVariant="overline"
-                    style={{
-                      position: 'sticky',
-                      left: 0,
-                      color: 'var(--color-text-50)',
-                    }}
-                  >
-                    {dayjs(tick).format('MMMM')}
-                  </Typography.Text>
+                  <TextContent>{dayjs(tick).format('MMMM')}</TextContent>
                 </div>
               );
             })}
