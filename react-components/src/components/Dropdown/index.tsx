@@ -10,8 +10,6 @@ import {
   useClick,
   useDismiss,
   FloatingPortal,
-  flip,
-  shift,
 } from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -84,10 +82,14 @@ export const Dropdown: FC<DropdownProps> = ({
 
   return (
     <>
-      {React.cloneElement(children as React.ReactElement, {
-        ref: refs.setReference,
-        ...getReferenceProps(),
-      })}
+      {/* TODO посмотреть */}
+      <div
+        ref={refs.setReference}
+        className={s.dropdownTrigger}
+        {...getReferenceProps()}
+      >
+        {children}
+      </div>
       {
         <AnimatePresence>
           {showDropdown && (
