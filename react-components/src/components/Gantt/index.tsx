@@ -48,6 +48,7 @@ export function Gantt<T extends MilestoneOptions>({
         onScroll={handleScrollTimeline}
       >
         <GanttDatesTrack
+          ref={timelineRef}
           size={size}
           maxWidth={maxWidth}
           scale={scale}
