@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react';
 
 import { Typography } from '../../../Typography';
-import { Icon } from '../../../Icons';
+import { ColoredIcon } from '../../../Icons';
 import { GanttProps } from '../../model';
+import { DriveType } from '../../model/public-api';
 
 import s from './style.module.scss';
 
@@ -21,20 +22,22 @@ export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
     <div className={s.root} ref={ref} onScroll={handleScrollSidebar}>
       <div className={s.patch} />
 
-      {items.map((item) => {
+      {items.map(({ id, name, liftingCapability, driveType }) => {
         return (
-          <div key={item.id} className={s.drillingRig}>
+          <div key={id} className={s.drillingRig}>
             <Text fontVariant="title3" className={s.drillingRigName}>
-              {item.id}
+              {id}
             </Text>
             <Text fontVariant="caption" className={s.drillingRigCompany}>
-              ООО "Татбурнефть"ООО
+              {name}
             </Text>
             <Text fontVariant="caption" className={s.drillingRigLifting}>
-              125 т
+              {liftingCapability} т
             </Text>
             <div className={s.drillingRigDrive}>
-              <Icon name="home" />
+              <ColoredIcon
+                name={driveType === DriveType.Electric ? 'lighting' : 'fire'}
+              />
             </div>
           </div>
         );

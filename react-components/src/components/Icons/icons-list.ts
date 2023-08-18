@@ -238,6 +238,8 @@ export const coloredIconsList = [
   'wellColor',
   'wellConstructionColor',
   'wellGroupColor',
+  'lighting',
+  'fire',
 ];
 
 export const fileIconsList = [
