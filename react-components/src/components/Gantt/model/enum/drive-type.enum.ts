@@ -1,4 +1,4 @@
-export const enum DriveType {
+export enum DriveType {
   Electric = 'Electric',
   Diesel = 'Diesel',
 }
