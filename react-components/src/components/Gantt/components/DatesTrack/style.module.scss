@@ -1,0 +1,30 @@
+.root {
+  position: absolute;
+  top: 0;
+  z-index: 20;
+  height: var(--dates);
+  background-color: var(--main-bg);
+  border-bottom: 1px solid var(--color-text-10);
+  overflow-x: scroll;
+  padding: 0 var(--spacing-4);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dates {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .scale {
+      display: flex;
+      height: calc(var(--dates) / 2);
+
+      &Item {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

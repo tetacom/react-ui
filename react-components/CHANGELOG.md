@@ -2,6 +2,19 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.3](https://github.com/tetacom/react-ui/compare/react-components-0.8.2...react-components-0.8.3) (2023-08-18)
+
+
+### Bug Fixes
+
+* gantt height from props ([01baea4](https://github.com/tetacom/react-ui/commit/01baea4d4ce7ed6081a24b89fc2ef5c774e27d53))
+* gantt styles on tokens ([5151248](https://github.com/tetacom/react-ui/commit/5151248715604678cff7acd0c1785003673d1171))
+* gantt to components ([8e1314a](https://github.com/tetacom/react-ui/commit/8e1314a375b79995d5aae3257ef8d5fad2ba497b))
+* scroll sync bugfix ([449bc7b](https://github.com/tetacom/react-ui/commit/449bc7bad61b9cc90240c83f3286d56ec7d27301))
+* sidebar with prop data ([903a8a3](https://github.com/tetacom/react-ui/commit/903a8a387b1dcd8d5f47750f2615f3f107b1417a))
+* temp dropdown bugfix ([4fdada4](https://github.com/tetacom/react-ui/commit/4fdada4d89e7f8a2ac42286cf8c0b1b0b732e078))
+* theme bugfix ([4b2080d](https://github.com/tetacom/react-ui/commit/4b2080d98d2ea64b989315e275d8563df1bdfa2c))
+
 ## [0.8.2](https://github.com/tetacom/react-ui/compare/react-components-0.8.1...react-components-0.8.2) (2023-08-16)
 
 

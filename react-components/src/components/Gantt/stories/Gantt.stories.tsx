@@ -3,9 +3,9 @@ import dayjs from 'dayjs';
 import { fakerRU } from '@faker-js/faker';
 
 import { Gantt } from '../index';
-import { MilestoneItem, MilestoneOptions } from '../model/gantt-props';
+import { MilestoneItem, MilestoneOptions } from '../model';
 import { rigs } from '../rigs';
-import { ZoomSize } from '../model/enum/zoom-size.enum';
+import { ZoomSize, DriveType } from '../model/public-api';
 
 const meta: Meta<typeof Gantt> = {
   title: 'Data Display/Gantt',
@@ -78,6 +78,9 @@ export const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
   const rigItem: MilestoneItem<CustomMilestone> = {
     id: rigId!,
+    name: 'ООО "Татбурнефть"',
+    liftingCapability: 125,
+    driveType: Math.random() > 0.5 ? DriveType.Electric : DriveType.Diesel,
     milestones: [],
   };
 
@@ -119,5 +122,6 @@ export const rigItems: MilestoneItem<CustomMilestone>[] = [];
 export const Default: Story = {
   args: {
     items: rigItems,
+    height: 'calc(100vh - 32px)',
   },
 };

@@ -47,7 +47,7 @@ const ThemeContextProvider: FC<ThemeProps> = ({
       theme,
       changeTheme: (selectedTheme: string) => {
         setTheme(selectedTheme);
-        if (storageKey) setValue(theme);
+        if (storageKey) setValue(selectedTheme);
       },
     };
   }, [theme]);

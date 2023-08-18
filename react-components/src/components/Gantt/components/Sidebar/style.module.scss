@@ -1,0 +1,57 @@
+.root {
+  display: grid;
+  overflow: scroll;
+  background-color: var(--main-bg);
+
+  &::-webkit-scrollbar {
+    inline-size: 0;
+  }
+
+  .patch {
+    position: sticky;
+    top: 0;
+    height: var(--dates);
+    background-color: var(--main-bg);
+    border-right: 1px solid var(--color-text-5);
+    border-bottom: 1px solid var(--color-text-5);
+  }
+
+  .drillingRig {
+    height: var(--row-height);
+    color: var(--color-text-90);
+    display: grid;
+    align-items: center;
+    gap: 0 var(--spacing-8);
+    grid-template-areas:
+      'name lift drive'
+      'company lift drive';
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: 1fr 1fr;
+    border-bottom: 1px solid var(--color-text-5);
+    padding: var(--spacing-10) var(--spacing-20);
+
+    &Name {
+      grid-area: name;
+    }
+
+    &Company {
+      grid-area: company;
+      color: var(--color-text-50);
+    }
+
+    &Name,
+    &Company {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &Lifting {
+      grid-area: lift;
+    }
+
+    &Drive {
+      grid-area: drive;
+    }
+  }
+}

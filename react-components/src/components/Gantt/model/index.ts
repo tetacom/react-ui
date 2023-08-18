@@ -1,5 +1,8 @@
+import React from 'react';
 import * as d3 from 'd3';
+
 import { ZoomSize } from './enum/zoom-size.enum';
+import { DriveType } from './enum/drive-type.enum';
 
 export interface MilestoneOptions {
   startTime: Date;
@@ -8,6 +11,9 @@ export interface MilestoneOptions {
 
 export interface MilestoneItem<T extends MilestoneOptions> {
   id: number;
+  name: string;
+  liftingCapability: number;
+  driveType: DriveType;
   milestones: Array<T>;
 }
 
@@ -20,8 +26,11 @@ export interface GanttProps<T extends MilestoneOptions> {
   onMilestoneRender?: (
     item: MilestoneItem<T>,
     scale: d3.ScaleTime<number, number>,
-  ) => JSX.Element;
+  ) => React.ReactElement;
 
   // Обратный вызов для кастомного рендера айтема левой панели
-  onItemRender?: (item: MilestoneItem<T>) => JSX.Element;
+  onItemRender?: (item: MilestoneItem<T>) => React.ReactElement;
+
+  // высота диаграммы
+  height?: React.CSSProperties['height'];
 }
