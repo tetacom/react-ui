@@ -40,7 +40,8 @@ export const Tooltip: FC<TooltipProps> = ({
         ref: refs.setReference,
         ...getReferenceProps(),
       })}
-      {
+
+      {title && (
         <AnimatePresence>
           {isOpen && (
             <FloatingPortal>
@@ -59,7 +60,7 @@ export const Tooltip: FC<TooltipProps> = ({
             </FloatingPortal>
           )}
         </AnimatePresence>
-      }
+      )}
     </>
   );
 };

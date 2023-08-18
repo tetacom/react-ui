@@ -11,11 +11,6 @@
   overflow: hidden;
   z-index: 1;
 
-  //TODO мешает трек скролла
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
   &Scrollable {
     scrollbar-color: var(--color-text-50) transparent;
     scrollbar-width: thin;
