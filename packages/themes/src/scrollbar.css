@@ -5,7 +5,6 @@
 }
 
 * {
-  scrollbar-gutter: stable;
   scrollbar-color: var(--scrollbar-color) var(--scrollbar-track-color);
   scrollbar-width: thin;
 }
