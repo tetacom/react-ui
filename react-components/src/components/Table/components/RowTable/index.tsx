@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Column, flexRender, Row } from '@tanstack/react-table';
+import { flexRender, Row } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
