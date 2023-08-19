@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Column, flexRender, Row } from '@tanstack/react-table';
+import { flexRender, Row } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
@@ -61,7 +61,7 @@ function TableRow<T>({
             }}
             style={{
               width: cellWidth,
-              flex: `0 0 ${cellWidth}px`,
+              flex: `1 0 ${cellWidth}px`,
             }}
           >
             {flexRender(cell.column.columnDef.cell, cell.getContext())}

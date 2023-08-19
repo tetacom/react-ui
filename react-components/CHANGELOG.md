@@ -2,6 +2,22 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.8](https://github.com/tetacom/react-ui/compare/react-components-0.8.7...react-components-0.8.8) (2023-08-19)
+
+
+### Bug Fixes
+
+* remove unused Column ([04a66c6](https://github.com/tetacom/react-ui/commit/04a66c6db94551febab2722255539f28e201848e))
+
+## [0.8.7](https://github.com/tetacom/react-ui/compare/react-components-0.8.6...react-components-0.8.7) (2023-08-19)
+
+
+### Bug Fixes
+
+* add table min with 100% ([21e7dad](https://github.com/tetacom/react-ui/commit/21e7dad04fd9590c3ff2ad47d15308b8d6dd07ad))
+* exclude some field from localstorage ([66294e1](https://github.com/tetacom/react-ui/commit/66294e11e5b5105a06c46dd66d23d6133bc1feae))
+* show head hint from hint filed ([c94f62a](https://github.com/tetacom/react-ui/commit/c94f62acf9bb92210e23cb3b53da2110b8a18760))
+
 ## [0.8.6](https://github.com/tetacom/react-ui/compare/react-components-0.8.5...react-components-0.8.6) (2023-08-18)
 
 

@@ -175,14 +175,14 @@ export function Table<T>({
                   header.column.columnDef.header,
                   header.getContext(),
                 );
-                const thCaption =
+                const thHint =
                   columnsWithSavedData.find(({ name }) => name === header.id)
-                    ?.caption ?? '';
+                    ?.hint ?? '';
 
                 return (
                   <Tooltip
                     key={header.id}
-                    title={thCaption}
+                    title={thHint}
                     target="hover"
                     placement="bottom-start"
                   >
