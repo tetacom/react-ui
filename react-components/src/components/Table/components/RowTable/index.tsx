@@ -61,7 +61,7 @@ function TableRow<T>({
             }}
             style={{
               width: cellWidth,
-              flex: `0 0 ${cellWidth}px`,
+              flex: `1 0 ${cellWidth}px`,
             }}
           >
             {flexRender(cell.column.columnDef.cell, cell.getContext())}
