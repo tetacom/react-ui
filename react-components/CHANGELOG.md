@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.8](https://github.com/tetacom/react-ui/compare/react-components-0.8.7...react-components-0.8.8) (2023-08-19)
+
+
+### Bug Fixes
+
+* remove unused Column ([04a66c6](https://github.com/tetacom/react-ui/commit/04a66c6db94551febab2722255539f28e201848e))
+
 ## [0.8.7](https://github.com/tetacom/react-ui/compare/react-components-0.8.6...react-components-0.8.7) (2023-08-19)
 
 
