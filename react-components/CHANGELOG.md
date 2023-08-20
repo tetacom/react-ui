@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.9](https://github.com/tetacom/react-ui/compare/react-components-0.8.8...react-components-0.8.9) (2023-08-20)
+
+
+### Bug Fixes
+
+* update save to localstorage table columns data ([50fb94d](https://github.com/tetacom/react-ui/commit/50fb94d1512b210746585b2ff8cac568fdf4e40f))
+
 ## [0.8.8](https://github.com/tetacom/react-ui/compare/react-components-0.8.7...react-components-0.8.8) (2023-08-19)
 
 
