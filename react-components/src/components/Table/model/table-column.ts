@@ -22,7 +22,7 @@ export class TableColumn extends FilterItem {
   /**
    * Стобец скрыт
    */
-  hidden: boolean;
+  hidden?: boolean;
   /**
    * Название столбца в строке результатов
    */

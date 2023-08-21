@@ -22,9 +22,9 @@ import { useLocalStorage } from '../../utils/useLocalStorage';
 import { mergeSettings, separateSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
+import { useColumnVisibility } from './useColumnVisibility';
 
 import s from './style.module.scss';
-import { useColumnVisibility } from './useColumnVisibility';
 
 const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
@@ -106,6 +106,7 @@ export function Table<T>({
               if (cellComponent) {
                 result = React.createElement(cellComponent, {
                   value,
+                  info,
                 });
               } else if (typeof value === 'object' && value !== null) {
                 result = JSON.stringify(value);
@@ -119,7 +120,7 @@ export function Table<T>({
             size: width,
           }),
       ),
-    [columnsWithSavedData, dictionary, columnHelper],
+    [columnsWithSavedData, dictionary],
   );
 
   const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
