@@ -38,4 +38,7 @@ export interface TableProps<T>
 
   // Имя таблицы для хренения клиентских настроек в локальном хранилище
   localStorageKey?: string;
+
+  // Список имен столбцов, которые нужно дополнительно скрыть
+  hiddenColumnNames?: string[];
 }

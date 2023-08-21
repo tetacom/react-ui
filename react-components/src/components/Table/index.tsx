@@ -22,6 +22,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage';
 import { mergeSettings, separateSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
+import { useColumnVisibility } from './useColumnVisibility';
 
 import s from './style.module.scss';
 
@@ -41,6 +42,7 @@ export function Table<T>({
   onClick,
   acrossLine = false,
   localStorageKey,
+  hiddenColumnNames = [],
   className,
   ...props
 }: TableProps<T>): React.ReactElement {
@@ -104,6 +106,7 @@ export function Table<T>({
               if (cellComponent) {
                 result = React.createElement(cellComponent, {
                   value,
+                  info,
                 });
               } else if (typeof value === 'object' && value !== null) {
                 result = JSON.stringify(value);
@@ -117,9 +120,10 @@ export function Table<T>({
             size: width,
           }),
       ),
-    [columnsWithSavedData, dictionary, columnHelper],
+    [columnsWithSavedData, dictionary],
   );
 
+  const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
@@ -128,6 +132,7 @@ export function Table<T>({
     state: {
       rowSelection,
       sorting,
+      columnVisibility,
     },
     onSortingChange: setSorting,
     enableRowSelection: true,

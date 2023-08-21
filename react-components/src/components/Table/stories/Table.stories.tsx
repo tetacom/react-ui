@@ -14,6 +14,7 @@ import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
+import { Typography } from '../../Typography';
 
 type IData = any;
 
@@ -33,11 +34,11 @@ type Story = StoryObj<typeof Table>;
 const initColumns: TableColumn[] = configResponse;
 const initDictionary: IDictionary = dictResponse;
 
-const CustomComponentWithToggle: FC<ICustomCell> = ({ value }) => (
+const CustomComponentWithToggle: FC<ICustomCell<any>> = ({ value }) => (
   <Toggle checked={value} />
 );
 
-const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
+const CustomComponentWithDate: FC<ICustomCell<any>> = ({ value }) => {
   if (!(typeof value === 'object' && value !== null)) {
     return value;
   }
@@ -45,7 +46,16 @@ const CustomComponentWithDate: FC<ICustomCell> = ({ value }) => {
   return <div>{Object.values(value).join(' — ')}</div>;
 };
 
-const customComponents: Map<FilterType, FC<ICustomCell>> = new Map();
+const TempCustomComponent: FC<ICustomCell<any>> = ({ value, info }) => (
+  <>
+    <div>{value}</div>
+    <Typography.Text fontVariant="caption">
+      {info?.row.original.id}
+    </Typography.Text>
+  </>
+);
+
+const customComponents: Map<FilterType, FC<ICustomCell<any>>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
 
@@ -56,16 +66,24 @@ const TableStory: FC<{
   height?: React.CSSProperties['height'];
   acrossLine?: boolean;
 }> = ({ sticky = false, loading = false, cellParams, height, acrossLine }) => {
-  const columns = initColumns.map((item) => {
-    const cellComponent = item.filterType
-      ? customComponents.get(item.filterType)
-      : null;
+  const columns = initColumns.map((column) => {
+    const { name, filterType } = column;
+
+    const cellComponent = filterType ? customComponents.get(filterType) : null;
 
     if (cellComponent) {
-      return { ...item, cellComponent };
+      return { ...column, cellComponent };
     }
 
-    return item;
+    if (name === 'name') {
+      return {
+        ...column,
+        cellComponent: TempCustomComponent,
+        mergedColumnNames: ['id'],
+      };
+    }
+
+    return column;
   });
 
   const handleClick = (cell: ICellInstance<IData>) => {
@@ -93,6 +111,7 @@ const TableStory: FC<{
       dictionary={initDictionary}
       cellParams={cellParams}
       onClick={handleClick}
+      hiddenColumnNames={['id']}
     />
   );
 };
