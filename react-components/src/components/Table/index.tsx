@@ -42,6 +42,7 @@ export function Table<T>({
   onClick,
   acrossLine = false,
   localStorageKey,
+  hiddenColumnNames = [],
   className,
   ...props
 }: TableProps<T>): React.ReactElement {
@@ -121,7 +122,7 @@ export function Table<T>({
     [columnsWithSavedData, dictionary, columnHelper],
   );
 
-  const columnVisibility = useColumnVisibility(columns);
+  const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
