@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.10](https://github.com/tetacom/react-ui/compare/react-components-0.8.9...react-components-0.8.10) (2023-08-21)
+
+
+### Bug Fixes
+
+* add hidden columns to table ([dd03ad8](https://github.com/tetacom/react-ui/commit/dd03ad876f337404871d759236dd87f511ba7b08))
+* custom cell with data from different columns ([8020784](https://github.com/tetacom/react-ui/commit/8020784bf5105ba4b4e0e57f5490e188fb635a01))
+* hide columns with hidden - true ([e29a23b](https://github.com/tetacom/react-ui/commit/e29a23bd67478c675c141af74309655cae55da56))
+* rollback min width table 100% ([b509c89](https://github.com/tetacom/react-ui/commit/b509c89741f2ffb9e6354a29b29730ddd4600c40))
+
 ## [0.8.9](https://github.com/tetacom/react-ui/compare/react-components-0.8.8...react-components-0.8.9) (2023-08-20)
 
 
