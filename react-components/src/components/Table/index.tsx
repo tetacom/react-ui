@@ -24,6 +24,7 @@ import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
 
 import s from './style.module.scss';
+import { useColumnVisibility } from './useColumnVisibility';
 
 const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
@@ -120,6 +121,7 @@ export function Table<T>({
     [columnsWithSavedData, dictionary, columnHelper],
   );
 
+  const columnVisibility = useColumnVisibility(columns);
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
@@ -128,6 +130,7 @@ export function Table<T>({
     state: {
       rowSelection,
       sorting,
+      columnVisibility,
     },
     onSortingChange: setSorting,
     enableRowSelection: true,

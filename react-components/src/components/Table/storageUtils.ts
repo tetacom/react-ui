@@ -1,6 +1,6 @@
 import type { TableColumn } from './model/table-column';
 
-export type ColumnWidth = { name: string; width: number };
+type ColumnSavedFields = { name: string; width: number };
 
 export function mergeSettings(
   propData: TableColumn[],
@@ -26,7 +26,7 @@ export function mergeSettings(
 
 export function separateSettings(
   dataToSave: TableColumn[],
-  columnsWidth: ColumnWidth[],
+  columnsWidth: ColumnSavedFields[],
 ) {
   return dataToSave.map(
     ({
@@ -41,6 +41,7 @@ export function separateSettings(
       filterField,
       required,
       sortOrder,
+      hidden,
       ...rest
     }) => ({
       ...rest,
