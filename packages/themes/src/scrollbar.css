@@ -1,7 +1,7 @@
 :root {
-  --scrollbar-track-color: transparent;
+  --scrollbar-track-color: var(--color-global-bgcard);
   --scrollbar-color: var(--color-text-40);
-  --scrollbar-side: var(--spacing-4);
+  --scrollbar-side: var(--spacing-12);
 }
 
 * {
@@ -20,13 +20,16 @@
 
 *::-webkit-scrollbar-thumb {
   border-radius: calc(var(--scrollbar-side) / 2);
-  background: var(--scrollbar-color);
+  background-color: var(--scrollbar-color);
+  border: solid var(--scrollbar-track-color);
+  border-width: var(--spacing-4);
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-50);
+  background-color: var(--color-primary-50);
+  border-width: var(--spacing-2);
 }
 
 *::-webkit-scrollbar-corner {
-  background-color: inherit;
+  background-color: var(--scrollbar-track-color);
 }
