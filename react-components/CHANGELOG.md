@@ -2,6 +2,19 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.0](https://github.com/tetacom/react-ui/compare/react-components-0.8.10...react-components-0.9.0) (2023-08-22)
+
+
+### Features
+
+* update icons ([cb2caf3](https://github.com/tetacom/react-ui/commit/cb2caf3e6056a10a75e0a3a69903c08b503a7b9f))
+
+
+### Bug Fixes
+
+* add delay for tooltip ([ced1620](https://github.com/tetacom/react-ui/commit/ced16201ed6c7e8c565fda13cb8b16485d66c1c9))
+* update icons ([ae356e3](https://github.com/tetacom/react-ui/commit/ae356e30d524e588f923a227d4dc2a3c0b5eb78f))
+
 ## [0.8.10](https://github.com/tetacom/react-ui/compare/react-components-0.8.9...react-components-0.8.10) (2023-08-21)
 
 
