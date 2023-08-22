@@ -12,12 +12,14 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { TooltipProps } from './model';
+
 import s from './style.module.scss';
 
 export const Tooltip: FC<TooltipProps> = ({
   title,
   placement = 'top',
   offset = 4,
+  delay = 500,
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +32,12 @@ export const Tooltip: FC<TooltipProps> = ({
     middleware: [offsetFn(offset), flip(), shift()],
   });
 
-  const hover = useHover(context);
+  const hover = useHover(context, {
+    delay: {
+      open: delay,
+      close: 0,
+    },
+  });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 

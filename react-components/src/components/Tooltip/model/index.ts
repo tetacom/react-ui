@@ -16,4 +16,7 @@ export interface TooltipProps extends PropsWithChildren {
 
   // Событие для показа подсказки
   target?: 'click' | 'hover';
+
+  // Задержка отображения подсказки в миллисекундах
+  delay?: number;
 }
