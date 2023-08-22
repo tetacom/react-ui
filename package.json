@@ -16,7 +16,7 @@
     "@react-hook/resize-observer": "^1.2.6",
     "@tanstack/react-table": "^8.8.5",
     "@tanstack/react-virtual": "3.0.0-beta.54",
-    "@tetacom/themes": "^0.0.19",
+    "@tetacom/themes": "^0.0.20",
     "@types/d3": "^7.4.0",
     "classnames": "^2.3.2",
     "d3": "^7.8.5",
