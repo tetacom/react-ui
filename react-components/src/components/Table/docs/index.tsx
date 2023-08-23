@@ -13,7 +13,7 @@ import tableClassNames from '../style.module.scss';
 
 const { Title, Paragraph, Text } = Typography;
 
-export const TypographyDocs = () => (
+export const TableDocs = () => (
   <Unstyled>
     <Title
       level={1}

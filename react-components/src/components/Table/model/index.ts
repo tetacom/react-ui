@@ -22,7 +22,7 @@ export interface TableProps<T>
   skeleton?: React.ReactElement | null;
 
   // Словарь
-  dictionary?: IDictionary;
+  dictionary?: IDictionary | null;
 
   // Настройка ячейки
   cellParams?: CellParamsType;
