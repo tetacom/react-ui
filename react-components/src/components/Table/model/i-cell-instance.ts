@@ -1,5 +1,5 @@
-import { TableColumn } from 'tetacom/react-components';
-import { CellContext } from '@tanstack/react-table';
+import { IDictionary, TableColumn } from 'tetacom/react-components';
+import { Row } from '@tanstack/react-table';
 
 export interface ICellInstance<T> {
   row: T;
@@ -16,5 +16,6 @@ export interface ICellInstanceValue<T> extends ICellInstance<T> {
 
 export interface ICustomCell<T> {
   value: any;
-  info?: CellContext<T, number>;
+  row: Row<T>;
+  dict?: IDictionary | null;
 }

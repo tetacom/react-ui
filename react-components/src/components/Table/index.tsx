@@ -34,7 +34,7 @@ export function Table<T>({
   columns,
   sticky = false,
   skeleton = null,
-  dictionary = {},
+  dictionary = null,
   cellParams = {
     verticalClamp: 1,
   },
@@ -94,7 +94,11 @@ export function Table<T>({
               const infoValue = info.getValue();
               let dictValue = '';
 
-              if (filterType === FilterType.list && propertyName) {
+              if (
+                filterType === FilterType.list &&
+                propertyName &&
+                dictionary
+              ) {
                 dictValue =
                   dictionary[propertyName]?.find(({ id }) => id === infoValue)
                     ?.name ?? '';
@@ -106,7 +110,8 @@ export function Table<T>({
               if (cellComponent) {
                 result = React.createElement(cellComponent, {
                   value,
-                  info,
+                  row: info.row,
+                  dict: dictionary,
                 });
               } else if (typeof value === 'object' && value !== null) {
                 result = JSON.stringify(value);

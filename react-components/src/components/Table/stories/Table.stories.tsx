@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Table } from '../index';
-import { TypographyDocs } from '../docs';
+import { TableDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
 import { FilterType } from '../model/enum/filter-type.enum';
 import { Toggle } from '../../Toggle';
@@ -16,6 +16,8 @@ import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
 import { Typography } from '../../Typography';
 
+const { Paragraph } = Typography;
+
 type IData = any;
 
 const meta: Meta<typeof Table> = {
@@ -23,7 +25,7 @@ const meta: Meta<typeof Table> = {
   component: Table,
   parameters: {
     docs: {
-      page: TypographyDocs,
+      page: TableDocs,
     },
   },
 };
@@ -46,14 +48,27 @@ const CustomComponentWithDate: FC<ICustomCell<any>> = ({ value }) => {
   return <div>{Object.values(value).join(' — ')}</div>;
 };
 
-const TempCustomComponent: FC<ICustomCell<any>> = ({ value, info }) => (
-  <>
-    <div>{value}</div>
-    <Typography.Text fontVariant="caption">
-      {info?.row.original.id}
-    </Typography.Text>
-  </>
-);
+const TempCustomComponent: FC<ICustomCell<any>> = ({ value, row, dict }) => {
+  const ngduName =
+    dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ?? null;
+
+  return (
+    <>
+      <Paragraph resetMargin fontVariant="body3">
+        {value}
+      </Paragraph>
+      {ngduName && (
+        <Paragraph
+          resetMargin
+          fontVariant="caption"
+          style={{ color: 'var(--color-text-50)' }}
+        >
+          {ngduName}
+        </Paragraph>
+      )}
+    </>
+  );
+};
 
 const customComponents: Map<FilterType, FC<ICustomCell<any>>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
@@ -111,7 +126,7 @@ const TableStory: FC<{
       dictionary={initDictionary}
       cellParams={cellParams}
       onClick={handleClick}
-      hiddenColumnNames={['id']}
+      hiddenColumnNames={['ngduId']}
     />
   );
 };
