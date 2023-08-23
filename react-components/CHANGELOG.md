@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.1](https://github.com/tetacom/react-ui/compare/react-components-0.9.0...react-components-0.9.1) (2023-08-23)
+
+
+### Bug Fixes
+
+* add dict to custom cell props ([e6efb0c](https://github.com/tetacom/react-ui/commit/e6efb0cb6ba8f1dc1aa9f45a3310ce04538f2460))
+
 ## [0.9.0](https://github.com/tetacom/react-ui/compare/react-components-0.8.10...react-components-0.9.0) (2023-08-22)
 
 
