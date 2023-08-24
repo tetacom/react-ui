@@ -70,7 +70,7 @@ const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
 
 const drillingRigIds = new Set(scheduleItems.map((_) => _.drillingRigId));
 
-export const rigItems: MilestoneItem<CustomMilestone>[] = [];
+const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
 [...drillingRigIds].forEach((rigId) => {
   const clusters = scheduleItems.filter((_) => _.drillingRigId === rigId);

@@ -78,7 +78,11 @@ export function GanttRowComponent<T extends MilestoneOptions>({
           }
 
           return (
-            <Tooltip title={startEndDatesInterval} placement="top-start">
+            <Tooltip
+              key={Date.parse(String(milestone.startTime))}
+              title={startEndDatesInterval}
+              placement="top-start"
+            >
               <div
                 className={s.trackItem}
                 style={{
@@ -141,7 +145,9 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                     }}
                   >
                     {(milestone as any).items?.map(
-                      (well: any, index: any, wells: any) => {
+                      (well: any, index: number, wells: any) => {
+                        const key = Date.parse(String(well.startTime));
+
                         const isMoveBetweenWells =
                           wells[index + 1]?.operationType === 0 &&
                           wells[index]?.operationType === 2;
@@ -149,6 +155,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                         if (isMoveBetweenWells) {
                           return (
                             <div
+                              key={key}
                               className={s.milestoneBottomItem}
                               style={{
                                 left: scaleTimeInCluster(
@@ -170,6 +177,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
 
                         return (
                           <Typography.Text
+                            key={key}
                             fontVariant="caption"
                             className={s.milestoneBottomItem}
                             style={{
