@@ -154,6 +154,17 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                           wells[index + 1]?.operationType === 0 &&
                           wells[index]?.operationType === 2;
 
+                        const currentScaleTime = scaleTimeInCluster(
+                          wells[index]?.startTime,
+                        );
+                        const nextScaleTime = scaleTimeInCluster(
+                          wells[index + 1]?.startTime,
+                        );
+                        const scaleWidth =
+                          nextScaleTime !== undefined
+                            ? Math.abs(currentScaleTime - nextScaleTime)
+                            : '100%';
+
                         if (isMoveBetweenWells) {
                           return (
                             <div
@@ -163,34 +174,32 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                                 left: scaleTimeInCluster(
                                   wells[index]?.startTime,
                                 ),
-                                background: defaultColorMap(
+                                backgroundColor: defaultColorMap(
                                   (milestone as any).production,
                                 ),
-                                width: Math.abs(
-                                  scaleTimeInCluster(wells[index]?.startTime) -
-                                    scaleTimeInCluster(
-                                      wells[index + 1]?.startTime,
-                                    ),
-                                ),
+                                width: scaleWidth,
                               }}
                             />
                           );
                         }
 
+                        const caption =
+                          (milestone as any).clusterType === 'drilling'
+                            ? well.wellId
+                            : (milestone as any)?.items[0]?.distance.toFixed(0);
+
                         return (
                           <Text
                             key={key}
+                            title={caption}
                             fontVariant="caption"
                             className={s.milestoneBottomItem}
                             style={{
-                              left: scaleTimeInCluster(well.startTime) + 6,
+                              left: scaleTimeInCluster(well.startTime),
+                              width: scaleWidth,
                             }}
                           >
-                            {(milestone as any).clusterType === 'drilling' &&
-                              well.wellId}
-
-                            {(milestone as any).clusterType === 'move' &&
-                              (milestone as any)?.items[0]?.distance.toFixed(0)}
+                            {caption}
                           </Text>
                         );
                       },
