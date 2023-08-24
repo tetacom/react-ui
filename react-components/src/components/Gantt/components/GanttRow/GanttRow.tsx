@@ -13,6 +13,9 @@ const { Text } = Typography;
 
 dayjs.extend(minMax);
 
+const SHIFTING_BG =
+  'repeating-linear-gradient(-60deg, var(--color-text-20) 0, var(--color-text-20) 1px, transparent 1.5px, transparent 5px)';
+
 interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
   scaleTime: d3.ScaleTime<number, number>;
@@ -64,8 +67,11 @@ export function GanttRowComponent<T extends MilestoneOptions>({
             'DD.MM.YYYY',
           )}`;
 
+          const isDrillingMilestone =
+            (milestone as any).clusterType === 'drilling';
+
           let startEndDatesInterval = '';
-          if ((milestone as any).clusterType === 'drilling') {
+          if (isDrillingMilestone) {
             const works = (milestone as any).items;
             const startDate =
               dayjs
@@ -78,6 +84,12 @@ export function GanttRowComponent<T extends MilestoneOptions>({
             startEndDatesInterval = `${startDate} - ${endDate}`;
           }
 
+          const productionColor = defaultColorMap(
+            (milestone as any).production,
+          );
+          const clusterColor =
+            d3.color(productionColor)?.hex() ?? 'var(--color-red-50)';
+
           return (
             <Tooltip
               key={Date.parse(String(milestone.startTime))}
@@ -89,43 +101,28 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                 style={{
                   left: scaleTime(milestone.startTime),
                   width: itemWidth === 0 ? 1 : itemWidth,
-                  border:
-                    (milestone as any).clusterType === 'drilling'
-                      ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        `1px solid ${d3
-                          .color(defaultColorMap((milestone as any).production))
-                          .hex()}`
-                      : 'none',
-                  background:
-                    (milestone as any).clusterType === 'drilling'
-                      ? 'transparent'
-                      : 'repeating-linear-gradient(-60deg, var(--color-text-20) 0, var(--color-text-20) 1px, transparent 1.5px, transparent 5px)',
+                  border: isDrillingMilestone
+                    ? `1px solid ${clusterColor}`
+                    : 'none',
+                  background: isDrillingMilestone ? 'transparent' : SHIFTING_BG,
                 }}
               >
                 <div className={s.milestone}>
                   <div
                     className={s.milestoneTop}
                     style={{
-                      background:
-                        (milestone as any).clusterType === 'drilling'
-                          ? defaultColorMap((milestone as any).production)
-                          : 'transparent',
+                      backgroundColor: isDrillingMilestone
+                        ? productionColor
+                        : 'transparent',
                     }}
                   >
                     <Text
                       fontVariant="captionBold"
                       style={{
-                        color: getContrastColor(
-                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                          // @ts-ignore
-                          d3
-                            .color(
-                              defaultColorMap((milestone as any).production),
-                            )
-                            .hex(),
-                          { black: 'black', white: 'var(--color-text-90)' },
-                        ),
+                        color: getContrastColor(clusterColor, {
+                          black: 'black',
+                          white: 'var(--color-text-90)',
+                        }),
                       }}
                     >
                       {(milestone as any).clusterId}
@@ -134,22 +131,14 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                   <div
                     className={s.milestoneBottom}
                     style={{
-                      background:
-                        (milestone as any).clusterType === 'drilling'
-                          ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            `${d3
-                              .color(
-                                defaultColorMap((milestone as any).production),
-                              )
-                              .hex()}30`
-                          : 'transparent',
+                      backgroundColor: isDrillingMilestone
+                        ? `${clusterColor}30`
+                        : 'transparent',
                     }}
                   >
                     {(milestone as any).items?.map(
-                      (well: any, index: number, wells: any) => {
+                      (well: any, index: number, wells: any[]) => {
                         const key = Date.parse(String(well.startTime));
-
                         const isMoveBetweenWells =
                           wells[index + 1]?.operationType === 0 &&
                           wells[index]?.operationType === 2;
@@ -183,10 +172,9 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                           );
                         }
 
-                        const caption =
-                          (milestone as any).clusterType === 'drilling'
-                            ? well.wellId
-                            : (milestone as any)?.items[0]?.distance.toFixed(0);
+                        const caption = isDrillingMilestone
+                          ? well.wellId
+                          : (milestone as any)?.items[0]?.distance.toFixed(0);
 
                         return (
                           <Text
