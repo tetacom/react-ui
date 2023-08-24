@@ -81,6 +81,7 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
     name: 'ООО "Татбурнефть"',
     liftingCapability: 125,
     driveType: Math.random() > 0.5 ? DriveType.Electric : DriveType.Diesel,
+    hasTopDrive: Math.random() > 0.5,
     milestones: [],
   };
 

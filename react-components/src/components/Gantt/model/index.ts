@@ -14,6 +14,7 @@ export interface MilestoneItem<T extends MilestoneOptions> {
   name: string;
   liftingCapability: number;
   driveType: DriveType;
+  hasTopDrive: boolean;
   milestones: Array<T>;
 }
 

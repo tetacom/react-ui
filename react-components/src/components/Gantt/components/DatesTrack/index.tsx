@@ -82,7 +82,9 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
                     flexGrow: ticks.length - 1 !== index ? 0 : 1,
                   }}
                 >
-                  <TextContent>{dayjs(tick).format('MMMM')}</TextContent>
+                  <TextContent>
+                    {dayjs(tick).locale('ru').format('MMMM')}
+                  </TextContent>
                 </div>
               );
             })}

@@ -9,7 +9,8 @@ import { Tooltip } from '../../../Tooltip';
 
 import s from './GanttRow.module.scss';
 
-// TODO перенести
+const { Text } = Typography;
+
 dayjs.extend(minMax);
 
 interface GanttRowProps<T extends MilestoneOptions> {
@@ -112,7 +113,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                           : 'transparent',
                     }}
                   >
-                    <Typography.Text
+                    <Text
                       fontVariant="captionBold"
                       style={{
                         color: getContrastColor(
@@ -128,7 +129,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                       }}
                     >
                       {(milestone as any).clusterId}
-                    </Typography.Text>
+                    </Text>
                   </div>
                   <div
                     className={s.milestoneBottom}
@@ -177,7 +178,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                         }
 
                         return (
-                          <Typography.Text
+                          <Text
                             key={key}
                             fontVariant="caption"
                             className={s.milestoneBottomItem}
@@ -190,7 +191,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
 
                             {(milestone as any).clusterType === 'move' &&
                               (milestone as any)?.items[0]?.distance.toFixed(0)}
-                          </Typography.Text>
+                          </Text>
                         );
                       },
                     )}

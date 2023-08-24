@@ -1,4 +1,5 @@
 import { useTheme } from './useTheme';
+import { useDayjsLocale } from './useDayjsLocale';
 
 import '../src/style/fonts.css';
 import '../src/style/normalize.css';
@@ -28,4 +29,4 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [useTheme];
+export const decorators = [useTheme, useDayjsLocale];
