@@ -123,6 +123,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                               defaultColorMap((milestone as any).production),
                             )
                             .hex(),
+                          { black: 'black', white: 'var(--color-text-90)' },
                         ),
                       }}
                     >
