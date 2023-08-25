@@ -41,6 +41,8 @@ export const Tooltip: FC<TooltipProps> = ({
 
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 
+  if (!children) return null;
+
   return (
     <>
       {React.cloneElement(children as React.ReactElement, {

@@ -69,133 +69,145 @@ export function GanttRowComponent<T extends MilestoneOptions>({
 
           const isDrillingMilestone =
             (milestone as any).clusterType === 'drilling';
-          let startEndDatesInterval = '';
-
-          if (isDrillingMilestone) {
-            const works = (milestone as any).items;
-            const startDate =
-              dayjs
-                .min(works.map((work: any) => dayjs(work.startTime)))
-                ?.format('DD.MM.YYYY') ?? '';
-            const endDate =
-              dayjs
-                .max(works.map((work: any) => dayjs(work.endTime)))
-                ?.format('DD.MM.YYYY') ?? '';
-            startEndDatesInterval = `${startDate} - ${endDate}`;
-          }
+          let startEndDatesInterval: string;
+          const works = (milestone as any).items;
+          const startDate = (
+            isDrillingMilestone
+              ? dayjs.min(works.map((work: any) => dayjs(work.startTime)))
+              : dayjs(milestone.startTime)
+          )?.format('DD.MM.YYYY');
+          const endDate = (
+            isDrillingMilestone
+              ? dayjs.max(works.map((work: any) => dayjs(work.endTime)))
+              : dayjs(milestone.endTime)
+          )?.format('DD.MM.YYYY');
+          startEndDatesInterval = `${startDate} - ${endDate}`;
 
           const productionColor = defaultColorMap(
             (milestone as any).production,
           );
           const clusterColor =
             d3.color(productionColor)?.hex() ?? 'var(--color-red-50)';
+          const distance = (milestone as any)?.distance + 'км';
 
           return (
-            <Tooltip
+            <div
               key={Date.parse(String(milestone.startTime))}
-              title={startEndDatesInterval}
-              placement="top-start"
+              className={s.trackItem}
+              style={{
+                left: scaleTime(milestone.startTime),
+                width: itemWidth === 0 ? 1 : itemWidth,
+                border: isDrillingMilestone
+                  ? `1px solid ${clusterColor}`
+                  : 'none',
+                background: isDrillingMilestone ? 'transparent' : SHIFTING_BG,
+              }}
             >
-              <div
-                className={s.trackItem}
-                style={{
-                  left: scaleTime(milestone.startTime),
-                  width: itemWidth === 0 ? 1 : itemWidth,
-                  border: isDrillingMilestone
-                    ? `1px solid ${clusterColor}`
-                    : 'none',
-                  background: isDrillingMilestone ? 'transparent' : SHIFTING_BG,
-                }}
-              >
-                <div className={s.milestone}>
-                  <div
-                    className={s.milestoneTop}
-                    style={{
-                      backgroundColor: isDrillingMilestone
-                        ? productionColor
-                        : 'transparent',
-                    }}
-                  >
+              {!isDrillingMilestone && (
+                <Tooltip title={`${distance}\n${startEndDatesInterval}`}>
+                  <div className={s.betweenClusters}>
                     <Text
-                      fontVariant="captionBold"
-                      style={{
-                        color: getContrastColor(clusterColor, {
-                          black: 'black',
-                          white: 'var(--color-text-90)',
-                        }),
-                      }}
+                      fontVariant="caption"
+                      className={s.betweenClustersText}
                     >
-                      {(milestone as any).clusterId}
+                      {distance}
                     </Text>
                   </div>
-                  <div
-                    className={s.milestoneBottom}
-                    style={{
-                      backgroundColor: isDrillingMilestone
-                        ? `${clusterColor}30`
-                        : 'transparent',
-                    }}
-                  >
-                    {(milestone as any).items?.map(
-                      (well: any, index: number, wells: any[]) => {
-                        const key = Date.parse(String(well.startTime));
-                        const isMoveBetweenWells =
-                          wells[index + 1]?.operationType === 0 &&
-                          wells[index]?.operationType === 2;
+                </Tooltip>
+              )}
 
-                        const currentScaleTime = scaleTimeInCluster(
-                          wells[index]?.startTime,
-                        );
-                        const nextScaleTime = scaleTimeInCluster(
-                          wells[index + 1]?.startTime,
-                        );
-                        const scaleWidth =
-                          nextScaleTime !== undefined
-                            ? Math.abs(currentScaleTime - nextScaleTime)
-                            : '100%';
+              {isDrillingMilestone && (
+                <Tooltip title={startEndDatesInterval} placement="top-start">
+                  <div className={s.milestone}>
+                    <div
+                      className={s.milestoneTop}
+                      style={{
+                        backgroundColor: isDrillingMilestone
+                          ? productionColor
+                          : 'transparent',
+                      }}
+                    >
+                      <Text
+                        fontVariant="captionBold"
+                        style={{
+                          color: getContrastColor(clusterColor, {
+                            black: 'black',
+                            white: 'var(--color-text-90)',
+                          }),
+                        }}
+                      >
+                        {(milestone as any).clusterId}
+                      </Text>
+                    </div>
+                    <div
+                      className={s.milestoneBottom}
+                      style={{
+                        backgroundColor: isDrillingMilestone
+                          ? `${clusterColor}30`
+                          : 'transparent',
+                      }}
+                    >
+                      {(milestone as any).items?.map(
+                        (well: any, index: number, wells: any[]) => {
+                          const key = Date.parse(String(well.startTime));
+                          const isMoveBetweenWells =
+                            wells[index + 1]?.operationType === 0 &&
+                            wells[index]?.operationType === 2;
 
-                        if (isMoveBetweenWells) {
+                          const currentScaleTime = scaleTimeInCluster(
+                            wells[index]?.startTime,
+                          );
+                          const nextScaleTime = scaleTimeInCluster(
+                            wells[index + 1]?.startTime,
+                          );
+                          const scaleWidth =
+                            nextScaleTime !== undefined
+                              ? Math.abs(currentScaleTime - nextScaleTime)
+                              : '100%';
+
+                          if (isMoveBetweenWells) {
+                            return (
+                              <div
+                                key={key}
+                                className={s.milestoneBottomItem}
+                                style={{
+                                  left: scaleTimeInCluster(
+                                    wells[index]?.startTime,
+                                  ),
+                                  backgroundColor: defaultColorMap(
+                                    (milestone as any).production,
+                                  ),
+                                  width: scaleWidth,
+                                }}
+                              />
+                            );
+                          }
+
+                          const caption = isDrillingMilestone
+                            ? well.wellId
+                            : (milestone as any)?.items[0]?.distance.toFixed(0);
+
                           return (
-                            <div
+                            <Text
                               key={key}
+                              title={caption}
+                              fontVariant="caption"
                               className={s.milestoneBottomItem}
                               style={{
-                                left: scaleTimeInCluster(
-                                  wells[index]?.startTime,
-                                ),
-                                backgroundColor: defaultColorMap(
-                                  (milestone as any).production,
-                                ),
+                                left: scaleTimeInCluster(well.startTime),
                                 width: scaleWidth,
                               }}
-                            />
+                            >
+                              {caption}
+                            </Text>
                           );
-                        }
-
-                        const caption = isDrillingMilestone
-                          ? well.wellId
-                          : (milestone as any)?.items[0]?.distance.toFixed(0);
-
-                        return (
-                          <Text
-                            key={key}
-                            title={caption}
-                            fontVariant="caption"
-                            className={s.milestoneBottomItem}
-                            style={{
-                              left: scaleTimeInCluster(well.startTime),
-                              width: scaleWidth,
-                            }}
-                          >
-                            {caption}
-                          </Text>
-                        );
-                      },
-                    )}
+                        },
+                      )}
+                    </div>
                   </div>
-                </div>
-              </div>
-            </Tooltip>
+                </Tooltip>
+              )}
+            </div>
           );
         })}
       </div>

@@ -20,6 +20,20 @@
       overflow: hidden;
     }
 
+    .betweenClusters {
+      width: 100%;
+      height: var(--row-height);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &Text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
     .milestone {
       display: flex;
       flex-direction: column;

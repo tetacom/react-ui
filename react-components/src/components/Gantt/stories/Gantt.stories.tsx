@@ -62,6 +62,7 @@ interface CustomMilestone extends MilestoneOptions {
   clusterType: 'drilling' | 'move';
   clusterId?: number;
   items?: ScheduleItem[];
+  distance?: number;
 }
 
 const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
@@ -113,6 +114,7 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
         endTime: moveRows[moveRows.length - 1]?.endTime,
         production: fakerRU.number.int({ min: 1000, max: 3000 }),
         clusterType: 'move',
+        distance: fakerRU.number.int({ min: 10, max: 500 }),
       });
     }
   });
