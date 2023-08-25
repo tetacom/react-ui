@@ -18,7 +18,7 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
   { size, maxWidth, scale, ticks },
   ref,
 ) {
-  const years = useMemo(() => {
+  const [years, yearGridColumns] = useMemo(() => {
     const yearsMap: Map<number, Date> = new Map();
     ticks.forEach((date) => {
       const year = dayjs(date).year();
@@ -26,8 +26,34 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
         yearsMap.set(year, date);
       }
     });
+    const years = Array.from(yearsMap).map(([, date]) => date);
 
-    return Array.from(yearsMap).map(([, date]) => date);
+    const yearGridColumns = years.reduce((acc, _, index, yearArray) => {
+      const width = yearArray[index + 1]
+        ? (scale(yearArray[index + 1]) - scale(yearArray[index])).toFixed(3) +
+          'px'
+        : '1fr';
+
+      return `${acc}${width} `;
+    }, '');
+
+    return [years, yearGridColumns];
+  }, [ticks]);
+
+  const [months, monthGridColumns] = useMemo(() => {
+    const months = ticks.filter((_) => {
+      return dayjs(_).date() === 1;
+    });
+    const monthGridColumns = months.reduce((acc, _, index, monthArray) => {
+      const width = monthArray[index + 1]
+        ? (scale(monthArray[index + 1]) - scale(monthArray[index])).toFixed(3) +
+          'px'
+        : '1fr';
+
+      return `${acc}${width} `;
+    }, '');
+
+    return [months, monthGridColumns];
   }, [ticks]);
 
   return (
@@ -44,11 +70,15 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
           width: maxWidth,
         }}
       >
-        <div className={s.scale}>
+        <div
+          className={s.scale}
+          style={{
+            gridTemplateColumns: yearGridColumns,
+          }}
+        >
           {years.map((yearTick, index, yearTicks) => {
-            const width = yearTicks[index + 1]
-              ? Math.abs(scale(yearTicks[index + 1]) - scale(yearTick))
-              : 'max-content';
+            const hasNextElement = yearTicks[index + 1];
+            const width = hasNextElement ? '100%' : 'max-content';
 
             return (
               <div
@@ -56,7 +86,7 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
                 className={s.scaleItem}
                 style={{
                   width,
-                  flexGrow: yearTicks.length - 1 !== index ? 0 : 1,
+                  flexGrow: hasNextElement ? 1 : 0,
                 }}
               >
                 <TextContent>{dayjs(yearTick).year()}</TextContent>
@@ -65,29 +95,31 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
           })}
         </div>
 
-        <div className={s.scale}>
-          {ticks
-            .filter((_) => {
-              return dayjs(_).date() === 1;
-            })
-            .map((tick, index, ticks) => {
-              return (
-                <div
-                  key={tick.getTime()}
-                  className={s.scaleItem}
-                  style={{
-                    width: ticks[index + 1]
-                      ? Math.abs(scale(ticks[index + 1]) - scale(tick))
-                      : 'max-content',
-                    flexGrow: ticks.length - 1 !== index ? 0 : 1,
-                  }}
-                >
-                  <TextContent>
-                    {dayjs(tick).locale('ru').format('MMMM')}
-                  </TextContent>
-                </div>
-              );
-            })}
+        <div
+          className={s.scale}
+          style={{
+            gridTemplateColumns: monthGridColumns,
+          }}
+        >
+          {months.map((month, index, monthsArray) => {
+            const hasNextElement = monthsArray[index + 1];
+            const width = hasNextElement ? '100%' : 'max-content';
+
+            return (
+              <div
+                key={month.getTime()}
+                className={s.scaleItem}
+                style={{
+                  width: width,
+                  flexGrow: hasNextElement ? 1 : 0,
+                }}
+              >
+                <TextContent>
+                  {dayjs(month).locale('ru').format('MMMM')}
+                </TextContent>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

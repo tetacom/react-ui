@@ -69,8 +69,8 @@ export function GanttRowComponent<T extends MilestoneOptions>({
 
           const isDrillingMilestone =
             (milestone as any).clusterType === 'drilling';
-
           let startEndDatesInterval = '';
+
           if (isDrillingMilestone) {
             const works = (milestone as any).items;
             const startDate =
