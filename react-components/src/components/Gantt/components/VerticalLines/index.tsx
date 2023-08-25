@@ -21,6 +21,8 @@ export const VerticalLines: FC<Props> = ({ scale, ticks }) => {
   return (
     <div className={s.root}>
       {monthTicks.map((tick, index, ticks) => {
+        if (!index) return null;
+
         return (
           <div
             key={tick.getTime()}
