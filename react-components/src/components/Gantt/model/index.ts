@@ -15,6 +15,7 @@ export interface MilestoneItem<T extends MilestoneOptions> {
   liftingCapability: number;
   driveType: DriveType;
   hasTopDrive: boolean;
+  contractorName: string;
   milestones: Array<T>;
 }
 

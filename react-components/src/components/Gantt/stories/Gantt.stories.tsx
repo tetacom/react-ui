@@ -79,10 +79,11 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
   const rigItem: MilestoneItem<CustomMilestone> = {
     id: rigId!,
-    name: 'ООО "Татбурнефть"',
+    name: `Буровая #${rigId}`,
     liftingCapability: 125,
     driveType: Math.random() > 0.5 ? DriveType.Electric : DriveType.Diesel,
     hasTopDrive: Math.random() > 0.5,
+    contractorName: 'ООО "Татбурнефть"',
     milestones: [],
   };
 
