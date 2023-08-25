@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.3](https://github.com/tetacom/react-ui/compare/react-components-0.9.2...react-components-0.9.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* not paint first vertical line ([d1a0890](https://github.com/tetacom/react-ui/commit/d1a08907d8142c5f93ca80d249358ffc795327db))
+
 ## [0.9.2](https://github.com/tetacom/react-ui/compare/react-components-0.9.1...react-components-0.9.2) (2023-08-25)
 
 
