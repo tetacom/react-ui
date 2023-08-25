@@ -6,6 +6,7 @@ import { GanttProps, MilestoneItem, MilestoneOptions } from './model';
 import { useElementSize } from '../hooks/useElementSize';
 import { GanttSidebar } from './components/Sidebar';
 import { GanttDatesTrack } from './components/DatesTrack';
+import { VerticalLines } from './components/VerticalLines';
 
 import s from './Gantt.module.scss';
 
@@ -61,6 +62,8 @@ export function Gantt<T extends MilestoneOptions>({
             width: maxWidth,
           }}
         >
+          <VerticalLines scale={scale} ticks={ticks} />
+
           {items.map((item: MilestoneItem<T>) => {
             if (onMilestoneRender) return onMilestoneRender(item, scale);
 

@@ -1,6 +1,7 @@
 .root {
   overflow: scroll;
   background-color: var(--main-bg);
+  border-right: 1px solid var(--color-text-5);
 
   &::-webkit-scrollbar {
     inline-size: 0;
@@ -11,7 +12,6 @@
     top: 0;
     height: var(--dates);
     background-color: var(--main-bg);
-    border-right: 1px solid var(--color-text-5);
     border-bottom: 1px solid var(--color-text-5);
   }
 
@@ -22,15 +22,19 @@
     align-items: center;
     gap: 0 var(--spacing-8);
     grid-template-areas:
-      'name lift drive'
-      'company lift drive';
-    grid-template-columns: 1fr auto auto;
+      'name lift'
+      'company lift';
+    grid-template-columns: 1fr auto;
     grid-template-rows: 1fr 1fr;
     border-bottom: 1px solid var(--color-text-5);
     padding: var(--spacing-10) var(--spacing-20);
 
     &Name {
       grid-area: name;
+    }
+
+    &TopDrive {
+      color: var(--color-text-50);
     }
 
     &Company {
@@ -47,10 +51,6 @@
 
     &Lifting {
       grid-area: lift;
-    }
-
-    &Drive {
-      grid-area: drive;
     }
   }
 }

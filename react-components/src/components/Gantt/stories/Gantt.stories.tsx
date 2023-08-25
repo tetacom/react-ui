@@ -62,6 +62,7 @@ interface CustomMilestone extends MilestoneOptions {
   clusterType: 'drilling' | 'move';
   clusterId?: number;
   items?: ScheduleItem[];
+  distance?: number;
 }
 
 const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
@@ -70,7 +71,7 @@ const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
 
 const drillingRigIds = new Set(scheduleItems.map((_) => _.drillingRigId));
 
-export const rigItems: MilestoneItem<CustomMilestone>[] = [];
+const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
 [...drillingRigIds].forEach((rigId) => {
   const clusters = scheduleItems.filter((_) => _.drillingRigId === rigId);
@@ -81,6 +82,7 @@ export const rigItems: MilestoneItem<CustomMilestone>[] = [];
     name: 'ООО "Татбурнефть"',
     liftingCapability: 125,
     driveType: Math.random() > 0.5 ? DriveType.Electric : DriveType.Diesel,
+    hasTopDrive: Math.random() > 0.5,
     milestones: [],
   };
 
@@ -112,6 +114,7 @@ export const rigItems: MilestoneItem<CustomMilestone>[] = [];
         endTime: moveRows[moveRows.length - 1]?.endTime,
         production: fakerRU.number.int({ min: 1000, max: 3000 }),
         clusterType: 'move',
+        distance: fakerRU.number.int({ min: 10, max: 500 }),
       });
     }
   });
