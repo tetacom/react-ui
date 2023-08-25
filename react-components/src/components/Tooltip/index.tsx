@@ -5,6 +5,7 @@ import {
   FloatingPortal,
   offset as offsetFn,
   shift,
+  useClientPoint,
   useFloating,
   useHover,
   useInteractions,
@@ -20,6 +21,7 @@ export const Tooltip: FC<TooltipProps> = ({
   placement = 'top',
   offset = 4,
   delay = 500,
+  mouseFollow = false,
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +34,9 @@ export const Tooltip: FC<TooltipProps> = ({
     middleware: [offsetFn(offset), flip(), shift()],
   });
 
+  const clientPoint = useClientPoint(context, {
+    enabled: mouseFollow,
+  });
   const hover = useHover(context, {
     delay: {
       open: delay,
@@ -39,7 +44,10 @@ export const Tooltip: FC<TooltipProps> = ({
     },
   });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    clientPoint,
+    hover,
+  ]);
 
   if (!children) return null;
 

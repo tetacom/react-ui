@@ -104,7 +104,10 @@ export function GanttRowComponent<T extends MilestoneOptions>({
               }}
             >
               {!isDrillingMilestone && (
-                <Tooltip title={`${distance}\n${startEndDatesInterval}`}>
+                <Tooltip
+                  title={`${distance}\n${startEndDatesInterval}`}
+                  mouseFollow
+                >
                   <div className={s.betweenClusters}>
                     <Text
                       fontVariant="caption"
@@ -117,7 +120,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
               )}
 
               {isDrillingMilestone && (
-                <Tooltip title={startEndDatesInterval} placement="top-start">
+                <Tooltip title={startEndDatesInterval} mouseFollow>
                   <div className={s.milestone}>
                     <div
                       className={s.milestoneTop}
