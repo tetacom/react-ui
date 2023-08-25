@@ -2,6 +2,21 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.2](https://github.com/tetacom/react-ui/compare/react-components-0.9.1...react-components-0.9.2) (2023-08-25)
+
+
+### Bug Fixes
+
+* add ellipsis for wells text ([4184b96](https://github.com/tetacom/react-ui/commit/4184b96ba33825995bbbcf1a7942a7bb6fade79c))
+* add hasTopDrive prop and dayjs ru locale ([01511b3](https://github.com/tetacom/react-ui/commit/01511b39983bf3408190c3d32e790f087aad79a0))
+* add vertical lines ([4d96afd](https://github.com/tetacom/react-ui/commit/4d96afdb6369deb8d598c157dd73604be604ccdb))
+* remove console warnings ([41ba9cc](https://github.com/tetacom/react-ui/commit/41ba9cc83dc771fd9d9b059bb8fb8b65d8473b40))
+* remove drive type icon ([46d4761](https://github.com/tetacom/react-ui/commit/46d4761269f6d58457b87a70ea9aab4d6a782a10))
+* remove ts-ignores ([0833ac8](https://github.com/tetacom/react-ui/commit/0833ac8d0462db40fe910ca7c3e3a01da096935f))
+* show distance between clusters ([5bc1cb8](https://github.com/tetacom/react-ui/commit/5bc1cb8189f54601e6343d25cd3c9e09c37807a7))
+* text color by design ([7af795a](https://github.com/tetacom/react-ui/commit/7af795a5f88abdd233484b6070a8d5d3e8412940))
+* tooltip follow mouse pointer ([cd39e89](https://github.com/tetacom/react-ui/commit/cd39e89c03dd1a4c465488742bacb8fa011b5681))
+
 ## [0.9.1](https://github.com/tetacom/react-ui/compare/react-components-0.9.0...react-components-0.9.1) (2023-08-23)
 
 
