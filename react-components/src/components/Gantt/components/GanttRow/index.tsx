@@ -7,7 +7,7 @@ import { MilestoneItem, MilestoneOptions } from '../../model';
 import { getContrastColor } from '../../../../utils/getContrastColor';
 import { Tooltip } from '../../../Tooltip';
 
-import s from './GanttRow.module.scss';
+import s from './style.module.scss';
 
 const { Text } = Typography;
 
@@ -19,15 +19,13 @@ const SHIFTING_BG =
 interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
   scaleTime: d3.ScaleTime<number, number>;
+  defaultColorMap: d3.ScaleLinear<string, string>;
 }
-
-const defaultColorMap = d3
-  .scaleLinear(['#0A8A65', '#E6CD11', '#FE8206', '#E24C3C'])
-  .domain([1000, 1300, 2500, 3000]);
 
 export function GanttRowComponent<T extends MilestoneOptions>({
   item,
   scaleTime,
+  defaultColorMap,
 }: GanttRowProps<T>) {
   return (
     <div className={s.root}>
@@ -87,7 +85,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
             (milestone as any).production,
           );
           const clusterColor =
-            d3.color(productionColor)?.hex() ?? 'var(--color-red-50)';
+            d3.color(productionColor)?.hex() ?? 'var(--color-primary-50)';
           const distance = (milestone as any)?.distance + 'км';
 
           return (

@@ -20,26 +20,28 @@ export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
     <div className={s.root} ref={ref} onScroll={handleScrollSidebar}>
       <div className={s.patch} />
 
-      {items.map(({ id, name, liftingCapability, hasTopDrive }) => {
-        return (
-          <div key={id} className={s.drillingRig}>
-            <Text fontVariant="title3" className={s.drillingRigName}>
-              {id}{' '}
-              {hasTopDrive && (
-                <Text fontVariant="title3" className={s.drillingRigTopDrive}>
-                  (ВСП)
-                </Text>
-              )}
-            </Text>
-            <Text fontVariant="caption" className={s.drillingRigCompany}>
-              {name}
-            </Text>
-            <Text fontVariant="caption" className={s.drillingRigLifting}>
-              {liftingCapability} т
-            </Text>
-          </div>
-        );
-      })}
+      {items.map(
+        ({ id, name, liftingCapability, hasTopDrive, contractorName }) => {
+          return (
+            <div key={id} className={s.drillingRig}>
+              <Text fontVariant="title3" className={s.drillingRigName}>
+                {name}{' '}
+                {hasTopDrive && (
+                  <Text fontVariant="title3" className={s.drillingRigTopDrive}>
+                    (ВСП)
+                  </Text>
+                )}
+              </Text>
+              <Text fontVariant="caption" className={s.drillingRigCompany}>
+                {contractorName}
+              </Text>
+              <Text fontVariant="caption" className={s.drillingRigLifting}>
+                {liftingCapability} т
+              </Text>
+            </div>
+          );
+        },
+      )}
     </div>
   );
 });

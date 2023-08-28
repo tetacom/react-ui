@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
+import * as d3 from 'd3';
 
 import { useTimeAxis } from './hooks/useTimeAxis';
-import { GanttRowComponent } from './components/GanttRow/GanttRow';
+import { GanttRowComponent } from './components/GanttRow';
 import { GanttProps, MilestoneItem, MilestoneOptions } from './model';
 import { useElementSize } from '../hooks/useElementSize';
 import { GanttSidebar } from './components/Sidebar';
@@ -15,16 +16,31 @@ export function Gantt<T extends MilestoneOptions>({
   zoom,
   onMilestoneRender,
   height = '100vh',
+  colorValueMapping = [],
 }: GanttProps<T>) {
   const [trackScrollRef, size] = useElementSize<HTMLDivElement>();
   const sidebarRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+
+  const defaultColorMap = useMemo(
+    () =>
+      d3
+        .scaleLinear(colorValueMapping?.map(({ color }) => color))
+        .domain(colorValueMapping?.map(({ value }) => value)),
+    [colorValueMapping],
+  );
 
   const [maxWidth, ticks, scale] = useTimeAxis(items, zoom, size);
 
   const handleScrollSidebar = (scroll: React.BaseSyntheticEvent) => {
     if (trackScrollRef?.current) {
       trackScrollRef.current.scrollTop = scroll.target?.scrollTop;
+    }
+  };
+
+  const handleScrollDateTrack = (scroll: React.BaseSyntheticEvent) => {
+    if (trackScrollRef?.current) {
+      trackScrollRef.current.scrollLeft = scroll.target.scrollLeft;
     }
   };
 
@@ -54,6 +70,7 @@ export function Gantt<T extends MilestoneOptions>({
           maxWidth={maxWidth}
           scale={scale}
           ticks={ticks}
+          handleScrollDateTrack={handleScrollDateTrack}
         />
 
         <div
@@ -68,7 +85,12 @@ export function Gantt<T extends MilestoneOptions>({
             if (onMilestoneRender) return onMilestoneRender(item, scale);
 
             return (
-              <GanttRowComponent key={item.id} item={item} scaleTime={scale} />
+              <GanttRowComponent
+                key={item.id}
+                item={item}
+                scaleTime={scale}
+                defaultColorMap={defaultColorMap}
+              />
             );
           })}
         </div>

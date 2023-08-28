@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.4](https://github.com/tetacom/react-ui/compare/react-components-0.9.3...react-components-0.9.4) (2023-08-28)
+
+
+### Bug Fixes
+
+* add contractorName to sidebar ([94ee859](https://github.com/tetacom/react-ui/commit/94ee859a347ed33719d3429b23955346d13197f5))
+* add scroll datetrack callback ([47a3bc9](https://github.com/tetacom/react-ui/commit/47a3bc98a4a472a76f296c6c39e28eded9263403))
+* gantt colors from props ([1a28957](https://github.com/tetacom/react-ui/commit/1a289570f29f43cd21c2f087d0dd8ea0c151ceff))
+
 ## [0.9.3](https://github.com/tetacom/react-ui/compare/react-components-0.9.2...react-components-0.9.3) (2023-08-25)
 
 
