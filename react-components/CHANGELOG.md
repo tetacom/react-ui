@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.5](https://github.com/tetacom/react-ui/compare/react-components-0.9.4...react-components-0.9.5) (2023-08-28)
+
+
+### Bug Fixes
+
+* dayjs ru locale ([6acf390](https://github.com/tetacom/react-ui/commit/6acf39059a652529a6c55a1029fac2e80bb1909e))
+
 ## [0.9.4](https://github.com/tetacom/react-ui/compare/react-components-0.9.3...react-components-0.9.4) (2023-08-28)
 
 
