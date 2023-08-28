@@ -1,4 +1,5 @@
 import './style/normalize.css';
+import './utils/dayjsLocale';
 
 export * from './components/Button';
 export * from './components/Button/model/public-api';
