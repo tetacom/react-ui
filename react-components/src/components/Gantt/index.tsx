@@ -28,6 +28,12 @@ export function Gantt<T extends MilestoneOptions>({
     }
   };
 
+  const handleScrollDateTrack = (scroll: React.BaseSyntheticEvent) => {
+    if (trackScrollRef?.current) {
+      trackScrollRef.current.scrollLeft = scroll.target.scrollLeft;
+    }
+  };
+
   const handleScrollTimeline = (scroll: React.BaseSyntheticEvent) => {
     if (sidebarRef?.current && timelineRef?.current) {
       sidebarRef.current.scrollTop = scroll.target?.scrollTop;
@@ -54,6 +60,7 @@ export function Gantt<T extends MilestoneOptions>({
           maxWidth={maxWidth}
           scale={scale}
           ticks={ticks}
+          handleScrollDateTrack={handleScrollDateTrack}
         />
 
         <div

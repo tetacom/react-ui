@@ -12,10 +12,11 @@ interface Props {
   maxWidth: number;
   scale: d3.ScaleTime<number, number>;
   ticks: Date[];
+  handleScrollDateTrack: (scroll: React.BaseSyntheticEvent) => void;
 }
 
 export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
-  { size, maxWidth, scale, ticks },
+  { size, maxWidth, scale, ticks, handleScrollDateTrack },
   ref,
 ) {
   const [years, yearGridColumns] = useMemo(() => {
@@ -60,6 +61,7 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
     <div
       ref={ref}
       className={s.root}
+      onScroll={handleScrollDateTrack}
       style={{
         width: size.width,
       }}
