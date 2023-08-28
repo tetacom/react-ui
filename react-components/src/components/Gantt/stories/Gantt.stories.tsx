@@ -127,5 +127,11 @@ export const Default: Story = {
   args: {
     items: rigItems,
     height: 'calc(100vh - 32px)',
+    colorValueMapping: [
+      { color: '#0A8A65', value: 1000 },
+      { color: '#E6CD11', value: 1300 },
+      { color: '#FE8206', value: 2500 },
+      { color: '#E24C3C', value: 3000 },
+    ],
   },
 };

@@ -35,4 +35,7 @@ export interface GanttProps<T extends MilestoneOptions> {
 
   // высота диаграммы
   height?: React.CSSProperties['height'];
+
+  // Расскраска диаграммы в зависимости от значений
+  colorValueMapping?: { color: string; value: number }[];
 }
