@@ -19,7 +19,7 @@ const SHIFTING_BG =
 interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
   scaleTime: d3.ScaleTime<number, number>;
-  defaultColorMap: d3.ScaleLinear<string, string>;
+  defaultColorMap: d3.ScaleSequential<string>;
 }
 
 export function GanttRowComponent<T extends MilestoneOptions>({
