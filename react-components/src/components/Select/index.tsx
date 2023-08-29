@@ -12,7 +12,10 @@ import listStyle from '../List/style.module.scss';
 const SelectInner = forwardRef(
   <T extends BaseSelectProps>(props: SelectProps<T>, ref: any) => {
     const [value, setValue] = useState<T | null>(props?.value ?? null);
-    const [open, setOpen] = useState<boolean>(false);
+    const [isOpen, setOpen] = useState<boolean>(false);
+
+    const showSelect = props.open !== undefined ? props.open : isOpen;
+
     const inputRef = useRef<HTMLInputElement>(null);
     const foundValue = props.items?.find(({ key }) => key === value?.key);
 
@@ -27,7 +30,7 @@ const SelectInner = forwardRef(
         placement="bottom"
         autoWidth={true}
         resizable={false}
-        open={props.disabled ? false : open}
+        open={props.disabled ? false : showSelect}
         onOpenChange={(e) => !props.disabled && setOpen(e)}
         dropdown={
           <ul className={listStyle.list}>
@@ -61,9 +64,10 @@ const SelectInner = forwardRef(
           </ul>
         }
       >
-        <div style={{ position: 'relative', width: 'max-content' }}>
+        <div style={{ position: 'relative' }}>
           <Input
             {...propsClone}
+            style={{ width: '100%' }}
             ref={useMergeRefs([inputRef, ref])}
             value={foundValue?.headline}
             readonly
@@ -72,7 +76,7 @@ const SelectInner = forwardRef(
                 <Icon
                   style={{
                     transition: 'transform 0.2s',
-                    transform: `rotate(${open ? 180 : 0}deg)`,
+                    transform: `rotate(${showSelect ? 180 : 0}deg)`,
                   }}
                   name={'arrowDownKey'}
                 />

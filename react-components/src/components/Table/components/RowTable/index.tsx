@@ -1,15 +1,17 @@
 import React, { memo } from 'react';
-import { Column, flexRender, Row } from '@tanstack/react-table';
+import { Cell, ColumnDef, flexRender, Row, Table } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
 import { ICellInstance } from 'tetacom/react-components';
 
 import s from '../../style.module.scss';
+import { ICellComponent } from '../../model/i-cell-component';
 
 export interface ITableRow<T> {
   virtualIndex: number;
   row: Row<T>;
+  table: Table<T>;
   columns: TableProps<T>['columns'];
   isSelectedRow?: boolean;
   onClick?: (cell: ICellInstance<T>) => void;
@@ -17,27 +19,54 @@ export interface ITableRow<T> {
   acrossLine?: TableProps<T>['acrossLine'];
 }
 
+function TableCell<T>({
+  cell,
+  width,
+}: {
+  cell: Cell<T, unknown>;
+  width: number;
+  isEdit: boolean;
+}) {
+  const cellComponent = cell.column.columnDef.cell;
+
+  return (
+    <td
+      key={cell.id}
+      data-column={cell.column.id}
+      data-row={cell.row.id}
+      style={{
+        width,
+        flex: `1 0 ${width}px`,
+      }}
+    >
+      {flexRender(cellComponent, cell.getContext())}
+    </td>
+  );
+}
+
+const MemoTableCell = memo(TableCell, (prevProps, nextProps) => {
+  const nextContext = nextProps.cell.getContext();
+  const prevContext = prevProps.cell.getContext();
+
+  return (
+    prevProps.width === nextProps.width &&
+    prevContext.getValue() === nextContext.getValue() &&
+    prevProps.isEdit === nextProps.isEdit
+  );
+}) as typeof TableCell;
+
 function TableRow<T>({
   virtualIndex,
+  table,
   row,
-  columns,
   isSelectedRow = false,
-  onClick,
   rowRef,
   acrossLine = false,
 }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
-  const handleClick = (columnId: string, row: T) => {
-    toggleSelected();
-
-    const column = columns.find((item) => item.name === columnId);
-    if (onClick && column) {
-      onClick({
-        row,
-        column,
-      });
-    }
+  const handleClick = () => {
+    toggleSelected(true);
   };
 
   const rowsClassName = acrossLine
@@ -49,27 +78,25 @@ function TableRow<T>({
       ref={rowRef}
       className={classNames(rowsClassName, isSelectedRow && s.active)}
       data-index={virtualIndex}
+      onClick={handleClick}
     >
-      {getVisibleCells().map((cell) => {
+      {getVisibleCells().map((cell, index) => {
         const cellWidth = cell.column.getSize();
 
+        const isEdit =
+          table.options.meta?.currentEditCell?.row === parseInt(cell.row.id) &&
+          table.options.meta?.currentEditCell?.column === cell.column.id;
+
         return (
-          <td
+          <MemoTableCell
             key={cell.id}
-            onClick={() => {
-              handleClick(cell.column.id, cell.row.original);
-            }}
-            style={{
-              width: cellWidth,
-              flex: `0 0 ${cellWidth}px`,
-            }}
-          >
-            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-          </td>
+            isEdit={isEdit}
+            cell={cell}
+            width={cellWidth}
+          />
         );
       })}
     </tr>
   );
 }
-
-export default memo(TableRow) as typeof TableRow;
+export default TableRow as typeof TableRow;

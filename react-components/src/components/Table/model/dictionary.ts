@@ -5,6 +5,11 @@ type DictionaryType = {
   iconId?: string | null;
 };
 
-export interface IDictionary {
-  [key: string]: DictionaryType[];
+export interface IIdName<T> {
+  id: T;
+  name: string;
+}
+
+export interface IDictionary<T> {
+  [key: string]: Array<IIdName<T>>;
 }

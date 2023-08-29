@@ -14,6 +14,9 @@ export interface SelectProps<T extends BaseSelectProps>
   // Показать "Не выбрано"
   allowNull?: boolean;
 
+  // Контролируемое состояние селекта
+  open?: boolean;
+
   // Обратный вызов при вводе пользователем
   onChangeItem?: (item: T) => void;
 

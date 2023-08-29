@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { TableColumn } from './table-column';
-import { IDictionary } from './dictionary';
+import { IDictionary, IIdName } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
 
@@ -22,7 +22,7 @@ export interface TableProps<T>
   skeleton?: React.ReactElement | null;
 
   // Словарь
-  dictionary?: IDictionary;
+  dictionary?: IDictionary<T>;
 
   // Настройка ячейки
   cellParams?: CellParamsType;
@@ -38,4 +38,7 @@ export interface TableProps<T>
 
   // Имя таблицы для хренения клиентских настроек в локальном хранилище
   localStorageKey?: string;
+
+  // Обратный вызов изменения значения в ячейке таблицы
+  valueChange: (cell: ICellInstance<T>) => void;
 }
