@@ -22,7 +22,7 @@ export interface TableProps<T>
   skeleton?: React.ReactElement | null;
 
   // Словарь
-  dictionary?: IDictionary<T>;
+  dictionary?: IDictionary<T> | null;
 
   // Настройка ячейки
   cellParams?: CellParamsType;
@@ -41,4 +41,7 @@ export interface TableProps<T>
 
   // Обратный вызов изменения значения в ячейке таблицы
   valueChange: (cell: ICellInstance<T>) => void;
+
+  // Список имен столбцов, которые нужно дополнительно скрыть
+  hiddenColumnNames?: string[];
 }

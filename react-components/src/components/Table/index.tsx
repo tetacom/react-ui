@@ -29,6 +29,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage';
 import { mergeSettings, separateSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
+import { useColumnVisibility } from './useColumnVisibility';
 
 import s from './style.module.scss';
 import { eventIsOnRow, getCellComponent, getCoordinates } from './helpers';
@@ -47,7 +48,7 @@ export function Table<T>({
   columns,
   sticky = false,
   skeleton = null,
-  dictionary = {},
+  dictionary = null,
   cellParams = {
     verticalClamp: 1,
   },
@@ -55,6 +56,7 @@ export function Table<T>({
   onClick,
   acrossLine = false,
   localStorageKey,
+  hiddenColumnNames = [],
   className,
   valueChange,
   ...props
@@ -110,14 +112,9 @@ export function Table<T>({
                 table.options.meta?.currentEditCell?.row === parseInt(row.id) &&
                 table.options.meta?.currentEditCell?.column === column.id;
 
-              const columnIndex = columnsWithSavedData?.findIndex(
-                (_) => _.name === column.id,
-              );
-
               const columnsCount = columnsWithSavedData?.length;
               const rowIndex = parseInt(row.id) + 1;
               const cellIndex = (rowIndex - 1) * columnsCount + columnIndex;
-
               const cellProps: ICellComponent<T> = {
                 column,
                 table,
@@ -155,6 +152,7 @@ export function Table<T>({
     [columnsWithSavedData, dictionary],
   );
 
+  const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
   const [rowSelection, setRowSelection] = useState({});
   const [currentEditCell, setCurrentEditCell] = useState<ICellEvent | null>(
     null,
@@ -172,6 +170,7 @@ export function Table<T>({
     state: {
       rowSelection,
       sorting,
+      columnVisibility,
     },
     onSortingChange: setSorting,
     enableRowSelection: true,
@@ -351,14 +350,14 @@ export function Table<T>({
                   header.column.columnDef.header,
                   header.getContext(),
                 );
-                const thCaption =
+                const thHint =
                   columnsWithSavedData.find(({ name }) => name === header.id)
-                    ?.caption ?? '';
+                    ?.hint ?? '';
 
                 return (
                   <Tooltip
                     key={header.id}
-                    title={thCaption}
+                    title={thHint}
                     target="hover"
                     placement="bottom-start"
                   >

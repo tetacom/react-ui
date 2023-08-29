@@ -3,6 +3,7 @@
     "lib": ["es2022"],
     "jsx": "react-jsx",
     "allowJs": false,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,

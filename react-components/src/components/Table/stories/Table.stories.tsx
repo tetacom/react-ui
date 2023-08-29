@@ -1,8 +1,8 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Table } from '../index';
-import { TypographyDocs } from '../docs';
+import { TableDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
 import { FilterType } from '../model/enum/filter-type.enum';
 import { Toggle } from '../../Toggle';
@@ -14,9 +14,9 @@ import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
-import { Button } from '../../Button';
-import { fakerRU } from '@faker-js/faker';
-import { ICellComponent } from '../model/i-cell-component';
+import { Typography } from '../../Typography';
+
+const { Paragraph } = Typography;
 
 type IData = any;
 
@@ -25,7 +25,7 @@ const meta: Meta<typeof Table> = {
   component: Table,
   parameters: {
     docs: {
-      page: TypographyDocs,
+      page: TableDocs,
     },
   },
 };
@@ -34,75 +34,45 @@ export default meta;
 type Story = StoryObj<typeof Table>;
 
 const initColumns: TableColumn[] = configResponse;
-const initDictionary: IDictionary<string> = dictResponse;
+const initDictionary: IDictionary = dictResponse;
 
-const CustomComponentWithToggle: FC<ICellComponent<ICustomCell>> = ({
-  row,
-  column,
-}) => {
-  const value = Boolean(row.getValue(column.id));
-  return <Toggle checked={value} />;
-};
+const CustomComponentWithToggle: FC<ICustomCell<any>> = ({ value }) => (
+  <Toggle checked={value} />
+);
 
-const CustomComponentWithDate: FC<ICellComponent<ICustomCell>> = ({
-  row,
-  column,
-}) => {
-  const value = row.getValue(column.id);
-
+const CustomComponentWithDate: FC<ICustomCell<any>> = ({ value }) => {
   if (!(typeof value === 'object' && value !== null)) {
-    return <>{value}</>;
+    return value;
   }
+
   return <div>{Object.values(value).join(' — ')}</div>;
 };
 
-const customComponents: Map<
-  FilterType,
-  FC<ICellComponent<ICustomCell>>
-> = new Map();
+const TempCustomComponent: FC<ICustomCell<any>> = ({ value, row, dict }) => {
+  const ngduName =
+    dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ?? null;
+
+  return (
+    <>
+      <Paragraph resetMargin fontVariant="body3">
+        {value}
+      </Paragraph>
+      {ngduName && (
+        <Paragraph
+          resetMargin
+          fontVariant="caption"
+          style={{ color: 'var(--color-text-50)' }}
+        >
+          {ngduName}
+        </Paragraph>
+      )}
+    </>
+  );
+};
+
+const customComponents: Map<FilterType, FC<ICustomCell<any>>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
-
-const generateRandomData = (length = 100) => {
-  return Array.from({ length: 100 }).map((val, index) => {
-    return {
-      id: index,
-      year: fakerRU.number.int({ min: 2005, max: 2024 }),
-      name: fakerRU.address.zipCode(),
-      fieldId: fakerRU.number.int({ min: 1, max: 19 }),
-      ngduId: fakerRU.number.int({ min: 1, max: 7 }),
-      investmentDate: '2023-09-01',
-      coordinateX: fakerRU.number.float({
-        min: 1070700.204444445,
-        max: 6070700.204444445,
-      }),
-      coordinateY: fakerRU.number.float({
-        min: 1322219.422222222,
-        max: 4322219.422222222,
-      }),
-      landAllocationDuration: 0,
-      idd: 1.1110146221831267,
-      netPresentValue: 244299.86532799999,
-      payBackTime: 50.69161832322223,
-      sitePreparationDuration: 30,
-      canDrillWithoutFillRoad: false,
-      canDrillWithoutSiteBackfill: false,
-      floodPeriodSpring: {
-        floodStart: '2023-04-01',
-        floodEnd: '2023-05-25',
-      },
-      floodPeriodAutumn: {
-        floodStart: '2023-10-01',
-        floodEnd: '2023-10-30',
-      },
-      iddCoeff: 0.6112568006101334,
-      netPresentValueCoeff: 0.17471359666706768,
-      payBackTimeCoeff: 0.6446453162862382,
-      economicEfficiencyCoeff: 0.472103185475935,
-      existInExternal: true,
-    };
-  });
-};
 
 const TableStory: FC<{
   sticky?: boolean;
@@ -111,57 +81,53 @@ const TableStory: FC<{
   height?: React.CSSProperties['height'];
   acrossLine?: boolean;
 }> = ({ sticky = false, loading = false, cellParams, height, acrossLine }) => {
-  const columns = initColumns.map((item) => {
-    const cellComponent = item.filterType
-      ? customComponents.get(item.filterType)
-      : null;
+  const columns = initColumns.map((column) => {
+    const { name, filterType } = column;
+
+    const cellComponent = filterType ? customComponents.get(filterType) : null;
 
     if (cellComponent) {
-      return { ...item, cellComponent } as TableColumn;
+      return { ...column, cellComponent };
     }
 
-    return item;
-  });
+    if (name === 'name') {
+      return {
+        ...column,
+        cellComponent: TempCustomComponent,
+        mergedColumnNames: ['id'],
+      };
+    }
 
-  const [data, setData] = useState(generateRandomData());
+    return column;
+  });
 
   const handleClick = (cell: ICellInstance<IData>) => {
     console.log('table onClick:', cell);
   };
 
   return (
-    <div style={{ gap: 10, display: 'flex', flexDirection: 'column' }}>
-      <Button
-        style={{ width: 250 }}
-        onClick={() => {
-          setData(generateRandomData());
-        }}
-      >
-        Сгенерировать новые данные
-      </Button>
-      <Table
-        localStorageKey="sb"
-        height={height}
-        acrossLine={acrossLine}
-        dataSource={data}
-        columns={columns}
-        sticky={sticky}
-        valueChange={(cell) => console.log(cell)}
-        skeleton={
-          loading ? (
-            <Skeleton
-              rows={16}
-              columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
-              columnsUnit="fr"
-              isTable
-            />
-          ) : undefined
-        }
-        dictionary={initDictionary}
-        cellParams={cellParams}
-        onClick={handleClick}
-      />
-    </div>
+    <Table
+      localStorageKey="sb"
+      height={height}
+      acrossLine={acrossLine}
+      dataSource={dataResponse}
+      columns={columns}
+      sticky={sticky}
+      skeleton={
+        loading ? (
+          <Skeleton
+            rows={16}
+            columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+            columnsUnit="fr"
+            isTable
+          />
+        ) : undefined
+      }
+      dictionary={initDictionary}
+      cellParams={cellParams}
+      onClick={handleClick}
+      hiddenColumnNames={['ngduId']}
+    />
   );
 };
 

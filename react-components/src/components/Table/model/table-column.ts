@@ -23,6 +23,10 @@ export class TableColumn extends FilterItem {
    */
   locked: boolean;
   /**
+   * Стобец скрыт
+   */
+  hidden?: boolean;
+  /**
    * Название столбца в строке результатов
    */
   override name: string;
@@ -110,6 +114,7 @@ export class TableColumn extends FilterItem {
     flex?: number;
     sortOrder?: number;
     locked?: boolean;
+    hidden?: boolean;
     name?: string;
     parentName?: string;
     propertyName?: string;
@@ -148,6 +153,7 @@ export class TableColumn extends FilterItem {
     this.headCellClass = options?.headCellClass ?? [];
     this.cellClass = options?.cellClass ?? [];
     this.locked = options?.locked ?? false;
+    this.hidden = options?.hidden ?? false;
     this.name = options?.name ?? '';
     this.parentName = options?.parentName ?? '';
     this.propertyName = options?.propertyName;

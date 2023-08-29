@@ -1,9 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { Typography } from '../../../Typography';
-import { ColoredIcon } from '../../../Icons';
 import { GanttProps } from '../../model';
-import { DriveType } from '../../model/public-api';
 
 import s from './style.module.scss';
 
@@ -22,26 +20,28 @@ export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
     <div className={s.root} ref={ref} onScroll={handleScrollSidebar}>
       <div className={s.patch} />
 
-      {items.map(({ id, name, liftingCapability, driveType }) => {
-        return (
-          <div key={id} className={s.drillingRig}>
-            <Text fontVariant="title3" className={s.drillingRigName}>
-              {id}
-            </Text>
-            <Text fontVariant="caption" className={s.drillingRigCompany}>
-              {name}
-            </Text>
-            <Text fontVariant="caption" className={s.drillingRigLifting}>
-              {liftingCapability} т
-            </Text>
-            <div className={s.drillingRigDrive}>
-              <ColoredIcon
-                name={driveType === DriveType.Electric ? 'lighting' : 'fire'}
-              />
+      {items.map(
+        ({ id, name, liftingCapability, hasTopDrive, contractorName }) => {
+          return (
+            <div key={id} className={s.drillingRig}>
+              <Text fontVariant="title3" className={s.drillingRigName}>
+                {name}{' '}
+                {hasTopDrive && (
+                  <Text fontVariant="title3" className={s.drillingRigTopDrive}>
+                    (ВСП)
+                  </Text>
+                )}
+              </Text>
+              <Text fontVariant="caption" className={s.drillingRigCompany}>
+                {contractorName}
+              </Text>
+              <Text fontVariant="caption" className={s.drillingRigLifting}>
+                {liftingCapability} т
+              </Text>
             </div>
-          </div>
-        );
-      })}
+          );
+        },
+      )}
     </div>
   );
 });

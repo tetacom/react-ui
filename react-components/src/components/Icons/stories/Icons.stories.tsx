@@ -34,6 +34,6 @@ export const Table: Story = {
 export const User: Story = {
   args: {
     ...Star.args,
-    name: 'star',
+    name: 'user',
   },
 };

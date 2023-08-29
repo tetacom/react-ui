@@ -62,6 +62,7 @@ interface CustomMilestone extends MilestoneOptions {
   clusterType: 'drilling' | 'move';
   clusterId?: number;
   items?: ScheduleItem[];
+  distance?: number;
 }
 
 const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
@@ -70,7 +71,7 @@ const scheduleItems = rigs?.ScheduleLibs?.map((_: any) => {
 
 const drillingRigIds = new Set(scheduleItems.map((_) => _.drillingRigId));
 
-export const rigItems: MilestoneItem<CustomMilestone>[] = [];
+const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
 [...drillingRigIds].forEach((rigId) => {
   const clusters = scheduleItems.filter((_) => _.drillingRigId === rigId);
@@ -78,9 +79,11 @@ export const rigItems: MilestoneItem<CustomMilestone>[] = [];
 
   const rigItem: MilestoneItem<CustomMilestone> = {
     id: rigId!,
-    name: 'ООО "Татбурнефть"',
+    name: `Буровая #${rigId}`,
     liftingCapability: 125,
     driveType: Math.random() > 0.5 ? DriveType.Electric : DriveType.Diesel,
+    hasTopDrive: Math.random() > 0.5,
+    contractorName: 'ООО "Татбурнефть"',
     milestones: [],
   };
 
@@ -112,6 +115,7 @@ export const rigItems: MilestoneItem<CustomMilestone>[] = [];
         endTime: moveRows[moveRows.length - 1]?.endTime,
         production: fakerRU.number.int({ min: 1000, max: 3000 }),
         clusterType: 'move',
+        distance: fakerRU.number.int({ min: 10, max: 500 }),
       });
     }
   });
@@ -123,5 +127,11 @@ export const Default: Story = {
   args: {
     items: rigItems,
     height: 'calc(100vh - 32px)',
+    colorValueMapping: [
+      { color: '#0A8A65', value: 1000 },
+      { color: '#E6CD11', value: 1300 },
+      { color: '#FE8206', value: 2500 },
+      { color: '#E24C3C', value: 3000 },
+    ],
   },
 };

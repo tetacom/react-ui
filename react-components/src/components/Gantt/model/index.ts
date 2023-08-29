@@ -14,6 +14,8 @@ export interface MilestoneItem<T extends MilestoneOptions> {
   name: string;
   liftingCapability: number;
   driveType: DriveType;
+  hasTopDrive: boolean;
+  contractorName: string;
   milestones: Array<T>;
 }
 
@@ -33,4 +35,7 @@ export interface GanttProps<T extends MilestoneOptions> {
 
   // высота диаграммы
   height?: React.CSSProperties['height'];
+
+  // Расскраска диаграммы в зависимости от значений
+  colorValueMapping?: { color: string; value: number }[];
 }

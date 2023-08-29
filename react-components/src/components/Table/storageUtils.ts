@@ -1,7 +1,6 @@
 import type { TableColumn } from './model/table-column';
 
-export type ColumnWidth = { name: string; width: number };
-type StorageTableColumn = Omit<TableColumn, 'cellComponent'>;
+type ColumnSavedFields = { name: string; width: number };
 
 export function mergeSettings(
   propData: TableColumn[],
@@ -14,7 +13,10 @@ export function mergeSettings(
       );
 
       if (savedColumn) {
-        return { ...savedColumn, cellComponent: propColumn.cellComponent };
+        return {
+          ...propColumn,
+          ...savedColumn,
+        };
       }
     }
 
@@ -24,11 +26,28 @@ export function mergeSettings(
 
 export function separateSettings(
   dataToSave: TableColumn[],
-  columnsWidth: ColumnWidth[],
-): StorageTableColumn[] {
-  return dataToSave.map(({ cellComponent, ...rest }) => ({
-    ...rest,
-    width:
-      columnsWidth.find(({ name }) => name === rest.name)?.width ?? rest.width,
-  }));
+  columnsWidth: ColumnSavedFields[],
+) {
+  return dataToSave.map(
+    ({
+      cellComponent,
+      caption,
+      hint,
+      sortable,
+      sortField,
+      editable,
+      filterable,
+      filterType,
+      filterField,
+      required,
+      sortOrder,
+      hidden,
+      ...rest
+    }) => ({
+      ...rest,
+      width:
+        columnsWidth.find(({ name }) => name === rest.name)?.width ??
+        rest.width,
+    }),
+  );
 }

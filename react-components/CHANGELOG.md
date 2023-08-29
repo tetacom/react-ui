@@ -2,6 +2,104 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.5](https://github.com/tetacom/react-ui/compare/react-components-0.9.4...react-components-0.9.5) (2023-08-28)
+
+
+### Bug Fixes
+
+* dayjs ru locale ([6acf390](https://github.com/tetacom/react-ui/commit/6acf39059a652529a6c55a1029fac2e80bb1909e))
+
+## [0.9.4](https://github.com/tetacom/react-ui/compare/react-components-0.9.3...react-components-0.9.4) (2023-08-28)
+
+
+### Bug Fixes
+
+* add contractorName to sidebar ([94ee859](https://github.com/tetacom/react-ui/commit/94ee859a347ed33719d3429b23955346d13197f5))
+* add scroll datetrack callback ([47a3bc9](https://github.com/tetacom/react-ui/commit/47a3bc98a4a472a76f296c6c39e28eded9263403))
+* gantt colors from props ([1a28957](https://github.com/tetacom/react-ui/commit/1a289570f29f43cd21c2f087d0dd8ea0c151ceff))
+
+## [0.9.3](https://github.com/tetacom/react-ui/compare/react-components-0.9.2...react-components-0.9.3) (2023-08-25)
+
+
+### Bug Fixes
+
+* not paint first vertical line ([d1a0890](https://github.com/tetacom/react-ui/commit/d1a08907d8142c5f93ca80d249358ffc795327db))
+
+## [0.9.2](https://github.com/tetacom/react-ui/compare/react-components-0.9.1...react-components-0.9.2) (2023-08-25)
+
+
+### Bug Fixes
+
+* add ellipsis for wells text ([4184b96](https://github.com/tetacom/react-ui/commit/4184b96ba33825995bbbcf1a7942a7bb6fade79c))
+* add hasTopDrive prop and dayjs ru locale ([01511b3](https://github.com/tetacom/react-ui/commit/01511b39983bf3408190c3d32e790f087aad79a0))
+* add vertical lines ([4d96afd](https://github.com/tetacom/react-ui/commit/4d96afdb6369deb8d598c157dd73604be604ccdb))
+* remove console warnings ([41ba9cc](https://github.com/tetacom/react-ui/commit/41ba9cc83dc771fd9d9b059bb8fb8b65d8473b40))
+* remove drive type icon ([46d4761](https://github.com/tetacom/react-ui/commit/46d4761269f6d58457b87a70ea9aab4d6a782a10))
+* remove ts-ignores ([0833ac8](https://github.com/tetacom/react-ui/commit/0833ac8d0462db40fe910ca7c3e3a01da096935f))
+* show distance between clusters ([5bc1cb8](https://github.com/tetacom/react-ui/commit/5bc1cb8189f54601e6343d25cd3c9e09c37807a7))
+* text color by design ([7af795a](https://github.com/tetacom/react-ui/commit/7af795a5f88abdd233484b6070a8d5d3e8412940))
+* tooltip follow mouse pointer ([cd39e89](https://github.com/tetacom/react-ui/commit/cd39e89c03dd1a4c465488742bacb8fa011b5681))
+
+## [0.9.1](https://github.com/tetacom/react-ui/compare/react-components-0.9.0...react-components-0.9.1) (2023-08-23)
+
+
+### Bug Fixes
+
+* add dict to custom cell props ([e6efb0c](https://github.com/tetacom/react-ui/commit/e6efb0cb6ba8f1dc1aa9f45a3310ce04538f2460))
+
+## [0.9.0](https://github.com/tetacom/react-ui/compare/react-components-0.8.10...react-components-0.9.0) (2023-08-22)
+
+
+### Features
+
+* update icons ([cb2caf3](https://github.com/tetacom/react-ui/commit/cb2caf3e6056a10a75e0a3a69903c08b503a7b9f))
+
+
+### Bug Fixes
+
+* add delay for tooltip ([ced1620](https://github.com/tetacom/react-ui/commit/ced16201ed6c7e8c565fda13cb8b16485d66c1c9))
+* update icons ([ae356e3](https://github.com/tetacom/react-ui/commit/ae356e30d524e588f923a227d4dc2a3c0b5eb78f))
+
+## [0.8.10](https://github.com/tetacom/react-ui/compare/react-components-0.8.9...react-components-0.8.10) (2023-08-21)
+
+
+### Bug Fixes
+
+* add hidden columns to table ([dd03ad8](https://github.com/tetacom/react-ui/commit/dd03ad876f337404871d759236dd87f511ba7b08))
+* custom cell with data from different columns ([8020784](https://github.com/tetacom/react-ui/commit/8020784bf5105ba4b4e0e57f5490e188fb635a01))
+* hide columns with hidden - true ([e29a23b](https://github.com/tetacom/react-ui/commit/e29a23bd67478c675c141af74309655cae55da56))
+* rollback min width table 100% ([b509c89](https://github.com/tetacom/react-ui/commit/b509c89741f2ffb9e6354a29b29730ddd4600c40))
+
+## [0.8.9](https://github.com/tetacom/react-ui/compare/react-components-0.8.8...react-components-0.8.9) (2023-08-20)
+
+
+### Bug Fixes
+
+* update save to localstorage table columns data ([50fb94d](https://github.com/tetacom/react-ui/commit/50fb94d1512b210746585b2ff8cac568fdf4e40f))
+
+## [0.8.8](https://github.com/tetacom/react-ui/compare/react-components-0.8.7...react-components-0.8.8) (2023-08-19)
+
+
+### Bug Fixes
+
+* remove unused Column ([04a66c6](https://github.com/tetacom/react-ui/commit/04a66c6db94551febab2722255539f28e201848e))
+
+## [0.8.7](https://github.com/tetacom/react-ui/compare/react-components-0.8.6...react-components-0.8.7) (2023-08-19)
+
+
+### Bug Fixes
+
+* add table min with 100% ([21e7dad](https://github.com/tetacom/react-ui/commit/21e7dad04fd9590c3ff2ad47d15308b8d6dd07ad))
+* exclude some field from localstorage ([66294e1](https://github.com/tetacom/react-ui/commit/66294e11e5b5105a06c46dd66d23d6133bc1feae))
+* show head hint from hint filed ([c94f62a](https://github.com/tetacom/react-ui/commit/c94f62acf9bb92210e23cb3b53da2110b8a18760))
+
+## [0.8.6](https://github.com/tetacom/react-ui/compare/react-components-0.8.5...react-components-0.8.6) (2023-08-18)
+
+
+### Bug Fixes
+
+* add tooltips with start and end dates for clusters ([ff31574](https://github.com/tetacom/react-ui/commit/ff31574acd6793843eab65a4b40d0ced156df162))
+
 ## [0.8.5](https://github.com/tetacom/react-ui/compare/react-components-0.8.4...react-components-0.8.5) (2023-08-18)
 
 

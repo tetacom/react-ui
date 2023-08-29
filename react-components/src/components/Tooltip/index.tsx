@@ -5,6 +5,7 @@ import {
   FloatingPortal,
   offset as offsetFn,
   shift,
+  useClientPoint,
   useFloating,
   useHover,
   useInteractions,
@@ -12,12 +13,15 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { TooltipProps } from './model';
+
 import s from './style.module.scss';
 
 export const Tooltip: FC<TooltipProps> = ({
   title,
   placement = 'top',
   offset = 4,
+  delay = 500,
+  mouseFollow = false,
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,9 +34,22 @@ export const Tooltip: FC<TooltipProps> = ({
     middleware: [offsetFn(offset), flip(), shift()],
   });
 
-  const hover = useHover(context);
+  const clientPoint = useClientPoint(context, {
+    enabled: mouseFollow,
+  });
+  const hover = useHover(context, {
+    delay: {
+      open: delay,
+      close: 0,
+    },
+  });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    clientPoint,
+    hover,
+  ]);
+
+  if (!children) return null;
 
   return (
     <>
@@ -40,7 +57,8 @@ export const Tooltip: FC<TooltipProps> = ({
         ref: refs.setReference,
         ...getReferenceProps(),
       })}
-      {
+
+      {title && (
         <AnimatePresence>
           {isOpen && (
             <FloatingPortal>
@@ -59,7 +77,7 @@ export const Tooltip: FC<TooltipProps> = ({
             </FloatingPortal>
           )}
         </AnimatePresence>
-      }
+      )}
     </>
   );
 };
