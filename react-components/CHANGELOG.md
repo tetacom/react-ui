@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.6](https://github.com/tetacom/react-ui/compare/react-components-0.9.5...react-components-0.9.6) (2023-08-30)
+
+
+### Bug Fixes
+
+* add ellipsis to last well and cluster name ([45b5ad6](https://github.com/tetacom/react-ui/commit/45b5ad6398d5bfaebb8c41aaa6c25debcff6ab50))
+* change gantt colors ([457266d](https://github.com/tetacom/react-ui/commit/457266d2801b0d9c2bd8b694ccb3784591989644))
+* gray color for zero production clusters ([1f1aeae](https://github.com/tetacom/react-ui/commit/1f1aeaefdefaaafa9d6d4082b9761e6dc683b9d8))
+* table change column width ([f5cc9f8](https://github.com/tetacom/react-ui/commit/f5cc9f8b7ac45900025d6e202b4829dcadb2046c))
+
 ## [0.9.5](https://github.com/tetacom/react-ui/compare/react-components-0.9.4...react-components-0.9.5) (2023-08-28)
 
 

@@ -84,17 +84,29 @@
           right: 0;
           top: 0;
           height: 100%;
-          width: var(--spacing-4);
-          background-color: var(--color-text-20);
+          width: var(--spacing-16);
           cursor: col-resize;
           user-select: none;
           touch-action: none;
           opacity: 0;
           transition: opacity 0.15s, background-color 0.15s;
 
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: var(--spacing-4);
+            height: 100%;
+            background-color: var(--color-text-20);
+          }
+
           &IsResizing {
-            background: var(--color-primary-50);
             opacity: 1;
+
+            &::after {
+              background: var(--color-primary-50);
+            }
           }
         }
       }

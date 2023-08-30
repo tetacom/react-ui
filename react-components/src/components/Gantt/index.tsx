@@ -8,6 +8,7 @@ import { useElementSize } from '../hooks/useElementSize';
 import { GanttSidebar } from './components/Sidebar';
 import { GanttDatesTrack } from './components/DatesTrack';
 import { VerticalLines } from './components/VerticalLines';
+import { interpolateProduction } from './interpolateProduction';
 
 import s from './Gantt.module.scss';
 
@@ -16,19 +17,19 @@ export function Gantt<T extends MilestoneOptions>({
   zoom,
   onMilestoneRender,
   height = '100vh',
-  colorValueMapping = [],
+  productionEndpoints,
 }: GanttProps<T>) {
   const [trackScrollRef, size] = useElementSize<HTMLDivElement>();
   const sidebarRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  const defaultColorMap = useMemo(
-    () =>
-      d3
-        .scaleLinear(colorValueMapping?.map(({ color }) => color))
-        .domain(colorValueMapping?.map(({ value }) => value)),
-    [colorValueMapping],
-  );
+  const defaultColorMap = useMemo(() => {
+    const [minProduction, maxProduction] = productionEndpoints;
+
+    return d3
+      .scaleSequential(interpolateProduction)
+      .domain([minProduction, maxProduction]);
+  }, [productionEndpoints]);
 
   const [maxWidth, ticks, scale] = useTimeAxis(items, zoom, size);
 

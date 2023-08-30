@@ -33,9 +33,9 @@ export interface GanttProps<T extends MilestoneOptions> {
   // Обратный вызов для кастомного рендера айтема левой панели
   onItemRender?: (item: MilestoneItem<T>) => React.ReactElement;
 
-  // высота диаграммы
+  // Высота диаграммы
   height?: React.CSSProperties['height'];
 
-  // Расскраска диаграммы в зависимости от значений
-  colorValueMapping?: { color: string; value: number }[];
+  // Минимальное и максимальное значение production
+  productionEndpoints: [number, number];
 }

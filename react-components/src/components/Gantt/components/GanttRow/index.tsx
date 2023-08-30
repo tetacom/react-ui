@@ -19,7 +19,7 @@ const SHIFTING_BG =
 interface GanttRowProps<T extends MilestoneOptions> {
   item: MilestoneItem<T>;
   scaleTime: d3.ScaleTime<number, number>;
-  defaultColorMap: d3.ScaleLinear<string, string>;
+  defaultColorMap: d3.ScaleSequential<string>;
 }
 
 export function GanttRowComponent<T extends MilestoneOptions>({
@@ -81,11 +81,14 @@ export function GanttRowComponent<T extends MilestoneOptions>({
           )?.format('DD.MM.YYYY');
           startEndDatesInterval = `${startDate} - ${endDate}`;
 
+          const production: number = (milestone as any).production ?? 0;
           const productionColor = defaultColorMap(
             (milestone as any).production,
           );
           const clusterColor =
-            d3.color(productionColor)?.hex() ?? 'var(--color-primary-50)';
+            (production
+              ? d3.color(productionColor)?.hex()
+              : 'var(--color-text-50)') ?? 'var(--color-primary-50)';
           const distance = (milestone as any)?.distance + 'км';
 
           return (
@@ -124,12 +127,13 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                       className={s.milestoneTop}
                       style={{
                         backgroundColor: isDrillingMilestone
-                          ? productionColor
+                          ? clusterColor
                           : 'transparent',
                       }}
                     >
                       <Text
                         fontVariant="captionBold"
+                        className={s.milestoneTopText}
                         style={{
                           color: getContrastColor(clusterColor, {
                             black: 'black',
@@ -158,13 +162,12 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                           const currentScaleTime = scaleTimeInCluster(
                             wells[index]?.startTime,
                           );
-                          const nextScaleTime = scaleTimeInCluster(
-                            wells[index + 1]?.startTime,
+                          const nextScaleTime =
+                            scaleTimeInCluster(wells[index + 1]?.startTime) ??
+                            scaleTimeInCluster(well.endTime);
+                          const scaleWidth = Math.abs(
+                            currentScaleTime - nextScaleTime,
                           );
-                          const scaleWidth =
-                            nextScaleTime !== undefined
-                              ? Math.abs(currentScaleTime - nextScaleTime)
-                              : '100%';
 
                           if (isMoveBetweenWells) {
                             return (
@@ -175,18 +178,14 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                                   left: scaleTimeInCluster(
                                     wells[index]?.startTime,
                                   ),
-                                  backgroundColor: defaultColorMap(
-                                    (milestone as any).production,
-                                  ),
+                                  backgroundColor: clusterColor,
                                   width: scaleWidth,
                                 }}
                               />
                             );
                           }
 
-                          const caption = isDrillingMilestone
-                            ? well.wellId
-                            : (milestone as any)?.items[0]?.distance.toFixed(0);
+                          const caption = well.wellId ?? '';
 
                           return (
                             <Text
