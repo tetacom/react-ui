@@ -124,12 +124,13 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                       className={s.milestoneTop}
                       style={{
                         backgroundColor: isDrillingMilestone
-                          ? productionColor
+                          ? clusterColor
                           : 'transparent',
                       }}
                     >
                       <Text
                         fontVariant="captionBold"
+                        className={s.milestoneTopText}
                         style={{
                           color: getContrastColor(clusterColor, {
                             black: 'black',
@@ -158,13 +159,12 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                           const currentScaleTime = scaleTimeInCluster(
                             wells[index]?.startTime,
                           );
-                          const nextScaleTime = scaleTimeInCluster(
-                            wells[index + 1]?.startTime,
+                          const nextScaleTime =
+                            scaleTimeInCluster(wells[index + 1]?.startTime) ??
+                            scaleTimeInCluster(well.endTime);
+                          const scaleWidth = Math.abs(
+                            currentScaleTime - nextScaleTime,
                           );
-                          const scaleWidth =
-                            nextScaleTime !== undefined
-                              ? Math.abs(currentScaleTime - nextScaleTime)
-                              : '100%';
 
                           if (isMoveBetweenWells) {
                             return (
@@ -184,9 +184,7 @@ export function GanttRowComponent<T extends MilestoneOptions>({
                             );
                           }
 
-                          const caption = isDrillingMilestone
-                            ? well.wellId
-                            : (milestone as any)?.items[0]?.distance.toFixed(0);
+                          const caption = well.wellId ?? '';
 
                           return (
                             <Text
