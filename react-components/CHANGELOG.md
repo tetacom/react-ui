@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.7](https://github.com/tetacom/react-ui/compare/react-components-0.9.6...react-components-0.9.7) (2023-09-04)
+
+
+### Bug Fixes
+
+* reset button-file after upload ([3b5f0e8](https://github.com/tetacom/react-ui/commit/3b5f0e8fa6bee5316107a08daf88c56a99f9f852))
+
 ## [0.9.6](https://github.com/tetacom/react-ui/compare/react-components-0.9.5...react-components-0.9.6) (2023-08-30)
 
 
