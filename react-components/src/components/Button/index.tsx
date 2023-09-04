@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Children, forwardRef, useId } from 'react';
+import React, { ChangeEvent, Children, forwardRef, useRef, useId } from 'react';
 import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -41,6 +41,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
     },
     ref,
   ) => {
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const utilityClasses = `button_${view} button-${
       palette === 'none' ? 'primary' : palette
     }`;
@@ -57,7 +58,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
       className,
     );
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
       if (event.target.files?.length) {
         const uploadFile = event.target.files[0];
         const { name } = uploadFile;
@@ -68,13 +69,17 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
           !file?.acceptList?.length ||
           file?.acceptList.includes(uploadFileType)
         ) {
-          file?.onChange(uploadFile);
+          await file?.onChange(uploadFile);
         } else {
           const errorMessage =
             'Загруженный файл не соответствует ни одному из разрешенных типов';
           console.warn(errorMessage);
           file?.errorCallback && file?.errorCallback(errorMessage);
         }
+      }
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
       }
     };
 
@@ -94,6 +99,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
         >
           {buttonContent}
           <input
+            ref={fileInputRef}
             type="file"
             id={inputId}
             disabled={isDisabledButton}
