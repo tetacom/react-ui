@@ -57,3 +57,5 @@ export * from './components/Gantt';
 export * from './components/Gantt/model/public-api';
 
 export * from './components/Modal';
+
+export * from './components/Badge';
