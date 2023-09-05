@@ -79,7 +79,14 @@ export function GanttRowComponent<T extends MilestoneOptions>({
               ? dayjs.max(works.map((work: any) => dayjs(work.endTime)))
               : dayjs(milestone.endTime)
           )?.format('DD.MM.YYYY');
+
           startEndDatesInterval = `${startDate} - ${endDate}`;
+
+          if ((milestone as any).powerLine) {
+            startEndDatesInterval += `\n Расстоние до ЛЭП с ID ${
+              (milestone as any).powerLine.id
+            }: ${(milestone as any).powerLine.powerLineDistance} км`;
+          }
 
           const production: number = (milestone as any).production ?? 0;
           const productionColor = defaultColorMap(
@@ -121,7 +128,11 @@ export function GanttRowComponent<T extends MilestoneOptions>({
               )}
 
               {isDrillingMilestone && (
-                <Tooltip title={startEndDatesInterval} mouseFollow>
+                <Tooltip
+                  title={startEndDatesInterval}
+                  mouseFollow
+                  maxWidth={400}
+                >
                   <div className={s.milestone}>
                     <div
                       className={s.milestoneTop}

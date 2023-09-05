@@ -2,6 +2,20 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.10.0](https://github.com/tetacom/react-ui/compare/react-components-0.9.7...react-components-0.10.0) (2023-09-05)
+
+
+### Features
+
+* badge component ([ac2d41e](https://github.com/tetacom/react-ui/commit/ac2d41e93d0012405ce8ef120763e23b9c99bb5b))
+* modal component ([9f7bc51](https://github.com/tetacom/react-ui/commit/9f7bc518eef0802521b964070b3c66535e3bc5de))
+
+
+### Bug Fixes
+
+* add powerLine to gantt chart ([4a0aa0d](https://github.com/tetacom/react-ui/commit/4a0aa0de3815630bf7ae19e91b9bd2d3a7bad299))
+* show electric or diesel drilling rig ([7ad37ce](https://github.com/tetacom/react-ui/commit/7ad37cebef80839301e398eca40f792cebee9acb))
+
 ## [0.9.7](https://github.com/tetacom/react-ui/compare/react-components-0.9.6...react-components-0.9.7) (2023-09-04)
 
 

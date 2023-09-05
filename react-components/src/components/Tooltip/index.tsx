@@ -22,6 +22,8 @@ export const Tooltip: FC<TooltipProps> = ({
   offset = 4,
   delay = 500,
   mouseFollow = false,
+  maxWidth,
+  zIndex = 100,
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,7 +71,7 @@ export const Tooltip: FC<TooltipProps> = ({
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.1 }}
                 ref={refs.setFloating}
-                style={{ ...floatingStyles, zIndex: 100 }}
+                style={{ ...floatingStyles, maxWidth, zIndex }}
                 {...getFloatingProps()}
               >
                 {title}
