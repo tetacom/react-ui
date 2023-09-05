@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { CSSProperties, PropsWithChildren } from 'react';
 import { Placement } from '@floating-ui/react';
 
 export interface TooltipProps extends PropsWithChildren {
@@ -22,4 +22,10 @@ export interface TooltipProps extends PropsWithChildren {
 
   // Показывать всплывающее окно рядом с указателм мыши
   mouseFollow?: boolean;
+
+  // Максимальная ширина всплывающего окна
+  maxWidth?: CSSProperties['maxWidth'];
+
+  // Положение всплывающего окна и его дочерних элементов по оси z
+  zIndex?: CSSProperties['zIndex'];
 }

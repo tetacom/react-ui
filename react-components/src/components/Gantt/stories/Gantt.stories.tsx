@@ -60,6 +60,7 @@ class ScheduleItem {
 interface CustomMilestone extends MilestoneOptions {
   production: number;
   clusterType: 'drilling' | 'move';
+  powerLine: null | { id: number; powerLineDistance: number };
   clusterId?: number;
   items?: ScheduleItem[];
   distance?: number;
@@ -104,6 +105,10 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
         endTime: rows[rows.length - 1]?.endTime,
         clusterId: clusterId,
         production: fakerRU.number.int({ min: 1000, max: 3000 }),
+        powerLine: {
+          id: clusterId || 0,
+          powerLineDistance: fakerRU.number.int({ min: 0, max: 3000 }),
+        },
         clusterType: 'drilling',
         items: rows,
       });
@@ -115,6 +120,7 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
         endTime: moveRows[moveRows.length - 1]?.endTime,
         production: fakerRU.number.int({ min: 1000, max: 3000 }),
         clusterType: 'move',
+        powerLine: null,
         distance: fakerRU.number.int({ min: 10, max: 500 }),
       });
     }
