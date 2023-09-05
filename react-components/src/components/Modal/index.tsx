@@ -28,6 +28,7 @@ export const Modal: FC<ModalProps> = ({
   title = '',
   footer = true,
   width,
+  zIndex,
   style,
   className,
   children,
@@ -56,7 +57,11 @@ export const Modal: FC<ModalProps> = ({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
           >
-            <FloatingOverlay className={s.modalOverlay} lockScroll>
+            <FloatingOverlay
+              className={s.modalOverlay}
+              lockScroll
+              style={{ zIndex }}
+            >
               <FloatingFocusManager context={context}>
                 <motion.div
                   initial={{ y: -50 }}

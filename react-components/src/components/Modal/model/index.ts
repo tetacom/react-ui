@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 export interface ModalProps extends React.PropsWithChildren {
   // Видно ли модальное окно или нет
@@ -23,7 +23,10 @@ export interface ModalProps extends React.PropsWithChildren {
   footer?: React.ReactElement[] | boolean;
 
   // Ширина модального окна
-  width?: React.CSSProperties['width'];
+  width?: CSSProperties['width'];
+
+  // Положение модального окна и его дочерних элементов по оси z
+  zIndex?: CSSProperties['zIndex'];
 
   // Стили модального окна
   style?: React.CSSProperties;
