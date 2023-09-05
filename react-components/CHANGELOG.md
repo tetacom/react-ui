@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.10.1](https://github.com/tetacom/react-ui/compare/react-components-0.10.0...react-components-0.10.1) (2023-09-05)
+
+
+### Bug Fixes
+
+* fix modal zIndex, add this to props ([4c51b9a](https://github.com/tetacom/react-ui/commit/4c51b9afd10be1c30f92d28eb7fe236418cdd029))
+
 ## [0.10.0](https://github.com/tetacom/react-ui/compare/react-components-0.9.7...react-components-0.10.0) (2023-09-05)
 
 
