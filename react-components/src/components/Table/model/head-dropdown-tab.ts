@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableColumn } from 'tetacom/react-components';
+import { TableColumn } from '../model/public-api';
 
 export interface HeadDropdownTabConfig {
   strategy: 'merge' | 'replace';

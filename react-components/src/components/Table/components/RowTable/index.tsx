@@ -3,7 +3,7 @@ import { Cell, flexRender, Row, Table } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
-import { ICellInstance } from 'tetacom/react-components';
+import { ICellInstance } from '../../model/public-api';
 
 import s from '../../style.module.scss';
 

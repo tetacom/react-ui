@@ -1,5 +1,5 @@
-import React, { memo, useState } from 'react';
-import { Input } from 'tetacom/react-components';
+import React, { useState } from 'react';
+import { Input } from '../../../../Input';
 import { ICellComponent } from '../../../model/i-cell-component';
 
 export function StringCell({
@@ -14,8 +14,7 @@ export function StringCell({
   const { meta } = table.options;
 
   return (
-    <>
-      {isEdit ? (
+      isEdit ? (
         <Input
           value={innerValue}
           autoFocus
@@ -27,7 +26,6 @@ export function StringCell({
         />
       ) : (
         <div tabIndex={cellIndex}>{value}</div>
-      )}
-    </>
+      )
   );
 }

@@ -1,4 +1,4 @@
-import { IDictionary, TableColumn } from 'tetacom/react-components';
+import { IDictionary, TableColumn } from '../model/public-api';
 import { Row } from '@tanstack/react-table';
 
 export interface ICellInstance<T> {

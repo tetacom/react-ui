@@ -1,4 +1,4 @@
-import { FilterType, IDictionary, TableColumn } from 'tetacom/react-components';
+import { FilterType, IDictionary, TableColumn } from './model';
 import React, { useMemo } from 'react';
 import { ICellComponent } from './model/i-cell-component';
 import { getCellComponent } from './helpers';

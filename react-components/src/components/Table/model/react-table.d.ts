@@ -1,6 +1,6 @@
 import { RowData } from '@tanstack/react-table';
 import { ICellEvent } from './i-cell-event';
-import { TableColumn } from 'tetacom/react-components';
+import { TableColumn } from '../model/public-api';
 
 declare module '@tanstack/react-table' {
   interface TableMeta<T extends RowData> {

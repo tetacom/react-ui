@@ -1,5 +1,5 @@
 import { Column, Row, Table } from '@tanstack/react-table';
-import { IDictionary } from 'tetacom/react-components';
+import { IDictionary } from '../model/public-api';
 
 export interface ICellComponent<T = any> {
   row: Row<T>;

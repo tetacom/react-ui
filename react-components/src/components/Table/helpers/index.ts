@@ -1,4 +1,4 @@
-import { FilterType } from 'tetacom/react-components';
+import { FilterType } from '../model/enum/filter-type.enum';
 import { StringCell } from '../components/default/StringCell';
 import { SelectCell } from '../components/default/SelectCell';
 import { ICellEvent } from '../model/i-cell-event';

@@ -11,7 +11,7 @@ import { Placement } from '@floating-ui/react';
 import { Tooltip } from '../index';
 import { Typography } from '../../Typography';
 import { Button } from '../../Button';
-import { Radio } from 'tetacom/react-components';
+import { Radio } from '../../Radio';
 
 import s from './style.module.scss';
 import tooltipClassNames from '../style.module.scss';

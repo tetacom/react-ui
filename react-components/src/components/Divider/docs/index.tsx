@@ -13,7 +13,8 @@ import { Typography } from '../../Typography';
 import { Stack } from '../../Stack';
 
 import dividerClassNames from '../style.module.scss';
-import { Avatar, Button } from 'tetacom/react-components';
+import { Avatar } from '../../Avatar';
+import { Button } from '../../Button';
 
 const { Title, Paragraph, Text } = Typography;
 

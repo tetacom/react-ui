@@ -2,12 +2,14 @@ import React, { forwardRef, Ref, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useMergeRefs } from '@floating-ui/react';
 
-import { Dropdown, Icon, Input } from 'tetacom/react-components';
+import { Dropdown } from '../Dropdown';
+import {Icon} from '../Icons'
 import { SelectProps } from './model';
 import { BaseSelectProps } from './model/base-select-item';
 
 import s from './style.module.scss';
 import listStyle from '../List/style.module.scss';
+import { Input } from '../Input';
 
 const SelectInner = forwardRef(
   <T extends BaseSelectProps>(props: SelectProps<T>, ref: any) => {
@@ -34,7 +36,6 @@ const SelectInner = forwardRef(
         onOpenChange={(e) => !props.disabled && setOpen(e)}
         dropdown={
           <ul className={listStyle.list}>
-            <>
               {props.items?.map((item) => (
                 <li
                   key={item.key}
@@ -60,7 +61,6 @@ const SelectInner = forwardRef(
                   )}
                 </li>
               ))}
-            </>
           </ul>
         }
       >

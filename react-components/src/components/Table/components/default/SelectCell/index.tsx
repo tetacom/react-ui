@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { BaseSelectProps, Select } from 'tetacom/react-components';
+import { Select } from '../../../../Select';
 import { ICellComponent } from '../../../model/i-cell-component';
+import { BaseSelectProps } from '../../../../Select/model/base-select-item';
 
 export function SelectCell({
   table,
