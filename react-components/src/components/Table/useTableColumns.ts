@@ -22,6 +22,7 @@ export const useTableColumns = <T>(
           filterType,
           width,
           sortable,
+          editable,
           ...props
         }) =>
           columnHelper.accessor(name as any, {
@@ -47,10 +48,8 @@ export const useTableColumns = <T>(
                 table,
                 row,
                 dict: dictionary,
-                isEdit: column.columnDef.meta?.tableColumn.editable
-                  ? isEdit
-                  : false,
-                cellIndex,
+                isEdit: editable ? isEdit : false,
+                cellIndex: editable ? cellIndex : Number.MAX_VALUE,
               };
 
               const defaultCellComponent = getCellComponent(
