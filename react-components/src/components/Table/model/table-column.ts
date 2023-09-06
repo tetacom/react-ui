@@ -1,5 +1,4 @@
 import { FilterItem } from './filter-item';
-import { ICellInstance } from './i-cell-instance';
 import { HeadDropdownTabConfig } from './head-dropdown-tab';
 import { AggregationType } from './enum/aggregation-type.enum';
 import { StringFilterType } from './enum/string-filter-type.enum';

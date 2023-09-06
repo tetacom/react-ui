@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { AvatarProps, SizeType } from '../../model';
 import { FontVariant } from '../../../Typography/model';
-import { Typography } from 'tetacom/react-components';
+import { Typography } from '../../../Typography';
 import { getBgHex } from './getBgHex';
 import { getContrastColor } from '../../../../utils/getContrastColor';
 
