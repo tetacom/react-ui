@@ -2,6 +2,19 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.11.0](https://github.com/tetacom/react-ui/compare/react-components-0.10.1...react-components-0.11.0) (2023-09-06)
+
+
+### Features
+
+* table edit feature init ([831df32](https://github.com/tetacom/react-ui/commit/831df32557fe7db5d436ed4e85fc115821f491b6))
+
+
+### Bug Fixes
+
+* refactor table index file ([73a62e2](https://github.com/tetacom/react-ui/commit/73a62e25fc16027016ce95f1d57d9ab4fcb01348))
+* refactor table main file ([a2b18c3](https://github.com/tetacom/react-ui/commit/a2b18c33944577ad526b22750ca114c437811eb2))
+
 ## [0.10.1](https://github.com/tetacom/react-ui/compare/react-components-0.10.0...react-components-0.10.1) (2023-09-05)
 
 
