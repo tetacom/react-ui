@@ -11,12 +11,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-      - name: pnpm 
+      - name: pnpm
         uses: pnpm/action-setup@v2
-        with: 
+        with:
           cache: 'pnpm'
         run: pnpm install --no-frozen-lockfile && npx nx run react-components:build
-        run: 
       - name: Publish package on NPM 📦
         run: cd dist/react-components && npm publish
         env:
