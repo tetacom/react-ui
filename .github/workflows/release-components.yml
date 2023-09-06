@@ -5,19 +5,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
-      - name: Install dependencies and build 🔧
-        run: pnpm install --frozen-lockfile
-        run: npx nx run react-components:build
+      - run: pnpm install --frozen-lockfile
+      - run: npx nx run react-components:build
       - name: Publish package on NPM 📦
-        run: cd dist/react-components && npm publish
+      - run: cd dist/react-components && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
