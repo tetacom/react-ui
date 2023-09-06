@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.11.1](https://github.com/tetacom/react-ui/compare/react-components-0.11.0...react-components-0.11.1) (2023-09-06)
+
+
+### Bug Fixes
+
+* editable 0 index ([d4a4556](https://github.com/tetacom/react-ui/commit/d4a4556cbab0451954cba31cea8e66e8300159b7))
+
 ## [0.11.0](https://github.com/tetacom/react-ui/compare/react-components-0.10.1...react-components-0.11.0) (2023-09-06)
 
 
