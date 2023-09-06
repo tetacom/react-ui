@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BaseSelectProps, Select } from 'tetacom/react-components';
 import { ICellComponent } from '../../../model/i-cell-component';
 
@@ -10,12 +10,20 @@ export function SelectCell({
   isEdit,
   row,
 }: React.PropsWithoutRef<ICellComponent<number>>) {
-  const options = dict.map((option): BaseSelectProps => {
-    return {
-      key: option.id.toString(),
-      headline: option.name,
-    };
-  });
+  let options: Array<BaseSelectProps> = [];
+
+  if (dict !== null && column.columnDef.meta) {
+    options = Object.hasOwn(dict, column.columnDef.meta.tableColumn.filterField)
+      ? dict[column.columnDef.meta.tableColumn.filterField].map(
+          (option): BaseSelectProps => {
+            return {
+              key: option.id.toString(),
+              headline: option.name,
+            };
+          },
+        )
+      : [];
+  }
 
   const rawValue = row.getValue<number>(column.id);
   const value = options.find((option) => option.key === rawValue.toString());

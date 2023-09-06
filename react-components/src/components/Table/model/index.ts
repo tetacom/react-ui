@@ -40,7 +40,7 @@ export interface TableProps<T>
   localStorageKey?: string;
 
   // Обратный вызов изменения значения в ячейке таблицы
-  valueChange: (cell: ICellInstance<T>) => void;
+  valueChange?: (cell: ICellInstance<T>) => void;
 
   // Список имен столбцов, которые нужно дополнительно скрыть
   hiddenColumnNames?: string[];

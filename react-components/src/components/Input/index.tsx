@@ -45,7 +45,7 @@ export const Input = forwardRef<InputRef, InputProps>(
     const inputWrapperRef = useRef<HTMLSpanElement>(null);
     const [inputValue, setInputValue] = useState(defaultValue);
 
-    const finalValue = value !== undefined ? value : inputValue;
+    const finalValue = value !== undefined ? String(value) : inputValue;
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;

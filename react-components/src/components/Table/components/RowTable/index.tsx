@@ -1,12 +1,11 @@
 import React, { memo } from 'react';
-import { Cell, ColumnDef, flexRender, Row, Table } from '@tanstack/react-table';
+import { Cell, flexRender, Row, Table } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
 import { ICellInstance } from 'tetacom/react-components';
 
 import s from '../../style.module.scss';
-import { ICellComponent } from '../../model/i-cell-component';
 
 export interface ITableRow<T> {
   virtualIndex: number;

@@ -10,6 +10,6 @@ declare module '@tanstack/react-table' {
   }
 
   interface ColumnMeta {
-    tableColumn?: TableColumn;
+    tableColumn: TableColumn;
   }
 }

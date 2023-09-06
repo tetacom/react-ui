@@ -1,15 +1,6 @@
-import React, {
-  useState,
-  useRef,
-  useMemo,
-  useCallback,
-  useEffect,
-} from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import {
-  AccessorFn,
-  CellContext,
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
@@ -25,20 +16,16 @@ import { TableProps } from './model';
 import TableRow from './components/RowTable';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
-import { useLocalStorage } from '../../utils/useLocalStorage';
 import { mergeSettings, separateSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
-
 import s from './style.module.scss';
-import { eventIsOnRow, getCellComponent, getCoordinates } from './helpers';
+import { eventIsOnRow, getCoordinates } from './helpers';
 import { ICellEvent } from './model/i-cell-event';
-import { ICellComponent } from './model/i-cell-component';
 import objectHash from 'object-hash';
-import { IIdName } from './model/dictionary';
-import { StringCell } from './components/default/StringCell';
-import { CustomCellComponent } from './model/cell-component';
+import { useTableColumns } from './useTableColumns';
+import { useLocalStorage } from '../../utils/useLocalStorage';
 
 const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
@@ -61,112 +48,54 @@ export function Table<T>({
   valueChange,
   ...props
 }: TableProps<T>): React.ReactElement {
+  // Ключ для localstorage
   const storageKey = localStorageKey ? `${localStorageKey}${STORAGE_KEY}` : '';
-  const initStorageColumns = separateSettings(
-    columns,
-    columns.map(({ name, width }) => ({ name, width })),
-  );
-  const columnHelper = createColumnHelper<T>();
-  const [sorting, setSorting] = useState<SortingState>([]);
+
   const currentEventRef = useRef<KeyboardEvent | MouseEvent | null>(null);
-  const [columnsSettings, setColumnsSettings] = useLocalStorage(
-    storageKey,
-    initStorageColumns,
-  );
-  const columnsWithSavedData = useMemo(
-    () => mergeSettings(columns, columnsSettings),
-    [columns, columnsSettings],
-  );
 
-  const handleSaveColumnsWidth = (
-    dataToSave: TableColumn[],
-    headers: Header<T, unknown>[],
-  ) => {
-    if (!localStorageKey) return;
+  // Текущая сортировка столбцов
+  const [sorting, setSorting] = useState<SortingState>([]);
 
-    const newColumnsSettings = separateSettings(
-      dataToSave,
-      headers.map((item) => ({ name: item.id, width: item.getSize() })),
-    );
-    setColumnsSettings(newColumnsSettings);
-  };
-
-  const tableColumns = useMemo(
-    () =>
-      columnsWithSavedData.map(
-        ({
-          name,
-          caption,
-          cellComponent,
-          propertyName,
-          filterType,
-          width,
-          sortable,
-          ...props
-        }) =>
-          columnHelper.accessor(name as any, {
-            id: name,
-            enableSorting: sortable,
-            cell: ({ row, column, table }) => {
-              const isEdit =
-                table.options.meta?.currentEditCell?.row === parseInt(row.id) &&
-                table.options.meta?.currentEditCell?.column === column.id;
-
-              const columnsCount = columnsWithSavedData?.length;
-              const rowIndex = parseInt(row.id) + 1;
-              const cellIndex = (rowIndex - 1) * columnsCount + columnIndex;
-              const cellProps: ICellComponent<T> = {
-                column,
-                table,
-                row,
-                dict: Object.hasOwn(dictionary, props.filterField)
-                  ? dictionary[props.filterField]
-                  : [],
-                isEdit,
-                cellIndex,
-              };
-
-              const defaultCellComponent = getCellComponent(filterType!);
-
-              return React.createElement(
-                cellComponent || defaultCellComponent || StringCell,
-                cellProps,
-              );
-            },
-            header: () => caption,
-            size: width,
-            meta: {
-              tableColumn: {
-                name,
-                caption,
-                cellComponent,
-                propertyName,
-                filterType,
-                width,
-                sortable,
-                ...props,
-              },
-            },
-          }),
-      ),
-    [columnsWithSavedData, dictionary],
-  );
-
-  const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
+  // Выбранная строка
   const [rowSelection, setRowSelection] = useState({});
+
+  // Текущая редактируемая ячейка
   const [currentEditCell, setCurrentEditCell] = useState<ICellEvent | null>(
     null,
   );
 
+  // Данные таблицы
   const [data, setData] = useState<T[]>([...dataSource]);
 
   useEffect(() => {
     setData([...dataSource]);
   }, [dataSource]);
 
+  const initStorageColumns = separateSettings(
+    columns,
+    columns.map(({ name, width }) => ({ name, width })),
+  );
+
+  // Настройки из localstorage
+  const [localStorageColumns, setLocalStorageColumns] = useLocalStorage(
+    storageKey,
+    initStorageColumns,
+  );
+
+  const mergedColumns = useMemo(
+    () => mergeSettings(columns, localStorageColumns),
+    [columns, localStorageColumns],
+  );
+
+  // Скрытые колонки
+  const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
+
+  // Генерация колонок для react-table
+  const columnDefList = useTableColumns<T>(mergedColumns, dictionary);
+
   const table = useReactTable({
     data,
-    columns: tableColumns,
+    columns: columnDefList,
     state: {
       rowSelection,
       sorting,
@@ -201,7 +130,7 @@ export function Table<T>({
               if (foundRowIndex === index) {
                 return {
                   ...data[foundRowIndex],
-                  [currentEditCell.column]: value,
+                  [currentEditCell.column as string]: value,
                 };
               }
 
@@ -213,10 +142,12 @@ export function Table<T>({
               objectHash.sha1(updatedData[foundRowIndex]!);
 
             if (rowHashChanged) {
-              valueChange?.({
-                row: row.original,
-                column: column.columnDef.meta?.tableColumn!,
-              });
+              if (column && column.columnDef.meta) {
+                valueChange?.({
+                  row: row.original,
+                  column: column.columnDef.meta.tableColumn,
+                });
+              }
 
               setData(updatedData);
             }
@@ -295,6 +226,21 @@ export function Table<T>({
     return () => document.removeEventListener('mousedown', handleMouseDown);
   });
 
+  // Сохранение в локальное хранилище
+  const handleSaveColumns = (
+    columns: TableColumn[],
+    headers: Header<T, unknown>[],
+  ) => {
+    if (!localStorageKey) return;
+
+    const newColumnsSettings = separateSettings(
+      columns,
+      headers.map((item) => ({ name: item.id, width: item.getSize() })),
+    );
+    setLocalStorageColumns(newColumnsSettings);
+  };
+
+  // Сохранение после ресайза колонки
   const handleResizeMouseDown = (
     event: React.MouseEvent<HTMLDivElement>,
     header: Header<T, unknown>,
@@ -305,7 +251,7 @@ export function Table<T>({
     document.addEventListener(
       'mouseup',
       (e) => {
-        handleSaveColumnsWidth(columnsWithSavedData, headerGroup.headers);
+        handleSaveColumns(mergedColumns, headerGroup.headers);
       },
       { once: true },
     );
@@ -351,8 +297,7 @@ export function Table<T>({
                   header.getContext(),
                 );
                 const thHint =
-                  columnsWithSavedData.find(({ name }) => name === header.id)
-                    ?.hint ?? '';
+                  columns.find(({ name }) => name === header.id)?.hint ?? '';
 
                 return (
                   <Tooltip
@@ -420,7 +365,7 @@ export function Table<T>({
                 rowRef={virtualizer.measureElement}
                 row={row}
                 table={table}
-                columns={columnsWithSavedData}
+                columns={mergedColumns}
                 isSelectedRow={row.getIsSelected()}
                 onClick={onClick}
                 acrossLine={acrossLine}
