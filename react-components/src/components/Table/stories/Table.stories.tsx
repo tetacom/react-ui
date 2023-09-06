@@ -4,9 +4,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Table } from '../index';
 import { TableDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
-import { FilterType } from '../model/enum/filter-type.enum';
+import { FilterType } from '../model/public-api';
 import { Toggle } from '../../Toggle';
-import { ICellInstance, ICustomCell } from '../model/i-cell-instance';
+import { ICellInstance } from '../model/i-cell-instance';
 import { IDictionary } from '../model/dictionary';
 
 import configResponse from './configResponse.json';

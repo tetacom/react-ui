@@ -1,4 +1,4 @@
-import { FilterType, IDictionary, TableColumn } from './model';
+import { FilterType, IDictionary, TableColumn } from './model/public-api';
 import React, { useMemo } from 'react';
 import { ICellComponent } from './model/i-cell-component';
 import { getCellComponent } from './helpers';
@@ -72,6 +72,7 @@ export const useTableColumns = <T>(
                 filterType,
                 width,
                 sortable,
+                editable,
                 ...props,
               },
             },

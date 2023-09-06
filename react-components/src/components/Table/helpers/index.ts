@@ -1,4 +1,4 @@
-import { FilterType } from '../model/enum/filter-type.enum';
+import { FilterType } from '../model/public-api';
 import { StringCell } from '../components/default/StringCell';
 import { SelectCell } from '../components/default/SelectCell';
 import { ICellEvent } from '../model/i-cell-event';

@@ -3,7 +3,7 @@ import { Unstyled } from '@storybook/blocks';
 
 import { ColoredIcon } from '../index';
 import { Typography } from '../../Typography';
-import { Input } from 'tetacom/react-components';
+import { Input } from '../../Input';
 import { coloredIconsList } from '../icons-list';
 
 import s from './style.module.scss';

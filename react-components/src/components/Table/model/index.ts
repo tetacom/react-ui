@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { TableColumn } from './table-column';
-import { IDictionary, IIdName } from './dictionary';
+import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
 
