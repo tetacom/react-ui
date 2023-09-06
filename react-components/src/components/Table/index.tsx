@@ -119,11 +119,15 @@ export function Table<T>({
         }
       },
       valueChanged: (value: T) => {
-        if (currentEditCell?.row && currentEditCell?.column) {
+        console.log(currentEditCell);
+
+        if (currentEditCell?.row !== null && currentEditCell?.row !== undefined && currentEditCell?.column !== null && currentEditCell?.row !== undefined) {
           const row = table.getRow(currentEditCell.row.toString());
           const column = table.getColumn(currentEditCell.column);
 
           const foundRowIndex = data?.findIndex((_) => _ === row.original);
+
+
 
           if (foundRowIndex !== -1) {
             const updatedData = data.map((row, index) => {
