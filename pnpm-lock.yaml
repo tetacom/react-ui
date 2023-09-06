@@ -14,11 +14,14 @@ dependencies:
     specifier: 3.0.0-beta.54
     version: 3.0.0-beta.54(react@18.2.0)
   '@tetacom/themes':
-    specifier: ^0.0.18
-    version: 0.0.18(tslib@1.14.1)
+    specifier: ^0.0.20
+    version: 0.0.20(tslib@2.6.2)
   '@types/d3':
     specifier: ^7.4.0
     version: 7.4.0
+  '@types/d3-hsv':
+    specifier: ^0.1.4
+    version: 0.1.4
   '@types/object-hash':
     specifier: ^3.0.3
     version: 3.0.3
@@ -31,6 +34,9 @@ dependencies:
   d3:
     specifier: ^7.8.5
     version: 7.8.5
+  d3-hsv:
+    specifier: ^0.1.0
+    version: 0.1.0
   dayjs:
     specifier: ^1.11.8
     version: 1.11.8
@@ -50,8 +56,8 @@ dependencies:
     specifier: ^1.62.1
     version: 1.62.1
   tslib:
-    specifier: ^1.14.1
-    version: 1.14.1
+    specifier: ^2.6.1
+    version: 2.6.2
 
 devDependencies:
   '@babel/core':
@@ -3579,7 +3585,7 @@ packages:
       nx: 16.5.0
       semver: 7.5.3
       tmp: 0.2.1
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /@nx/eslint-plugin@16.5.0(@typescript-eslint/parser@5.61.0)(eslint-config-prettier@8.1.0)(eslint@8.15.0)(nx@16.5.0)(typescript@5.1.6):
@@ -3630,7 +3636,7 @@ packages:
       jest-resolve: 29.5.0
       jest-util: 29.5.0
       resolve.exports: 1.1.0
-      tslib: 2.5.3
+      tslib: 2.6.2
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3676,7 +3682,7 @@ packages:
       minimatch: 3.0.5
       semver: 7.5.3
       source-map-support: 0.5.19
-      tslib: 2.5.3
+      tslib: 2.6.2
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3701,7 +3707,7 @@ packages:
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.1.6)
       eslint: 8.15.0
       tmp: 0.2.1
-      tslib: 2.5.3
+      tslib: 2.6.2
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3891,7 +3897,7 @@ packages:
       detect-port: 1.5.1
       http-server: 14.1.1
       ignore: 5.2.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3923,7 +3929,7 @@ packages:
       open: 8.4.2
       rxjs: 7.8.1
       tmp: 0.2.1
-      tslib: 2.5.3
+      tslib: 2.6.2
       yargs: 17.7.2
       yargs-parser: 21.1.1
     transitivePeerDependencies:
@@ -5376,7 +5382,7 @@ packages:
   /@swc/helpers@0.5.1:
     resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /@tanstack/react-table@8.8.5(react-dom@18.2.0)(react@18.2.0):
@@ -5437,12 +5443,12 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@tetacom/themes@0.0.18(tslib@1.14.1):
-    resolution: {integrity: sha512-82DgiCr3Rf845RMAoycQDj9aFiiQT5ak47SQDlRJb88yjh6dyySsYg+CjGc/EAXvnHS/y1nqFTh+KxIZJYVCbQ==}
+  /@tetacom/themes@0.0.20(tslib@2.6.2):
+    resolution: {integrity: sha512-/w5ZsMak8w2e2JQX82njEcWBcUlg0eFAKeUnvjJiGL+zDcvcD/i4ptP2ok5zfULiFkuOHZ/bdxDLzsr0M+r76g==}
     peerDependencies:
-      tslib: 1.14.1
+      tslib: 2.6.1
     dependencies:
-      tslib: 1.14.1
+      tslib: 2.6.2
     dev: false
 
   /@tootallnate/once@2.0.0:
@@ -5560,6 +5566,10 @@ packages:
     resolution: {integrity: sha512-abT/iLHD3sGZwqMTX1TYCMEulr+wBd0SzyOQnjYNLp7sngdOHYtNkMRI5v3w5thoN+BWtlHVDx2Osvq6fxhZWw==}
     dev: false
 
+  /@types/d3-color@1.4.2:
+    resolution: {integrity: sha512-fYtiVLBYy7VQX+Kx7wU/uOIkGQn8aAEY8oWMoyja3N4dLd8Yf6XgSIR/4yWvMuveNOH5VShnqCgRqqh/UNanBA==}
+    dev: false
+
   /@types/d3-color@3.1.0:
     resolution: {integrity: sha512-HKuicPHJuvPgCD+np6Se9MQvS6OCbJmOjGvylzMJRlDwUXjKTTXs6Pwgk79O09Vj/ho3u1ofXnhFOaEWWPrlwA==}
     dev: false
@@ -5615,6 +5625,12 @@ packages:
 
   /@types/d3-hierarchy@3.1.2:
     resolution: {integrity: sha512-9hjRTVoZjRFR6xo8igAJyNXQyPX6Aq++Nhb5ebrUF414dv4jr2MitM2fWiOY475wa3Za7TOS2Gh9fmqEhLTt0A==}
+    dev: false
+
+  /@types/d3-hsv@0.1.4:
+    resolution: {integrity: sha512-29bhqKebEYaos8AKijrxFEUTI8BWqsTFJk+jrJkJZdz0cNzWulXo9L/EZpSNfa8B+SiNStVKaDAPtE4xC32lmA==}
+    dependencies:
+      '@types/d3-color': 1.4.2
     dev: false
 
   /@types/d3-interpolate@3.0.1:
@@ -6468,7 +6484,7 @@ packages:
       esbuild: '>=0.10.0'
     dependencies:
       esbuild: 0.17.19
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /@yarnpkg/lockfile@1.1.0:
@@ -6480,7 +6496,7 @@ packages:
     engines: {node: '>=14.15.0'}
     dependencies:
       js-yaml: 3.14.1
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /@zkochan/js-yaml@0.0.6:
@@ -6709,7 +6725,7 @@ packages:
     resolution: {integrity: sha512-xcLxITLe2HYa1cnYnwCjkOO1PqUHQpozB8x9AR0OgWN2woOBi5kSDVxKfd0b7sb1hw5qFeJhXm9H1nu3xSfLeQ==}
     engines: {node: '>=10'}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: false
 
   /aria-query@5.1.3:
@@ -6826,21 +6842,21 @@ packages:
     resolution: {integrity: sha512-O0yuUDnZeQDL+ncNGlJ78BiO4jnYI3bvMsD5prT0/nsgijG/LpNBIr63gTjVTNsiGkgQhiyCShTgxt8oXOrklA==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /ast-types@0.15.2:
     resolution: {integrity: sha512-c27loCv9QkZinsa5ProX751khO9DJl/AcB5c2KNtA6NRvHKS0PgLfcftz72KVq504vB0Gku5s2kUZzDBvQWvHg==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /ast-types@0.16.1:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /astral-regex@2.0.0:
@@ -7354,7 +7370,7 @@ packages:
     resolution: {integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==}
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /camelcase-keys@6.2.2:
@@ -7384,7 +7400,7 @@ packages:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
       upper-case-first: 2.0.2
     dev: true
 
@@ -7440,7 +7456,7 @@ packages:
       path-case: 3.0.4
       sentence-case: 3.0.4
       snake-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /char-regex@1.0.2:
@@ -7762,7 +7778,7 @@ packages:
     resolution: {integrity: sha512-I2hSBi7Vvs7BEuJDr5dDHfzb/Ruj3FyvFyh7KLilAjNQw3Be+xgqUBA2W6scVEcL0hL1dwPRtIqEPVUCKkSsyQ==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
       upper-case: 2.0.2
     dev: true
 
@@ -8238,6 +8254,10 @@ packages:
       d3-path: 3.1.0
     dev: false
 
+  /d3-color@1.4.1:
+    resolution: {integrity: sha512-p2sTHSLCJI2QKunbGb7ocOh7DgTAn8IrLx21QRc/BSnodXM4sv6aLQlnfpvehFMLZEfBc6g9pH9SWQccFYfJ9Q==}
+    dev: false
+
   /d3-color@3.1.0:
     resolution: {integrity: sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==}
     engines: {node: '>=12'}
@@ -8316,6 +8336,12 @@ packages:
   /d3-hierarchy@3.1.2:
     resolution: {integrity: sha512-FX/9frcub54beBdugHjDCdikxThEqjnR93Qt7PvQTOHxyiNCAlvMrHhclk3cD5VeAaq9fxmfRp+CnWw9rEMBuA==}
     engines: {node: '>=12'}
+    dev: false
+
+  /d3-hsv@0.1.0:
+    resolution: {integrity: sha512-HcIU73raRodnYiGDMzFbI8wyWkQtd+aAgX2sypAKnJ7UP93P9bOEhhrxWL4krcyp1ec2LFOUpvC8mFBt38YokQ==}
+    dependencies:
+      d3-color: 1.4.1
     dev: false
 
   /d3-interpolate@3.0.1:
@@ -8815,7 +8841,7 @@ packages:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /dot-prop@5.3.0:
@@ -9880,7 +9906,7 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      tslib: 2.5.3
+      tslib: 2.6.2
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
@@ -10345,7 +10371,7 @@ packages:
     resolution: {integrity: sha512-H/vuk5TEEVZwrR0lp2zed9OCo1uAILMlx0JEMgC26rzyJJ3N1v6XkwHHXJQdR2doSjcGPM6OKPYoJgf0plJ11Q==}
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /hosted-git-info@2.8.9:
@@ -11831,7 +11857,7 @@ packages:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.5.3
+      tslib: 2.6.2
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -12068,7 +12094,7 @@ packages:
   /lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /lru-cache@5.1.1:
@@ -12803,7 +12829,7 @@ packages:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /node-addon-api@3.2.1:
@@ -12960,7 +12986,7 @@ packages:
       tar-stream: 2.2.0
       tmp: 0.2.1
       tsconfig-paths: 4.2.0
-      tslib: 2.5.3
+      tslib: 2.6.2
       v8-compile-cache: 2.3.0
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -13226,7 +13252,7 @@ packages:
     resolution: {integrity: sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /parent-module@1.0.1:
@@ -13274,7 +13300,7 @@ packages:
     resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /path-browserify@1.0.1:
@@ -13285,7 +13311,7 @@ packages:
     resolution: {integrity: sha512-qO4qCFjXqVTrcbPt/hQfhTQ+VhFsqNKOPtytgNKkKxSoEp3XPUQ8ObFuePylOIok5gjn69ry8XiULxCwot3Wfg==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /path-exists@3.0.0:
@@ -13957,7 +13983,7 @@ packages:
       ast-types: 0.15.2
       esprima: 4.0.1
       source-map: 0.6.1
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /recast@0.23.2:
@@ -13968,7 +13994,7 @@ packages:
       ast-types: 0.16.1
       esprima: 4.0.1
       source-map: 0.6.1
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /rechoir@0.6.2:
@@ -14267,7 +14293,7 @@ packages:
   /rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /sade@1.8.1:
@@ -14440,7 +14466,7 @@ packages:
     resolution: {integrity: sha512-8LS0JInaQMCRoQ7YUytAo/xUu5W2XnQxV2HI/6uM6U7CITS1RqPElr30V6uIqyMKM9lJGRVFy5/4CuzcixNYSg==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
       upper-case-first: 2.0.2
     dev: true
 
@@ -14573,7 +14599,7 @@ packages:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /source-map-js@1.0.2:
@@ -15322,9 +15348,10 @@ packages:
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: true
 
-  /tslib@2.5.3:
-    resolution: {integrity: sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==}
+  /tslib@2.6.2:
+    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
   /tsutils@3.21.0(typescript@5.1.6):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
@@ -15627,13 +15654,13 @@ packages:
   /upper-case-first@2.0.2:
     resolution: {integrity: sha512-514ppYHBaKwfJRK/pNC6c/OxfGa0obSnAl106u97Ed0I625Nin96KAjttZF6ZL3e1XLtphxnqrOi9iWgm+u+bg==}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /upper-case@2.0.2:
     resolution: {integrity: sha512-KgdgDGJt2TpuwBUIjgG6lzw2GWFRCW9Qkfkiv0DxqHHLYJHmtmdUIKcZd8rHgFSjopVTlw6ggzCm1b8MFQwikg==}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /uri-js@4.4.1:
