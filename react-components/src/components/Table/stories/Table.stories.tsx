@@ -4,9 +4,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Table } from '../index';
 import { TableDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
-import { FilterType } from '../model/enum/filter-type.enum';
+import { FilterType } from '../model/public-api';
 import { Toggle } from '../../Toggle';
-import { ICellInstance, ICustomCell } from '../model/i-cell-instance';
+import { ICellInstance } from '../model/i-cell-instance';
 import { IDictionary } from '../model/dictionary';
 
 import configResponse from './configResponse.json';
@@ -15,6 +15,7 @@ import dictResponse from './dictResponse.json';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
 import { Typography } from '../../Typography';
+import { ICellComponent } from '../model/i-cell-component';
 
 const { Paragraph } = Typography;
 
@@ -34,13 +35,19 @@ export default meta;
 type Story = StoryObj<typeof Table>;
 
 const initColumns: TableColumn[] = configResponse;
-const initDictionary: IDictionary = dictResponse;
+const initDictionary: IDictionary<any> = dictResponse;
 
-const CustomComponentWithToggle: FC<ICustomCell<any>> = ({ value }) => (
-  <Toggle checked={value} />
-);
+const CustomComponentWithToggle: FC<ICellComponent<any>> = ({
+  row,
+  column,
+}) => {
+  const value = row.getValue<boolean>(column.id);
+  return <Toggle checked={value} />;
+};
 
-const CustomComponentWithDate: FC<ICustomCell<any>> = ({ value }) => {
+const CustomComponentWithDate: FC<ICellComponent<any>> = ({ row, column }) => {
+  const value = row.getValue<object>(column.id);
+
   if (!(typeof value === 'object' && value !== null)) {
     return value;
   }
@@ -48,9 +55,19 @@ const CustomComponentWithDate: FC<ICustomCell<any>> = ({ value }) => {
   return <div>{Object.values(value).join(' — ')}</div>;
 };
 
-const TempCustomComponent: FC<ICustomCell<any>> = ({ value, row, dict }) => {
-  const ngduName =
-    dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ?? null;
+const TempCustomComponent: FC<ICellComponent<any>> = ({
+  column,
+  row,
+  dict,
+}) => {
+  let ngduName;
+  const value = row.getValue<string>(column.id);
+
+  if (dict && Object.hasOwn(dict, 'NgduId')) {
+    ngduName =
+      dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ??
+      null;
+  }
 
   return (
     <>
@@ -70,7 +87,7 @@ const TempCustomComponent: FC<ICustomCell<any>> = ({ value, row, dict }) => {
   );
 };
 
-const customComponents: Map<FilterType, FC<ICustomCell<any>>> = new Map();
+const customComponents: Map<FilterType, FC<ICellComponent<any>>> = new Map();
 customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
 

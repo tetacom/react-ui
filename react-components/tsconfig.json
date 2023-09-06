@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["es2022", "dom"],
     "jsx": "react-jsx",
     "allowJs": false,
     "resolveJsonModule": true,

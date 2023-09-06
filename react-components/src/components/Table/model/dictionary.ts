@@ -1,10 +1,8 @@
-type DictionaryType = {
-  id: string | number;
+export interface IIdName<T> {
+  id: T;
   name: string;
-  parentId?: string | null;
-  iconId?: string | null;
-};
+}
 
-export interface IDictionary {
-  [key: string]: DictionaryType[];
+export interface IDictionary<T> {
+  [key: string]: Array<IIdName<T>>;
 }

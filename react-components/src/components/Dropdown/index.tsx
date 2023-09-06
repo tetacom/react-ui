@@ -10,6 +10,7 @@ import {
   useClick,
   useDismiss,
   FloatingPortal,
+  FloatingOverlay,
 } from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -45,6 +46,7 @@ export const Dropdown: FC<DropdownProps> = ({
     whileElementsMounted: (reference, floating, update) => {
       return autoUpdate(reference, floating, update, {
         ancestorScroll: resizable,
+        animationFrame: false,
       });
     },
     middleware: [
@@ -93,30 +95,28 @@ export const Dropdown: FC<DropdownProps> = ({
       {
         <AnimatePresence>
           {showDropdown && (
-            <FloatingPortal>
-              <motion.div
-                ref={refs.setFloating}
-                {...getFloatingProps()}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.1 }}
+            <motion.div
+              ref={refs.setFloating}
+              {...getFloatingProps()}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.1 }}
+              style={{
+                ...floatingStyles,
+              }}
+              className={s.dropdownContent}
+            >
+              <div
+                className={s.dropdownContentScrollable}
                 style={{
-                  ...floatingStyles,
+                  maxHeight,
+                  overflowY: 'scroll',
                 }}
-                className={s.dropdownContent}
               >
-                <div
-                  className={s.dropdownContentScrollable}
-                  style={{
-                    maxHeight,
-                    overflowY: 'scroll',
-                  }}
-                >
-                  {dropdown}
-                </div>
-              </motion.div>
-            </FloatingPortal>
+                {dropdown}
+              </div>
+            </motion.div>
           )}
         </AnimatePresence>
       }

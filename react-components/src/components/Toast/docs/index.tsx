@@ -12,8 +12,12 @@ import { Typography } from '../../Typography';
 import { Stack } from '../../Stack';
 
 import toastClassNames from '../style.module.scss';
-import { Button, Icon, PaletteType } from 'tetacom/react-components';
+import { Button } from '../../Button';
+import { Icon } from '../../Icons';
+
+
 import { ToastStateType } from '../model';
+import { PaletteType } from '../../Button/model/public-api';
 
 const { Title, Paragraph } = Typography;
 

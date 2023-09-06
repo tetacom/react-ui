@@ -17,6 +17,7 @@
     border-collapse: collapse;
     border-spacing: 0;
     background-color: var(--color-global-bgcard);
+    min-width: 100%;
 
     th,
     td {
@@ -126,7 +127,10 @@
 
         td {
           @include fontBody3;
-          @include cellPadding;
+
+          &:not(:has(input)) {
+            @include cellPadding;
+          }
 
           position: relative;
           color: var(--color-text-90);

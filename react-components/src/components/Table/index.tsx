@@ -1,12 +1,11 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import {
-  CellContext,
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
   Header,
+  HeaderGroup,
   Row,
   SortingState,
   useReactTable,
@@ -17,14 +16,16 @@ import { TableProps } from './model';
 import TableRow from './components/RowTable';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
-import { FilterType } from './model/enum/filter-type.enum';
-import { useLocalStorage } from '../../utils/useLocalStorage';
 import { mergeSettings, separateSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
-
 import s from './style.module.scss';
+import { eventIsOnRow, getCoordinates } from './helpers';
+import { ICellEvent } from './model/i-cell-event';
+import objectHash from 'object-hash';
+import { useTableColumns } from './useTableColumns';
+import { useLocalStorage } from '../../utils/useLocalStorage';
 
 const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
@@ -44,96 +45,57 @@ export function Table<T>({
   localStorageKey,
   hiddenColumnNames = [],
   className,
+  valueChange,
   ...props
 }: TableProps<T>): React.ReactElement {
+  // Ключ для localstorage
   const storageKey = localStorageKey ? `${localStorageKey}${STORAGE_KEY}` : '';
+
+  const currentEventRef = useRef<KeyboardEvent | MouseEvent | null>(null);
+
+  // Текущая сортировка столбцов
+  const [sorting, setSorting] = useState<SortingState>([]);
+
+  // Выбранная строка
+  const [rowSelection, setRowSelection] = useState({});
+
+  // Текущая редактируемая ячейка
+  const [currentEditCell, setCurrentEditCell] = useState<ICellEvent | null>(
+    null,
+  );
+
+  // Данные таблицы
+  const [data, setData] = useState<T[]>([...dataSource]);
+
+  useEffect(() => {
+    setData([...dataSource]);
+  }, [dataSource]);
+
   const initStorageColumns = separateSettings(
     columns,
     columns.map(({ name, width }) => ({ name, width })),
   );
-  const columnHelper = createColumnHelper<T>();
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnsSettings, setColumnsSettings] = useLocalStorage(
+
+  // Настройки из localstorage
+  const [localStorageColumns, setLocalStorageColumns] = useLocalStorage(
     storageKey,
     initStorageColumns,
   );
-  const columnsWithSavedData = useMemo(
-    () => mergeSettings(columns, columnsSettings),
-    [columns, columnsSettings],
+
+  const mergedColumns = useMemo(
+    () => mergeSettings(columns, localStorageColumns),
+    [columns, localStorageColumns],
   );
 
-  const handleSaveColumnsWidth = (
-    dataToSave: TableColumn[],
-    headers: Header<T, unknown>[],
-  ) => {
-    if (!localStorageKey) return;
-
-    const newColumnsSettings = separateSettings(
-      dataToSave,
-      headers.map((item) => ({ name: item.id, width: item.getSize() })),
-    );
-    setColumnsSettings(newColumnsSettings);
-  };
-
-  const tableColumns = useMemo(
-    () =>
-      columnsWithSavedData.map(
-        ({
-          name,
-          caption,
-          cellComponent,
-          propertyName,
-          filterType,
-          width,
-          sortable,
-        }) =>
-          columnHelper.accessor(name as any, {
-            id: name,
-            enableSorting: sortable,
-            cell: (info: CellContext<T, number>) => {
-              const infoValue = info.getValue();
-              let dictValue = '';
-
-              if (
-                filterType === FilterType.list &&
-                propertyName &&
-                dictionary
-              ) {
-                dictValue =
-                  dictionary[propertyName]?.find(({ id }) => id === infoValue)
-                    ?.name ?? '';
-              }
-
-              const value = dictValue || infoValue;
-              let result;
-
-              if (cellComponent) {
-                result = React.createElement(cellComponent, {
-                  value,
-                  row: info.row,
-                  dict: dictionary,
-                });
-              } else if (typeof value === 'object' && value !== null) {
-                result = JSON.stringify(value);
-              } else {
-                result = value;
-              }
-
-              return <span className={s.tdContent}>{result}</span>;
-            },
-            header: () => caption,
-            size: width,
-          }),
-      ),
-    [columnsWithSavedData, dictionary],
-  );
-
+  // Скрытые колонки
   const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
-  const [rowSelection, setRowSelection] = useState({});
+
+  // Генерация колонок для react-table
+  const columnDefList = useTableColumns<T>(mergedColumns, dictionary);
 
   const table = useReactTable({
-    data: dataSource,
-    columns: tableColumns,
+    data,
+    columns: columnDefList,
     state: {
       rowSelection,
       sorting,
@@ -146,7 +108,156 @@ export function Table<T>({
     columnResizeMode: 'onChange',
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    meta: {
+      currentEditCell: currentEditCell,
+      startEditCell: (event: ICellEvent | null) => {
+        if (
+          currentEditCell?.column !== event?.column ||
+          currentEditCell?.row !== event?.row
+        ) {
+          setCurrentEditCell(event);
+        }
+      },
+      valueChanged: (value: T) => {
+        if (currentEditCell?.row && currentEditCell?.column) {
+          const row = table.getRow(currentEditCell.row.toString());
+          const column = table.getColumn(currentEditCell.column);
+
+          const foundRowIndex = data?.findIndex((_) => _ === row.original);
+
+          if (foundRowIndex !== -1) {
+            const updatedData = data.map((row, index) => {
+              if (foundRowIndex === index) {
+                return {
+                  ...data[foundRowIndex],
+                  [currentEditCell.column as string]: value,
+                };
+              }
+
+              return row;
+            });
+
+            const rowHashChanged =
+              objectHash.sha1(data[foundRowIndex]!) !==
+              objectHash.sha1(updatedData[foundRowIndex]!);
+
+            if (rowHashChanged) {
+              if (column && column.columnDef.meta) {
+                valueChange?.({
+                  row: row.original,
+                  column: column.columnDef.meta.tableColumn,
+                });
+              }
+
+              setData(updatedData);
+            }
+          }
+        }
+      },
+    },
   });
+
+  const handleDblClick = (event: MouseEvent) => {
+    const coordinates = getCoordinates(event);
+    table.options?.meta?.startEditCell(coordinates);
+  };
+
+  const handleFocusIn = (event: FocusEvent) => {
+    const coordinates = getCoordinates(event);
+
+    if (currentEventRef.current instanceof MouseEvent) {
+      return;
+    }
+
+    if (table.options?.meta?.currentEditCell != null) {
+      table.options?.meta?.startEditCell(coordinates);
+    }
+  };
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    currentEventRef.current = event;
+  };
+
+  const handleMouseDown = (event: MouseEvent) => {
+    currentEventRef.current = event;
+  };
+
+  const handleClick = (event: MouseEvent) => {
+    const coordinates = getCoordinates(event);
+    const isOnRow = eventIsOnRow(event);
+
+    if (coordinates) {
+      if (
+        (table.options.meta?.currentEditCell &&
+          coordinates.row !== table.options.meta?.currentEditCell.row) ||
+        coordinates.column !== table.options.meta?.currentEditCell?.column
+      ) {
+        table.options.meta?.startEditCell(null);
+      }
+    }
+
+    if (!isOnRow) {
+      table.options.meta?.startEditCell(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('dblclick', handleDblClick);
+    return () => document.removeEventListener('dblclick', handleDblClick);
+  });
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  });
+
+  useEffect(() => {
+    document.addEventListener('focusin', handleFocusIn);
+    return () => document.removeEventListener('focusin', handleFocusIn);
+  });
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  });
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleMouseDown);
+    return () => document.removeEventListener('mousedown', handleMouseDown);
+  });
+
+  // Сохранение в локальное хранилище
+  const handleSaveColumns = (
+    columns: TableColumn[],
+    headers: Header<T, unknown>[],
+  ) => {
+    if (!localStorageKey) return;
+
+    const newColumnsSettings = separateSettings(
+      columns,
+      headers.map((item) => ({ name: item.id, width: item.getSize() })),
+    );
+    setLocalStorageColumns(newColumnsSettings);
+  };
+
+  // Сохранение после ресайза колонки
+  const handleResizeMouseDown = (
+    event: React.MouseEvent<HTMLDivElement>,
+    header: Header<T, unknown>,
+    headerGroup: HeaderGroup<T>,
+  ) => {
+    const resizeHandler = header.getResizeHandler();
+
+    document.addEventListener(
+      'mouseup',
+      (e) => {
+        handleSaveColumns(mergedColumns, headerGroup.headers);
+      },
+      { once: true },
+    );
+
+    return resizeHandler(event);
+  };
 
   const parentRef = useRef<HTMLDivElement>(null);
   const { rows } = table.getRowModel();
@@ -186,8 +297,7 @@ export function Table<T>({
                   header.getContext(),
                 );
                 const thHint =
-                  columnsWithSavedData.find(({ name }) => name === header.id)
-                    ?.hint ?? '';
+                  columns.find(({ name }) => name === header.id)?.hint ?? '';
 
                 return (
                   <Tooltip
@@ -231,14 +341,9 @@ export function Table<T>({
                               header.column.getIsResizing() &&
                                 s.resizerIsResizing,
                             )}
-                            onMouseDown={header.getResizeHandler()}
-                            onTouchStart={header.getResizeHandler()}
-                            onMouseUp={() => {
-                              handleSaveColumnsWidth(
-                                columnsWithSavedData,
-                                headerGroup.headers,
-                              );
-                            }}
+                            onMouseDown={(event) =>
+                              handleResizeMouseDown(event, header, headerGroup)
+                            }
                           />
                         </div>
                       )}
@@ -253,14 +358,14 @@ export function Table<T>({
         <tbody>
           {virtualizer.getVirtualItems().map((virtualRow) => {
             const row = rows[virtualRow.index] as Row<T>;
-
             return (
               <TableRow
                 key={virtualRow.key}
                 virtualIndex={virtualRow.index}
                 rowRef={virtualizer.measureElement}
                 row={row}
-                columns={columnsWithSavedData}
+                table={table}
+                columns={mergedColumns}
                 isSelectedRow={row.getIsSelected()}
                 onClick={onClick}
                 acrossLine={acrossLine}

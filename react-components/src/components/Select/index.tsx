@@ -2,17 +2,22 @@ import React, { forwardRef, Ref, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useMergeRefs } from '@floating-ui/react';
 
-import { Dropdown, Icon, Input } from 'tetacom/react-components';
+import { Dropdown } from '../Dropdown';
+import {Icon} from '../Icons'
 import { SelectProps } from './model';
 import { BaseSelectProps } from './model/base-select-item';
 
 import s from './style.module.scss';
 import listStyle from '../List/style.module.scss';
+import { Input } from '../Input';
 
 const SelectInner = forwardRef(
   <T extends BaseSelectProps>(props: SelectProps<T>, ref: any) => {
     const [value, setValue] = useState<T | null>(props?.value ?? null);
-    const [open, setOpen] = useState<boolean>(false);
+    const [isOpen, setOpen] = useState<boolean>(false);
+
+    const showSelect = props.open !== undefined ? props.open : isOpen;
+
     const inputRef = useRef<HTMLInputElement>(null);
     const foundValue = props.items?.find(({ key }) => key === value?.key);
 
@@ -27,11 +32,10 @@ const SelectInner = forwardRef(
         placement="bottom"
         autoWidth={true}
         resizable={false}
-        open={props.disabled ? false : open}
+        open={props.disabled ? false : showSelect}
         onOpenChange={(e) => !props.disabled && setOpen(e)}
         dropdown={
           <ul className={listStyle.list}>
-            <>
               {props.items?.map((item) => (
                 <li
                   key={item.key}
@@ -57,13 +61,13 @@ const SelectInner = forwardRef(
                   )}
                 </li>
               ))}
-            </>
           </ul>
         }
       >
-        <div style={{ position: 'relative', width: 'max-content' }}>
+        <div style={{ position: 'relative' }}>
           <Input
             {...propsClone}
+            style={{ width: '100%' }}
             ref={useMergeRefs([inputRef, ref])}
             value={foundValue?.headline}
             readonly
@@ -72,7 +76,7 @@ const SelectInner = forwardRef(
                 <Icon
                   style={{
                     transition: 'transform 0.2s',
-                    transform: `rotate(${open ? 180 : 0}deg)`,
+                    transform: `rotate(${showSelect ? 180 : 0}deg)`,
                   }}
                   name={'arrowDownKey'}
                 />

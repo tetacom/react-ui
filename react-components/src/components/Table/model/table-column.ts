@@ -5,6 +5,7 @@ import { AggregationType } from './enum/aggregation-type.enum';
 import { StringFilterType } from './enum/string-filter-type.enum';
 import { ListFilterType } from './enum/list-filter-type.enum';
 import { FilterType } from './enum/filter-type.enum';
+import { CustomCellComponent } from './cell-component';
 
 export class TableColumn extends FilterItem {
   /**
@@ -59,12 +60,13 @@ export class TableColumn extends FilterItem {
   data?: any;
   /**
    * Колонка доступна для редактирования
+   * TODO func callback
    */
-  editable: boolean | ((coordinates: ICellInstance<any>) => boolean);
+  editable: boolean; // | ((coordinates: ICellInstance<unknown>) => boolean);
   /**
    * Компонент для рендера ячейки
    */
-  cellComponent?: any;
+  cellComponent?: CustomCellComponent;
   /**
    * Компонент для рендера заголовка столбца ячейки
    */
@@ -131,9 +133,9 @@ export class TableColumn extends FilterItem {
     headCellClass?: string[];
     cellClass?: string[];
     data?: any;
-    editable?: boolean | ((coordinates: ICellInstance<any>) => boolean);
+    editable?: boolean; // | ((coordinates: ICellInstance<any>) => boolean);
     objectType?: boolean;
-    cellComponent?: any;
+    cellComponent?: CustomCellComponent;
     headCellComponent?: any;
     headDropdownConfig?: HeadDropdownTabConfig;
     filterComponent?: any;

@@ -1,4 +1,4 @@
-import { IDictionary, TableColumn } from 'tetacom/react-components';
+import { IDictionary, TableColumn } from '../model/public-api';
 import { Row } from '@tanstack/react-table';
 
 export interface ICellInstance<T> {
@@ -17,5 +17,5 @@ export interface ICellInstanceValue<T> extends ICellInstance<T> {
 export interface ICustomCell<T> {
   value: any;
   row: Row<T>;
-  dict?: IDictionary | null;
+  dict?: IDictionary<T> | null;
 }
