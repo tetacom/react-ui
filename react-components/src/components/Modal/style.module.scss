@@ -1,0 +1,20 @@
+.modal {
+  margin: var(--spacing-16);
+  background-color: var(--color-global-bgcard);
+  box-shadow: var(--shadow-2);
+  padding: 0 var(--spacing-12);
+  border-radius: var(--radius-12);
+  width: calc(20 * var(--spacing-16));
+  overflow: hidden;
+
+  &Body {
+    padding: var(--spacing-12) 0;
+  }
+}
+
+.modalOverlay {
+  background-color: var(--color-text-40);
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}

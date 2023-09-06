@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { Typography } from '../../../Typography';
 import { GanttProps } from '../../model';
+import { DriveType } from '../../model/public-api';
 
 import s from './style.module.scss';
 
@@ -21,7 +22,14 @@ export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
       <div className={s.patch} />
 
       {items.map(
-        ({ id, name, liftingCapability, hasTopDrive, contractorName }) => {
+        ({
+          id,
+          name,
+          liftingCapability,
+          hasTopDrive,
+          contractorName,
+          driveType,
+        }) => {
           return (
             <div key={id} className={s.drillingRig}>
               <Text fontVariant="title3" className={s.drillingRigName}>
@@ -30,7 +38,10 @@ export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
                   <Text fontVariant="title3" className={s.drillingRigTopDrive}>
                     (ВСП)
                   </Text>
-                )}
+                )}{' '}
+                <Text fontVariant="title3" className={s.drillingRigTopDrive}>
+                  ({driveType === DriveType.Electric ? 'э' : 'д'})
+                </Text>
               </Text>
               <Text fontVariant="caption" className={s.drillingRigCompany}>
                 {contractorName}

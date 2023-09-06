@@ -2,6 +2,44 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.10.1](https://github.com/tetacom/react-ui/compare/react-components-0.10.0...react-components-0.10.1) (2023-09-05)
+
+
+### Bug Fixes
+
+* fix modal zIndex, add this to props ([4c51b9a](https://github.com/tetacom/react-ui/commit/4c51b9afd10be1c30f92d28eb7fe236418cdd029))
+
+## [0.10.0](https://github.com/tetacom/react-ui/compare/react-components-0.9.7...react-components-0.10.0) (2023-09-05)
+
+
+### Features
+
+* badge component ([ac2d41e](https://github.com/tetacom/react-ui/commit/ac2d41e93d0012405ce8ef120763e23b9c99bb5b))
+* modal component ([9f7bc51](https://github.com/tetacom/react-ui/commit/9f7bc518eef0802521b964070b3c66535e3bc5de))
+
+
+### Bug Fixes
+
+* add powerLine to gantt chart ([4a0aa0d](https://github.com/tetacom/react-ui/commit/4a0aa0de3815630bf7ae19e91b9bd2d3a7bad299))
+* show electric or diesel drilling rig ([7ad37ce](https://github.com/tetacom/react-ui/commit/7ad37cebef80839301e398eca40f792cebee9acb))
+
+## [0.9.7](https://github.com/tetacom/react-ui/compare/react-components-0.9.6...react-components-0.9.7) (2023-09-04)
+
+
+### Bug Fixes
+
+* reset button-file after upload ([3b5f0e8](https://github.com/tetacom/react-ui/commit/3b5f0e8fa6bee5316107a08daf88c56a99f9f852))
+
+## [0.9.6](https://github.com/tetacom/react-ui/compare/react-components-0.9.5...react-components-0.9.6) (2023-08-30)
+
+
+### Bug Fixes
+
+* add ellipsis to last well and cluster name ([45b5ad6](https://github.com/tetacom/react-ui/commit/45b5ad6398d5bfaebb8c41aaa6c25debcff6ab50))
+* change gantt colors ([457266d](https://github.com/tetacom/react-ui/commit/457266d2801b0d9c2bd8b694ccb3784591989644))
+* gray color for zero production clusters ([1f1aeae](https://github.com/tetacom/react-ui/commit/1f1aeaefdefaaafa9d6d4082b9761e6dc683b9d8))
+* table change column width ([f5cc9f8](https://github.com/tetacom/react-ui/commit/f5cc9f8b7ac45900025d6e202b4829dcadb2046c))
+
 ## [0.9.5](https://github.com/tetacom/react-ui/compare/react-components-0.9.4...react-components-0.9.5) (2023-08-28)
 
 
