@@ -133,7 +133,7 @@ export class TableColumn extends FilterItem {
     headCellClass?: string[];
     cellClass?: string[];
     data?: any;
-    editable?: boolean | ((coordinates: ICellInstance<any>) => boolean);
+    editable?: boolean; // | ((coordinates: ICellInstance<any>) => boolean);
     objectType?: boolean;
     cellComponent?: CustomCellComponent;
     headCellComponent?: any;
