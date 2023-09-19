@@ -75,7 +75,7 @@
     "@vitest/ui": "0.31.4",
     "babel-jest": "^29.4.1",
     "babel-loader": "8.1.0",
-    "cypress": "12.16.0",
+    "cypress": "13.2.0",
     "eslint": "8.46.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "2.14.0",
