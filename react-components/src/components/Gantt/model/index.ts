@@ -35,7 +35,4 @@ export interface GanttProps<T extends MilestoneOptions> {
 
   // Высота диаграммы
   height?: React.CSSProperties['height'];
-
-  // Минимальное и максимальное значение production
-  productionEndpoints: [number, number];
 }

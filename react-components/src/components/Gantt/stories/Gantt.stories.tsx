@@ -118,7 +118,7 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
       rigItem.milestones.push({
         startTime: moveRows[0].startTime,
         endTime: moveRows[moveRows.length - 1]?.endTime,
-        production: fakerRU.number.int({ min: 1000, max: 3000 }),
+        production: 0,
         clusterType: 'move',
         powerLine: null,
         distance: fakerRU.number.int({ min: 10, max: 500 }),
@@ -132,7 +132,7 @@ const rigItems: MilestoneItem<CustomMilestone>[] = [];
 export const Default: Story = {
   args: {
     items: rigItems,
+    zoom: ZoomSize.year,
     height: 'calc(100vh - 32px)',
-    productionEndpoints: [1000, 3000],
   },
 };
