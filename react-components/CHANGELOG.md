@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.11.2](https://github.com/tetacom/react-ui/compare/react-components-0.11.1...react-components-0.11.2) (2023-09-19)
+
+
+### Bug Fixes
+
+* calc min and max production inside gantt ([9678988](https://github.com/tetacom/react-ui/commit/967898853ede35c3664bea40e28f12f865c2d387))
+
 ### [0.11.1](https://github.com/tetacom/react-ui/compare/react-components-0.11.0...react-components-0.11.1) (2023-09-06)
 
 
