@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.11.4](https://github.com/tetacom/react-ui/compare/react-components-0.11.3...react-components-0.11.4) (2023-10-09)
+
+
+### Bug Fixes
+
+* remove export i-custom-cell ([d6495f9](https://github.com/tetacom/react-ui/commit/d6495f9aff9c8c547e7eb1d769e051ed4256b96a))
+
 ### [0.11.3](https://github.com/tetacom/react-ui/compare/react-components-0.11.2...react-components-0.11.3) (2023-10-06)
 
 
