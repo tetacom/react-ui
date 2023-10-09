@@ -35,7 +35,7 @@ export default meta;
 type Story = StoryObj<typeof Table>;
 
 const initColumns: TableColumn[] = configResponse;
-const initDictionary: IDictionary<any> = dictResponse;
+const initDictionary: IDictionary = dictResponse;
 
 const CustomComponentWithToggle: FC<ICellComponent<any>> = ({
   row,

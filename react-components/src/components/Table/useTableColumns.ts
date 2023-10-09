@@ -7,7 +7,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 
 export const useTableColumns = <T>(
   columns: TableColumn[],
-  dictionary: IDictionary<T> | null,
+  dictionary: IDictionary | null,
 ) => {
   const columnHelper = createColumnHelper<T>();
 
