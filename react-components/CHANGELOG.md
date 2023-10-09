@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.11.5](https://github.com/tetacom/react-ui/compare/react-components-0.11.4...react-components-0.11.5) (2023-10-09)
+
+
+### Bug Fixes
+
+* edit IDictionary ([99b0d08](https://github.com/tetacom/react-ui/commit/99b0d0848280ac2ff6fd1a33fd96b4f7aab9d1df))
+
 ### [0.11.4](https://github.com/tetacom/react-ui/compare/react-components-0.11.3...react-components-0.11.4) (2023-10-09)
 
 
