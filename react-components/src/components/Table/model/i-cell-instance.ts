@@ -1,5 +1,4 @@
-import { IDictionary, TableColumn } from '../model/public-api';
-import { Row } from '@tanstack/react-table';
+import { TableColumn } from './public-api';
 
 export interface ICellInstance<T> {
   row: T;
@@ -12,10 +11,4 @@ export interface ICellInstanceEvent<T> extends ICellInstance<T> {
 
 export interface ICellInstanceValue<T> extends ICellInstance<T> {
   value: any;
-}
-
-export interface ICustomCell<T> {
-  value: any;
-  row: Row<T>;
-  dict?: IDictionary<T> | null;
 }
