@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.12.0](https://github.com/tetacom/react-ui/compare/react-components-0.11.6...react-components-0.12.0) (2023-10-10)
+
+
+### Features
+
+* card component ([fcf495b](https://github.com/tetacom/react-ui/commit/fcf495b7efb956ba08164ad65b24e1f5f558d8d4))
+
+
+### Bug Fixes
+
+* fix tooltip shadow ([20aa171](https://github.com/tetacom/react-ui/commit/20aa17171e83d1144bfd02e89facb408cc9844c6))
+
 ### [0.11.6](https://github.com/tetacom/react-ui/compare/react-components-0.11.5...react-components-0.11.6) (2023-10-10)
 
 
