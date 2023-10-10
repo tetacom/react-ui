@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.11.6](https://github.com/tetacom/react-ui/compare/react-components-0.11.5...react-components-0.11.6) (2023-10-10)
+
+
+### Bug Fixes
+
+* button type file add loader ([aff5eb3](https://github.com/tetacom/react-ui/commit/aff5eb32f8aa5e06fb0be7b23db0c352f63ccb44))
+* fix gear icon ([ec59d6b](https://github.com/tetacom/react-ui/commit/ec59d6bbe8d42460e6edb573a2d403f492e507cb))
+
 ### [0.11.5](https://github.com/tetacom/react-ui/compare/react-components-0.11.4...react-components-0.11.5) (2023-10-09)
 
 
