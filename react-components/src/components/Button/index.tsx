@@ -1,8 +1,7 @@
 import React, { ChangeEvent, Children, forwardRef, useRef, useId } from 'react';
 import classNames from 'classnames';
-import { motion, AnimatePresence } from 'framer-motion';
 
-import { Loader } from './Loader';
+import { Loader } from './components/Loader';
 import { ButtonProps, ButtonRef, ShapeType, SizeType, ViewType } from './model';
 import s from './style.module.scss';
 
@@ -98,6 +97,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
           style={{ cursor: 'pointer' }}
         >
           {buttonContent}
+          <Loader loading={loading} />
           <input
             ref={fileInputRef}
             type="file"
@@ -118,18 +118,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
         className={classes}
       >
         {buttonContent}
-        <AnimatePresence initial={false}>
-          {loading && (
-            <motion.span
-              className={s.loading}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-            >
-              <Loader />
-            </motion.span>
-          )}
-        </AnimatePresence>
+        <Loader loading={loading} />
       </button>
     );
   },

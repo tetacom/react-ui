@@ -22,18 +22,6 @@
     transition: opacity 0.2s, transform 0.2s;
   }
 
-  .loading {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-  }
-
   &Shape {
     &Brick {
       border-radius: var(--radius-field-brick);
