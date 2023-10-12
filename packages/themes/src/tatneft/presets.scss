@@ -4,21 +4,22 @@ $presets: (
       global: (
         link: #007effff,
         white: #ffffffff,
-        bgmain: #f4f4f4ff,
+        bgmain: #f4f5fcff,
+        bgpanel: #f6f6f6ff,
         bgcard: #ffffffff,
         staticprimary: #26413fff
       ),
       text: (
-        5: #24242417,
-        10: #0d0d0d24,
-        20: #0307073b,
-        30: #02050852,
-        40: #01010469,
-        50: #01010480,
-        60: #03030799,
-        70: #020203b0,
-        80: #020203c7,
-        90: #020203e0
+        5: #0919860f,
+        10: #0f163e21,
+        20: #070c2238,
+        30: #0007144f,
+        40: #050b1466,
+        50: #0306087a,
+        60: #05090b91,
+        70: #030707a6,
+        80: #020303ba,
+        90: #030303cf
       ),
       primary: (
         5: #e6f7e9ff,
@@ -73,7 +74,8 @@ $presets: (
       global: (
         link: #007effff,
         white: #ffffffff,
-        bgmain: #262626ff,
+        bgmain: #212121ff,
+        bgpanel: #303030ff,
         bgcard: #2b2b2bff,
         staticprimary: #26413fff
       ),
@@ -114,11 +116,11 @@ $presets: (
         90: #d8eaccff
       ),
       red: (
-        5: #662a2bff,
-        10: #803032ff,
-        20: #9a3538ff,
-        30: #b5393cff,
-        40: #d23b40ff,
+        5: #4e2921ff,
+        10: #6b322aff,
+        20: #8a3931ff,
+        30: #aa3c36ff,
+        40: #cc3c3aff,
         50: #ef3d42ff,
         60: #fa606bff,
         70: #ff8794ff,
