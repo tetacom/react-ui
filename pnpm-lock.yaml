@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.0.0-beta.54
     version: 3.0.0-beta.54(react@18.2.0)
   '@tetacom/themes':
-    specifier: ^0.0.20
-    version: 0.0.20(tslib@2.6.2)
+    specifier: ^0.0.21
+    version: 0.0.21
   '@types/d3':
     specifier: ^7.4.0
     version: 7.4.0
@@ -7880,12 +7880,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@tetacom/themes@0.0.20(tslib@2.6.2):
-    resolution: {integrity: sha512-/w5ZsMak8w2e2JQX82njEcWBcUlg0eFAKeUnvjJiGL+zDcvcD/i4ptP2ok5zfULiFkuOHZ/bdxDLzsr0M+r76g==}
-    peerDependencies:
-      tslib: 2.6.1
-    dependencies:
-      tslib: 2.6.2
+  /@tetacom/themes@0.0.21:
+    resolution: {integrity: sha512-aAIasVZY2iwKA1ePkqyqFSrD4NV+LGwQRRtrGDpRhA3hObtsHc9+lorEcQBYrbv6Xzm2pybfBH05n9y6ynqcUA==}
     dev: false
 
   /@tootallnate/once@2.0.0:

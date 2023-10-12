@@ -154,10 +154,12 @@
           }
         }
 
-        &.underline {
-          td {
-            &::after {
-              background-color: var(--color-text-10);
+        &:not(:last-child) {
+          &.underline {
+            td {
+              &::after {
+                background-color: var(--color-text-10);
+              }
             }
           }
         }
