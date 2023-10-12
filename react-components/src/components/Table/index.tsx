@@ -119,15 +119,15 @@ export function Table<T>({
         }
       },
       valueChanged: (value: T) => {
-        console.log(currentEditCell);
-
-        if (currentEditCell?.row !== null && currentEditCell?.row !== undefined && currentEditCell?.column !== null && currentEditCell?.row !== undefined) {
+        if (
+          currentEditCell?.row !== null &&
+          currentEditCell?.row !== undefined &&
+          currentEditCell?.column !== null
+        ) {
           const row = table.getRow(currentEditCell.row.toString());
           const column = table.getColumn(currentEditCell.column);
 
           const foundRowIndex = data?.findIndex((_) => _ === row.original);
-
-
 
           if (foundRowIndex !== -1) {
             const updatedData = data.map((row, index) => {
@@ -254,7 +254,7 @@ export function Table<T>({
 
     document.addEventListener(
       'mouseup',
-      (e) => {
+      () => {
         handleSaveColumns(mergedColumns, headerGroup.headers);
       },
       { once: true },

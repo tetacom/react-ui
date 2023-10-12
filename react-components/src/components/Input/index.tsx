@@ -119,7 +119,9 @@ export const Input = forwardRef<InputRef, InputProps>(
             readOnly={readonly}
           />
 
-          <span className={s.placeholder}>{placeholder}</span>
+          <span className={s.placeholder}>
+            <span>{placeholder}</span>
+          </span>
 
           {leftIconName && (
             <span className={s.icon}>

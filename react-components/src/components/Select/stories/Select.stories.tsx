@@ -34,13 +34,12 @@ const CustomItem = (props: ModelItem) => {
 export const Default: Story = {
   render: (props) => {
     return (
-      <div>
-        <Select<ModelItem>
-          {...props}
-          onChangeItem={(item) => item.color}
-          onItemRender={(item) => <CustomItem {...item} />}
-        />
-      </div>
+      <Select<ModelItem>
+        {...props}
+        onChangeItem={(item) => item.color}
+        onItemRender={(item) => <CustomItem {...item} />}
+        style={{ width: 220 }}
+      />
     );
   },
   args: {

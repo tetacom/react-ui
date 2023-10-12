@@ -9,8 +9,6 @@ import {
   useInteractions,
   useClick,
   useDismiss,
-  FloatingPortal,
-  FloatingOverlay,
 } from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -23,7 +21,7 @@ export const Dropdown: FC<DropdownProps> = ({
   placement = 'bottom',
   possiblePlacements = ['left-end', 'right-end'],
   open,
-  autoWidth = false,
+  width,
   children,
   onOpenChange,
   resizable = false,
@@ -62,8 +60,16 @@ export const Dropdown: FC<DropdownProps> = ({
             setMaxHeight(height);
           });
 
+          let maxWidth = 'auto';
+          if (width?.type === 'parent') {
+            maxWidth = `${rects.reference.width}px`;
+          } else if (width?.type === 'fixed') {
+            maxWidth = width?.value ? `${width.value}px` : 'auto';
+          }
+
           Object.assign(elements.floating.style, {
-            maxWidth: autoWidth ? `${rects.reference.width}px` : 'auto',
+            maxWidth,
+            width: maxWidth,
             maxHeight: `${availableHeight}px`,
           });
         },
