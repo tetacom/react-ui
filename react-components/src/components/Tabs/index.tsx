@@ -21,6 +21,8 @@ export const Tabs: FC<TabsProps> = ({
   onChange = null,
   direction = 'horizontal',
   size = 'large',
+  tabsGap = 0,
+  tabStyle,
 }) => {
   const tabsRef = useRef<HTMLUListElement>(null);
   const [currentKey, setCurrentKey] = useState(defaultActiveKey);
@@ -47,7 +49,7 @@ export const Tabs: FC<TabsProps> = ({
 
   return (
     <div className={classNames(s.tabs, direction === 'vertical' && s.tabsLeft)}>
-      <ul ref={tabsRef} className={s.nav}>
+      <ul ref={tabsRef} className={s.nav} style={{ gap: tabsGap }}>
         {items.map(({ key, label, disabled }) => (
           <li key={key} className={s.navItem}>
             <button
@@ -59,6 +61,7 @@ export const Tabs: FC<TabsProps> = ({
               )}
               data-key={key}
               disabled={disabled}
+              style={tabStyle}
               onClick={() => handleChange(key)}
             >
               {label}
@@ -73,6 +76,7 @@ export const Tabs: FC<TabsProps> = ({
           selectedKey={selectedKey}
           direction={direction}
           disabled={isDisabledSelectedKey}
+          tabsGap={tabsGap}
         />
       </div>
 

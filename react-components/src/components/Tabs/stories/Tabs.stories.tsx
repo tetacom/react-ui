@@ -25,6 +25,11 @@ export const Default: Story = {
     <Tabs
       defaultActiveKey="2"
       size="small"
+      tabsGap={24}
+      tabStyle={{
+        paddingLeft: 0,
+        paddingRight: 0,
+      }}
       items={[
         {
           key: '1',
