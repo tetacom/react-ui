@@ -14,6 +14,7 @@ interface Props {
   selectedKey: TabType['key'];
   direction: Direction;
   disabled: boolean;
+  tabsGap: number;
 }
 
 export const Highlight: FC<Props> = ({
@@ -21,6 +22,7 @@ export const Highlight: FC<Props> = ({
   selectedKey,
   direction,
   disabled,
+  tabsGap,
 }) => {
   if (!tabsRef) {
     return null;
@@ -36,8 +38,9 @@ export const Highlight: FC<Props> = ({
     if (currentTab.dataset.key === selectedKey) {
       break;
     }
-    offsetWidth += currentTab.offsetWidth;
-    offsetHeight += currentTab.offsetHeight;
+
+    offsetWidth += currentTab.offsetWidth + tabsGap;
+    offsetHeight += currentTab.offsetHeight + tabsGap;
   }
 
   const horizontal = {

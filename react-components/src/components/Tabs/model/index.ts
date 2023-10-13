@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { TabType } from './tabType';
 
 export type Direction = 'horizontal' | 'vertical';
@@ -21,4 +23,10 @@ export interface TabsProps {
 
   // Размер вкладок
   size?: TabSize;
+
+  // Расстояние между вкладками
+  tabsGap?: number;
+
+  // Стилизация вкладки
+  tabStyle?: React.CSSProperties;
 }

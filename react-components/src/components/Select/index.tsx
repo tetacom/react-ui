@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useMergeRefs } from '@floating-ui/react';
 
 import { Dropdown } from '../Dropdown';
-import {Icon} from '../Icons'
+import { Icon } from '../Icons';
 import { SelectProps } from './model';
 import { BaseSelectProps } from './model/base-select-item';
 
@@ -21,53 +21,57 @@ const SelectInner = forwardRef(
     const inputRef = useRef<HTMLInputElement>(null);
     const foundValue = props.items?.find(({ key }) => key === value?.key);
 
-    const propsClone = { ...props };
-    delete propsClone.allowNull;
-    delete propsClone.onChangeItem;
-    delete propsClone.onItemRender;
+    const getInputProps = ({
+      allowNull,
+      onChangeItem,
+      onItemRender,
+      items,
+      ...rest
+    }: SelectProps<T>) => rest;
 
     return (
       <Dropdown
-        possiblePlacements={['bottom', 'top']}
-        placement="bottom"
-        autoWidth={true}
+        possiblePlacements={['bottom-start', 'top-start']}
         resizable={false}
+        width={{
+          type: 'parent',
+        }}
         open={props.disabled ? false : showSelect}
         onOpenChange={(e) => !props.disabled && setOpen(e)}
         dropdown={
           <ul className={listStyle.list}>
-              {props.items?.map((item) => (
-                <li
-                  key={item.key}
-                  role="option"
-                  className={classNames([
-                    listStyle.item,
-                    item === foundValue ? s.selected : null,
-                  ])}
-                  onClick={() => {
-                    setValue(item);
-                    setOpen(false);
-                    props.onChangeItem && props.onChangeItem(item);
-                  }}
-                >
-                  {props.onItemRender ? (
-                    <div className={listStyle.textHeadline}>
-                      {props.onItemRender(item)}
-                    </div>
-                  ) : (
-                    <span className={listStyle.textHeadline}>
-                      {item.headline}
-                    </span>
-                  )}
-                </li>
-              ))}
+            {props.items?.map((item) => (
+              <li
+                key={item.key}
+                role="option"
+                className={classNames([
+                  listStyle.item,
+                  item === foundValue ? s.selected : null,
+                ])}
+                onClick={() => {
+                  setValue(item);
+                  setOpen(false);
+                  props.onChangeItem && props.onChangeItem(item);
+                }}
+              >
+                {props.onItemRender ? (
+                  <div className={listStyle.textHeadline}>
+                    {props.onItemRender(item)}
+                  </div>
+                ) : (
+                  <span className={listStyle.textHeadline}>
+                    {item.headline}
+                  </span>
+                )}
+              </li>
+            ))}
           </ul>
         }
       >
         <div style={{ position: 'relative' }}>
           <Input
-            {...propsClone}
-            style={{ width: '100%' }}
+            {...getInputProps(props)}
+            style={{ width: '100%', ...props.style }}
             ref={useMergeRefs([inputRef, ref])}
             value={foundValue?.headline}
             readonly

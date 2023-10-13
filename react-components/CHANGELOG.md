@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.1](https://github.com/tetacom/react-ui/compare/react-components-0.12.0...react-components-0.12.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* badge add nowrap rule ([0d29245](https://github.com/tetacom/react-ui/commit/0d292455fee29ea5b3d3c34d06ab7e7f0567a76e))
+* styled tabs ([f4685e9](https://github.com/tetacom/react-ui/commit/f4685e953ec9f8d74ede68fc9d09ea9b06d33c6e))
+* update select styles ([95540f4](https://github.com/tetacom/react-ui/commit/95540f4e0ff3fc3300e3837f88db7d039432ada9))
+* update themes, remove underline for last table row ([257941c](https://github.com/tetacom/react-ui/commit/257941cfadc39e323c836fba75d60da48b146588))
+
 ## [0.12.0](https://github.com/tetacom/react-ui/compare/react-components-0.11.6...react-components-0.12.0) (2023-10-10)
 
 
