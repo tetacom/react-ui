@@ -14,7 +14,7 @@ const Wrapper: FC<React.PropsWithChildren> = ({ children }) => (
 
 type Props = Pick<
   ModalProps,
-  'footer' | 'onOk' | 'okText' | 'onCancel' | 'cancelText'
+  'footer' | 'onOk' | 'okText' | 'onCancel' | 'cancelText' | 'loading'
 >;
 
 export const Footer: FC<Props> = ({
@@ -23,6 +23,7 @@ export const Footer: FC<Props> = ({
   okText,
   onCancel,
   cancelText,
+  loading = false,
 }) => {
   if (!footer) return null;
 
@@ -30,10 +31,12 @@ export const Footer: FC<Props> = ({
 
   return (
     <Wrapper>
-      <Button view="ghost" onClick={onCancel}>
+      <Button view="ghost" onClick={onCancel} loading={loading}>
         {cancelText || 'Отмена'}
       </Button>
-      <Button onClick={onOk}>{okText || 'Ok'}</Button>
+      <Button onClick={onOk} loading={loading}>
+        {okText || 'Ok'}
+      </Button>
     </Wrapper>
   );
 };
