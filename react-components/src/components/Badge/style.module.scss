@@ -7,6 +7,9 @@
   border: 1px solid var(--color);
   color: var(--color);
   cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color 0.2s, background-color 0.2s, border 0.2s;
 
   &Stroke {
