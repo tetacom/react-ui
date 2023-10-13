@@ -24,6 +24,7 @@ export const Dropdown: FC<DropdownProps> = ({
   width,
   children,
   onOpenChange,
+  zIndex,
   resizable = false,
 }) => {
   const [isOpen, setOpen] = React.useState(false);
@@ -110,6 +111,7 @@ export const Dropdown: FC<DropdownProps> = ({
               transition={{ duration: 0.1 }}
               style={{
                 ...floatingStyles,
+                zIndex,
               }}
               className={s.dropdownContent}
             >

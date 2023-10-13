@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.2](https://github.com/tetacom/react-ui/compare/react-components-0.12.1...react-components-0.12.2) (2023-10-13)
+
+
+### Bug Fixes
+
+* add zIndex to select and dropdown ([853773a](https://github.com/tetacom/react-ui/commit/853773a26d44241b127468cf4a7b6bb1acd8bd84))
+* some changes ([ee6e595](https://github.com/tetacom/react-ui/commit/ee6e59546c5e5c487bad801c0c5a01db152e3e41))
+
 ### [0.12.1](https://github.com/tetacom/react-ui/compare/react-components-0.12.0...react-components-0.12.1) (2023-10-13)
 
 

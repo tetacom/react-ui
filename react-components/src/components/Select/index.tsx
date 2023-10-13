@@ -6,10 +6,10 @@ import { Dropdown } from '../Dropdown';
 import { Icon } from '../Icons';
 import { SelectProps } from './model';
 import { BaseSelectProps } from './model/base-select-item';
+import { Input } from '../Input';
 
 import s from './style.module.scss';
 import listStyle from '../List/style.module.scss';
-import { Input } from '../Input';
 
 const SelectInner = forwardRef(
   <T extends BaseSelectProps>(props: SelectProps<T>, ref: any) => {
@@ -38,6 +38,7 @@ const SelectInner = forwardRef(
         }}
         open={props.disabled ? false : showSelect}
         onOpenChange={(e) => !props.disabled && setOpen(e)}
+        zIndex={props.zIndex}
         dropdown={
           <ul className={listStyle.list}>
             {props.items?.map((item) => (

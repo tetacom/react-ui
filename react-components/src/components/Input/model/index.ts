@@ -33,7 +33,7 @@ export interface InputProps
   placeholder?: string;
 
   // Сообщение об ошибке
-  errorMessage?: string;
+  errorMessage?: string | null;
 
   // Отключен ли ввод
   disabled?: boolean;

@@ -28,4 +28,7 @@ export interface DropdownProps extends PropsWithChildren {
 
   // Обратный вызов изменения состояния открыто/закрыто
   onOpenChange?: (event: boolean) => void;
+
+  // Положение дропдауна и его дочерних элементов по оси z
+  zIndex?: React.CSSProperties['zIndex'];
 }

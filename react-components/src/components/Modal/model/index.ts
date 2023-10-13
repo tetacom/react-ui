@@ -22,6 +22,9 @@ export interface ModalProps extends React.PropsWithChildren {
   // Содержимое нижнего колонтитула, заданное как footer={false}, если вам не нужны кнопки по умолчанию
   footer?: React.ReactElement[] | boolean;
 
+  // Установить статус загрузки модального окна
+  loading?: boolean;
+
   // Ширина модального окна
   width?: CSSProperties['width'];
 

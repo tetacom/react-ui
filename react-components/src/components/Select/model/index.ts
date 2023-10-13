@@ -22,4 +22,7 @@ export interface SelectProps<T extends BaseSelectProps>
 
   // Обратный вызов для кастомного рендера
   onItemRender?: (item: T) => React.ReactElement;
+
+  // Положение селекта и его дочерних элементов по оси z
+  zIndex?: React.CSSProperties['zIndex'];
 }

@@ -27,6 +27,7 @@ export const Modal: FC<ModalProps> = ({
   cancelText = '',
   title = '',
   footer = true,
+  loading = false,
   width,
   zIndex,
   style,
@@ -85,6 +86,7 @@ export const Modal: FC<ModalProps> = ({
                     okText={okText}
                     onCancel={onCancel}
                     cancelText={cancelText}
+                    loading={loading}
                   />
                 </motion.div>
               </FloatingFocusManager>

@@ -68,6 +68,7 @@ export function Slider({
               title={value.toString()}
               open={tooltipOpen}
               placement={tooltipPlacement}
+              delay={0}
             >
               <button
                 type="button"
