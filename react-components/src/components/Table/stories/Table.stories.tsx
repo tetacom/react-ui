@@ -6,7 +6,6 @@ import { TableDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
 import { FilterType } from '../model/public-api';
 import { Toggle } from '../../Toggle';
-import { ICellInstance } from '../model/i-cell-instance';
 import { IDictionary } from '../model/dictionary';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
@@ -17,10 +16,9 @@ import { Card } from '../../Card';
 import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
+import { ClusterDto } from './tableType';
 
 const { Paragraph } = Typography;
-
-type IData = any;
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
@@ -35,10 +33,11 @@ export default meta;
 
 type Story = StoryObj<typeof Table>;
 
+const initData: ClusterDto[] = dataResponse;
 const initColumns: TableColumn[] = configResponse;
 const initDictionary: IDictionary = dictResponse;
 
-const CustomComponentWithToggle: FC<ICellComponent<any>> = ({
+const CustomComponentWithToggle: FC<ICellComponent<ClusterDto>> = ({
   row,
   column,
 }) => {
@@ -46,7 +45,10 @@ const CustomComponentWithToggle: FC<ICellComponent<any>> = ({
   return <Toggle checked={value} />;
 };
 
-const CustomComponentWithDate: FC<ICellComponent<any>> = ({ row, column }) => {
+const CustomComponentWithDate: FC<ICellComponent<ClusterDto>> = ({
+  row,
+  column,
+}) => {
   const value = row.getValue<object>(column.id);
 
   if (!(typeof value === 'object' && value !== null)) {
@@ -56,7 +58,7 @@ const CustomComponentWithDate: FC<ICellComponent<any>> = ({ row, column }) => {
   return <div>{Object.values(value).join(' — ')}</div>;
 };
 
-const TempCustomComponent: FC<ICellComponent<any>> = ({
+const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({
   column,
   row,
   dict,
@@ -122,16 +124,11 @@ const TableStory: FC<{
       return {
         ...column,
         cellComponent: TempCustomComponent,
-        mergedColumnNames: ['id'],
       };
     }
 
     return column;
   });
-
-  const handleClick = (cell: ICellInstance<IData>) => {
-    console.log('table onClick:', cell);
-  };
 
   return (
     <Card style={{ padding: 0 }}>
@@ -139,7 +136,7 @@ const TableStory: FC<{
         localStorageKey={localStorageKey}
         height={height}
         acrossLine={acrossLine}
-        dataSource={dataResponse}
+        dataSource={initData}
         columns={columns}
         sticky={sticky}
         skeleton={
@@ -154,7 +151,6 @@ const TableStory: FC<{
         }
         dictionary={initDictionary}
         cellParams={cellParams}
-        onClick={handleClick}
         hiddenColumnNames={hiddenColumnNames}
       />
     </Card>
@@ -171,7 +167,7 @@ export const Default: Story = {
     },
     height: 'calc(100vh - 32px)',
     acrossLine: false,
-    hiddenColumnNames: ['ngduId'],
+    // hiddenColumnNames: ['ngduId'],
   },
 };
 
@@ -185,20 +181,20 @@ export const SmallTable: Story = {
     },
     height: 'calc(100vh - 32px)',
     acrossLine: true,
-    hiddenColumnNames: [
-      'year',
-      'fieldId',
-      'ngduId',
-      'investmentDate',
-      'coordinateX',
-      'coordinateY',
-      'landAllocationDuration',
-      'idd',
-      'netPresentValue',
-      'payBackTime',
-      'sitePreparationDuration',
-      'iddCoeff',
-      'netPresentValueCoeff',
-    ],
+    // hiddenColumnNames: [
+    //   'year',
+    //   'fieldId',
+    //   'ngduId',
+    //   'investmentDate',
+    //   'coordinateX',
+    //   'coordinateY',
+    //   'landAllocationDuration',
+    //   'idd',
+    //   'netPresentValue',
+    //   'payBackTime',
+    //   'sitePreparationDuration',
+    //   'iddCoeff',
+    //   'netPresentValueCoeff',
+    // ],
   },
 };
