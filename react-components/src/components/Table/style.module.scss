@@ -127,10 +127,6 @@
         td {
           @include fontBody3;
 
-          &:not(:has(input)) {
-            padding: var(--radius-6) var(--radius-8);
-          }
-
           position: relative;
           color: var(--color-text-90);
 
@@ -143,6 +139,14 @@
             height: 1px;
             background-color: transparent;
             transition: background-color 0.15s;
+          }
+
+          &:not(:has(input)) {
+            padding: var(--radius-6) var(--radius-8);
+          }
+
+          &.resetPadding {
+            padding: 0;
           }
 
           .tdContent {

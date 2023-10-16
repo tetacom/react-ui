@@ -3,7 +3,6 @@ import { Cell, flexRender, Row, Table } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
-import { ICellInstance } from '../../model/public-api';
 
 import s from '../../style.module.scss';
 
@@ -11,9 +10,7 @@ export interface ITableRow<T> {
   virtualIndex: number;
   row: Row<T>;
   table: Table<T>;
-  columns: TableProps<T>['columns'];
   isSelectedRow?: boolean;
-  onClick?: (cell: ICellInstance<T>) => void;
   rowRef: (node: Element | null) => void;
   acrossLine?: TableProps<T>['acrossLine'];
 }
@@ -27,15 +24,18 @@ function TableCell<T>({
   isEdit: boolean;
 }) {
   const cellComponent = cell.column.columnDef.cell;
+  const isCustomCell = Boolean(
+    cell.column.columnDef.meta?.tableColumn.cellComponent,
+  );
 
   return (
     <td
       key={cell.id}
       data-column={cell.column.id}
       data-row={cell.row.id}
+      className={classNames(isCustomCell && s.resetPadding)}
       style={{
         width,
-        flex: `1 0 ${width}px`,
       }}
     >
       {flexRender(cellComponent, cell.getContext())}
@@ -79,7 +79,7 @@ function TableRow<T>({
       data-index={virtualIndex}
       onClick={handleClick}
     >
-      {getVisibleCells().map((cell, index) => {
+      {getVisibleCells().map((cell) => {
         const cellWidth = cell.column.getSize();
 
         const isEdit =
