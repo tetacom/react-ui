@@ -2,6 +2,21 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.3](https://github.com/tetacom/react-ui/compare/react-components-0.12.2...react-components-0.12.3) (2023-10-16)
+
+
+### Bug Fixes
+
+* add default date and number cells with optional format ([194001b](https://github.com/tetacom/react-ui/commit/194001bd469fcc77d36e05778594f1c0a7e2144c))
+* change table header bg ([2287b99](https://github.com/tetacom/react-ui/commit/2287b9976047ce6963fbfefe6588f6bc8e00f0ac))
+* fix number default cell ([80c4f7c](https://github.com/tetacom/react-ui/commit/80c4f7ce8ef0e0219fa6044b9cd04110ca4c1973))
+* fix tooltip with array children ([053d7d5](https://github.com/tetacom/react-ui/commit/053d7d54e0e0dd10b8d5ef8bc56a1dad139834ce))
+* remove hiddenColumnNames prop ([17c5e76](https://github.com/tetacom/react-ui/commit/17c5e76a4ee160decf56d619e03b475a2c0e61fb))
+* remove zIndex from select input props ([4bd2e28](https://github.com/tetacom/react-ui/commit/4bd2e28ecd2c7db68c703c73ded8ed05589b929d))
+* reset padding for custom cells ([41a43ee](https://github.com/tetacom/react-ui/commit/41a43ee7b7991992c2928cf920308f319008d989))
+* update custom cells ([8ce5219](https://github.com/tetacom/react-ui/commit/8ce521919b2b288a9e25637b76ba423ce3c8ab22))
+* update data with type ([b968d81](https://github.com/tetacom/react-ui/commit/b968d811484b3e641c42443cbd86f220e4c85ebb))
+
 ### [0.12.2](https://github.com/tetacom/react-ui/compare/react-components-0.12.1...react-components-0.12.2) (2023-10-13)
 
 

@@ -4,22 +4,19 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Table } from '../index';
 import { TableDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
-import { FilterType } from '../model/public-api';
-import { Toggle } from '../../Toggle';
-import { ICellInstance } from '../model/i-cell-instance';
 import { IDictionary } from '../model/dictionary';
-
-import configResponse from './configResponse.json';
-import dataResponse from './dataResponse.json';
-import dictResponse from './dictResponse.json';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
 import { Typography } from '../../Typography';
 import { ICellComponent } from '../model/i-cell-component';
+import { Card } from '../../Card';
+
+import configResponse from './configResponse.json';
+import dataResponse from './dataResponse.json';
+import dictResponse from './dictResponse.json';
+import { ClusterDto } from './tableType';
 
 const { Paragraph } = Typography;
-
-type IData = any;
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
@@ -34,35 +31,56 @@ export default meta;
 
 type Story = StoryObj<typeof Table>;
 
+const initData: ClusterDto[] = dataResponse;
 const initColumns: TableColumn[] = configResponse;
 const initDictionary: IDictionary = dictResponse;
 
-const CustomComponentWithToggle: FC<ICellComponent<any>> = ({
+const hiddenFields = [
+  'year',
+  'fieldId',
+  'ngduId',
+  'investmentDate',
+  'coordinateX',
+  'coordinateY',
+  'landAllocationDuration',
+  'idd',
+  'netPresentValue',
+  'payBackTime',
+  'sitePreparationDuration',
+  'iddCoeff',
+  'netPresentValueCoeff',
+];
+const smallTableColumns = initColumns.map((column) => {
+  if (hiddenFields.includes(column.name)) {
+    return { ...column, hidden: true };
+  }
+
+  return column;
+});
+
+const CustomComponentWithDate: FC<ICellComponent<ClusterDto>> = ({
   row,
   column,
 }) => {
-  const value = row.getValue<boolean>(column.id);
-  return <Toggle checked={value} />;
-};
-
-const CustomComponentWithDate: FC<ICellComponent<any>> = ({ row, column }) => {
   const value = row.getValue<object>(column.id);
 
   if (!(typeof value === 'object' && value !== null)) {
     return value;
   }
 
-  return <div>{Object.values(value).join(' — ')}</div>;
+  return (
+    <div
+      style={{
+        padding: 'var(--radius-6) var(--radius-8)',
+      }}
+    >
+      {Object.values(value).join(' — ')}
+    </div>
+  );
 };
 
-const TempCustomComponent: FC<ICellComponent<any>> = ({
-  column,
-  row,
-  dict,
-}) => {
+const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
   let ngduName;
-  const value = row.getValue<string>(column.id);
-
   if (dict && Object.hasOwn(dict, 'NgduId')) {
     ngduName =
       dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ??
@@ -70,92 +88,118 @@ const TempCustomComponent: FC<ICellComponent<any>> = ({
   }
 
   return (
-    <>
-      <Paragraph resetMargin fontVariant="body3">
-        {value}
-      </Paragraph>
+    <div
+      style={{
+        padding: 'var(--radius-6) var(--radius-8)',
+      }}
+    >
+      {ngduName && (
+        <Paragraph resetMargin fontVariant="body3">
+          {ngduName}
+        </Paragraph>
+      )}
       {ngduName && (
         <Paragraph
           resetMargin
           fontVariant="caption"
           style={{ color: 'var(--color-text-50)' }}
         >
-          {ngduName}
+          {row.original.name}
         </Paragraph>
       )}
-    </>
+    </div>
   );
 };
 
-const customComponents: Map<FilterType, FC<ICellComponent<any>>> = new Map();
-customComponents.set(FilterType.boolean, CustomComponentWithToggle);
-customComponents.set(FilterType.date, CustomComponentWithDate);
-
 const TableStory: FC<{
+  columns: TableColumn[];
+  localStorageKey?: string;
   sticky?: boolean;
   loading?: boolean;
   cellParams?: CellParamsType;
   height?: React.CSSProperties['height'];
   acrossLine?: boolean;
-}> = ({ sticky = false, loading = false, cellParams, height, acrossLine }) => {
-  const columns = initColumns.map((column) => {
-    const { name, filterType } = column;
+}> = ({
+  columns,
+  localStorageKey,
+  sticky = false,
+  loading = false,
+  cellParams,
+  height,
+  acrossLine,
+}) => {
+  const cols = columns.map((column) => {
+    const { name } = column;
 
-    const cellComponent = filterType ? customComponents.get(filterType) : null;
-
-    if (cellComponent) {
-      return { ...column, cellComponent };
-    }
-
-    if (name === 'name') {
+    if (name === 'id') {
       return {
         ...column,
         cellComponent: TempCustomComponent,
-        mergedColumnNames: ['id'],
+      };
+    }
+
+    if (name === 'floodPeriodSpring' || name === 'floodPeriodAutumn') {
+      return {
+        ...column,
+        cellComponent: CustomComponentWithDate,
       };
     }
 
     return column;
   });
 
-  const handleClick = (cell: ICellInstance<IData>) => {
-    console.log('table onClick:', cell);
-  };
-
   return (
-    <Table
-      localStorageKey="sb"
-      height={height}
-      acrossLine={acrossLine}
-      dataSource={dataResponse}
-      columns={columns}
-      sticky={sticky}
-      skeleton={
-        loading ? (
-          <Skeleton
-            rows={16}
-            columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
-            columnsUnit="fr"
-            isTable
-          />
-        ) : undefined
-      }
-      dictionary={initDictionary}
-      cellParams={cellParams}
-      onClick={handleClick}
-      hiddenColumnNames={['ngduId']}
-    />
+    <Card style={{ padding: 0 }}>
+      <Table
+        localStorageKey={localStorageKey}
+        height={height}
+        acrossLine={acrossLine}
+        dataSource={initData}
+        columns={cols}
+        sticky={sticky}
+        skeleton={
+          loading ? (
+            <Skeleton
+              rows={16}
+              columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+              columnsUnit="fr"
+              isTable
+            />
+          ) : undefined
+        }
+        dictionary={initDictionary}
+        cellParams={cellParams}
+        dateFormat="DD MMM YYYY"
+        roundToDecimalPlaces={3}
+      />
+    </Card>
   );
 };
 
 export const Default: Story = {
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
+    columns: initColumns,
+    localStorageKey: 'sb-default',
     sticky: true,
     cellParams: {
       verticalClamp: 3,
     },
-    height: 'calc(100vh - 16px)',
+    height: 'calc(100vh - 32px)',
     acrossLine: false,
+  },
+};
+
+export const SmallTable: Story = {
+  render: ({ ...args }) => <TableStory {...args} />,
+  args: {
+    columns: smallTableColumns,
+    localStorageKey: 'sb-small',
+    sticky: true,
+    cellParams: {
+      verticalClamp: 3,
+    },
+    height: 'calc(100vh - 32px)',
+    acrossLine: true,
   },
 };

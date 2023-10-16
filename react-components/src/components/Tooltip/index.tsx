@@ -53,9 +53,13 @@ export const Tooltip: FC<TooltipProps> = ({
 
   if (!children) return null;
 
+  const triggerElement: React.ReactElement = Array.isArray(children)
+    ? children[0]
+    : children;
+
   return (
     <>
-      {React.cloneElement(children as React.ReactElement, {
+      {React.cloneElement(triggerElement, {
         ref: refs.setReference,
         ...getReferenceProps(),
       })}

@@ -113,6 +113,126 @@
       "name": "Сиреневское",
       "parentId": null,
       "iconId": null
+    },
+    {
+      "id": 20,
+      "name": "Черноозерское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 21,
+      "name": "Бастрыкское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 22,
+      "name": "Бавлинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 23,
+      "name": "Гарейское Тл-Т.разв.зона",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 24,
+      "name": "Афанасовское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 25,
+      "name": "Пионерское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 26,
+      "name": "Тюгеевское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 27,
+      "name": "Купавное",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 28,
+      "name": "Ильмовское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 29,
+      "name": "Макаровское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 30,
+      "name": "Верхне-Уратьминское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 31,
+      "name": "Восточно-Макаровское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 32,
+      "name": "Камышлинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 33,
+      "name": "Вишнево-Полянское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 34,
+      "name": "Южно-Сунчелеевское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 35,
+      "name": "Западно-Галицкое",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 36,
+      "name": "Лазурное",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 37,
+      "name": "Агбязовский уч.",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 38,
+      "name": "Ерсубайкинское",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 39,
+      "name": "Беркет-Ключевское",
+      "parentId": null,
+      "iconId": null
     }
   ],
   "NgduId": [
@@ -155,6 +275,18 @@
     {
       "id": 7,
       "name": "ЯН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 8,
+      "name": "ДН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 9,
+      "name": "БН",
       "parentId": null,
       "iconId": null
     }

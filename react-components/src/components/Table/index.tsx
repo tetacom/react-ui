@@ -11,6 +11,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
+import objectHash from 'object-hash';
 
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
@@ -20,12 +21,12 @@ import { mergeSettings, separateSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
-import s from './style.module.scss';
 import { eventIsOnRow, getCoordinates } from './helpers';
 import { ICellEvent } from './model/i-cell-event';
-import objectHash from 'object-hash';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
+
+import s from './style.module.scss';
 
 const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
@@ -43,9 +44,10 @@ export function Table<T>({
   onClick,
   acrossLine = false,
   localStorageKey,
-  hiddenColumnNames = [],
   className,
   valueChange,
+  dateFormat,
+  roundToDecimalPlaces,
   ...props
 }: TableProps<T>): React.ReactElement {
   // Ключ для localstorage
@@ -88,10 +90,15 @@ export function Table<T>({
   );
 
   // Скрытые колонки
-  const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
+  const columnVisibility = useColumnVisibility(columns);
 
   // Генерация колонок для react-table
-  const columnDefList = useTableColumns<T>(mergedColumns, dictionary);
+  const columnDefList = useTableColumns<T>({
+    columns: mergedColumns,
+    dictionary,
+    dateFormat,
+    roundToDecimalPlaces,
+  });
 
   const table = useReactTable({
     data,
@@ -362,6 +369,7 @@ export function Table<T>({
         <tbody>
           {virtualizer.getVirtualItems().map((virtualRow) => {
             const row = rows[virtualRow.index] as Row<T>;
+
             return (
               <TableRow
                 key={virtualRow.key}
@@ -369,9 +377,7 @@ export function Table<T>({
                 rowRef={virtualizer.measureElement}
                 row={row}
                 table={table}
-                columns={mergedColumns}
                 isSelectedRow={row.getIsSelected()}
-                onClick={onClick}
                 acrossLine={acrossLine}
               />
             );

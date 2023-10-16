@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import dayjs from 'dayjs';
 
-import { EditStringCell } from '../../EditStringCell';
 import { ICellComponent } from '../../../model/i-cell-component';
+import { EditStringCell } from '../../EditStringCell';
 
-export function StringCell({
+export function DateCell({
   table,
   column,
   cellIndex,
   isEdit,
   row,
+  dateFormat,
 }: React.PropsWithoutRef<ICellComponent<string>>) {
   const value = row.getValue<string>(column.id);
   const [innerValue, setInnerValue] = useState(value);
@@ -22,6 +24,8 @@ export function StringCell({
       onChange={setInnerValue}
     />
   ) : (
-    <div tabIndex={cellIndex}>{value}</div>
+    <div tabIndex={cellIndex}>
+      {dateFormat ? dayjs(value).locale('ru').format(dateFormat) : value}
+    </div>
   );
 }

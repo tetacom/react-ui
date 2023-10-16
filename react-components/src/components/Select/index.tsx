@@ -26,6 +26,7 @@ const SelectInner = forwardRef(
       onChangeItem,
       onItemRender,
       items,
+      zIndex,
       ...rest
     }: SelectProps<T>) => rest;
 
