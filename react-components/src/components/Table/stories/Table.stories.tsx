@@ -169,6 +169,8 @@ const TableStory: FC<{
         }
         dictionary={initDictionary}
         cellParams={cellParams}
+        dateFormat="DD MMM YYYY"
+        roundToDecimalPlaces={3}
       />
     </Card>
   );

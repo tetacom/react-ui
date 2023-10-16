@@ -41,4 +41,10 @@ export interface TableProps<T>
 
   // Обратный вызов изменения значения в ячейке таблицы
   valueChange?: (cell: ICellInstance<T>) => void;
+
+  // Форматирование ячеек давт по умолчанию
+  dateFormat?: string;
+
+  // Округлить числа до заданного количества знаков после точки
+  roundToDecimalPlaces?: number;
 }

@@ -46,6 +46,8 @@ export function Table<T>({
   localStorageKey,
   className,
   valueChange,
+  dateFormat,
+  roundToDecimalPlaces,
   ...props
 }: TableProps<T>): React.ReactElement {
   // Ключ для localstorage
@@ -91,7 +93,12 @@ export function Table<T>({
   const columnVisibility = useColumnVisibility(columns);
 
   // Генерация колонок для react-table
-  const columnDefList = useTableColumns<T>(mergedColumns, dictionary);
+  const columnDefList = useTableColumns<T>({
+    columns: mergedColumns,
+    dictionary,
+    dateFormat,
+    roundToDecimalPlaces,
+  });
 
   const table = useReactTable({
     data,

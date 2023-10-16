@@ -100,7 +100,7 @@
     "disableable": null,
     "headCellClass": null,
     "cellClass": null,
-    "editable": false,
+    "editable": true,
     "hidden": false,
     "objectType": false,
     "parameters": null,

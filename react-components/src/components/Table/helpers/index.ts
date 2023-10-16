@@ -1,15 +1,19 @@
 import { FilterType } from '../model/public-api';
 import { StringCell } from '../components/default/StringCell';
+import { DateCell } from '../components/default/DateCell';
 import { SelectCell } from '../components/default/SelectCell';
 import { ICellEvent } from '../model/i-cell-event';
 import { CustomCellComponent } from '../model/cell-component';
+import { NumberCell } from '../components/default/NumberCell';
 
 const cellComponentsMap: Map<FilterType, CustomCellComponent> = new Map<
   FilterType,
   CustomCellComponent
 >()
   .set(FilterType.string, StringCell)
-  .set(FilterType.list, SelectCell);
+  .set(FilterType.number, NumberCell)
+  .set(FilterType.list, SelectCell)
+  .set(FilterType.date, DateCell);
 
 export const getCellComponent = (filterType: FilterType) =>
   cellComponentsMap.has(filterType)

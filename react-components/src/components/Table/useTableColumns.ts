@@ -5,10 +5,19 @@ import { getCellComponent } from './helpers';
 import { StringCell } from './components/default/StringCell';
 import { createColumnHelper } from '@tanstack/react-table';
 
-export const useTableColumns = <T>(
-  columns: TableColumn[],
-  dictionary: IDictionary | null,
-) => {
+type Config = {
+  columns: TableColumn[];
+  dictionary: IDictionary | null;
+  dateFormat?: string;
+  roundToDecimalPlaces?: number;
+};
+
+export const useTableColumns = <T>({
+  columns,
+  dictionary,
+  dateFormat,
+  roundToDecimalPlaces,
+}: Config) => {
   const columnHelper = createColumnHelper<T>();
 
   return useMemo(
@@ -50,6 +59,8 @@ export const useTableColumns = <T>(
                 dict: dictionary,
                 isEdit: editable ? isEdit : false,
                 cellIndex: editable ? cellIndex : Number.MAX_VALUE,
+                dateFormat,
+                roundToDecimalPlaces,
               };
 
               const defaultCellComponent = getCellComponent(
@@ -78,6 +89,6 @@ export const useTableColumns = <T>(
             },
           }),
       ),
-    [columns, dictionary],
+    [columns, dictionary, dateFormat, roundToDecimalPlaces],
   );
 };
