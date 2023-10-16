@@ -12,15 +12,21 @@ export function NumberCell({
   isEdit,
   row,
   roundToDecimalPlaces,
-}: React.PropsWithoutRef<ICellComponent<number>>) {
-  const value = row.getValue<number>(column.id);
+}: React.PropsWithoutRef<ICellComponent<string | number | null>>) {
+  const value = row.getValue<string | number>(column.id);
   const [innerValue, setInnerValue] = useState(String(value));
   const { meta } = table.options;
 
-  let cellNumber: number | string = value;
-  if (roundToDecimalPlaces !== undefined && value !== null && value % 1 !== 0) {
-    // TODO после редактирования может прийти строка
-    cellNumber = cellNumber.toFixed(roundToDecimalPlaces);
+  let cellNumber = value;
+  if (
+    roundToDecimalPlaces !== undefined &&
+    value !== null &&
+    isNumber(value) &&
+    value % 1 !== 0
+  ) {
+    cellNumber = isNumber(cellNumber)
+      ? cellNumber.toFixed(roundToDecimalPlaces)
+      : cellNumber;
   }
 
   return isEdit ? (
@@ -39,4 +45,8 @@ export function NumberCell({
 
 function showNumberWithSpaces(value: number | string): string {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+function isNumber(value: number | string): value is number {
+  return typeof value === 'number';
 }
