@@ -4,8 +4,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Table } from '../index';
 import { TableDocs } from '../docs';
 import { TableColumn } from '../model/table-column';
-import { FilterType } from '../model/public-api';
-import { Toggle } from '../../Toggle';
 import { IDictionary } from '../model/dictionary';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
@@ -60,14 +58,6 @@ const smallTableColumns = initColumns.map((column) => {
   return column;
 });
 
-const CustomComponentWithToggle: FC<ICellComponent<ClusterDto>> = ({
-  row,
-  column,
-}) => {
-  const value = row.getValue<boolean>(column.id);
-  return <Toggle checked={value} />;
-};
-
 const CustomComponentWithDate: FC<ICellComponent<ClusterDto>> = ({
   row,
   column,
@@ -78,7 +68,15 @@ const CustomComponentWithDate: FC<ICellComponent<ClusterDto>> = ({
     return value;
   }
 
-  return <div>{Object.values(value).join(' — ')}</div>;
+  return (
+    <div
+      style={{
+        padding: 'var(--radius-6) var(--radius-8)',
+      }}
+    >
+      {Object.values(value).join(' — ')}
+    </div>
+  );
 };
 
 const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
@@ -90,7 +88,11 @@ const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
   }
 
   return (
-    <>
+    <div
+      style={{
+        padding: 'var(--radius-6) var(--radius-8)',
+      }}
+    >
       {ngduName && (
         <Paragraph resetMargin fontVariant="body3">
           {ngduName}
@@ -105,13 +107,9 @@ const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
           {row.original.name}
         </Paragraph>
       )}
-    </>
+    </div>
   );
 };
-
-const customComponents: Map<FilterType, FC<ICellComponent<any>>> = new Map();
-customComponents.set(FilterType.boolean, CustomComponentWithToggle);
-customComponents.set(FilterType.date, CustomComponentWithDate);
 
 const TableStory: FC<{
   columns: TableColumn[];
@@ -131,18 +129,19 @@ const TableStory: FC<{
   acrossLine,
 }) => {
   const cols = columns.map((column) => {
-    const { name, filterType } = column;
-
-    const cellComponent = filterType ? customComponents.get(filterType) : null;
-
-    if (cellComponent) {
-      return { ...column, cellComponent };
-    }
+    const { name } = column;
 
     if (name === 'id') {
       return {
         ...column,
         cellComponent: TempCustomComponent,
+      };
+    }
+
+    if (name === 'floodPeriodSpring' || name === 'floodPeriodAutumn') {
+      return {
+        ...column,
+        cellComponent: CustomComponentWithDate,
       };
     }
 
