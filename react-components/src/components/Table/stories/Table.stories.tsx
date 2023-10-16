@@ -37,6 +37,29 @@ const initData: ClusterDto[] = dataResponse;
 const initColumns: TableColumn[] = configResponse;
 const initDictionary: IDictionary = dictResponse;
 
+const hiddenFields = [
+  'year',
+  'fieldId',
+  'ngduId',
+  'investmentDate',
+  'coordinateX',
+  'coordinateY',
+  'landAllocationDuration',
+  'idd',
+  'netPresentValue',
+  'payBackTime',
+  'sitePreparationDuration',
+  'iddCoeff',
+  'netPresentValueCoeff',
+];
+const smallTableColumns = initColumns.map((column) => {
+  if (hiddenFields.includes(column.name)) {
+    return { ...column, hidden: true };
+  }
+
+  return column;
+});
+
 const CustomComponentWithToggle: FC<ICellComponent<ClusterDto>> = ({
   row,
   column,
@@ -58,14 +81,8 @@ const CustomComponentWithDate: FC<ICellComponent<ClusterDto>> = ({
   return <div>{Object.values(value).join(' — ')}</div>;
 };
 
-const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({
-  column,
-  row,
-  dict,
-}) => {
+const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
   let ngduName;
-  const value = row.getValue<string>(column.id);
-
   if (dict && Object.hasOwn(dict, 'NgduId')) {
     ngduName =
       dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ??
@@ -74,16 +91,18 @@ const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({
 
   return (
     <>
-      <Paragraph resetMargin fontVariant="body3">
-        {value}
-      </Paragraph>
+      {ngduName && (
+        <Paragraph resetMargin fontVariant="body3">
+          {ngduName}
+        </Paragraph>
+      )}
       {ngduName && (
         <Paragraph
           resetMargin
           fontVariant="caption"
           style={{ color: 'var(--color-text-50)' }}
         >
-          {ngduName}
+          {row.original.name}
         </Paragraph>
       )}
     </>
@@ -95,23 +114,23 @@ customComponents.set(FilterType.boolean, CustomComponentWithToggle);
 customComponents.set(FilterType.date, CustomComponentWithDate);
 
 const TableStory: FC<{
+  columns: TableColumn[];
   localStorageKey?: string;
   sticky?: boolean;
   loading?: boolean;
   cellParams?: CellParamsType;
   height?: React.CSSProperties['height'];
-  hiddenColumnNames?: string[];
   acrossLine?: boolean;
 }> = ({
+  columns,
   localStorageKey,
   sticky = false,
   loading = false,
   cellParams,
   height,
   acrossLine,
-  hiddenColumnNames,
 }) => {
-  const columns = initColumns.map((column) => {
+  const cols = columns.map((column) => {
     const { name, filterType } = column;
 
     const cellComponent = filterType ? customComponents.get(filterType) : null;
@@ -120,7 +139,7 @@ const TableStory: FC<{
       return { ...column, cellComponent };
     }
 
-    if (name === 'name') {
+    if (name === 'id') {
       return {
         ...column,
         cellComponent: TempCustomComponent,
@@ -137,7 +156,7 @@ const TableStory: FC<{
         height={height}
         acrossLine={acrossLine}
         dataSource={initData}
-        columns={columns}
+        columns={cols}
         sticky={sticky}
         skeleton={
           loading ? (
@@ -151,7 +170,6 @@ const TableStory: FC<{
         }
         dictionary={initDictionary}
         cellParams={cellParams}
-        hiddenColumnNames={hiddenColumnNames}
       />
     </Card>
   );
@@ -160,6 +178,7 @@ const TableStory: FC<{
 export const Default: Story = {
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
+    columns: initColumns,
     localStorageKey: 'sb-default',
     sticky: true,
     cellParams: {
@@ -167,13 +186,13 @@ export const Default: Story = {
     },
     height: 'calc(100vh - 32px)',
     acrossLine: false,
-    // hiddenColumnNames: ['ngduId'],
   },
 };
 
 export const SmallTable: Story = {
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
+    columns: smallTableColumns,
     localStorageKey: 'sb-small',
     sticky: true,
     cellParams: {
@@ -181,20 +200,5 @@ export const SmallTable: Story = {
     },
     height: 'calc(100vh - 32px)',
     acrossLine: true,
-    // hiddenColumnNames: [
-    //   'year',
-    //   'fieldId',
-    //   'ngduId',
-    //   'investmentDate',
-    //   'coordinateX',
-    //   'coordinateY',
-    //   'landAllocationDuration',
-    //   'idd',
-    //   'netPresentValue',
-    //   'payBackTime',
-    //   'sitePreparationDuration',
-    //   'iddCoeff',
-    //   'netPresentValueCoeff',
-    // ],
   },
 };

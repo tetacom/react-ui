@@ -44,7 +44,6 @@ export function Table<T>({
   onClick,
   acrossLine = false,
   localStorageKey,
-  hiddenColumnNames = [],
   className,
   valueChange,
   ...props
@@ -89,7 +88,7 @@ export function Table<T>({
   );
 
   // Скрытые колонки
-  const columnVisibility = useColumnVisibility(columns, hiddenColumnNames);
+  const columnVisibility = useColumnVisibility(columns);
 
   // Генерация колонок для react-table
   const columnDefList = useTableColumns<T>(mergedColumns, dictionary);

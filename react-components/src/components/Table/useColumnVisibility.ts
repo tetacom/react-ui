@@ -5,13 +5,12 @@ import { TableColumn } from './model/public-api';
 
 export const useColumnVisibility = (
   columns: TableColumn[],
-  hiddenColumnNames: string[],
 ): VisibilityState => {
   return useMemo(() => {
-    const mergedColumns = columns.map((item) => {
-      const hasThisField = item.hidden || hiddenColumnNames.includes(item.name);
-      return { ...item, hidden: hasThisField };
-    });
+    const mergedColumns = columns.map((item) => ({
+      ...item,
+      hidden: item.hidden || false,
+    }));
     const colsVisibility: VisibilityState = {};
 
     mergedColumns.forEach(({ name, hidden }) => {
@@ -19,5 +18,5 @@ export const useColumnVisibility = (
     });
 
     return colsVisibility;
-  }, [columns, hiddenColumnNames.length]);
+  }, [columns]);
 };
