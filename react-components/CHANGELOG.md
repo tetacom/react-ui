@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.6](https://github.com/tetacom/react-ui/compare/react-components-0.12.5...react-components-0.12.6) (2023-10-17)
+
+
+### Bug Fixes
+
+* add vertical align, fix table header and body sync ([d879e0f](https://github.com/tetacom/react-ui/commit/d879e0f8e119486d0a7a205636be3132d672ad1e))
+* fix update icon ([06daef2](https://github.com/tetacom/react-ui/commit/06daef24484c413bf604a1111ca6a6e81aa890c4))
+* update button styles ([b54838d](https://github.com/tetacom/react-ui/commit/b54838dd5ab7215a2733937c2500f746f7db78b8))
+
 ### [0.12.5](https://github.com/tetacom/react-ui/compare/react-components-0.12.4...react-components-0.12.5) (2023-10-17)
 
 
