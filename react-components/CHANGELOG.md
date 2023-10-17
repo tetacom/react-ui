@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.5](https://github.com/tetacom/react-ui/compare/react-components-0.12.4...react-components-0.12.5) (2023-10-17)
+
+
+### Bug Fixes
+
+* extend utc plugin ([06e063a](https://github.com/tetacom/react-ui/commit/06e063a7e07d1f72241b2f957ee8b0dbf79b4698))
+
 ### [0.12.4](https://github.com/tetacom/react-ui/compare/react-components-0.12.3...react-components-0.12.4) (2023-10-17)
 
 

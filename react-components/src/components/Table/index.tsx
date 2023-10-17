@@ -12,6 +12,8 @@ import {
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import objectHash from 'object-hash';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
 import { TableProps } from './model';
 import TableRow from './components/RowTable';
@@ -27,6 +29,8 @@ import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
 import s from './style.module.scss';
+
+dayjs.extend(utc);
 
 const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
