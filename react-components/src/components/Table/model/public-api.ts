@@ -6,3 +6,4 @@ export * from './dictionary';
 export * from './cell-params';
 export * from './i-cell-component';
 export * from './utc-offset';
+export * from './vertical-align';

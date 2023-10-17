@@ -16,6 +16,7 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
 import { TableProps } from './model';
+import { VerticalAlign } from './model/vertical-align';
 import TableRow from './components/RowTable';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
@@ -35,6 +36,12 @@ dayjs.extend(utc);
 const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
 
+const verticalAlignValues: Record<VerticalAlign, string> = {
+  top: 'flex-start',
+  middle: 'center',
+  bottom: 'flex-end',
+};
+
 export function Table<T>({
   dataSource,
   columns,
@@ -42,7 +49,7 @@ export function Table<T>({
   skeleton = null,
   dictionary = null,
   cellParams = {
-    verticalClamp: 1,
+    verticalClamp: 4,
   },
   height = '100vh',
   onClick,
@@ -51,8 +58,9 @@ export function Table<T>({
   className,
   valueChange,
   dateFormat,
-  roundToDecimalPlaces,
   utcOffset,
+  roundToDecimalPlaces,
+  verticalAlign = 'top',
   ...props
 }: TableProps<T>): React.ReactElement {
   // Ключ для localstorage
@@ -286,9 +294,22 @@ export function Table<T>({
     overscan: 5,
   });
 
+  const tableWidth = table.getCenterTotalSize();
+  const rowTemplateColumns = useMemo(
+    () =>
+      table
+        .getAllColumns()
+        .filter((column) => column.getIsVisible())
+        .map((column) => `minmax(${column.getSize()}px, 1fr)`)
+        .join(' '),
+    [tableWidth],
+  );
+
   const cellStyles = {
     '--cell-vert-clamp': cellParams.verticalClamp,
     '--tbody-transform': `${virtualizer.getVirtualItems()[0]?.start}px`,
+    '--row-template-columns': rowTemplateColumns,
+    '--vertical-align': verticalAlignValues[verticalAlign],
   };
 
   if (skeleton) return skeleton;
@@ -300,7 +321,7 @@ export function Table<T>({
         className={classNames(s.table, className)}
         style={{
           ...cellStyles,
-          width: table.getCenterTotalSize(),
+          width: tableWidth,
           height: virtualizer.getTotalSize(),
         }}
       >
@@ -337,9 +358,6 @@ export function Table<T>({
                       className={classNames(
                         header.column.getCanSort() && s.isSortable,
                       )}
-                      style={{
-                        width: header.getSize(),
-                      }}
                     >
                       {header.isPlaceholder ? null : (
                         <div className={s.thContent}>

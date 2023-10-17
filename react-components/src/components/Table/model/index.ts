@@ -5,6 +5,7 @@ import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
 import { UtcOffset } from './utc-offset';
+import { VerticalAlign } from 'tetacom/react-components';
 
 export type TableRef = HTMLTableElement;
 
@@ -46,9 +47,11 @@ export interface TableProps<T>
   // Форматирование ячеек давт по умолчанию
   dateFormat?: string;
 
+  // Временная зона
+  utcOffset?: UtcOffset;
+
   // Округлить числа до заданного количества знаков после точки
   roundToDecimalPlaces?: number;
 
-  // Временная зона
-  utcOffset?: UtcOffset;
+  verticalAlign?: VerticalAlign;
 }
