@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
-import 'dayjs/plugin/utc';
 
 import { ICellComponent } from '../../../model/i-cell-component';
 import { EditStringCell } from '../../EditStringCell';
