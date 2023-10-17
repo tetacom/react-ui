@@ -71,7 +71,7 @@ const CustomComponentWithDate: FC<ICellComponent<ClusterDto>> = ({
   return (
     <div
       style={{
-        padding: 'var(--radius-6) var(--radius-8)',
+        padding: 'var(--spacing-6) var(--spacing-8)',
       }}
     >
       {Object.values(value).join(' — ')}
@@ -90,7 +90,7 @@ const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
   return (
     <div
       style={{
-        padding: 'var(--radius-6) var(--radius-8)',
+        padding: 'var(--spacing-6) var(--spacing-8)',
       }}
     >
       {ngduName && (

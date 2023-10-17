@@ -17,7 +17,6 @@ export interface ITableRow<T> {
 
 function TableCell<T>({
   cell,
-  width,
 }: {
   cell: Cell<T, unknown>;
   width: number;
@@ -34,11 +33,10 @@ function TableCell<T>({
       data-column={cell.column.id}
       data-row={cell.row.id}
       className={classNames(isCustomCell && s.resetPadding)}
-      style={{
-        width,
-      }}
     >
-      {flexRender(cellComponent, cell.getContext())}
+      <span className={s.tdContent}>
+        {flexRender(cellComponent, cell.getContext())}
+      </span>
     </td>
   );
 }
