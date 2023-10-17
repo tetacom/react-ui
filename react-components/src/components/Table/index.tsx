@@ -48,6 +48,7 @@ export function Table<T>({
   valueChange,
   dateFormat,
   roundToDecimalPlaces,
+  utcOffset,
   ...props
 }: TableProps<T>): React.ReactElement {
   // Ключ для localstorage
@@ -98,6 +99,7 @@ export function Table<T>({
     dictionary,
     dateFormat,
     roundToDecimalPlaces,
+    utcOffset,
   });
 
   const table = useReactTable({

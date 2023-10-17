@@ -4,6 +4,7 @@ import { TableColumn } from './table-column';
 import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
+import { UtcOffset } from './utc-offset';
 
 export type TableRef = HTMLTableElement;
 
@@ -47,4 +48,7 @@ export interface TableProps<T>
 
   // Округлить числа до заданного количества знаков после точки
   roundToDecimalPlaces?: number;
+
+  // Временная зона
+  utcOffset?: UtcOffset;
 }

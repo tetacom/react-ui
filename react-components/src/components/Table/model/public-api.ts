@@ -5,3 +5,4 @@ export * from './enum/filter-type.enum';
 export * from './dictionary';
 export * from './cell-params';
 export * from './i-cell-component';
+export * from './utc-offset';

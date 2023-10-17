@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.4](https://github.com/tetacom/react-ui/compare/react-components-0.12.3...react-components-0.12.4) (2023-10-17)
+
+
+### Bug Fixes
+
+* fix ICellComponent generic ([ff966a9](https://github.com/tetacom/react-ui/commit/ff966a95b9316b1aeb4c211ef7539b1d209227ae))
+* table utc offset ([23aafd5](https://github.com/tetacom/react-ui/commit/23aafd5965f9c70b35154e7e463b6c120868e018))
+
 ### [0.12.3](https://github.com/tetacom/react-ui/compare/react-components-0.12.2...react-components-0.12.3) (2023-10-16)
 
 

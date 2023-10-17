@@ -1,4 +1,9 @@
-import { FilterType, IDictionary, TableColumn } from './model/public-api';
+import {
+  FilterType,
+  IDictionary,
+  TableColumn,
+  UtcOffset,
+} from './model/public-api';
 import React, { useMemo } from 'react';
 import { ICellComponent } from './model/i-cell-component';
 import { getCellComponent } from './helpers';
@@ -10,6 +15,7 @@ type Config = {
   dictionary: IDictionary | null;
   dateFormat?: string;
   roundToDecimalPlaces?: number;
+  utcOffset?: UtcOffset;
 };
 
 export const useTableColumns = <T>({
@@ -17,6 +23,7 @@ export const useTableColumns = <T>({
   dictionary,
   dateFormat,
   roundToDecimalPlaces,
+  utcOffset,
 }: Config) => {
   const columnHelper = createColumnHelper<T>();
 
@@ -61,6 +68,7 @@ export const useTableColumns = <T>({
                 cellIndex: editable ? cellIndex : Number.MAX_VALUE,
                 dateFormat,
                 roundToDecimalPlaces,
+                utcOffset,
               };
 
               const defaultCellComponent = getCellComponent(
