@@ -295,17 +295,12 @@ export function Table<T>({
   });
 
   const tableWidth = table.getCenterTotalSize();
-  // TODO переписать так чтобы последний столбец тянулся (или был корректной ширины, но подложка справа имитировала бы расширенный сотлбец)
   const rowTemplateColumns = useMemo(
     () =>
       table
         .getAllColumns()
         .filter((column) => column.getIsVisible())
-        .map((column) => {
-          const columnSize = column.getSize();
-
-          return `minmax(${columnSize}px, ${columnSize}fr)`;
-        })
+        .map((column) => `${column.getSize()}px`)
         .join(' '),
     [tableWidth],
   );
