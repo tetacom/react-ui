@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.8](https://github.com/tetacom/react-ui/compare/react-components-0.12.7...react-components-0.12.8) (2023-10-17)
+
+
+### Bug Fixes
+
+* fix small tables ([c7d070e](https://github.com/tetacom/react-ui/commit/c7d070e8cb93a966aa427255054a11835dc25c32))
+
 ### [0.12.7](https://github.com/tetacom/react-ui/compare/react-components-0.12.6...react-components-0.12.7) (2023-10-17)
 
 
