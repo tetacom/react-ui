@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.9](https://github.com/tetacom/react-ui/compare/react-components-0.12.8...react-components-0.12.9) (2023-10-18)
+
+
+### Bug Fixes
+
+* fix table underline styles ([ae1d0e0](https://github.com/tetacom/react-ui/commit/ae1d0e0aa97d39fc31de6f0dca4ae47243c04de9))
+
 ### [0.12.8](https://github.com/tetacom/react-ui/compare/react-components-0.12.7...react-components-0.12.8) (2023-10-17)
 
 
