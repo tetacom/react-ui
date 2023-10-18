@@ -6,6 +6,7 @@ export function mergeSettings(
   propData: TableColumn[],
   storageData: unknown,
 ): TableColumn[] {
+  // debugger;
   return propData.map((propColumn) => {
     if (Array.isArray(storageData)) {
       const savedColumn: TableColumn | undefined = storageData.find(

@@ -314,6 +314,8 @@ export function Table<T>({
 
   if (skeleton) return skeleton;
 
+  console.log('mergedColumns', mergedColumns);
+
   return (
     <div className={s.root} ref={parentRef} style={{ height }}>
       <table
@@ -336,6 +338,11 @@ export function Table<T>({
                 );
                 const thHint =
                   columns.find(({ name }) => name === header.id)?.hint ?? '';
+
+                console.log(
+                  '###',
+                  header.column.columnDef.meta?.tableColumn.locked,
+                );
 
                 return (
                   <Tooltip

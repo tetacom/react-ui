@@ -14,6 +14,19 @@
   }
 }
 
+@mixin lockedColumn() {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+@mixin lockedLeft() {
+  border: 3px dashed red;
+}
+@mixin lockedRight() {
+  border: 3px dashed green;
+}
+
 .root {
   overflow: auto;
   contain: strict;
@@ -67,6 +80,13 @@
             &:hover {
               color: var(--color-text-90);
             }
+          }
+
+          &.lockedLeft {
+            @include lockedLeft;
+          }
+          &.lockedRight {
+            @include lockedRight;
           }
 
           .thContent {
@@ -145,7 +165,14 @@
             padding: 0;
           }
 
-          > .tdContent {
+          &.lockedLeft {
+            @include lockedLeft;
+          }
+          &.lockedRight {
+            @include lockedRight;
+          }
+
+          .tdContent {
             display: -webkit-box;
             -webkit-line-clamp: var(--cell-vert-clamp);
             -webkit-box-orient: vertical;
