@@ -44,9 +44,9 @@ function TableCell<T>({
         isCustomCell && s.resetPadding,
       )}
     >
-      <span className={s.tdContent}>
+      <div className={s.tdContent}>
         {flexRender(cellComponent, cell.getContext())}
-      </span>
+      </div>
     </td>
   );
 }

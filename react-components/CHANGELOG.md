@@ -2,6 +2,27 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.13](https://github.com/tetacom/react-ui/compare/react-components-0.12.12...react-components-0.12.13) (2023-10-19)
+
+
+### Bug Fixes
+
+* fix table vertical align ([170b95e](https://github.com/tetacom/react-ui/commit/170b95e11e104ce8e8560f09fe9aa6e80fbeae3e))
+
+### [0.12.12](https://github.com/tetacom/react-ui/compare/react-components-0.12.11...react-components-0.12.12) (2023-10-19)
+
+
+### Bug Fixes
+
+* table tdContent full height ([996fb91](https://github.com/tetacom/react-ui/commit/996fb9161380f6771fa7b3e4f2fbc61f45167eca))
+
+### [0.12.11](https://github.com/tetacom/react-ui/compare/react-components-0.12.10...react-components-0.12.11) (2023-10-19)
+
+
+### Bug Fixes
+
+* table tdContent full width ([758b1fe](https://github.com/tetacom/react-ui/commit/758b1fe2c8693ec0ab403dd6f4c5f3a5b76df06b))
+
 ### [0.12.10](https://github.com/tetacom/react-ui/compare/react-components-0.12.9...react-components-0.12.10) (2023-10-18)
 
 
