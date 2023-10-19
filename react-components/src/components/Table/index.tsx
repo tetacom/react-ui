@@ -26,7 +26,6 @@ import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
 import { eventIsOnRow, getCoordinates } from './helpers';
 import { ICellEvent } from './model/i-cell-event';
-import { LockedColumn } from './model/public-api';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
@@ -92,10 +91,9 @@ export function Table<T>({
     LocalStorageColumn[]
   >(
     storageKey,
-    columns.map(({ name, width, locked }) => ({
+    columns.map(({ name, width }) => ({
       name,
       width,
-      locked,
     })),
   );
 
@@ -264,9 +262,6 @@ export function Table<T>({
       headers.map((item) => ({
         name: item.id,
         width: item.getSize(),
-        locked:
-          columns.find((col) => col.name === item.id)?.locked ||
-          LockedColumn.none,
       })),
     );
   };

@@ -1,6 +1,6 @@
 import type { TableColumn } from './model/table-column';
 
-export type LocalStorageColumn = Pick<TableColumn, 'name' | 'width' | 'locked'>;
+export type LocalStorageColumn = Pick<TableColumn, 'name' | 'width'>;
 
 export function mergeSettings(
   propData: TableColumn[],

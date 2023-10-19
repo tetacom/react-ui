@@ -8,7 +8,7 @@
     "sortOrder": 0,
     "height": null,
     "headerHeight": null,
-    "locked": 0,
+    "locked": 1,
     "name": "entityId",
     "parentName": null,
     "propertyName": "EntityId",
