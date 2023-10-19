@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.12](https://github.com/tetacom/react-ui/compare/react-components-0.12.11...react-components-0.12.12) (2023-10-19)
+
+
+### Bug Fixes
+
+* table tdContent full height ([996fb91](https://github.com/tetacom/react-ui/commit/996fb9161380f6771fa7b3e4f2fbc61f45167eca))
+
 ### [0.12.11](https://github.com/tetacom/react-ui/compare/react-components-0.12.10...react-components-0.12.11) (2023-10-19)
 
 
