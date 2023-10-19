@@ -21,13 +21,13 @@ import TableRow from './components/RowTable';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
 import { LocalStorageColumn, mergeSettings } from './storageUtils';
-import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
-import { eventIsOnRow, getCoordinates } from './helpers';
+import { eventIsOnRow, getCoordinates, lockedClasses } from './helpers';
 import { ICellEvent } from './model/i-cell-event';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
+import { LockedColumn } from './model/enum/locked-column.enum';
 
 import s from './style.module.scss';
 
@@ -252,10 +252,7 @@ export function Table<T>({
   });
 
   // Сохранение в локальное хранилище
-  const handleSaveColumns = (
-    columns: TableColumn[],
-    headers: Header<T, unknown>[],
-  ) => {
+  const handleSaveColumns = (headers: Header<T, unknown>[]) => {
     if (!localStorageKey) return;
 
     setLocalStorageColumns(
@@ -277,7 +274,7 @@ export function Table<T>({
     document.addEventListener(
       'mouseup',
       () => {
-        handleSaveColumns(mergedColumns, headerGroup.headers);
+        handleSaveColumns(headerGroup.headers);
       },
       { once: true },
     );
@@ -338,6 +335,12 @@ export function Table<T>({
                 const thHint =
                   columns.find(({ name }) => name === header.id)?.hint ?? '';
 
+                const locked = header.column.columnDef.meta?.tableColumn.locked;
+                const columnLocked =
+                  typeof locked === 'boolean'
+                    ? LockedColumn.none
+                    : locked ?? LockedColumn.none;
+
                 return (
                   <Tooltip
                     key={header.id}
@@ -357,12 +360,13 @@ export function Table<T>({
                         handler?.(event);
                       }}
                       className={classNames(
+                        lockedClasses[columnLocked]?.head,
                         header.column.getCanSort() && s.isSortable,
                       )}
                     >
                       {header.isPlaceholder ? null : (
                         <div className={s.thContent}>
-                          <span>{thContent}</span>
+                          <div>{thContent}</div>
 
                           {isSorted ? (
                             <Icon
@@ -370,19 +374,18 @@ export function Table<T>({
                               className={s.thContentIcon}
                             />
                           ) : null}
-                          <div
-                            data-type={RESIZER_ATTRIBUTE_NAME}
-                            className={classNames(
-                              s.resizer,
-                              header.column.getIsResizing() &&
-                                s.resizerIsResizing,
-                            )}
-                            onMouseDown={(event) =>
-                              handleResizeMouseDown(event, header, headerGroup)
-                            }
-                          />
                         </div>
                       )}
+                      <div
+                        data-type={RESIZER_ATTRIBUTE_NAME}
+                        className={classNames(
+                          s.resizer,
+                          header.column.getIsResizing() && s.resizerIsResizing,
+                        )}
+                        onMouseDown={(event) =>
+                          handleResizeMouseDown(event, header, headerGroup)
+                        }
+                      />
                     </th>
                   </Tooltip>
                 );

@@ -3,6 +3,8 @@ import { Cell, flexRender, Row, Table } from '@tanstack/react-table';
 import classNames from 'classnames';
 
 import { TableProps } from '../../model';
+import { LockedColumn } from 'tetacom/react-components';
+import { lockedClasses } from '../../helpers';
 
 import s from '../../style.module.scss';
 
@@ -26,13 +28,21 @@ function TableCell<T>({
   const isCustomCell = Boolean(
     cell.column.columnDef.meta?.tableColumn.cellComponent,
   );
+  const locked = cell.column.columnDef.meta?.tableColumn.locked;
+  const cellLocked =
+    typeof locked === 'boolean'
+      ? LockedColumn.none
+      : locked ?? LockedColumn.none;
 
   return (
     <td
       key={cell.id}
       data-column={cell.column.id}
       data-row={cell.row.id}
-      className={classNames(isCustomCell && s.resetPadding)}
+      className={classNames(
+        lockedClasses[cellLocked]?.body,
+        isCustomCell && s.resetPadding,
+      )}
     >
       <span className={s.tdContent}>
         {flexRender(cellComponent, cell.getContext())}

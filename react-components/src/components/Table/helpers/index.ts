@@ -1,10 +1,12 @@
-import { FilterType } from '../model/public-api';
+import { FilterType, LockedColumn } from '../model/public-api';
 import { StringCell } from '../components/default/StringCell';
 import { DateCell } from '../components/default/DateCell';
 import { SelectCell } from '../components/default/SelectCell';
 import { ICellEvent } from '../model/i-cell-event';
 import { CustomCellComponent } from '../model/cell-component';
 import { NumberCell } from '../components/default/NumberCell';
+
+import s from '../style.module.scss';
 
 const cellComponentsMap: Map<FilterType, CustomCellComponent> = new Map<
   FilterType,
@@ -50,3 +52,18 @@ export function eventIsOnRow(event: Event): boolean {
 
   return Boolean(row);
 }
+
+export const lockedClasses: Record<
+  LockedColumn,
+  null | { head: string; body: string }
+> = {
+  [LockedColumn.none]: null,
+  [LockedColumn.left]: {
+    head: s.lockedHeadLeft,
+    body: s.lockedBodyLeft,
+  },
+  [LockedColumn.right]: {
+    head: s.lockedHeadRight,
+    body: s.lockedBodyRight,
+  },
+};

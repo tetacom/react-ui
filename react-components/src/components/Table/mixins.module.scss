@@ -1,0 +1,51 @@
+@mixin underline($color: var(--color-text-5)) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color;
+  }
+}
+
+@mixin lockedLeft($left: 0) {
+  position: sticky;
+  left: $left;
+  z-index: 1;
+}
+
+@mixin lockedRight($right: 0) {
+  position: sticky;
+  right: $right;
+  z-index: 1;
+}
+
+@mixin lockedHead($position) {
+  background-color: var(--color-global-bgcard);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-text-5);
+    border-bottom: 1px solid var(--color-text-5);
+    border-#{$position}: 1px solid var(--color-text-5);
+  }
+
+  > * {
+    transform: translateZ(0);
+  }
+}
+
+@mixin lockedBody($position) {
+  border-bottom: 1px solid var(--color-text-5);
+  border-bottom: 1px solid red;
+  border-#{$position}: 1px solid var(--color-text-5);
+}
