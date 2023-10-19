@@ -20,12 +20,13 @@ import { VerticalAlign } from './model/vertical-align';
 import TableRow from './components/RowTable';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
-import { mergeSettings, separateSettings } from './storageUtils';
+import { LocalStorageColumn, mergeSettings } from './storageUtils';
 import type { TableColumn } from './model/table-column';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
 import { eventIsOnRow, getCoordinates } from './helpers';
 import { ICellEvent } from './model/i-cell-event';
+import { LockedColumn } from './model/public-api';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
@@ -86,15 +87,16 @@ export function Table<T>({
     setData([...dataSource]);
   }, [dataSource]);
 
-  const initStorageColumns = separateSettings(
-    columns,
-    columns.map(({ name, width }) => ({ name, width })),
-  );
-
   // Настройки из localstorage
-  const [localStorageColumns, setLocalStorageColumns] = useLocalStorage(
+  const [localStorageColumns, setLocalStorageColumns] = useLocalStorage<
+    LocalStorageColumn[]
+  >(
     storageKey,
-    initStorageColumns,
+    columns.map(({ name, width, locked }) => ({
+      name,
+      width,
+      locked,
+    })),
   );
 
   const mergedColumns = useMemo(
@@ -258,11 +260,15 @@ export function Table<T>({
   ) => {
     if (!localStorageKey) return;
 
-    const newColumnsSettings = separateSettings(
-      columns,
-      headers.map((item) => ({ name: item.id, width: item.getSize() })),
+    setLocalStorageColumns(
+      headers.map((item) => ({
+        name: item.id,
+        width: item.getSize(),
+        locked:
+          columns.find((col) => col.name === item.id)?.locked ||
+          LockedColumn.none,
+      })),
     );
-    setLocalStorageColumns(newColumnsSettings);
   };
 
   // Сохранение после ресайза колонки
@@ -314,8 +320,6 @@ export function Table<T>({
 
   if (skeleton) return skeleton;
 
-  console.log('mergedColumns', mergedColumns);
-
   return (
     <div className={s.root} ref={parentRef} style={{ height }}>
       <table
@@ -338,11 +342,6 @@ export function Table<T>({
                 );
                 const thHint =
                   columns.find(({ name }) => name === header.id)?.hint ?? '';
-
-                console.log(
-                  '###',
-                  header.column.columnDef.meta?.tableColumn.locked,
-                );
 
                 return (
                   <Tooltip
