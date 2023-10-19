@@ -132,8 +132,6 @@
         td {
           @include fontBody3;
 
-          display: flex;
-          align-items: var(--vertical-align);
           color: var(--color-text-90);
           background-color: var(--color-global-bgcard);
 
@@ -152,6 +150,8 @@
             -webkit-line-clamp: var(--cell-vert-clamp);
             -webkit-box-orient: vertical;
             overflow: hidden;
+            display: flex;
+            align-items: var(--vertical-align);
           }
         }
 
