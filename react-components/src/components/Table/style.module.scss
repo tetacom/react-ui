@@ -146,6 +146,7 @@
           }
 
           > .tdContent {
+            width: 100%;
             display: -webkit-box;
             -webkit-line-clamp: var(--cell-vert-clamp);
             -webkit-box-orient: vertical;
