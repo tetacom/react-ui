@@ -14,8 +14,8 @@ type Config = {
   columns: TableColumn[];
   dictionary: IDictionary | null;
   dateFormat?: string;
-  roundToDecimalPlaces?: number;
   utcOffset?: UtcOffset;
+  roundToDecimalPlaces?: number;
 };
 
 export const useTableColumns = <T>({
@@ -39,6 +39,7 @@ export const useTableColumns = <T>({
           width,
           sortable,
           editable,
+          locked,
           ...props
         }) =>
           columnHelper.accessor(name as any, {
@@ -92,11 +93,12 @@ export const useTableColumns = <T>({
                 width,
                 sortable,
                 editable,
+                locked,
                 ...props,
               },
             },
           }),
       ),
-    [columns, dictionary, dateFormat, roundToDecimalPlaces],
+    [columns, dictionary, dateFormat, utcOffset, roundToDecimalPlaces],
   );
 };

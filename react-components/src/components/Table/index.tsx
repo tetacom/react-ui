@@ -20,14 +20,19 @@ import { VerticalAlign } from './model/vertical-align';
 import TableRow from './components/RowTable';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
-import { mergeSettings, separateSettings } from './storageUtils';
-import type { TableColumn } from './model/table-column';
+import { LocalStorageColumn, mergeSettings } from './storageUtils';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
-import { eventIsOnRow, getCoordinates } from './helpers';
+import {
+  eventIsOnRow,
+  getCoordinates,
+  getStickyStyles,
+  lockedClasses,
+} from './helpers';
 import { ICellEvent } from './model/i-cell-event';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
+import { LockedColumn } from './model/enum/locked-column.enum';
 
 import s from './style.module.scss';
 
@@ -86,15 +91,15 @@ export function Table<T>({
     setData([...dataSource]);
   }, [dataSource]);
 
-  const initStorageColumns = separateSettings(
-    columns,
-    columns.map(({ name, width }) => ({ name, width })),
-  );
-
   // Настройки из localstorage
-  const [localStorageColumns, setLocalStorageColumns] = useLocalStorage(
+  const [localStorageColumns, setLocalStorageColumns] = useLocalStorage<
+    LocalStorageColumn[]
+  >(
     storageKey,
-    initStorageColumns,
+    columns.map(({ name, width }) => ({
+      name,
+      width,
+    })),
   );
 
   const mergedColumns = useMemo(
@@ -182,6 +187,16 @@ export function Table<T>({
     },
   });
 
+  const lockedColumns = table.getAllColumns().map((column) => {
+    const isLocked =
+      column.columnDef.meta?.tableColumn.locked ?? LockedColumn.none;
+
+    return {
+      name: column.id,
+      locked: typeof isLocked === 'boolean' ? LockedColumn.none : isLocked,
+    };
+  });
+
   const handleDblClick = (event: MouseEvent) => {
     const coordinates = getCoordinates(event);
     table.options?.meta?.startEditCell(coordinates);
@@ -252,17 +267,15 @@ export function Table<T>({
   });
 
   // Сохранение в локальное хранилище
-  const handleSaveColumns = (
-    columns: TableColumn[],
-    headers: Header<T, unknown>[],
-  ) => {
+  const handleSaveColumns = (headers: Header<T, unknown>[]) => {
     if (!localStorageKey) return;
 
-    const newColumnsSettings = separateSettings(
-      columns,
-      headers.map((item) => ({ name: item.id, width: item.getSize() })),
+    setLocalStorageColumns(
+      headers.map((item) => ({
+        name: item.id,
+        width: item.getSize(),
+      })),
     );
-    setLocalStorageColumns(newColumnsSettings);
   };
 
   // Сохранение после ресайза колонки
@@ -276,7 +289,7 @@ export function Table<T>({
     document.addEventListener(
       'mouseup',
       () => {
-        handleSaveColumns(mergedColumns, headerGroup.headers);
+        handleSaveColumns(headerGroup.headers);
       },
       { once: true },
     );
@@ -337,6 +350,22 @@ export function Table<T>({
                 const thHint =
                   columns.find(({ name }) => name === header.id)?.hint ?? '';
 
+                const columnLocked =
+                  lockedColumns.find((item) => item.name === header.id)
+                    ?.locked ?? LockedColumn.none;
+
+                const stickyStyles = getStickyStyles({
+                  columnName: header.id,
+                  lockedColumns,
+                  columnStart: header.getStart(),
+                  columnWidth: header.getSize(),
+                  tableWidth,
+                });
+
+                lockedColumns.find((item) => {
+                  return item.name === header.column.id;
+                });
+
                 return (
                   <Tooltip
                     key={header.id}
@@ -356,12 +385,14 @@ export function Table<T>({
                         handler?.(event);
                       }}
                       className={classNames(
+                        lockedClasses[columnLocked]?.head,
                         header.column.getCanSort() && s.isSortable,
                       )}
+                      style={stickyStyles}
                     >
                       {header.isPlaceholder ? null : (
                         <div className={s.thContent}>
-                          <span>{thContent}</span>
+                          <div>{thContent}</div>
 
                           {isSorted ? (
                             <Icon
@@ -369,19 +400,18 @@ export function Table<T>({
                               className={s.thContentIcon}
                             />
                           ) : null}
-                          <div
-                            data-type={RESIZER_ATTRIBUTE_NAME}
-                            className={classNames(
-                              s.resizer,
-                              header.column.getIsResizing() &&
-                                s.resizerIsResizing,
-                            )}
-                            onMouseDown={(event) =>
-                              handleResizeMouseDown(event, header, headerGroup)
-                            }
-                          />
                         </div>
                       )}
+                      <div
+                        data-type={RESIZER_ATTRIBUTE_NAME}
+                        className={classNames(
+                          s.resizer,
+                          header.column.getIsResizing() && s.resizerIsResizing,
+                        )}
+                        onMouseDown={(event) =>
+                          handleResizeMouseDown(event, header, headerGroup)
+                        }
+                      />
                     </th>
                   </Tooltip>
                 );
@@ -403,6 +433,8 @@ export function Table<T>({
                 table={table}
                 isSelectedRow={row.getIsSelected()}
                 acrossLine={acrossLine}
+                tableWidth={tableWidth}
+                lockedColumns={lockedColumns}
               />
             );
           })}

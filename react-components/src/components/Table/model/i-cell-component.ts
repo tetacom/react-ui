@@ -9,6 +9,6 @@ export interface ICellComponent<T> {
   isEdit: boolean;
   cellIndex: number;
   dateFormat?: string;
-  roundToDecimalPlaces?: number;
   utcOffset?: UtcOffset;
+  roundToDecimalPlaces?: number;
 }

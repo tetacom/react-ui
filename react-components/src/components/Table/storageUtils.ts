@@ -1,6 +1,6 @@
 import type { TableColumn } from './model/table-column';
 
-type ColumnSavedFields = { name: string; width: number };
+export type LocalStorageColumn = Pick<TableColumn, 'name' | 'width'>;
 
 export function mergeSettings(
   propData: TableColumn[],
@@ -22,32 +22,4 @@ export function mergeSettings(
 
     return propColumn;
   });
-}
-
-export function separateSettings(
-  dataToSave: TableColumn[],
-  columnsWidth: ColumnSavedFields[],
-) {
-  return dataToSave.map(
-    ({
-      cellComponent,
-      caption,
-      hint,
-      sortable,
-      sortField,
-      editable,
-      filterable,
-      filterType,
-      filterField,
-      required,
-      sortOrder,
-      hidden,
-      ...rest
-    }) => ({
-      ...rest,
-      width:
-        columnsWidth.find(({ name }) => name === rest.name)?.width ??
-        rest.width,
-    }),
-  );
 }

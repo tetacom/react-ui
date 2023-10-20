@@ -5,6 +5,7 @@ import { StringFilterType } from './enum/string-filter-type.enum';
 import { ListFilterType } from './enum/list-filter-type.enum';
 import { FilterType } from './enum/filter-type.enum';
 import { CustomCellComponent } from './cell-component';
+import { LockedColumn } from './enum/locked-column.enum';
 
 export class TableColumn extends FilterItem {
   /**
@@ -18,7 +19,7 @@ export class TableColumn extends FilterItem {
   /**
    * Стобец закреплен
    */
-  locked: boolean;
+  locked: LockedColumn | boolean;
   /**
    * Стобец скрыт
    */
@@ -111,7 +112,7 @@ export class TableColumn extends FilterItem {
     width?: number;
     flex?: number;
     sortOrder?: number;
-    locked?: boolean;
+    locked?: LockedColumn;
     hidden?: boolean;
     name?: string;
     parentName?: string;
@@ -150,7 +151,7 @@ export class TableColumn extends FilterItem {
     this.flex = options?.flex ?? 1;
     this.headCellClass = options?.headCellClass ?? [];
     this.cellClass = options?.cellClass ?? [];
-    this.locked = options?.locked ?? false;
+    this.locked = options?.locked ?? LockedColumn.none;
     this.hidden = options?.hidden ?? false;
     this.name = options?.name ?? '';
     this.parentName = options?.parentName ?? '';
