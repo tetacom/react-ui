@@ -362,7 +362,7 @@ export function Table<T>({
                   tableWidth,
                 });
 
-                lockedColumns.find((item, index, arr) => {
+                lockedColumns.find((item) => {
                   return item.name === header.column.id;
                 });
 
