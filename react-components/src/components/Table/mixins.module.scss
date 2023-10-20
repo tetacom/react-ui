@@ -12,16 +12,22 @@
   }
 }
 
-@mixin lockedLeft($left: 0) {
+@mixin lockedCell() {
   position: sticky;
-  left: $left;
+  left: var(--sticky-left);
+  right: var(--sticky-right);
   z-index: 1;
-}
 
-@mixin lockedRight($right: 0) {
-  position: sticky;
-  right: $right;
-  z-index: 1;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: var(--left-border);
+    right: var(--right-border);
+    width: 1px;
+    height: 100%;
+    background-color: var(--bg-color);
+  }
 }
 
 @mixin lockedHead($position) {
@@ -36,7 +42,7 @@
     height: 100%;
     background-color: var(--color-text-5);
     border-bottom: 1px solid var(--color-text-5);
-    border-#{$position}: 1px solid var(--color-text-5);
+    border-#{$position}: 1px solid var(--bg-color);
   }
 
   > * {
@@ -44,8 +50,6 @@
   }
 }
 
-@mixin lockedBody($position) {
+@mixin lockedCellUnderline() {
   border-bottom: 1px solid var(--color-text-5);
-  border-bottom: 1px solid red;
-  border-#{$position}: 1px solid var(--color-text-5);
 }

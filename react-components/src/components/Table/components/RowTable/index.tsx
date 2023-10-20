@@ -4,7 +4,11 @@ import classNames from 'classnames';
 
 import { TableProps } from '../../model';
 import { LockedColumn } from 'tetacom/react-components';
-import { lockedClasses } from '../../helpers';
+import {
+  getStickyStyles,
+  lockedClasses,
+  LockedColumnType,
+} from '../../helpers';
 
 import s from '../../style.module.scss';
 
@@ -15,14 +19,21 @@ export interface ITableRow<T> {
   isSelectedRow?: boolean;
   rowRef: (node: Element | null) => void;
   acrossLine?: TableProps<T>['acrossLine'];
+  tableWidth: number;
+  lockedColumns: LockedColumnType[];
 }
 
 function TableCell<T>({
   cell,
+  width,
+  tableWidth,
+  lockedColumns,
 }: {
   cell: Cell<T, unknown>;
   width: number;
   isEdit: boolean;
+  tableWidth: number;
+  lockedColumns: LockedColumnType[];
 }) {
   const cellComponent = cell.column.columnDef.cell;
   const isCustomCell = Boolean(
@@ -34,6 +45,14 @@ function TableCell<T>({
       ? LockedColumn.none
       : locked ?? LockedColumn.none;
 
+  const stickyStyles = getStickyStyles({
+    columnName: cell.column.id,
+    lockedColumns,
+    columnStart: cell.column.getStart(),
+    columnWidth: width,
+    tableWidth,
+  });
+
   return (
     <td
       key={cell.id}
@@ -43,6 +62,7 @@ function TableCell<T>({
         lockedClasses[cellLocked]?.body,
         isCustomCell && s.resetPadding,
       )}
+      style={stickyStyles}
     >
       <div className={s.tdContent}>
         {flexRender(cellComponent, cell.getContext())}
@@ -69,6 +89,8 @@ function TableRow<T>({
   isSelectedRow = false,
   rowRef,
   acrossLine = false,
+  tableWidth,
+  lockedColumns,
 }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
@@ -100,6 +122,8 @@ function TableRow<T>({
             isEdit={isEdit}
             cell={cell}
             width={cellWidth}
+            tableWidth={tableWidth}
+            lockedColumns={lockedColumns}
           />
         );
       })}

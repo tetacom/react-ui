@@ -58,12 +58,12 @@
           }
 
           &.lockedHeadLeft {
-            @include lockedLeft(0);
+            @include lockedCell();
             @include lockedHead(right);
           }
 
           &.lockedHeadRight {
-            @include lockedRight(0);
+            @include lockedCell();
             @include lockedHead(left);
           }
 
@@ -142,13 +142,11 @@
           }
 
           &.lockedBodyLeft {
-            @include lockedLeft(0);
-            @include lockedBody(right);
+            @include lockedCell();
           }
 
           &.lockedBodyRight {
-            @include lockedRight(0);
-            @include lockedBody(left);
+            @include lockedCell();
           }
 
           .tdContent {
@@ -166,6 +164,16 @@
         &:not(:last-child) {
           &.underline {
             @include underline();
+
+            td {
+              &.lockedBodyLeft {
+                @include lockedCellUnderline();
+              }
+
+              &.lockedBodyRight {
+                @include lockedCellUnderline();
+              }
+            }
           }
         }
 

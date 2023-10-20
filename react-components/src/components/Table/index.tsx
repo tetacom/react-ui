@@ -23,7 +23,12 @@ import { sortIconNames } from './sortIconNames';
 import { LocalStorageColumn, mergeSettings } from './storageUtils';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
-import { eventIsOnRow, getCoordinates, lockedClasses } from './helpers';
+import {
+  eventIsOnRow,
+  getCoordinates,
+  getStickyStyles,
+  lockedClasses,
+} from './helpers';
 import { ICellEvent } from './model/i-cell-event';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
@@ -182,6 +187,16 @@ export function Table<T>({
     },
   });
 
+  const lockedColumns = table.getAllColumns().map((column) => {
+    const isLocked =
+      column.columnDef.meta?.tableColumn.locked ?? LockedColumn.none;
+
+    return {
+      name: column.id,
+      locked: typeof isLocked === 'boolean' ? LockedColumn.none : isLocked,
+    };
+  });
+
   const handleDblClick = (event: MouseEvent) => {
     const coordinates = getCoordinates(event);
     table.options?.meta?.startEditCell(coordinates);
@@ -335,11 +350,21 @@ export function Table<T>({
                 const thHint =
                   columns.find(({ name }) => name === header.id)?.hint ?? '';
 
-                const locked = header.column.columnDef.meta?.tableColumn.locked;
                 const columnLocked =
-                  typeof locked === 'boolean'
-                    ? LockedColumn.none
-                    : locked ?? LockedColumn.none;
+                  lockedColumns.find((item) => item.name === header.id)
+                    ?.locked ?? LockedColumn.none;
+
+                const stickyStyles = getStickyStyles({
+                  columnName: header.id,
+                  lockedColumns,
+                  columnStart: header.getStart(),
+                  columnWidth: header.getSize(),
+                  tableWidth,
+                });
+
+                lockedColumns.find((item, index, arr) => {
+                  return item.name === header.column.id;
+                });
 
                 return (
                   <Tooltip
@@ -363,6 +388,7 @@ export function Table<T>({
                         lockedClasses[columnLocked]?.head,
                         header.column.getCanSort() && s.isSortable,
                       )}
+                      style={stickyStyles}
                     >
                       {header.isPlaceholder ? null : (
                         <div className={s.thContent}>
@@ -407,6 +433,8 @@ export function Table<T>({
                 table={table}
                 isSelectedRow={row.getIsSelected()}
                 acrossLine={acrossLine}
+                tableWidth={tableWidth}
+                lockedColumns={lockedColumns}
               />
             );
           })}
