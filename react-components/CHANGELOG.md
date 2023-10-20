@@ -2,6 +2,17 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.14](https://github.com/tetacom/react-ui/compare/react-components-0.12.13...react-components-0.12.14) (2023-10-20)
+
+
+### Bug Fixes
+
+* fixed columns ([c3e0e67](https://github.com/tetacom/react-ui/commit/c3e0e67eed4dab9b6a844cd517f390f5f344c642))
+* remove locked field from saved data ([697088e](https://github.com/tetacom/react-ui/commit/697088ee56e31325d60258d0f9a0770069633479))
+* start lock columns ([2e1e179](https://github.com/tetacom/react-ui/commit/2e1e179534a12ff352f723e4f8c4a9fd2ed52a3d))
+* start locked columns ([d4d956c](https://github.com/tetacom/react-ui/commit/d4d956c8f6b92de714cf3ec0dd1f4ac7ec61818f))
+* update table localstorage data format ([2fb0828](https://github.com/tetacom/react-ui/commit/2fb082811c17ef9adc8b2e28d2e7d8cfddc24ebf))
+
 ### [0.12.13](https://github.com/tetacom/react-ui/compare/react-components-0.12.12...react-components-0.12.13) (2023-10-19)
 
 
