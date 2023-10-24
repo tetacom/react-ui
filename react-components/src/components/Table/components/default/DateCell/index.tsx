@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 
 import { ICellComponent } from '../../../model/i-cell-component';
-import { EditStringCell } from '../../EditStringCell';
+import { EditStringCell } from '../../BaseStringCell';
 
 export function DateCell({
   table,

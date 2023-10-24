@@ -1,14 +1,12 @@
 import React, { memo } from 'react';
 import { Cell, flexRender, Row, Table } from '@tanstack/react-table';
 import classNames from 'classnames';
+import objectHash from 'object-hash';
 
 import { TableProps } from '../../model';
 import { LockedColumn } from 'tetacom/react-components';
-import {
-  getStickyStyles,
-  lockedClasses,
-  LockedColumnType,
-} from '../../helpers';
+import { lockedClasses } from '../../helpers';
+import { LockedColumnType } from '../../useStickyStyles';
 
 import s from '../../style.module.scss';
 
@@ -19,39 +17,24 @@ export interface ITableRow<T> {
   isSelectedRow?: boolean;
   rowRef: (node: Element | null) => void;
   acrossLine?: TableProps<T>['acrossLine'];
-  tableWidth: number;
-  lockedColumns: LockedColumnType[];
+  lockedColumnsVariables: Map<string, LockedColumnType>;
 }
 
 function TableCell<T>({
   cell,
-  width,
-  tableWidth,
-  lockedColumns,
+  lockedColumnsVariables,
 }: {
   cell: Cell<T, unknown>;
   width: number;
   isEdit: boolean;
-  tableWidth: number;
-  lockedColumns: LockedColumnType[];
+  lockedColumnsVariables: Map<string, LockedColumnType>;
 }) {
   const cellComponent = cell.column.columnDef.cell;
   const isCustomCell = Boolean(
     cell.column.columnDef.meta?.tableColumn.cellComponent,
   );
-  const locked = cell.column.columnDef.meta?.tableColumn.locked;
-  const cellLocked =
-    typeof locked === 'boolean'
-      ? LockedColumn.none
-      : locked ?? LockedColumn.none;
-
-  const stickyStyles = getStickyStyles({
-    columnName: cell.column.id,
-    lockedColumns,
-    columnStart: cell.column.getStart(),
-    columnWidth: width,
-    tableWidth,
-  });
+  const columnLockedData = lockedColumnsVariables.get(cell.column.id);
+  const cellLocked = columnLockedData?.lockedValue ?? LockedColumn.none;
 
   return (
     <td
@@ -62,7 +45,7 @@ function TableCell<T>({
         lockedClasses[cellLocked]?.body,
         isCustomCell && s.resetPadding,
       )}
-      style={stickyStyles}
+      style={columnLockedData?.variables}
     >
       <div className={s.tdContent}>
         {flexRender(cellComponent, cell.getContext())}
@@ -75,10 +58,28 @@ const MemoTableCell = memo(TableCell, (prevProps, nextProps) => {
   const nextContext = nextProps.cell.getContext();
   const prevContext = prevProps.cell.getContext();
 
+  const nextContextLocked =
+    nextContext.column.columnDef.meta?.tableColumn.locked;
+  let lockedEquals = true;
+
+  if (
+    nextContextLocked === LockedColumn.left ||
+    nextContextLocked === LockedColumn.right
+  ) {
+    lockedEquals =
+      objectHash.sha1(
+        nextProps.lockedColumnsVariables.get(nextProps.cell.column.id) ?? null,
+      ) ===
+      objectHash.sha1(
+        prevProps.lockedColumnsVariables.get(prevProps.cell.column.id) ?? null,
+      );
+  }
+
   return (
     prevProps.width === nextProps.width &&
     prevContext.getValue() === nextContext.getValue() &&
-    prevProps.isEdit === nextProps.isEdit
+    prevProps.isEdit === nextProps.isEdit &&
+    lockedEquals
   );
 }) as typeof TableCell;
 
@@ -89,8 +90,7 @@ function TableRow<T>({
   isSelectedRow = false,
   rowRef,
   acrossLine = false,
-  tableWidth,
-  lockedColumns,
+  lockedColumnsVariables,
 }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
@@ -122,8 +122,7 @@ function TableRow<T>({
             isEdit={isEdit}
             cell={cell}
             width={cellWidth}
-            tableWidth={tableWidth}
-            lockedColumns={lockedColumns}
+            lockedColumnsVariables={lockedColumnsVariables}
           />
         );
       })}
