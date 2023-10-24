@@ -23,7 +23,12 @@ import { sortIconNames } from './sortIconNames';
 import { LocalStorageColumn, mergeSettings } from './storageUtils';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
-import { eventIsOnRow, getCoordinates, lockedClasses } from './helpers';
+import {
+  debounce,
+  eventIsOnRow,
+  getCoordinates,
+  lockedClasses,
+} from './helpers';
 import { ICellEvent } from './model/i-cell-event';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
@@ -283,6 +288,10 @@ export function Table<T>({
     return resizeHandler(event);
   };
 
+  const handleTableScroll = debounce(() => {
+    console.log('parentRef', parentRef.current?.scrollLeft);
+  }, 200);
+
   const parentRef = useRef<HTMLDivElement>(null);
   const { rows } = table.getRowModel();
   const virtualizer = useVirtualizer({
@@ -319,7 +328,12 @@ export function Table<T>({
   if (skeleton) return skeleton;
 
   return (
-    <div className={s.root} ref={parentRef} style={{ height }}>
+    <div
+      className={s.root}
+      ref={parentRef}
+      onScroll={handleTableScroll}
+      style={{ height }}
+    >
       <table
         {...props}
         className={classNames(s.table, className)}

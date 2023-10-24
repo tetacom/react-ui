@@ -18,6 +18,19 @@
   right: var(--sticky-right);
   z-index: 1;
 
+  //&::before {
+  //  position: absolute;
+  //  top: 0;
+  //  right: 0;
+  //  bottom: -1px;
+  //  width: 30px;
+  //  transform: translateX(100%);
+  //  transition: box-shadow 0.3s;
+  //  content: '';
+  //  pointer-events: none;
+  //  box-shadow: inset 10px 0 8px -8px var(--color-text-10);
+  //}
+
   &::after {
     content: '';
     position: absolute;
