@@ -288,10 +288,6 @@ export function Table<T>({
     return resizeHandler(event);
   };
 
-  const handleTableScroll = debounce(() => {
-    console.log('parentRef', parentRef.current?.scrollLeft);
-  }, 200);
-
   const parentRef = useRef<HTMLDivElement>(null);
   const { rows } = table.getRowModel();
   const virtualizer = useVirtualizer({
@@ -312,6 +308,26 @@ export function Table<T>({
         .join(' '),
     [tableWidth],
   );
+
+  const [horizontalScroll, setHorizontalScroll] = useState<{
+    left: number;
+    right: number;
+  }>({
+    left: 0,
+    right: 1,
+  });
+  const handleTableScroll = debounce(() => {
+    const maxScrollLeft =
+      (parentRef.current?.scrollWidth ?? 0) -
+      (parentRef.current?.offsetWidth ?? 0) +
+      12;
+    const scrollLeft = parentRef.current?.scrollLeft ?? 0;
+
+    setHorizontalScroll({
+      left: scrollLeft,
+      right: maxScrollLeft - scrollLeft,
+    });
+  }, 100);
 
   const cellStyles = {
     '--cell-vert-clamp': cellParams.verticalClamp,
@@ -361,6 +377,21 @@ export function Table<T>({
                 const columnLocked =
                   columnLockedData?.lockedValue ?? LockedColumn.none;
 
+                let stickyClasses = '';
+                if (columnLockedData?.isExtreme) {
+                  if (
+                    columnLocked === LockedColumn.left &&
+                    horizontalScroll.left !== 0
+                  ) {
+                    stickyClasses = s.lockedHeadLeftLast;
+                  } else if (
+                    columnLocked === LockedColumn.right &&
+                    horizontalScroll.right !== 0
+                  ) {
+                    stickyClasses = s.lockedHeadRightFirst;
+                  }
+                }
+
                 return (
                   <Tooltip
                     key={header.id}
@@ -381,6 +412,7 @@ export function Table<T>({
                       }}
                       className={classNames(
                         lockedClasses[columnLocked]?.head,
+                        stickyClasses,
                         header.column.getCanSort() && s.isSortable,
                       )}
                       style={columnLockedData?.variables}
@@ -429,6 +461,7 @@ export function Table<T>({
                 isSelectedRow={row.getIsSelected()}
                 acrossLine={acrossLine}
                 lockedColumnsVariables={lockedColumnsVariables}
+                horizontalScroll={horizontalScroll}
               />
             );
           })}

@@ -18,16 +18,24 @@ export interface ITableRow<T> {
   rowRef: (node: Element | null) => void;
   acrossLine?: TableProps<T>['acrossLine'];
   lockedColumnsVariables: Map<string, LockedColumnType>;
+  horizontalScroll: {
+    left: number;
+    right: number;
+  };
 }
 
 function TableCell<T>({
   cell,
   lockedColumnsVariables,
+  horizontalScrollLeft,
+  horizontalScrollRight,
 }: {
   cell: Cell<T, unknown>;
   width: number;
   isEdit: boolean;
   lockedColumnsVariables: Map<string, LockedColumnType>;
+  horizontalScrollLeft: number;
+  horizontalScrollRight: number;
 }) {
   const cellComponent = cell.column.columnDef.cell;
   const isCustomCell = Boolean(
@@ -36,6 +44,18 @@ function TableCell<T>({
   const columnLockedData = lockedColumnsVariables.get(cell.column.id);
   const cellLocked = columnLockedData?.lockedValue ?? LockedColumn.none;
 
+  let stickyClasses = '';
+  if (columnLockedData?.isExtreme) {
+    if (cellLocked === LockedColumn.left && horizontalScrollLeft !== 0) {
+      stickyClasses = s.lockedBodyLeftLast;
+    } else if (
+      cellLocked === LockedColumn.right &&
+      horizontalScrollRight !== 0
+    ) {
+      stickyClasses = s.lockedBodyRightFirst;
+    }
+  }
+
   return (
     <td
       key={cell.id}
@@ -43,6 +63,7 @@ function TableCell<T>({
       data-row={cell.row.id}
       className={classNames(
         lockedClasses[cellLocked]?.body,
+        stickyClasses,
         isCustomCell && s.resetPadding,
       )}
       style={columnLockedData?.variables}
@@ -79,6 +100,8 @@ const MemoTableCell = memo(TableCell, (prevProps, nextProps) => {
     prevProps.width === nextProps.width &&
     prevContext.getValue() === nextContext.getValue() &&
     prevProps.isEdit === nextProps.isEdit &&
+    prevProps.horizontalScrollLeft === nextProps.horizontalScrollLeft &&
+    prevProps.horizontalScrollRight === nextProps.horizontalScrollRight &&
     lockedEquals
   );
 }) as typeof TableCell;
@@ -91,6 +114,7 @@ function TableRow<T>({
   rowRef,
   acrossLine = false,
   lockedColumnsVariables,
+  horizontalScroll,
 }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
@@ -123,6 +147,8 @@ function TableRow<T>({
             cell={cell}
             width={cellWidth}
             lockedColumnsVariables={lockedColumnsVariables}
+            horizontalScrollLeft={horizontalScroll.left}
+            horizontalScrollRight={horizontalScroll.right}
           />
         );
       })}

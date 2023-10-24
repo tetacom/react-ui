@@ -5,6 +5,7 @@ import { LockedColumn } from './model/public-api';
 
 export type LockedColumnType = {
   lockedValue: LockedColumn;
+  isExtreme: boolean;
   variables: React.CSSProperties;
 };
 
@@ -62,20 +63,16 @@ function getStickyStyles({
   columnWidth: number;
   tableWidth: number;
 }): LockedColumnType {
-  const BORDER_BG_COLOR = 'var(--color-text-5)';
   let left;
   let right;
-  let borderLeft;
-  let borderRight;
-  let bgColor;
+  let isExtreme = false;
 
   if (columnLocked === LockedColumn.left) {
     left = `${columnStart}px`;
 
     const isExtremeLeftColumn = nextColumnLocked !== LockedColumn.left;
     if (isExtremeLeftColumn) {
-      borderRight = '0px';
-      bgColor = BORDER_BG_COLOR;
+      isExtreme = true;
     }
   }
   if (columnLocked === LockedColumn.right) {
@@ -83,20 +80,17 @@ function getStickyStyles({
 
     const isExtremeRightColumn = prevColumnLocked !== LockedColumn.right;
     if (isExtremeRightColumn) {
-      borderLeft = '0px';
-      bgColor = BORDER_BG_COLOR;
+      isExtreme = true;
     }
   }
 
   return {
     lockedValue:
       typeof columnLocked !== 'boolean' ? columnLocked : LockedColumn.none,
+    isExtreme,
     variables: {
       '--sticky-left': left ?? 'auto',
       '--sticky-right': right ?? 'auto',
-      '--left-border': borderLeft ?? 'auto',
-      '--right-border': borderRight ?? 'auto',
-      '--bg-color': bgColor ?? 'transparent',
     } as React.CSSProperties,
   };
 }
