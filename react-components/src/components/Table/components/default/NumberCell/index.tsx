@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { EditStringCell } from '../../EditStringCell';
+import { EditStringCell } from '../../BaseStringCell';
 import { ICellComponent } from '../../../model/i-cell-component';
 
 import numberStyles from './style.module.scss';

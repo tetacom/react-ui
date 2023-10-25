@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { FilterType, LockedColumn } from '../model/public-api';
 import { StringCell } from '../components/default/StringCell';
 import { DateCell } from '../components/default/DateCell';
@@ -70,60 +68,19 @@ export const lockedClasses: Record<
   },
 };
 
-export type LockedColumnType = { name: string; locked: LockedColumn };
+export const debounce = <F extends (...args: any[]) => any>(
+  func: F,
+  waitFor: number,
+) => {
+  let timeout: ReturnType<typeof setTimeout> | null = null;
 
-export function getStickyStyles({
-  columnName,
-  lockedColumns,
-  columnStart,
-  columnWidth,
-  tableWidth,
-}: {
-  columnName: string;
-  lockedColumns: LockedColumnType[];
-  columnStart: number;
-  columnWidth: number;
-  tableWidth: number;
-}): React.CSSProperties {
-  const lockedColumnType =
-    lockedColumns.find(({ name }) => name === columnName)?.locked ??
-    LockedColumn.none;
-  const lockedColumnIndex = lockedColumns.findIndex(
-    ({ name }) => name === columnName,
-  );
-  const bgValue = 'var(--color-text-5)';
-  let left = 'auto';
-  let right = 'auto';
-  let borderLeft = 'auto';
-  let borderRight = 'auto';
-  let bgColor = 'transparent';
-
-  if (lockedColumnType === LockedColumn.left) {
-    left = `${columnStart}px`;
-
-    const isExtremeLeftColumn =
-      lockedColumns[lockedColumnIndex + 1].locked !== LockedColumn.left;
-    if (isExtremeLeftColumn) {
-      borderRight = '0px';
-      bgColor = bgValue;
+  const debounced = (...args: Parameters<F>) => {
+    if (timeout !== null) {
+      clearTimeout(timeout);
+      timeout = null;
     }
-  }
-  if (lockedColumnType === LockedColumn.right) {
-    right = `${tableWidth - (columnStart + columnWidth)}px`;
+    timeout = setTimeout(() => func(...args), waitFor);
+  };
 
-    const isExtremeRightColumn =
-      lockedColumns[lockedColumnIndex - 1].locked !== LockedColumn.right;
-    if (isExtremeRightColumn) {
-      borderLeft = '0px';
-      bgColor = bgValue;
-    }
-  }
-
-  return {
-    '--sticky-left': left,
-    '--sticky-right': right,
-    '--left-border': borderLeft,
-    '--right-border': borderRight,
-    '--bg-color': bgColor,
-  } as React.CSSProperties;
-}
+  return debounced as (...args: Parameters<F>) => ReturnType<F>;
+};

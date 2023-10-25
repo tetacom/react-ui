@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.12.15](https://github.com/tetacom/react-ui/compare/react-components-0.12.14...react-components-0.12.15) (2023-10-25)
+
+
+### Bug Fixes
+
+* add scroll handler and shadow rules ([b1230e7](https://github.com/tetacom/react-ui/commit/b1230e7d797ea2bfff3ff6eb15327b00d2013e77))
+* add shadow to sticky columns ([b24fca7](https://github.com/tetacom/react-ui/commit/b24fca76076a4837a48159626ba1254da1da5e49))
+* fix sticky resize ([dc3ffc6](https://github.com/tetacom/react-ui/commit/dc3ffc66a1f43436a906fa9666226bc3bbe52b57))
+
 ### [0.12.14](https://github.com/tetacom/react-ui/compare/react-components-0.12.13...react-components-0.12.14) (2023-10-20)
 
 

@@ -24,15 +24,16 @@ import { LocalStorageColumn, mergeSettings } from './storageUtils';
 import { Tooltip } from '../Tooltip';
 import { useColumnVisibility } from './useColumnVisibility';
 import {
+  debounce,
   eventIsOnRow,
   getCoordinates,
-  getStickyStyles,
   lockedClasses,
 } from './helpers';
 import { ICellEvent } from './model/i-cell-event';
 import { useTableColumns } from './useTableColumns';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 import { LockedColumn } from './model/enum/locked-column.enum';
+import { useStickyStyles } from './useStickyStyles';
 
 import s from './style.module.scss';
 
@@ -187,16 +188,6 @@ export function Table<T>({
     },
   });
 
-  const lockedColumns = table.getAllColumns().map((column) => {
-    const isLocked =
-      column.columnDef.meta?.tableColumn.locked ?? LockedColumn.none;
-
-    return {
-      name: column.id,
-      locked: typeof isLocked === 'boolean' ? LockedColumn.none : isLocked,
-    };
-  });
-
   const handleDblClick = (event: MouseEvent) => {
     const coordinates = getCoordinates(event);
     table.options?.meta?.startEditCell(coordinates);
@@ -318,6 +309,26 @@ export function Table<T>({
     [tableWidth],
   );
 
+  const [horizontalScroll, setHorizontalScroll] = useState<{
+    left: number;
+    right: number;
+  }>({
+    left: 0,
+    right: 1,
+  });
+  const handleTableScroll = debounce(() => {
+    const maxScrollLeft =
+      (parentRef.current?.scrollWidth ?? 0) -
+      (parentRef.current?.offsetWidth ?? 0) +
+      12;
+    const scrollLeft = parentRef.current?.scrollLeft ?? 0;
+
+    setHorizontalScroll({
+      left: scrollLeft,
+      right: maxScrollLeft - scrollLeft,
+    });
+  }, 100);
+
   const cellStyles = {
     '--cell-vert-clamp': cellParams.verticalClamp,
     '--tbody-transform': `${virtualizer.getVirtualItems()[0]?.start}px`,
@@ -325,10 +336,20 @@ export function Table<T>({
     '--vertical-align': verticalAlignValues[verticalAlign],
   };
 
+  const lockedColumnsVariables = useStickyStyles(
+    table.getHeaderGroups(),
+    tableWidth,
+  );
+
   if (skeleton) return skeleton;
 
   return (
-    <div className={s.root} ref={parentRef} style={{ height }}>
+    <div
+      className={s.root}
+      ref={parentRef}
+      onScroll={handleTableScroll}
+      style={{ height }}
+    >
       <table
         {...props}
         className={classNames(s.table, className)}
@@ -350,21 +371,26 @@ export function Table<T>({
                 const thHint =
                   columns.find(({ name }) => name === header.id)?.hint ?? '';
 
+                const columnLockedData = lockedColumnsVariables.get(
+                  header.column.id,
+                );
                 const columnLocked =
-                  lockedColumns.find((item) => item.name === header.id)
-                    ?.locked ?? LockedColumn.none;
+                  columnLockedData?.lockedValue ?? LockedColumn.none;
 
-                const stickyStyles = getStickyStyles({
-                  columnName: header.id,
-                  lockedColumns,
-                  columnStart: header.getStart(),
-                  columnWidth: header.getSize(),
-                  tableWidth,
-                });
-
-                lockedColumns.find((item) => {
-                  return item.name === header.column.id;
-                });
+                let stickyClasses = '';
+                if (columnLockedData?.isExtreme) {
+                  if (
+                    columnLocked === LockedColumn.left &&
+                    horizontalScroll.left !== 0
+                  ) {
+                    stickyClasses = s.lockedHeadLeftLast;
+                  } else if (
+                    columnLocked === LockedColumn.right &&
+                    horizontalScroll.right !== 0
+                  ) {
+                    stickyClasses = s.lockedHeadRightFirst;
+                  }
+                }
 
                 return (
                   <Tooltip
@@ -386,9 +412,10 @@ export function Table<T>({
                       }}
                       className={classNames(
                         lockedClasses[columnLocked]?.head,
+                        stickyClasses,
                         header.column.getCanSort() && s.isSortable,
                       )}
-                      style={stickyStyles}
+                      style={columnLockedData?.variables}
                     >
                       {header.isPlaceholder ? null : (
                         <div className={s.thContent}>
@@ -433,8 +460,8 @@ export function Table<T>({
                 table={table}
                 isSelectedRow={row.getIsSelected()}
                 acrossLine={acrossLine}
-                tableWidth={tableWidth}
-                lockedColumns={lockedColumns}
+                lockedColumnsVariables={lockedColumnsVariables}
+                horizontalScroll={horizontalScroll}
               />
             );
           })}

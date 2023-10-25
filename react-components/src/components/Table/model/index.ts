@@ -53,5 +53,6 @@ export interface TableProps<T>
   // Округлить числа до заданного количества знаков после точки
   roundToDecimalPlaces?: number;
 
+  // Выравнивание строк по вертикали
   verticalAlign?: VerticalAlign;
 }

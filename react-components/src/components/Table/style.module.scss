@@ -60,11 +60,21 @@
           &.lockedHeadLeft {
             @include lockedCell();
             @include lockedHead(right);
+            @include stickyShadow(auto, 0, 100%);
+
+            &Last {
+              @include stickyLeftShadow();
+            }
           }
 
           &.lockedHeadRight {
             @include lockedCell();
             @include lockedHead(left);
+            @include stickyShadow(0, auto, -100%);
+
+            &First {
+              @include stickyRightShadow();
+            }
           }
 
           .thContent {
@@ -143,10 +153,20 @@
 
           &.lockedBodyLeft {
             @include lockedCell();
+            @include stickyShadow(auto, 0, 100%);
+
+            &Last {
+              @include stickyLeftShadow();
+            }
           }
 
           &.lockedBodyRight {
             @include lockedCell();
+            @include stickyShadow(0, auto, -100%);
+
+            &First {
+              @include stickyRightShadow();
+            }
           }
 
           .tdContent {
