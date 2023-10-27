@@ -5,6 +5,7 @@ import {
   FloatingPortal,
   offset as offsetFn,
   shift,
+  useClick,
   useClientPoint,
   useFloating,
   useHover,
