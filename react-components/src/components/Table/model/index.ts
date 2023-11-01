@@ -5,7 +5,7 @@ import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
 import { UtcOffset } from './utc-offset';
-import { VerticalAlign } from 'tetacom/react-components';
+import { VerticalAlign } from './vertical-align';
 
 export type TableRef = HTMLTableElement;
 

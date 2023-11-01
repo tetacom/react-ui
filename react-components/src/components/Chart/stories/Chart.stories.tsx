@@ -10,7 +10,7 @@ const ViewPort = (props: ChartProps) => {
 
   return (
     <div style={{ height: 'calc(100vh - 50px)' }}>
-      <Button onClick={() => setConfig(createChart(100))}>
+      <Button onClick={() => setConfig(createChart(2))}>
         Сгенерировать новые данные
       </Button>
       <Chart config={config} />
@@ -29,6 +29,6 @@ type Story = StoryObj<typeof Chart>;
 
 export const Default: Story = {
   args: {
-    config: createChart(100),
+    config: createChart(2),
   },
 };

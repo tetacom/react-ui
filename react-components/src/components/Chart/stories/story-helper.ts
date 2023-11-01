@@ -32,7 +32,7 @@ export const createSeries = (size: number) => {
         component: BubbleSeries,
         data: Array.from(Array(size).keys()).map((key, index, arr) => {
           const num = faker.number.int({ min: 0, max: 6000 });
-          const radius = faker.number.int({ min: 0, max: 50 });
+          const radius = faker.number.int({ min: 1, max: 50 });
 
           const point: BubblePoint = {
             x: num,
@@ -56,14 +56,19 @@ export const createChart = (size: number, inverted = false): ChartConfig => {
         visible: true,
         niceTicks: true,
         inverted: false,
+        min: -10,
+        max: 6500,
       },
     ],
     yAxis: [
       {
         visible: true,
         inverted: true,
+        niceTicks: false,
+        min: -10,
+        max: 230,
       },
     ],
-    series: createSeries(size),
+    series: createSeries(size) as unknown as Array<Series<BasePoint>>,
   };
 };

@@ -34,9 +34,9 @@ function GridlineX(props: GridlineProps) {
     return (
       <line
         className={s.gridline}
-        x1={axis.scale(tick)}
+        x1={axis.scale(tick) as string}
         y1="0"
-        x2={axis.scale(tick)}
+        x2={axis.scale(tick) as string}
         y2={size?.height}
       ></line>
     );
@@ -51,9 +51,9 @@ function GridlineY(props: GridlineProps) {
       <line
         className={s.gridline}
         x1="0"
-        y1={axis.scale(tick)}
+        y1={axis.scale(tick) as string}
         x2={size?.width}
-        y2={axis.scale(tick)}
+        y2={axis.scale(tick) as string}
       ></line>
     );
   });

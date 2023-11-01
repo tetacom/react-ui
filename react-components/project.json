@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["react-components/**/*.{ts,tsx,js,jsx}"]
@@ -20,6 +20,10 @@
         "outputPath": "dist/react-components"
       },
       "configurations": {
+        "development-watch": {
+          "mode": "production",
+          "watch": true
+        },
         "development": {
           "mode": "development"
         },

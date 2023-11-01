@@ -35,9 +35,9 @@ function createExtremes(config: ChartConfig, options: AxisPosition) {
     ) => number;
 
     extremes =
-      data?.length > 0
-        ? extent(data, accessor)
-        : ([0, 1] as number[] | string[]);
+      Array.isArray(data) && data?.length > 0 && data?.length !== undefined
+        ? (extent(data, accessor) as number[] | string[])
+        : ([0, 1] as number[]);
   }
 
   if (hasMin) {
@@ -49,7 +49,7 @@ function createExtremes(config: ChartConfig, options: AxisPosition) {
   }
 
   if (options.inverted) {
-    extremes = [...extremes].reverse();
+    extremes = [...extremes].reverse() as number[] | string[];
   }
 
   return extremes;

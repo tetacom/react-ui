@@ -1,6 +1,6 @@
 import { Axis } from '../../useScales';
 
-export type AxisProps = Axis;
+export type AxisProps = Pick<Axis, 'scale'>;
 
 export function YAxis(props: AxisProps) {
   const { scale } = props;

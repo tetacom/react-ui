@@ -4,15 +4,38 @@ import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 import { join } from 'path';
+import { writeFileSync } from 'fs';
+import { createRequire } from 'module';
+import { exec } from 'node:child_process';
+const require = createRequire(import.meta.url);
 
 export default defineConfig({
   cacheDir: '../node_modules/.vite/react-components',
-
   plugins: [
     dts({
       entryRoot: 'src',
       tsConfigFilePath: join(__dirname, 'tsconfig.lib.json'),
       skipDiagnostics: true,
+      afterBuild: async () => {
+        if (process.env.NX_TASK_TARGET_CONFIGURATION === 'development-watch') {
+          const json = require(join(__dirname, 'package.json'));
+
+          json.version = '0.0.0-dev';
+
+          json.scripts = {
+            'yalc:push': 'yalc push',
+          };
+
+          writeFileSync(
+            join(__dirname, '../dist/react-components/package.json'),
+            JSON.stringify(json, null, 2),
+          );
+
+          exec('pnpm yalc:push', {
+            cwd: join(__dirname, '../dist/react-components'),
+          });
+        }
+      },
     }),
     react(),
     viteTsConfigPaths({
@@ -39,7 +62,7 @@ export default defineConfig({
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forgot to update your package.json as well.
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.

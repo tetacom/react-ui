@@ -50,6 +50,7 @@ function useScales(
     const scale = scaleLinear()
       .domain(item.extremes as number[])
       // TODO Начнинаем рисовать с 0.5px (возможен баг в синхранизации графиков в последующем, обязательно проверить)
+
       .range([0.5, size.width - finalLeftPadding]);
 
     if (item.niceTicks) {
