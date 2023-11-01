@@ -15,6 +15,7 @@
         "development": {
           "mode": "development"
         },
+
         "production": {
           "mode": "production"
         }
@@ -61,7 +62,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]

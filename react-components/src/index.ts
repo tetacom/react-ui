@@ -22,6 +22,7 @@ export * from './components/Table';
 export * from './components/Table/model/public-api';
 
 export * from './components/Dropdown';
+export * from './components/Dropdown/model';
 
 export * from './components/Tabs';
 export * from './components/Tabs/model/public-api';
@@ -61,3 +62,6 @@ export * from './components/Modal';
 export * from './components/Badge';
 
 export * from './components/Card';
+
+export * from './components/Chart';
+export * from './components/Chart/model';

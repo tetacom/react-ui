@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@tetacom/themes": ["packages/themes/src/index.ts"],
-      "tetacom/react-components": ["react-components/src/index.ts"]
+      "@tetacom/react-components": ["react-components/src/index.ts"],
+      "@tetacom/themes": ["packages/themes/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

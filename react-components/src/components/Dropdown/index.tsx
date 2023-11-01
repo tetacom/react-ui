@@ -9,12 +9,23 @@ import {
   useInteractions,
   useClick,
   useDismiss,
+  FloatingPortal,
 } from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { DropdownProps } from './model';
 
 import s from './style.module.scss';
+
+const DropDownContent: FC<
+  React.PropsWithChildren<Pick<DropdownProps, 'renderInPortal'>>
+> = (props) => {
+  return props.renderInPortal ? (
+    <FloatingPortal>{props.children}</FloatingPortal>
+  ) : (
+    props.children
+  );
+};
 
 export const Dropdown: FC<DropdownProps> = ({
   dropdown,
@@ -26,6 +37,8 @@ export const Dropdown: FC<DropdownProps> = ({
   onOpenChange,
   zIndex,
   resizable = false,
+  renderInPortal = false,
+  hideScroll = false,
 }) => {
   const [isOpen, setOpen] = React.useState(false);
   const [maxHeight, setMaxHeight] = useState<number>(0);
@@ -89,42 +102,52 @@ export const Dropdown: FC<DropdownProps> = ({
     click,
   ]);
 
+  if (typeof children === 'string') {
+    throw new Error('Dropdown trigger must be an React Element');
+  }
+
+  const TriggerElement = Array.isArray(children) ? (
+    <div>{React.Children.map(children.filter(Boolean), (_) => _)}</div>
+  ) : (
+    children
+  );
+
   return (
     <>
-      {/* TODO посмотреть */}
-      <div
-        ref={refs.setReference}
-        className={s.dropdownTrigger}
-        {...getReferenceProps()}
-      >
-        {children}
-      </div>
+      {React.cloneElement(TriggerElement as React.ReactElement, {
+        ref: refs.setReference,
+        ...getReferenceProps(),
+        className: s.dropdownTrigger,
+      })}
+
       {
         <AnimatePresence>
           {showDropdown && (
-            <motion.div
-              ref={refs.setFloating}
-              {...getFloatingProps()}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.1 }}
-              style={{
-                ...floatingStyles,
-                zIndex,
-              }}
-              className={s.dropdownContent}
-            >
-              <div
-                className={s.dropdownContentScrollable}
+            <DropDownContent renderInPortal={renderInPortal}>
+              <motion.div
+                ref={refs.setFloating}
+                {...getFloatingProps()}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.1 }}
                 style={{
-                  maxHeight,
-                  overflowY: 'scroll',
+                  ...floatingStyles,
+                  zIndex,
                 }}
+                className={s.dropdownContent}
               >
-                {dropdown}
-              </div>
-            </motion.div>
+                <div
+                  className={s.dropdownContentScrollable}
+                  style={{
+                    maxHeight,
+                    overflowY: hideScroll ? 'hidden' : 'scroll',
+                  }}
+                >
+                  {dropdown}
+                </div>
+              </motion.div>
+            </DropDownContent>
           )}
         </AnimatePresence>
       }

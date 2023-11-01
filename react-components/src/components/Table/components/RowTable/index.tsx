@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import objectHash from 'object-hash';
 
 import { TableProps } from '../../model';
-import { LockedColumn } from 'tetacom/react-components';
+import { LockedColumn } from '../../model/public-api';
 import { lockedClasses } from '../../helpers';
 import { LockedColumnType } from '../../useStickyStyles';
 

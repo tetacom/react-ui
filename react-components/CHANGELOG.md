@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.13.0](https://github.com/tetacom/react-ui/compare/react-components-0.12.15...react-components-0.13.0) (2023-11-01)
+
+
+### Features
+
+* chart mvp version ([8735ebb](https://github.com/tetacom/react-ui/commit/8735ebb133e8a760e4ad9f18c00d618f821f5ded))
+* init chart ([bca6775](https://github.com/tetacom/react-ui/commit/bca67757836173813cc415f82a13d6edb5af8087))
+
 ### [0.12.15](https://github.com/tetacom/react-ui/compare/react-components-0.12.14...react-components-0.12.15) (2023-10-25)
 
 
