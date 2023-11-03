@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Cell, flexRender, Row, Table } from '@tanstack/react-table';
 import classNames from 'classnames';
-import objectHash from 'object-hash';
+import { sha1 } from 'object-hash';
 
 import { TableProps } from '../../model';
 import { LockedColumn } from '../../model/public-api';
@@ -88,10 +88,10 @@ const MemoTableCell = memo(TableCell, (prevProps, nextProps) => {
     nextContextLocked === LockedColumn.right
   ) {
     lockedEquals =
-      objectHash.sha1(
+      sha1(
         nextProps.lockedColumnsVariables.get(nextProps.cell.column.id) ?? null,
       ) ===
-      objectHash.sha1(
+      sha1(
         prevProps.lockedColumnsVariables.get(prevProps.cell.column.id) ?? null,
       );
   }

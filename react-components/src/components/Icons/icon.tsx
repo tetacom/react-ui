@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 
-import IconsSVG from '../../assets/icons.svg';
 import { IconProps } from './model';
 import s from './style.module.scss';
 
@@ -20,7 +19,7 @@ export const Icon: FC<IconProps> = ({
       className={classNames(s.icon, className)}
       style={{ color, ...style }}
     >
-      <use xlinkHref={`${IconsSVG}#${name}`} />
+      <use xlinkHref={`#${name}`} />
     </svg>
   );
 };

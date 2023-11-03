@@ -21,7 +21,7 @@
       },
       "configurations": {
         "development-watch": {
-          "mode": "production",
+          "mode": "development",
           "watch": true
         },
         "development": {

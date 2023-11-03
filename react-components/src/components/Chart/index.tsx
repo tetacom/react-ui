@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import * as d3 from 'd3';
 import s from './chart.module.scss';
 import { ChartConfig } from './model';
 import { useSize } from './useSize';
@@ -16,15 +17,32 @@ export type ChartProps = {
 export function Chart(props: ChartProps) {
   const { config } = props;
   const chartContainer = React.useRef(null);
+  const zoomContainer = React.useRef(null);
 
   const size = useSize(chartContainer);
   const extremes = useExtremes(config);
   const sizes = useAxisSize(extremes.x, extremes.y);
+  const [transform, setTransform] = useState<d3.ZoomTransform>(
+    new d3.ZoomTransform(1, 0, 0),
+  );
   const { x, y, finalBottomPadding, finalLeftPadding } = useScales(
     sizes.x,
     sizes.y,
     size || new DOMRectReadOnly(0, 0, 0, 0),
+    transform,
   );
+
+  useEffect(() => {
+    const svg = d3.select(zoomContainer.current);
+
+    const zoom = d3.zoom();
+
+    svg.call(zoom.on('zoom', zoomed) as any);
+
+    function zoomed(zoom: d3.D3ZoomEvent<SVGElement, unknown>) {
+      setTransform(zoom.transform);
+    }
+  });
 
   return (
     <div className={s.container}>
@@ -52,44 +70,47 @@ export function Chart(props: ChartProps) {
             })}
           </g>
         </svg>
-        <svg
-          style={{
-            position: 'absolute',
-            transform: `translate(${finalLeftPadding}px, 0)`,
-          }}
-          viewBox={`0 0 ${size?.width - finalLeftPadding} ${
-            size?.height - finalBottomPadding
-          }`}
-          width={size?.width - finalLeftPadding}
-          height={size?.height - finalBottomPadding}
-        >
-          <Gridlines x={x} y={y} size={size} />
+        <div>
+          <svg
+            ref={zoomContainer}
+            style={{
+              position: 'absolute',
+              transform: `translate(${finalLeftPadding}px, 0)`,
+            }}
+            viewBox={`0 0 ${size?.width - finalLeftPadding} ${
+              size?.height - finalBottomPadding
+            }`}
+            width={size?.width - finalLeftPadding}
+            height={size?.height - finalBottomPadding}
+          >
+            <Gridlines x={x} y={y} size={size} />
 
-          <g className="series">
-            {config.series?.map((item) => {
-              if (!item.component) {
-                throw new Error(
-                  'Series must be provide `component` prop for drawing',
-                );
-              }
+            <g className="series">
+              {config.series?.map((item) => {
+                if (!item.component) {
+                  throw new Error(
+                    'Series must be provide `component` prop for drawing',
+                  );
+                }
 
-              const foundX = x.find((a) => a.index === item.xAxisIndex);
-              const foundY = y.find((a) => a.index === item.yAxisIndex);
+                const foundX = x.find((a) => a.index === item.xAxisIndex);
+                const foundY = y.find((a) => a.index === item.yAxisIndex);
 
-              if (!foundX || !foundY) {
-                throw new Error(
-                  'Series must be provide `x, y scales` for drawing.',
-                );
-              }
+                if (!foundX || !foundY) {
+                  throw new Error(
+                    'Series must be provide `x, y scales` for drawing.',
+                  );
+                }
 
-              return React.createElement(item.component, {
-                x: foundX,
-                y: foundY,
-                serie: item,
-              });
-            })}
-          </g>
-        </svg>
+                return React.createElement(item.component, {
+                  x: foundX,
+                  y: foundY,
+                  serie: item,
+                });
+              })}
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   );

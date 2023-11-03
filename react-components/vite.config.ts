@@ -62,11 +62,25 @@ export default defineConfig({
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forgot to update your package.json as well.
-      formats: ['es'],
+      formats: ['cjs'],
     },
+    minify: 'esbuild',
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'framer-motion',
+        'd3',
+        'd3-hsv',
+        '@tanstack/react-table',
+        '@tanstack/react-virtual',
+        '@floating-ui/react',
+        'classnames',
+        'object-hash',
+        '@react-hook/resize-observer',
+      ],
       output: {
         assetFileNames: () => 'index.css',
       },

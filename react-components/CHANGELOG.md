@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.13.1](https://github.com/tetacom/react-ui/compare/react-components-0.13.0...react-components-0.13.1) (2023-11-03)
+
+
+### Bug Fixes
+
+* optimize bundle size, dropdown portal fixes, add zoom to chart ([6569482](https://github.com/tetacom/react-ui/commit/65694826b4ea8a5cc9e817366de67fe556563eb6))
+
 ## [0.13.0](https://github.com/tetacom/react-ui/compare/react-components-0.12.15...react-components-0.13.0) (2023-11-01)
 
 
