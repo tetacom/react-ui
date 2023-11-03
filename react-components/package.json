@@ -4,12 +4,18 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "module": "./index.js",
-  "type": "module",
+  "type": "commonjs",
   "peerDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "@tetacom/themes": "0.0.21",
-    "d3": "7.8.5"
+    "d3": "7.8.5",
+    "framer-motion": "10.16.4",
+    "@tanstack/react-table": "8.10.3",
+    "@tanstack/react-virtual": "3.0.0-beta.54",
+    "@floating-ui/react": "0.24.3",
+    "classnames": "2.3.2",
+    "object-hash": "3.0.0"
   },
   "publishConfig": {
     "access": "public"

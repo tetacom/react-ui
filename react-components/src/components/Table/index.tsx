@@ -11,7 +11,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import objectHash from 'object-hash';
+import { sha1 } from 'object-hash';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
@@ -169,8 +169,7 @@ export function Table<T>({
             });
 
             const rowHashChanged =
-              objectHash.sha1(data[foundRowIndex]!) !==
-              objectHash.sha1(updatedData[foundRowIndex]!);
+              sha1(data[foundRowIndex]!) !== sha1(updatedData[foundRowIndex]!);
 
             if (rowHashChanged) {
               if (column && column.columnDef.meta) {

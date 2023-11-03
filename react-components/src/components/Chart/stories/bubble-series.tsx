@@ -20,7 +20,7 @@ export function BubbleSeries(props: ComponentProps<BubblePoint>) {
                 {point.radius}
               </div>
             }
-            renderInPortal={true}
+            portal={{ enable: true }}
           >
             <motion.circle
               initial={{ r: 0 }}

@@ -17,9 +17,6 @@
     "@tanstack/react-table": "^8.8.5",
     "@tanstack/react-virtual": "3.0.0-beta.54",
     "@tetacom/themes": "^0.0.21",
-    "@types/d3": "^7.4.0",
-    "@types/d3-hsv": "^0.1.4",
-    "@types/object-hash": "^3.0.3",
     "classnames": "^2.3.2",
     "d3": "^7.8.5",
     "d3-hsv": "^0.1.0",
@@ -32,6 +29,9 @@
     "tslib": "^2.6.1"
   },
   "devDependencies": {
+    "@types/d3": "^7.4.0",
+    "@types/d3-hsv": "^0.1.4",
+    "@types/object-hash": "^3.0.3",
     "@babel/core": "7.21.4",
     "@babel/preset-typescript": "7.21.4",
     "@commitlint/cli": "^17.0.0",

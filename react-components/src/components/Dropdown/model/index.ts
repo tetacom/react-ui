@@ -32,8 +32,11 @@ export interface DropdownProps extends PropsWithChildren {
   // Положение дропдауна и его дочерних элементов по оси z
   zIndex?: React.CSSProperties['zIndex'];
 
-  // Рисовать дропдаун в портале
-  renderInPortal?: boolean;
+  portal?: {
+    enable: boolean;
+    id?: string;
+    rootNode?: HTMLElement | React.MutableRefObject<HTMLElement | null>;
+  };
 
   // Скрыть скроллбар
   hideScroll?: boolean;

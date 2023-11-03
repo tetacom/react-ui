@@ -18,10 +18,12 @@ import { DropdownProps } from './model';
 import s from './style.module.scss';
 
 const DropDownContent: FC<
-  React.PropsWithChildren<Pick<DropdownProps, 'renderInPortal'>>
+  React.PropsWithChildren<Pick<DropdownProps, 'portal'>>
 > = (props) => {
-  return props.renderInPortal ? (
-    <FloatingPortal>{props.children}</FloatingPortal>
+  return props.portal?.enable ? (
+    <FloatingPortal id={props.portal.id} root={props.portal.rootNode}>
+      {props.children}
+    </FloatingPortal>
   ) : (
     props.children
   );
@@ -37,7 +39,7 @@ export const Dropdown: FC<DropdownProps> = ({
   onOpenChange,
   zIndex,
   resizable = false,
-  renderInPortal = false,
+  portal = { enable: false },
   hideScroll = false,
 }) => {
   const [isOpen, setOpen] = React.useState(false);
@@ -58,7 +60,7 @@ export const Dropdown: FC<DropdownProps> = ({
     whileElementsMounted: (reference, floating, update) => {
       return autoUpdate(reference, floating, update, {
         ancestorScroll: resizable,
-        animationFrame: false,
+        animationFrame: true,
       });
     },
     middleware: [
@@ -84,7 +86,7 @@ export const Dropdown: FC<DropdownProps> = ({
           Object.assign(elements.floating.style, {
             maxWidth,
             width: maxWidth,
-            maxHeight: `${availableHeight}px`,
+            maxHeight: resizable ? `${availableHeight}px` : 'auto',
           });
         },
         padding: 12,
@@ -123,7 +125,7 @@ export const Dropdown: FC<DropdownProps> = ({
       {
         <AnimatePresence>
           {showDropdown && (
-            <DropDownContent renderInPortal={renderInPortal}>
+            <DropDownContent portal={portal}>
               <motion.div
                 ref={refs.setFloating}
                 {...getFloatingProps()}
@@ -140,7 +142,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 <div
                   className={s.dropdownContentScrollable}
                   style={{
-                    maxHeight,
+                    maxHeight: resizable ? maxHeight : 'auto',
                     overflowY: hideScroll ? 'hidden' : 'scroll',
                   }}
                 >
