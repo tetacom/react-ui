@@ -17,6 +17,10 @@ export function DateCell({
   const [innerValue, setInnerValue] = useState(value);
   const { meta } = table.options;
 
+  if (!value) {
+    return <div tabIndex={cellIndex}>{value}</div>;
+  }
+
   const dayjsValue = utcOffset
     ? dayjs.utc(value).utcOffset(utcOffset.offset, utcOffset.saveLocalTime)
     : dayjs(value);
