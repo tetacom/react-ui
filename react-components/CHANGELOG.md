@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.13.2](https://github.com/tetacom/react-ui/compare/react-components-0.13.1...react-components-0.13.2) (2023-11-07)
+
+
+### Bug Fixes
+
+* table date cell can be empty ([c5372de](https://github.com/tetacom/react-ui/commit/c5372de6b035107e7142faaac82730554b4eab8b))
+
 ### [0.13.1](https://github.com/tetacom/react-ui/compare/react-components-0.13.0...react-components-0.13.1) (2023-11-03)
 
 
