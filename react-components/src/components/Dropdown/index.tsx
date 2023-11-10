@@ -5,7 +5,7 @@ import {
   useFloating,
   size,
   autoPlacement,
-  autoUpdate,
+  autoUpdate as updateFn,
   useInteractions,
   useClick,
   useDismiss,
@@ -38,9 +38,20 @@ export const Dropdown: FC<DropdownProps> = ({
   children,
   onOpenChange,
   zIndex,
-  resizable = false,
   portal = { enable: false },
   hideScroll = false,
+  autoUpdate = {
+    ancestorResize: true,
+    ancestorScroll: true,
+    elementResize: true,
+    layoutShift: true,
+  },
+  padding = {
+    left: 12,
+    bottom: 12,
+    right: 12,
+    top: 12,
+  },
 }) => {
   const [isOpen, setOpen] = React.useState(false);
   const [maxHeight, setMaxHeight] = useState<number>(0);
@@ -58,8 +69,8 @@ export const Dropdown: FC<DropdownProps> = ({
       }
     },
     whileElementsMounted: (reference, floating, update) => {
-      return autoUpdate(reference, floating, update, {
-        ancestorScroll: resizable,
+      return updateFn(reference, floating, update, {
+        ...autoUpdate,
         animationFrame: true,
       });
     },
@@ -69,11 +80,11 @@ export const Dropdown: FC<DropdownProps> = ({
       }),
       size({
         apply({ rects, elements, availableHeight }) {
-          const height = maxHeight === 0 ? availableHeight : maxHeight;
-
           // Force update
           flushSync(() => {
-            setMaxHeight(height);
+            setMaxHeight((prev) => {
+              return prev === 0 ? availableHeight : prev;
+            });
           });
 
           let maxWidth = 'auto';
@@ -86,10 +97,10 @@ export const Dropdown: FC<DropdownProps> = ({
           Object.assign(elements.floating.style, {
             maxWidth,
             width: maxWidth,
-            maxHeight: resizable ? `${availableHeight}px` : 'auto',
+            maxHeight: availableHeight,
           });
         },
-        padding: 12,
+        padding,
       }),
     ],
   });
@@ -140,9 +151,8 @@ export const Dropdown: FC<DropdownProps> = ({
                 className={s.dropdownContent}
               >
                 <div
-                  className={s.dropdownContentScrollable}
                   style={{
-                    maxHeight: resizable ? maxHeight : 'auto',
+                    maxHeight: maxHeight,
                     overflowY: hideScroll ? 'hidden' : 'scroll',
                   }}
                 >

@@ -33,7 +33,9 @@ const SelectInner = forwardRef(
     return (
       <Dropdown
         possiblePlacements={['bottom-start', 'top-start']}
-        resizable={false}
+        autoUpdate={{
+          ancestorScroll: false,
+        }}
         width={{
           type: 'parent',
         }}
@@ -46,6 +48,7 @@ const SelectInner = forwardRef(
               <li
                 key={item.key}
                 role="option"
+                aria-selected
                 className={classNames([
                   listStyle.item,
                   item === foundValue ? s.selected : null,

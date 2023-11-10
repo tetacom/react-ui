@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
-import { Placement } from '@floating-ui/react';
+import { AutoUpdateOptions, Padding, Placement } from '@floating-ui/react';
 
 export interface DropdownProps extends PropsWithChildren {
   // Содержимое выпадающего окна
@@ -17,8 +17,9 @@ export interface DropdownProps extends PropsWithChildren {
   // Открыто ли выпадающее окно в данный момент
   open?: boolean;
 
-  // Ресайз дропдауна при скорлле контейнера
-  resizable?: boolean;
+  autoUpdate?: Omit<AutoUpdateOptions, 'animationFrame'>;
+
+  padding?: Padding;
 
   // Ширина окна
   width?: {

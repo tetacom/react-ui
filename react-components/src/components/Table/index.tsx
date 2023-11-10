@@ -11,13 +11,13 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { sha1 } from 'object-hash';
+import objectHash, { sha1 } from 'object-hash';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
 import { TableProps } from './model';
 import { VerticalAlign } from './model/vertical-align';
-import TableRow from './components/RowTable';
+import TableRow from './components/row';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
 import { LocalStorageColumn, mergeSettings } from './storageUtils';
@@ -103,9 +103,13 @@ export function Table<T>({
     })),
   );
 
+  const columnsHash = objectHash(columns, {
+    excludeKeys: (key) => key === 'cellComponent',
+  });
+
   const mergedColumns = useMemo(
     () => mergeSettings(columns, localStorageColumns),
-    [columns, localStorageColumns],
+    [columnsHash],
   );
 
   // Скрытые колонки
@@ -118,6 +122,7 @@ export function Table<T>({
     dateFormat,
     roundToDecimalPlaces,
     utcOffset,
+    columnsHash,
   });
 
   const table = useReactTable({
@@ -153,33 +158,30 @@ export function Table<T>({
         ) {
           const row = table.getRow(currentEditCell.row.toString());
           const column = table.getColumn(currentEditCell.column);
-
           const foundRowIndex = data?.findIndex((_) => _ === row.original);
 
           if (foundRowIndex !== -1) {
             const updatedData = data.map((row, index) => {
               if (foundRowIndex === index) {
                 return {
-                  ...data[foundRowIndex],
-                  [currentEditCell.column as string]: value,
+                  ...value,
                 };
               }
 
               return row;
             });
 
-            const rowHashChanged =
-              sha1(data[foundRowIndex]!) !== sha1(updatedData[foundRowIndex]!);
+            const isRowChanged = sha1(value!) !== sha1(data[foundRowIndex]!);
 
-            if (rowHashChanged) {
+            if (isRowChanged) {
+              setData(updatedData);
+
               if (column && column.columnDef.meta) {
                 valueChange?.({
-                  row: row.original,
+                  row: updatedData[foundRowIndex],
                   column: column.columnDef.meta.tableColumn,
                 });
               }
-
-              setData(updatedData);
             }
           }
         }
@@ -206,6 +208,14 @@ export function Table<T>({
 
   const handleKeyDown = (event: KeyboardEvent) => {
     currentEventRef.current = event;
+
+    if (event.key === 'Escape') {
+      setCurrentEditCell(null);
+    }
+
+    if (event.key === 'Enter') {
+      setCurrentEditCell(null);
+    }
   };
 
   const handleMouseDown = (event: MouseEvent) => {
@@ -294,7 +304,7 @@ export function Table<T>({
     paddingStart: parentRef.current?.querySelector('thead')?.offsetHeight ?? 28,
     getScrollElement: () => parentRef.current,
     estimateSize: () => 28,
-    overscan: 5,
+    overscan: 2,
   });
 
   const tableWidth = table.getCenterTotalSize();

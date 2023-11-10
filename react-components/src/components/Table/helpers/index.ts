@@ -1,10 +1,10 @@
 import { FilterType, LockedColumn } from '../model/public-api';
-import { StringCell } from '../components/default/StringCell';
-import { DateCell } from '../components/default/DateCell';
-import { SelectCell } from '../components/default/SelectCell';
+import { StringCell } from '../components/default/string-cell';
+import { DateCell } from '../components/default/date-cell';
+import { SelectCell } from '../components/default/select-cell';
 import { ICellEvent } from '../model/i-cell-event';
 import { CustomCellComponent } from '../model/cell-component';
-import { NumberCell } from '../components/default/NumberCell';
+import { NumberCell } from '../components/default/number-cell';
 
 import s from '../style.module.scss';
 

@@ -35,6 +35,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       rightIcon = null,
       onChange = null,
       onPressEnter = null,
+      onKeyDown = null,
       className,
       style,
       readonly = false,
@@ -71,6 +72,7 @@ export const Input = forwardRef<InputRef, InputProps>(
     const handleEnterKeyPress = (
       event: React.KeyboardEvent<HTMLInputElement>,
     ) => {
+      onKeyDown?.(event);
       if (event.key === 'Enter') {
         onPressEnter && onPressEnter(event);
       }

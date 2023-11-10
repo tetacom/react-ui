@@ -9,6 +9,7 @@ import { lockedClasses } from '../../helpers';
 import { LockedColumnType } from '../../useStickyStyles';
 
 import s from '../../style.module.scss';
+import { motion } from 'framer-motion';
 
 export interface ITableRow<T> {
   virtualIndex: number;
@@ -36,6 +37,7 @@ function TableCell<T>({
   lockedColumnsVariables: Map<string, LockedColumnType>;
   horizontalScrollLeft: number;
   horizontalScrollRight: number;
+  hash: string;
 }) {
   const cellComponent = cell.column.columnDef.cell;
   const isCustomCell = Boolean(
@@ -77,7 +79,6 @@ function TableCell<T>({
 
 const MemoTableCell = memo(TableCell, (prevProps, nextProps) => {
   const nextContext = nextProps.cell.getContext();
-  const prevContext = prevProps.cell.getContext();
 
   const nextContextLocked =
     nextContext.column.columnDef.meta?.tableColumn.locked;
@@ -98,8 +99,8 @@ const MemoTableCell = memo(TableCell, (prevProps, nextProps) => {
 
   return (
     prevProps.width === nextProps.width &&
-    prevContext.getValue() === nextContext.getValue() &&
     prevProps.isEdit === nextProps.isEdit &&
+    prevProps.hash === nextProps.hash &&
     prevProps.horizontalScrollLeft === nextProps.horizontalScrollLeft &&
     prevProps.horizontalScrollRight === nextProps.horizontalScrollRight &&
     lockedEquals
@@ -126,6 +127,8 @@ function TableRow<T>({
     ? (row.index % 2 && s.highlight) || ''
     : s.underline;
 
+  const rowHash = sha1(row.original as object);
+
   return (
     <tr
       ref={rowRef}
@@ -145,6 +148,7 @@ function TableRow<T>({
             key={cell.id}
             isEdit={isEdit}
             cell={cell}
+            hash={rowHash}
             width={cellWidth}
             lockedColumnsVariables={lockedColumnsVariables}
             horizontalScrollLeft={horizontalScroll.left}
