@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.13.3](https://github.com/tetacom/react-ui/compare/react-components-0.13.2...react-components-0.13.3) (2023-11-10)
+
+
+### Bug Fixes
+
+* optimize render columns, dropdown fixes, editable cells ([a2f66e3](https://github.com/tetacom/react-ui/commit/a2f66e3bafa7b944053e728452b6cfd8d676bbb7))
+
 ### [0.13.2](https://github.com/tetacom/react-ui/compare/react-components-0.13.1...react-components-0.13.2) (2023-11-07)
 
 
