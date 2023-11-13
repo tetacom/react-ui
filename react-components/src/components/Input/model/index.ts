@@ -1,13 +1,13 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 
 export type InputRef = HTMLInputElement;
+export type TextareaRef = HTMLTextAreaElement;
 
 export type SizeType = 'small' | 'middle' | 'large';
 export type ShapeType = 'brick' | 'round' | 'circle';
 export type LabelPositionType = 'top' | 'left';
 
-export interface InputProps
-  extends Omit<InputHTMLAttributes<InputRef>, 'size' | 'onChange'> {
+interface BseInput {
   // Исходное входное содержимое
   defaultValue?: string;
 
@@ -57,5 +57,19 @@ export interface InputProps
   onChange?: (value: string) => void;
 
   // Функция обратного вызова, которая срабатывает при нажатии клавиши Enter.
-  onPressEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onPressEnter?: (
+    event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
+}
+
+type OmitFields = 'defaultValue' | 'value' | 'size' | 'onChange';
+
+export interface InputProps
+  extends Omit<InputHTMLAttributes<InputRef>, OmitFields>,
+    BseInput {}
+
+export interface TextareaProps
+  extends Omit<TextareaHTMLAttributes<TextareaRef>, OmitFields>,
+    BseInput {
+  height?: React.CSSProperties['height'];
 }
