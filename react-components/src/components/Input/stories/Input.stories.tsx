@@ -103,8 +103,8 @@ const Textarea = () => {
     <Input.Textarea
       value={value}
       onChange={handleChange}
-      height={160}
-      maxLength={32}
+      height={240}
+      maxLength={320}
       rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
     />
   );
