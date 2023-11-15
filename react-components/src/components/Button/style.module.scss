@@ -11,6 +11,7 @@
   padding: 0 var(--spacing-12);
   border-radius: var(--radius-btn-round);
   background-color: transparent;
+  white-space: nowrap;
   box-shadow: 0 0 0 0 transparent;
   //TODO стоит завести токены с транзишенами
   transition: background 0.2s, color 0.2s, border 0.2s;

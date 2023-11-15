@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { Input } from '../../../Input';
-import { InputProps } from '../../../Input/model';
+import { TextareaProps } from '../../../Input/model';
 
 export function EditStringCell({
   value,
   tabIndex,
   onBlur,
   onChange,
-}: Pick<InputProps, 'value' | 'tabIndex' | 'onBlur' | 'onChange'>) {
+}: Pick<TextareaProps, 'value' | 'tabIndex' | 'onBlur' | 'onChange'>) {
   return (
-    <Input
+    <Input.Textarea
       value={value}
       tabIndex={tabIndex}
       onBlur={onBlur}
@@ -18,6 +18,7 @@ export function EditStringCell({
       autoFocus
       shape="brick"
       size="small"
+      height="100%"
     />
   );
 }

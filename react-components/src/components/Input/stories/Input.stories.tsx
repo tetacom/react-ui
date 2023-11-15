@@ -4,9 +4,9 @@ import { Input } from '../index';
 import { InputDocs } from '../docs';
 import { useState } from 'react';
 
-const meta: Meta<typeof Input> = {
+const meta: Meta<typeof Input.Text> = {
   title: 'Data Entry/Input',
-  component: Input,
+  component: Input.Text,
   argTypes: { onChange: { action: 'changed' } },
   parameters: {
     docs: {
@@ -16,7 +16,7 @@ const meta: Meta<typeof Input> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof Input.Text>;
 
 export const Default: Story = {
   args: {
@@ -47,7 +47,7 @@ const ClearableInput = () => {
   };
 
   return (
-    <Input
+    <Input.Text
       value={value}
       onChange={handleChange}
       maxLength={32}
@@ -72,7 +72,7 @@ const PasswordTypeInput = () => {
   };
 
   return (
-    <Input
+    <Input.Text
       type={inputType}
       value={value}
       onChange={handleChange}
@@ -88,4 +88,28 @@ const PasswordTypeInput = () => {
 
 export const PasswordInputStory: Story = {
   render: () => <PasswordTypeInput />,
+};
+
+const Textarea = () => {
+  const [value, setValue] = useState('Start value');
+  const handleChange = (value: string) => {
+    setValue(value);
+  };
+  const handleClear = () => {
+    setValue('');
+  };
+
+  return (
+    <Input.Textarea
+      value={value}
+      onChange={handleChange}
+      height={240}
+      maxLength={320}
+      rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
+    />
+  );
+};
+
+export const TextareaStory: Story = {
+  render: () => <Textarea />,
 };
