@@ -44,6 +44,7 @@ const inputComponent = <
     rightIcon,
     onChange,
     onPressEnter,
+    onKeyDown,
     className,
     style,
     readonly = false,
@@ -58,7 +59,6 @@ const inputComponent = <
 }) => {
   const inputWrapperRef = useRef<HTMLSpanElement>(null);
   const [inputValue, setInputValue] = useState(defaultValue);
-
 
   const finalValue = value !== undefined ? String(value) : inputValue;
 
@@ -83,15 +83,14 @@ const inputComponent = <
     inputWrapperRef.current?.querySelector(element)?.focus();
   };
 
-
-    const handleEnterKeyPress = (
-      event: React.KeyboardEvent<HTMLInputElement>,
-    ) => {
-      onKeyDown?.(event);
-      if (event.key === 'Enter') {
-        onPressEnter && onPressEnter(event);
-      }
-    };
+  const handleEnterKeyPress = (
+    event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    onKeyDown?.(event as any);
+    if (event.key === 'Enter') {
+      onPressEnter && onPressEnter(event);
+    }
+  };
 
   const isFieldFull = maxLength - finalValue.length <= 0;
   const isErrorStatus = errorMessage || (maxLength && isFieldFull);
