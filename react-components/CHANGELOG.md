@@ -2,12 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
-### [0.13.3](https://github.com/tetacom/react-ui/compare/react-components-0.13.2...react-components-0.13.3) (2023-11-10)
-
+### [0.13.3](https://github.com/tetacom/react-ui/compare/react-components-0.13.2...react-components-0.13.3) (2023-11-15)
 
 ### Bug Fixes
 
 * optimize render columns, dropdown fixes, editable cells ([a2f66e3](https://github.com/tetacom/react-ui/commit/a2f66e3bafa7b944053e728452b6cfd8d676bbb7))
+
+* add textarea ([f5d3f4d](https://github.com/tetacom/react-ui/commit/f5d3f4de4f91fb800e3d9286f76c437d8bc06856))
+* change input to textarea for table edit cells ([2fc3720](https://github.com/tetacom/react-ui/commit/2fc3720c580a2b1cf702c1849470e2dd27a210eb))
+* textarea component ([4b95fe8](https://github.com/tetacom/react-ui/commit/4b95fe8a136b7c7ebba1c5f911ac828879494f59))
 
 ### [0.13.2](https://github.com/tetacom/react-ui/compare/react-components-0.13.1...react-components-0.13.2) (2023-11-07)
 

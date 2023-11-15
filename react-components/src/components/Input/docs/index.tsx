@@ -74,7 +74,7 @@ export const InputDocs = () => {
         Разрешено использовать иконки в названии и в самом инпуте.
       </Paragraph>
       <div style={{ margin: '24px 0' }}>
-        <Input leftIconName="user" />
+        <Input.Text leftIconName="user" />
       </div>
 
       <Paragraph>
@@ -98,14 +98,14 @@ export const InputDocs = () => {
         </Text>
       </ol>
       <Stack size={24} align="end" style={{ margin: '24px 0' }}>
-        <Input label="Top Label" />
-        <Input label="Left Label" labelPosition="left" />
-        <Input placeholder="No Label" />
+        <Input.Text label="Top Label" />
+        <Input.Text label="Left Label" labelPosition="left" />
+        <Input.Text placeholder="No Label" />
       </Stack>
       <Paragraph>Также инпуты делятся на Fill и No Fill.</Paragraph>
       <Stack size={24} style={{ margin: '24px 0' }}>
-        <Input label="No Fill" />
-        <Input label="Fill" value={value} onChange={handleChange} />
+        <Input.Text label="No Fill" />
+        <Input.Text label="Fill" value={value} onChange={handleChange} />
       </Stack>
 
       <Title level={2} fontVariant="h6">
@@ -132,23 +132,23 @@ export const InputDocs = () => {
       <Stack size={24} wrap style={{ margin: '24px 0' }}>
         <Stack direction="column" align="start">
           <Text fontVariant="captionBold">Rest</Text>
-          <Input value={value} onChange={handleChange} />
+          <Input.Text value={value} onChange={handleChange} />
         </Stack>
         <Stack direction="column" align="start">
           <Text fontVariant="captionBold">Hover me</Text>
-          <Input value={value} onChange={handleChange} />
+          <Input.Text value={value} onChange={handleChange} />
         </Stack>
         <Stack direction="column" align="start">
           <Text fontVariant="captionBold">Focus with keyboard</Text>
-          <Input value={value} onChange={handleChange} />
+          <Input.Text value={value} onChange={handleChange} />
         </Stack>
         <Stack direction="column" align="start">
           <Text fontVariant="captionBold">Disable</Text>
-          <Input disabled value={value} onChange={handleChange} />
+          <Input.Text disabled value={value} onChange={handleChange} />
         </Stack>
         <Stack direction="column" align="start">
           <Text fontVariant="captionBold">Error</Text>
-          <Input
+          <Input.Text
             errorMessage="Error Message"
             value={value}
             onChange={handleChange}

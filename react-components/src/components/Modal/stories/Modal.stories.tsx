@@ -48,7 +48,7 @@ const ModalStory = () => {
             Внимание! Объект будет удален без возможности восстановления
           </Typography.Text>
 
-          <Input placeholder="Text" style={{ width: '100%' }} />
+          <Input.Text placeholder="Text" style={{ width: '100%' }} />
         </Stack>
       </Modal>
     </>

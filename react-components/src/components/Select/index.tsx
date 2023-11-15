@@ -74,7 +74,7 @@ const SelectInner = forwardRef(
         }
       >
         <div style={{ position: 'relative' }}>
-          <Input
+          <Input.Text
             {...getInputProps(props)}
             style={{ width: '100%', ...props.style }}
             ref={useMergeRefs([inputRef, ref])}

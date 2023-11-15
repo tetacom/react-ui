@@ -1,7 +1,14 @@
-import React, { forwardRef, useState, useRef } from 'react';
+import React, { forwardRef, useState, useRef, FC } from 'react';
 import classNames from 'classnames';
 
-import { InputProps, InputRef, ShapeType, SizeType } from './model';
+import {
+  InputProps,
+  InputRef,
+  TextareaProps,
+  TextareaRef,
+  ShapeType,
+  SizeType,
+} from './model';
 import { Typography } from '../Typography';
 import { Icon } from '../Icons';
 
@@ -18,56 +25,64 @@ const shapeClasses: Record<ShapeType, string> = {
   circle: s.fieldShapeCircle,
 };
 
-export const Input = forwardRef<InputRef, InputProps>(
-  (
-    {
-      defaultValue = '',
-      value,
-      size = 'middle',
-      shape = 'round',
-      label = '',
-      labelPosition = 'top',
-      placeholder = 'Placeholder',
-      errorMessage = '',
-      disabled = false,
-      maxLength = 0,
-      leftIconName = '',
-      rightIcon = null,
-      onChange = null,
-      onPressEnter = null,
-      onKeyDown = null,
-      className,
-      style,
-      readonly = false,
-      ...props
-    },
-    ref,
-  ) => {
-    const inputWrapperRef = useRef<HTMLSpanElement>(null);
-    const [inputValue, setInputValue] = useState(defaultValue);
+const inputComponent = <
+  Props extends InputProps | TextareaProps,
+  Ref extends HTMLInputElement | HTMLTextAreaElement,
+>({
+  props: {
+    defaultValue = '',
+    value,
+    size = 'middle',
+    shape = 'round',
+    label = '',
+    labelPosition = 'top',
+    placeholder = 'Placeholder',
+    errorMessage = '',
+    disabled = false,
+    maxLength = 0,
+    leftIconName = '',
+    rightIcon,
+    onChange,
+    onPressEnter,
+    className,
+    style,
+    readonly = false,
+    ...props
+  },
+  ref,
+  element,
+}: {
+  props: Props;
+  ref: React.ForwardedRef<Ref>;
+  element: 'input' | 'textarea';
+}) => {
+  const inputWrapperRef = useRef<HTMLSpanElement>(null);
+  const [inputValue, setInputValue] = useState(defaultValue);
 
-    const finalValue = value !== undefined ? String(value) : inputValue;
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value;
-      const lengthDiff = maxLength - value.length;
+  const finalValue = value !== undefined ? String(value) : inputValue;
 
-      if (maxLength && lengthDiff < 0) {
-        const prevValue = value.slice(0, -1);
-        setInputValue(prevValue);
-        onChange && onChange(prevValue);
-      } else {
-        setInputValue(value);
-        if (onChange) {
-          onChange(value);
-        }
+  const handleChange = (event: React.ChangeEvent<Ref>) => {
+    const value = event.target.value;
+    const lengthDiff = maxLength - value.length;
+
+    if (maxLength && lengthDiff < 0) {
+      const prevValue = value.slice(0, -1);
+      setInputValue(prevValue);
+      onChange && onChange(prevValue);
+    } else {
+      setInputValue(value);
+      if (onChange) {
+        onChange(value);
       }
-    };
+    }
+  };
 
-    const handleClickRightIcon = () => {
-      rightIcon?.onClick && rightIcon.onClick();
-      inputWrapperRef.current?.querySelector('input')?.focus();
-    };
+  const handleClickRightIcon = () => {
+    rightIcon?.onClick && rightIcon.onClick();
+    inputWrapperRef.current?.querySelector(element)?.focus();
+  };
+
 
     const handleEnterKeyPress = (
       event: React.KeyboardEvent<HTMLInputElement>,
@@ -78,74 +93,80 @@ export const Input = forwardRef<InputRef, InputProps>(
       }
     };
 
-    const isFieldFull = maxLength - finalValue.length <= 0;
-    const isErrorStatus = errorMessage || (maxLength && isFieldFull);
+  const isFieldFull = maxLength - finalValue.length <= 0;
+  const isErrorStatus = errorMessage || (maxLength && isFieldFull);
 
-    return (
-      <div
+  return (
+    <div
+      className={classNames(
+        s.input,
+        labelPosition === 'left' && s.inputHorizontal,
+      )}
+      style={{ ...style, height: props.height }}
+    >
+      {label && (
+        <label htmlFor={props.id} className={s.label}>
+          {label}
+        </label>
+      )}
+
+      <span
+        ref={inputWrapperRef}
         className={classNames(
-          s.input,
-          labelPosition === 'left' && s.inputHorizontal,
+          s.field,
+          element === 'input' && sizeClasses[size],
+          shapeClasses[shape],
+          leftIconName && s.fieldLeftIcon,
+          rightIcon && s.fieldRightIcon,
         )}
-        style={style}
       >
-        {label && (
-          <label htmlFor={props.id} className={s.label}>
-            {label}
-          </label>
-        )}
+        {React.createElement(element, {
+          ...props,
+          ref,
+          className: classNames(
+            s.fieldTag,
+            element === 'textarea' && s.fieldTagVerticalPadding,
+            finalValue && s.fieldTagHasValue,
+            isErrorStatus && s.fieldTagHasError,
+            className,
+          ),
+          value: finalValue,
+          onChange: handleChange,
+          onKeyDown: handleEnterKeyPress,
+          disabled: disabled,
+          readOnly: readonly,
+          style: {
+            resize: 'none',
+            height: '100%',
+          },
+        })}
 
-        <span
-          ref={inputWrapperRef}
-          className={classNames(
-            s.field,
-            sizeClasses[size],
-            shapeClasses[shape],
-            leftIconName && s.fieldLeftIcon,
-            rightIcon && s.fieldRightIcon,
-          )}
-        >
-          <input
-            {...props}
-            ref={ref}
-            className={classNames(
-              s.fieldTag,
-              finalValue && s.fieldTagHasValue,
-              isErrorStatus && s.fieldTagHasError,
-              className,
-            )}
-            value={finalValue}
-            onChange={handleChange}
-            onKeyDown={handleEnterKeyPress}
-            disabled={disabled}
-            readOnly={readonly}
-          />
-
-          <span className={s.placeholder}>
-            <span>{placeholder}</span>
-          </span>
-
-          {leftIconName && (
-            <span className={s.icon}>
-              <Icon name={leftIconName} size={16} />
-            </span>
-          )}
-
-          {rightIcon && (
-            <button
-              type="button"
-              className={s.rightIcon}
-              disabled={disabled}
-              onClick={handleClickRightIcon}
-            >
-              {typeof rightIcon.icon === 'string' && (
-                <Icon name={rightIcon.icon} size={16} />
-              )}
-              {typeof rightIcon.icon !== 'string' && rightIcon.icon}
-            </button>
-          )}
+        <span className={s.placeholder}>
+          <span>{placeholder}</span>
         </span>
 
+        {leftIconName && (
+          <span className={s.icon}>
+            <Icon name={leftIconName} size={16} />
+          </span>
+        )}
+
+        {rightIcon && (
+          <button
+            type="button"
+            className={s.rightIcon}
+            disabled={disabled}
+            onClick={handleClickRightIcon}
+          >
+            {typeof rightIcon.icon === 'string' && (
+              <Icon name={rightIcon.icon} size={16} />
+            )}
+            {typeof rightIcon.icon !== 'string' && rightIcon.icon}
+          </button>
+        )}
+      </span>
+
+      {(errorMessage || Boolean(maxLength)) && (
         <div className={s.footer}>
           <span>
             {errorMessage && (
@@ -167,7 +188,35 @@ export const Input = forwardRef<InputRef, InputProps>(
             </Typography.Text>
           )}
         </div>
-      </div>
-    );
+      )}
+    </div>
+  );
+};
+
+const TextInputComponent = forwardRef<InputRef, InputProps>((props, ref) => {
+  return inputComponent<InputProps, InputRef>({ props, ref, element: 'input' });
+});
+
+const TextareaComponent = forwardRef<TextareaRef, TextareaProps>(
+  (props, ref) => {
+    return inputComponent<TextareaProps, TextareaRef>({
+      props,
+      ref,
+      element: 'textarea',
+    });
   },
 );
+
+interface InputComposition extends InputProps {
+  Text: typeof TextInputComponent;
+  Textarea: typeof TextareaComponent;
+}
+
+const Input: FC<InputProps> & InputComposition = ({ ...props }) => {
+  return <TextInputComponent {...props} />;
+};
+
+Input.Text = TextInputComponent;
+Input.Textarea = TextareaComponent;
+
+export { Input };

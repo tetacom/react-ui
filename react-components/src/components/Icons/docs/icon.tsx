@@ -50,7 +50,7 @@ export const IconDocs = () => {
 
         <Paragraph>Semantic vector graphics.</Paragraph>
 
-        <Input
+        <Input.Text
           size="large"
           value={searchQuery}
           onChange={handleSearch}
