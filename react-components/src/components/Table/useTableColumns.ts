@@ -7,23 +7,19 @@ import {
 import React, { useMemo } from 'react';
 import { ICellComponent } from './model/i-cell-component';
 import { getCellComponent } from './helpers';
-import { StringCell } from './components/default/StringCell';
+import { StringCell } from './components/default/string-cell';
 import { createColumnHelper } from '@tanstack/react-table';
 
 type Config = {
   columns: TableColumn[];
   dictionary: IDictionary | null;
-  dateFormat?: string;
-  utcOffset?: UtcOffset;
-  roundToDecimalPlaces?: number;
+  columnsHash: string;
 };
 
 export const useTableColumns = <T>({
   columns,
   dictionary,
-  dateFormat,
-  roundToDecimalPlaces,
-  utcOffset,
+  columnsHash,
 }: Config) => {
   const columnHelper = createColumnHelper<T>();
 
@@ -66,10 +62,7 @@ export const useTableColumns = <T>({
                 row,
                 dict: dictionary,
                 isEdit: editable ? isEdit : false,
-                cellIndex: editable ? cellIndex : Number.MAX_VALUE,
-                dateFormat,
-                roundToDecimalPlaces,
-                utcOffset,
+                cellIndex: editable ? cellIndex : -1,
               };
 
               const defaultCellComponent = getCellComponent(
@@ -99,6 +92,6 @@ export const useTableColumns = <T>({
             },
           }),
       ),
-    [columns, dictionary, dateFormat, utcOffset, roundToDecimalPlaces],
+    [columnsHash, dictionary],
   );
 };

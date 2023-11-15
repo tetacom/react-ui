@@ -10,11 +10,13 @@ import { Skeleton } from '../../Skeleton';
 import { Typography } from '../../Typography';
 import { ICellComponent } from '../model/i-cell-component';
 import { Card } from '../../Card';
+import dayjs from 'dayjs';
 
 import configResponse from './configResponse.json';
 import dataResponse from './dataResponse.json';
 import dictResponse from './dictResponse.json';
 import { ClusterDto } from './tableType';
+import { FilterType } from '../model/public-api';
 
 const { Paragraph } = Typography;
 
@@ -128,25 +130,46 @@ const TableStory: FC<{
   height,
   acrossLine,
 }) => {
-  const cols = columns.map((column) => {
-    const { name } = column;
+  const cols = columns
+    .map((column) => {
+      const { name } = column;
+      if (name === 'id') {
+        return {
+          ...column,
+          cellComponent: TempCustomComponent,
+        };
+      }
 
-    if (name === 'id') {
-      return {
-        ...column,
-        cellComponent: TempCustomComponent,
-      };
-    }
+      if (name === 'floodPeriodSpring' || name === 'floodPeriodAutumn') {
+        return {
+          ...column,
+          cellComponent: CustomComponentWithDate,
+        };
+      }
 
-    if (name === 'floodPeriodSpring' || name === 'floodPeriodAutumn') {
-      return {
-        ...column,
-        cellComponent: CustomComponentWithDate,
-      };
-    }
+      return column;
+    })
+    .map((column) => {
+      if (column.filterType === FilterType.number) {
+        return {
+          ...column,
+          formatter: (value: number | null) => {
+            return value ? value.toString() : '-';
+          },
+        };
+      }
 
-    return column;
-  });
+      if (column.filterType === FilterType.date) {
+        return {
+          ...column,
+          formatter: (value: string | null) => {
+            const date = dayjs(value);
+            return date.format('DD MMM YYYY');
+          },
+        };
+      }
+      return column;
+    });
 
   return (
     <Card style={{ padding: 0 }}>

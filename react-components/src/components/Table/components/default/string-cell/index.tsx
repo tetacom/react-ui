@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { EditStringCell } from '../../BaseStringCell';
 import { ICellComponent } from '../../../model/i-cell-component';
+import { EditStringCell } from '../base-string-cell';
 
 export function StringCell({
   table,
@@ -9,16 +9,25 @@ export function StringCell({
   cellIndex,
   isEdit,
   row,
-}: React.PropsWithoutRef<ICellComponent<string>>) {
+}: React.PropsWithoutRef<ICellComponent<object>>) {
   const value = row.getValue<string>(column.id);
   const [innerValue, setInnerValue] = useState(value);
   const { meta } = table.options;
+
+  const valueChange = (value: object) => {
+    meta?.valueChanged(value);
+  };
 
   return isEdit ? (
     <EditStringCell
       value={innerValue}
       tabIndex={cellIndex}
-      onBlur={() => meta?.valueChanged(innerValue)}
+      onBlur={() =>
+        valueChange({ ...row.original, [column.id]: innerValue.toString() })
+      }
+      onPressEnter={() => {
+        valueChange({ ...row.original, [column.id]: innerValue.toString() });
+      }}
       onChange={setInnerValue}
     />
   ) : (

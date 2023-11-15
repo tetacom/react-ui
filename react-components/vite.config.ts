@@ -79,7 +79,6 @@ export default defineConfig({
         '@floating-ui/react',
         'classnames',
         'object-hash',
-        '@react-hook/resize-observer',
       ],
       output: {
         assetFileNames: () => 'index.css',

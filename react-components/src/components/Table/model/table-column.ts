@@ -105,6 +105,8 @@ export class TableColumn extends FilterItem {
    */
   required: boolean;
 
+  formatter?: (value: any) => string;
+
   /**
    * Инициализация из анонимного объекта
    */
@@ -145,6 +147,7 @@ export class TableColumn extends FilterItem {
     maxValue?: number;
     minValue?: number;
     required?: boolean;
+    formatter?: (value: any) => string;
   }) {
     super(options);
     this.width = options?.width ?? 80;
@@ -171,5 +174,6 @@ export class TableColumn extends FilterItem {
     this.minValue = options?.minValue ?? 0;
     this.required = options?.required ?? false;
     this.columns = options?.columns?.map((x) => new TableColumn(x)) ?? [];
+    this.formatter = options?.formatter;
   }
 }
