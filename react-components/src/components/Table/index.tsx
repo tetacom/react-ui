@@ -103,9 +103,7 @@ export function Table<T>({
     })),
   );
 
-  const columnsHash = objectHash(columns, {
-    excludeKeys: (key) => key === 'cellComponent',
-  });
+  const columnsHash = objectHash(columns.map((_) => _.name));
 
   const mergedColumns = useMemo(
     () => mergeSettings(columns, localStorageColumns),
@@ -119,9 +117,6 @@ export function Table<T>({
   const columnDefList = useTableColumns<T>({
     columns: mergedColumns,
     dictionary,
-    dateFormat,
-    roundToDecimalPlaces,
-    utcOffset,
     columnsHash,
   });
 

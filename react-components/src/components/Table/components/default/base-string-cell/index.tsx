@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Input } from '../../../../Input';
-import { InputProps } from '../../../../Input/model';
+import { TextareaProps } from '../../../../Input/model';
 
 export function EditStringCell({
   value,
@@ -12,7 +12,7 @@ export function EditStringCell({
   onPressEnter,
   placeholder,
 }: Pick<
-  InputProps,
+  TextareaProps,
   | 'value'
   | 'tabIndex'
   | 'onBlur'
@@ -22,7 +22,8 @@ export function EditStringCell({
   | 'placeholder'
 >) {
   return (
-    <Input
+    <Input.Textarea
+      height="100%"
       value={value}
       tabIndex={tabIndex}
       onBlur={onBlur}

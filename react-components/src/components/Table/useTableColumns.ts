@@ -13,18 +13,12 @@ import { createColumnHelper } from '@tanstack/react-table';
 type Config = {
   columns: TableColumn[];
   dictionary: IDictionary | null;
-  dateFormat?: string;
-  utcOffset?: UtcOffset;
-  roundToDecimalPlaces?: number;
   columnsHash: string;
 };
 
 export const useTableColumns = <T>({
   columns,
   dictionary,
-  dateFormat,
-  roundToDecimalPlaces,
-  utcOffset,
   columnsHash,
 }: Config) => {
   const columnHelper = createColumnHelper<T>();
@@ -69,9 +63,6 @@ export const useTableColumns = <T>({
                 dict: dictionary,
                 isEdit: editable ? isEdit : false,
                 cellIndex: editable ? cellIndex : -1,
-                dateFormat,
-                roundToDecimalPlaces,
-                utcOffset,
               };
 
               const defaultCellComponent = getCellComponent(
@@ -101,6 +92,6 @@ export const useTableColumns = <T>({
             },
           }),
       ),
-    [columnsHash, dictionary, dateFormat, utcOffset, roundToDecimalPlaces],
+    [columnsHash, dictionary],
   );
 };
