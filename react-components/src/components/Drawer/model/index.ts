@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
 
-type PlacementType = 'top' | 'right' | 'bottom' | 'left';
+export type PlacementType = 'top' | 'right' | 'bottom' | 'left';
 
-export interface DrawerProps {
+export interface DrawerProps extends React.PropsWithChildren {
   // Видна ли боковая панель или нет
   open: boolean;
 
