@@ -11,6 +11,7 @@ import {
   FloatingPortal,
 } from '@floating-ui/react';
 import classNames from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { DrawerProps } from './model';
 import { Button } from '../Button';
@@ -48,63 +49,72 @@ export const Drawer: FC<DrawerProps> = ({
   const headingId = useId();
   const descriptionId = useId();
 
-  const { wrapperStyles, contentStyles } = useDrawerStyles({
-    placement,
-    width,
-    height,
-  });
+  const { drawerWrapperStyles, drawerStyles, drawerAnimateStyles } =
+    useDrawerStyles({
+      placement,
+      width,
+      height,
+    });
 
   return (
     <FloatingPortal>
-      {open && (
-        <FloatingOverlay
-          lockScroll
-          className={s.drawerBg}
-          style={{ ...style, zIndex }}
-        >
-          <FloatingFocusManager context={context}>
-            <div
-              ref={refs.setFloating}
-              className={classNames(s.drawerContent, className)}
-              aria-labelledby={headingId}
-              aria-describedby={descriptionId}
-              {...getFloatingProps()}
-              style={wrapperStyles}
-            >
-              <div className={s.header} style={{ ...contentStyles }}>
-                {title && (
-                  <>
-                    <Typography.Title
-                      level={3}
-                      fontVariant="title1"
-                      resetMargin
-                      id={headingId}
-                    >
-                      {title}
-                    </Typography.Title>
-                    <Button
-                      shape="circle"
-                      square
-                      view="ghost"
-                      onClick={onClose}
-                    >
-                      <Icon name={closeIconName || 'closeBig'} />
-                    </Button>
-                  </>
-                )}
-              </div>
+      <AnimatePresence>
+        {open && (
+          <FloatingOverlay lockScroll style={{ zIndex }}>
+            <div className={s.drawer} style={drawerWrapperStyles}>
+              <motion.div
+                className={s.drawerBg}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              />
 
-              <div className={s.body} style={{ ...contentStyles }}>
-                {children}
-              </div>
+              <FloatingFocusManager context={context}>
+                <motion.div
+                  ref={refs.setFloating}
+                  className={classNames(s.drawerContent, className)}
+                  aria-labelledby={headingId}
+                  aria-describedby={descriptionId}
+                  {...getFloatingProps()}
+                  style={{ ...drawerStyles, ...style }}
+                  initial={drawerAnimateStyles}
+                  animate={{ x: 0, y: 0 }}
+                  exit={drawerAnimateStyles}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                >
+                  <div className={s.header}>
+                    {title && (
+                      <>
+                        <Typography.Title
+                          level={3}
+                          fontVariant="title1"
+                          resetMargin
+                          id={headingId}
+                        >
+                          {title}
+                        </Typography.Title>
+                        <Button
+                          shape="circle"
+                          square
+                          view="ghost"
+                          onClick={onClose}
+                        >
+                          <Icon name={closeIconName || 'closeBig'} />
+                        </Button>
+                      </>
+                    )}
+                  </div>
 
-              <div className={s.footer} style={{ ...contentStyles }}>
-                {extra.length > 0 && extra}
-              </div>
+                  <div className={s.body}>{children}</div>
+
+                  <div className={s.footer}>{extra.length > 0 && extra}</div>
+                </motion.div>
+              </FloatingFocusManager>
             </div>
-          </FloatingFocusManager>
-        </FloatingOverlay>
-      )}
+          </FloatingOverlay>
+        )}
+      </AnimatePresence>
     </FloatingPortal>
   );
 };

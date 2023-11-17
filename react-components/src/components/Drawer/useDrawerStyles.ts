@@ -3,33 +3,43 @@ import { DrawerProps, PlacementType } from './model';
 
 const DRAWER_BORDER = 'var(--spacing-4) solid var(--color-primary-50)';
 
-export const drawerStyles: Record<
+export const drawerWrapperStyles: Record<
   PlacementType,
-  Pick<React.CSSProperties, 'left' | 'right' | 'top' | 'bottom'>
+  Pick<React.CSSProperties, 'flexDirection'>
 > = {
   left: {
-    left: 0,
-    right: 'auto',
-    top: 0,
-    bottom: 'auto',
+    flexDirection: 'row',
   },
   right: {
-    left: 'auto',
-    right: 0,
-    top: 0,
-    bottom: 'auto',
+    flexDirection: 'row-reverse',
   },
   top: {
-    left: 0,
-    right: 'auto',
-    top: 0,
-    bottom: 'auto',
+    flexDirection: 'column',
   },
   bottom: {
-    left: 0,
-    right: 'auto',
-    top: 'auto',
-    bottom: 0,
+    flexDirection: 'column-reverse',
+  },
+};
+
+export const drawerAnimateStyles: Record<
+  PlacementType,
+  { x: string | number; y: string | number }
+> = {
+  left: {
+    x: '-100%',
+    y: 0,
+  },
+  right: {
+    x: '100%',
+    y: 0,
+  },
+  top: {
+    x: 0,
+    y: '-100%',
+  },
+  bottom: {
+    x: 0,
+    y: '100%',
   },
 };
 
@@ -61,33 +71,19 @@ export const useDrawerStyles = ({
   width,
   height,
 }: Config) => {
-  const drawerPlacementStyles = drawerStyles[placement];
-  const borderStylesOut =
-    (placement === 'top' || placement === 'bottom') &&
-    drawerBorderStyles[placement];
-  const borderStylesIn =
-    (placement === 'left' || placement === 'right') &&
-    drawerBorderStyles[placement];
+  const borderStyles = drawerBorderStyles[placement];
   const drawerWidth =
     placement === 'left' || placement === 'right' ? width : '100%';
   const drawerHeight =
     placement === 'top' || placement === 'bottom' ? height : '100%';
-  const drawerOverflowStyles: React.CSSProperties =
-    placement === 'top' || placement === 'bottom'
-      ? {
-          overflowX: 'hidden',
-          overflowY: 'scroll',
-        }
-      : {};
 
   return {
-    wrapperStyles: {
-      ...drawerPlacementStyles,
-      ...borderStylesOut,
+    drawerWrapperStyles: drawerWrapperStyles[placement],
+    drawerStyles: {
+      ...borderStyles,
       width: drawerWidth,
       height: drawerHeight,
-      ...drawerOverflowStyles,
     },
-    contentStyles: borderStylesIn,
+    drawerAnimateStyles: drawerAnimateStyles[placement],
   };
 };
