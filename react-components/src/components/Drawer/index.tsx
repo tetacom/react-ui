@@ -31,6 +31,7 @@ export const Drawer: FC<DrawerProps> = ({
   width,
   height,
   zIndex,
+  parent,
   style,
   className,
   children,
@@ -56,11 +57,19 @@ export const Drawer: FC<DrawerProps> = ({
       height,
     });
 
+  const { id, root } = {
+    id: typeof parent === 'string' ? parent : undefined,
+    root: typeof parent !== 'string' ? parent : undefined,
+  };
+
   return (
-    <FloatingPortal>
+    <FloatingPortal id={id} root={root}>
       <AnimatePresence>
         {open && (
-          <FloatingOverlay lockScroll style={{ zIndex }}>
+          <FloatingOverlay
+            lockScroll
+            style={{ zIndex, position: id || root ? 'absolute' : 'fixed' }}
+          >
             <div className={s.drawer} style={drawerWrapperStyles}>
               <motion.div
                 className={s.drawerBg}

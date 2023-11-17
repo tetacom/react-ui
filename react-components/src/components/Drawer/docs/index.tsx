@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import {
   ArgsTable,
   Primary,
@@ -70,60 +70,75 @@ export const DefaultDrawer: FC<Omit<DrawerProps, 'open' | 'onClose'>> = (
   );
 };
 
-export const DrawerDocs = () => (
-  <Unstyled>
-    <Title
-      level={1}
-      fontVariant="h4"
-      style={{
-        marginBottom: 0,
-      }}
-    >
-      Боковая панель
-    </Title>
-    <Paragraph
-      fontVariant="caption"
-      style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
-    >
-      {drawerClassNames.drawerContent}
-    </Paragraph>
-    <br />
-    <Paragraph>Панель, которая выдвигается от края экрана.</Paragraph>
-    <Title level={2} fontVariant="h6">
-      Когда использовать
-    </Title>
-    <Paragraph>
-      Боковая панель — это панель, которая обычно накладывается поверх страницы
-      и выдвигается сбоку. Она содержит набор информации или действий. Поскольку
-      пользователь может взаимодействовать с боковой панелью, не покидая текущую
-      страницу, задачи можно выполнять более эффективно в том же контексте.
-    </Paragraph>
-    <ul>
-      <Text>
-        <li>
-          Используйте форму для создания или редактирования набора информации.
-        </li>
-      </Text>
-      <Text>
-        <li>
-          Обработка подзадач. Когда подзадачи слишком тяжелы для всплывающего
-          окна, и мы все еще хотим сохранить подзадачи в контексте основной
-          задачи, боковая панель оказывается очень удобным.
-        </li>
-      </Text>
-      <Text>
-        <li>Когда одна и та же форма требуется в нескольких местах.</li>
-      </Text>
-    </ul>
+export const DrawerDocs = () => {
+  const parentRef = useRef(null);
 
-    <div style={{ margin: 'var(--spacing-24) 0' }}>
-      <DefaultDrawer width={300} />
-    </div>
+  return (
+    <Unstyled>
+      <Title
+        level={1}
+        fontVariant="h4"
+        style={{
+          marginBottom: 0,
+        }}
+      >
+        Боковая панель
+      </Title>
+      <Paragraph
+        fontVariant="caption"
+        style={{ marginTop: 0, color: 'var(--color-primary-50)' }}
+      >
+        {drawerClassNames.drawerContent}
+      </Paragraph>
+      <br />
+      <Paragraph>Панель, которая выдвигается от края экрана.</Paragraph>
+      <Title level={2} fontVariant="h6">
+        Когда использовать
+      </Title>
+      <Paragraph>
+        Боковая панель — это панель, которая обычно накладывается поверх
+        страницы и выдвигается сбоку. Она содержит набор информации или
+        действий. Поскольку пользователь может взаимодействовать с боковой
+        панелью, не покидая текущую страницу, задачи можно выполнять более
+        эффективно в том же контексте.
+      </Paragraph>
+      <ul>
+        <Text>
+          <li>
+            Используйте форму для создания или редактирования набора информации.
+          </li>
+        </Text>
+        <Text>
+          <li>
+            Обработка подзадач. Когда подзадачи слишком тяжелы для всплывающего
+            окна, и мы все еще хотим сохранить подзадачи в контексте основной
+            задачи, боковая панель оказывается очень удобным.
+          </li>
+        </Text>
+        <Text>
+          <li>Когда одна и та же форма требуется в нескольких местах.</li>
+        </Text>
+      </ul>
 
-    <br />
-    <br />
-    <Primary />
-    <ArgsTable story={PRIMARY_STORY} />
-    <Stories />
-  </Unstyled>
-);
+      <div
+        ref={parentRef}
+        style={{
+          margin: 'var(--spacing-24) 0',
+          padding: 'var(--spacing-24)',
+          position: 'relative',
+          border: '3px solid var(--color-primary-30)',
+          height: 500,
+          width: 800,
+        }}
+      >
+        <DefaultDrawer width={300} parent={parentRef.current} />
+      </div>
+
+      <br />
+      <br />
+      <Primary />
+      <ArgsTable story={PRIMARY_STORY} />
+      <Stories />
+    </Unstyled>
+  );
+};

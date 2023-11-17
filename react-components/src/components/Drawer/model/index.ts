@@ -30,6 +30,11 @@ export interface DrawerProps extends React.PropsWithChildren {
   // Положение боковой панели и ее дочерних элементов по оси z
   zIndex?: CSSProperties['zIndex'];
 
+  // Родительский элемент, если боковая панель должна оставаться в рамках другого элемента
+  parent?:
+    | string
+    | (HTMLElement | null | React.MutableRefObject<HTMLElement | null>);
+
   // Стили боковой панели
   style?: React.CSSProperties;
 

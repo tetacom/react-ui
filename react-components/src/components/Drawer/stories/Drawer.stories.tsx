@@ -25,5 +25,6 @@ export const Default: Story = {
     extra: [<Button key="1">Test1</Button>, <Button key="2">Test2</Button>],
     width: 300,
     height: 200,
+    zIndex: 100,
   },
 };
