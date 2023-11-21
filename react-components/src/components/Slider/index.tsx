@@ -66,7 +66,7 @@ export function Slider({
 
           return (
             <Tooltip
-              key={index}
+              key={key}
               title={value.toString()}
               open={tooltipOpen}
               placement={tooltipPlacement}
@@ -77,6 +77,7 @@ export function Slider({
                 key={index}
                 className={s.button}
                 role="slider"
+                data-name={key}
                 aria-valuenow={value}
                 onMouseDown={(e) => {
                   setTooltipOpen(true);

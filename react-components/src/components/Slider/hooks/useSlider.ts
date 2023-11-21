@@ -78,6 +78,10 @@ export function useSlider({
   );
 
   const calcNewValues = (clientX: number) => {
+    if (activeKey.current === null || activeIndex.current === null) {
+      return innerValues;
+    }
+
     const newValue = getValueForClientX(
       clientX,
       boundingRect,
@@ -90,14 +94,14 @@ export function useSlider({
       minValue,
       maxValue,
       step,
-      activeKey.current!,
+      activeKey.current,
     );
 
     const values = [...innerValues];
     return sortList([
-      ...values.slice(0, activeIndex.current!),
+      ...values.slice(0, activeIndex.current),
       roundedNewValue,
-      ...values.slice(activeIndex.current! + 1),
+      ...values.slice(activeIndex.current + 1),
     ]);
   };
 
@@ -138,8 +142,11 @@ export function useSlider({
     return {
       value,
       isActive: index === activeIndex.current,
-      onMouseDown: (e: React.MouseEvent<HTMLButtonElement>, index: number) =>
-        handlePress(e, index, activeKey.current!),
+      onMouseDown: (e: React.MouseEvent<HTMLButtonElement>, index: number) => {
+        if (e.currentTarget.dataset.name) {
+          return handlePress(e, index, e.currentTarget.dataset.name);
+        }
+      },
     };
   });
 
