@@ -101,7 +101,7 @@ const inputComponent = <
         s.input,
         labelPosition === 'left' && s.inputHorizontal,
       )}
-      style={{ ...style, height: props.height }}
+      style={{ ...style, height: props.height === '100%' ? '100%' : 'auto' }}
     >
       {label && (
         <label htmlFor={props.id} className={s.label}>
@@ -117,6 +117,7 @@ const inputComponent = <
           shapeClasses[shape],
           leftIconName && s.fieldLeftIcon,
           rightIcon && s.fieldRightIcon,
+          element === 'textarea' && s.fieldTextarea,
         )}
       >
         {React.createElement(element, {
@@ -124,7 +125,6 @@ const inputComponent = <
           ref,
           className: classNames(
             s.fieldTag,
-            element === 'textarea' && s.fieldTagVerticalPadding,
             finalValue && s.fieldTagHasValue,
             isErrorStatus && s.fieldTagHasError,
             className,
@@ -136,7 +136,7 @@ const inputComponent = <
           readOnly: readonly,
           style: {
             resize: 'none',
-            height: '100%',
+            height: props.height,
           },
         })}
 
