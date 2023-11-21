@@ -27,7 +27,7 @@ export type SliderSteps = {
 };
 
 interface SliderHook extends SliderProps {
-  onMouseUp: () => void;
+  onMouseUp: (values: Array<SliderPoint>) => void;
 }
 
 export function useSlider({
@@ -77,13 +77,9 @@ export function useSlider({
     [minValue, maxValue],
   );
 
-  const handleDrag = (e: MouseEvent) => {
-    if (activeIndex.current === null && !boundingRect.current) {
-      return;
-    }
-
+  const calcNewValues = (clientX: number) => {
     const newValue = getValueForClientX(
-      e.clientX,
+      clientX,
       boundingRect,
       minValue,
       maxValue,
@@ -98,20 +94,32 @@ export function useSlider({
     );
 
     const values = [...innerValues];
-    const newValues = sortList([
+    return sortList([
       ...values.slice(0, activeIndex.current!),
       roundedNewValue,
       ...values.slice(activeIndex.current! + 1),
     ]);
+  };
 
+  const handleDrag = (e: MouseEvent) => {
+    if (activeIndex.current === null && !boundingRect.current) {
+      return;
+    }
+
+    const newValues = calcNewValues(e.clientX);
     setInnerValues(newValues);
 
     onChange?.(newValues);
   };
 
-  const handleRelease = () => {
+  const handleRelease = (e: MouseEvent) => {
     document.removeEventListener('mousemove', handleDrag);
-    onMouseUp?.();
+    document.removeEventListener('mouseup', handleRelease);
+
+    const newValues = calcNewValues(e.clientX);
+    setInnerValues(newValues);
+
+    onMouseUp?.(newValues);
   };
   const handlePress = (
     _: React.MouseEvent<HTMLButtonElement>,

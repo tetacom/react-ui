@@ -12,6 +12,7 @@ export function Slider({
   step,
   values,
   onChange,
+  onDragEnd,
   tooltipPlacement = 'bottom',
 }: SliderProps) {
   const [sliderRef, pointers, steps, getPercentageForValue] = useSlider({
@@ -19,8 +20,9 @@ export function Slider({
     max,
     step,
     values,
-    onMouseUp: () => {
+    onMouseUp: (values) => {
       setTooltipOpen(false);
+      onDragEnd?.(values);
     },
     onChange: (values) => {
       onChange?.(values);
