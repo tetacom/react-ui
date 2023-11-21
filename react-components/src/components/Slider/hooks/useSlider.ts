@@ -27,7 +27,7 @@ export type SliderSteps = {
 };
 
 interface SliderHook extends SliderProps {
-  onMouseUp: () => void;
+  onMouseUp: (values: Array<SliderPoint>) => void;
 }
 
 export function useSlider({
@@ -77,13 +77,13 @@ export function useSlider({
     [minValue, maxValue],
   );
 
-  const handleDrag = (e: MouseEvent) => {
-    if (activeIndex.current === null && !boundingRect.current) {
-      return;
+  const calcNewValues = (clientX: number) => {
+    if (activeKey.current === null || activeIndex.current === null) {
+      return innerValues;
     }
 
     const newValue = getValueForClientX(
-      e.clientX,
+      clientX,
       boundingRect,
       minValue,
       maxValue,
@@ -94,24 +94,36 @@ export function useSlider({
       minValue,
       maxValue,
       step,
-      activeKey.current!,
+      activeKey.current,
     );
 
     const values = [...innerValues];
-    const newValues = sortList([
-      ...values.slice(0, activeIndex.current!),
+    return sortList([
+      ...values.slice(0, activeIndex.current),
       roundedNewValue,
-      ...values.slice(activeIndex.current! + 1),
+      ...values.slice(activeIndex.current + 1),
     ]);
+  };
 
+  const handleDrag = (e: MouseEvent) => {
+    if (activeIndex.current === null && !boundingRect.current) {
+      return;
+    }
+
+    const newValues = calcNewValues(e.clientX);
     setInnerValues(newValues);
 
     onChange?.(newValues);
   };
 
-  const handleRelease = () => {
+  const handleRelease = (e: MouseEvent) => {
     document.removeEventListener('mousemove', handleDrag);
-    onMouseUp?.();
+    document.removeEventListener('mouseup', handleRelease);
+
+    const newValues = calcNewValues(e.clientX);
+    setInnerValues(newValues);
+
+    onMouseUp?.(newValues);
   };
   const handlePress = (
     _: React.MouseEvent<HTMLButtonElement>,
@@ -130,8 +142,11 @@ export function useSlider({
     return {
       value,
       isActive: index === activeIndex.current,
-      onMouseDown: (e: React.MouseEvent<HTMLButtonElement>, index: number) =>
-        handlePress(e, index, activeKey.current!),
+      onMouseDown: (e: React.MouseEvent<HTMLButtonElement>, index: number) => {
+        if (e.currentTarget.dataset.name) {
+          return handlePress(e, index, e.currentTarget.dataset.name);
+        }
+      },
     };
   });
 

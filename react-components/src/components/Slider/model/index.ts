@@ -16,6 +16,9 @@ export interface SliderProps {
   // Обратный вызов при изменений значений слайдера
   onChange?: (values: Array<SliderPoint>) => void;
 
+  // Обратный вызов при окончании перемещения слайдера
+  onDragEnd?: (values: Array<SliderPoint>) => void;
+
   // Расположение подсказки
   tooltipPlacement?: 'top' | 'bottom';
 }
