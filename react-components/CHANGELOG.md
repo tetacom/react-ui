@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.2](https://github.com/tetacom/react-ui/compare/react-components-0.14.1...react-components-0.14.2) (2023-11-21)
+
+
+### Bug Fixes
+
+* textarea styles ([a0e2dd6](https://github.com/tetacom/react-ui/commit/a0e2dd679fd28aa72f67b2838bb1016ff1a253ce))
+
 ### [0.14.1](https://github.com/tetacom/react-ui/compare/react-components-0.14.0...react-components-0.14.1) (2023-11-21)
 
 

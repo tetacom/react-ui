@@ -12,7 +12,8 @@
 }
 
 .input {
-  display: inline-grid;
+  display: inline-flex;
+  flex-direction: column;
   max-width: 100%;
 
   .label {
@@ -29,6 +30,7 @@
   }
 
   .field {
+    flex-grow: 1;
     position: relative;
     overflow: hidden;
 
@@ -59,10 +61,6 @@
       &:focus {
         background-color: transparent;
         border-color: var(--color-primary-50);
-      }
-
-      &VerticalPadding {
-        padding: var(--spacing-2) var(--spacing-8);
       }
 
       &HasValue,
@@ -174,6 +172,17 @@
 
       &Circle {
         border-radius: var(--radius-field-circle);
+      }
+    }
+
+    &Textarea {
+      .fieldTag {
+        padding: var(--spacing-6) var(--spacing-8);
+      }
+
+      .placeholder {
+        align-items: flex-start;
+        padding-top: var(--spacing-8);
       }
     }
 
