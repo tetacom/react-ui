@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.1](https://github.com/tetacom/react-ui/compare/react-components-0.14.0...react-components-0.14.1) (2023-11-21)
+
+
+### Bug Fixes
+
+* fix slider with empty key ([53f7e4e](https://github.com/tetacom/react-ui/commit/53f7e4e010810eb6bcb2d7b91db7164236eac5a5))
+* slider onDragEnd method ([57d3b80](https://github.com/tetacom/react-ui/commit/57d3b80c45c14c7747dc1bffa0d4a4b4523884a8))
+
 ## [0.14.0](https://github.com/tetacom/react-ui/compare/react-components-0.13.5...react-components-0.14.0) (2023-11-17)
 
 
