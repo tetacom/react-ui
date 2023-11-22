@@ -30,31 +30,33 @@ type GridlineProps = {
 function GridlineX(props: GridlineProps) {
   const { axis, size } = props;
 
-  return axis.scale.ticks().map((tick) => {
-    return (
+  return axis.scale
+    .ticks()
+    .map((tick) => (
       <line
+        key={tick.toString()}
         className={s.gridline}
         x1={axis.scale(tick) as string}
         y1="0"
         x2={axis.scale(tick) as string}
         y2={size?.height}
-      ></line>
-    );
-  });
+      />
+    ));
 }
 
 function GridlineY(props: GridlineProps) {
   const { axis, size } = props;
 
-  return axis.scale.ticks().map((tick) => {
-    return (
+  return axis.scale
+    .ticks()
+    .map((tick) => (
       <line
+        key={tick.toString()}
         className={s.gridline}
         x1="0"
         y1={axis.scale(tick) as string}
         x2={size?.width}
         y2={axis.scale(tick) as string}
-      ></line>
-    );
-  });
+      />
+    ));
 }
