@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.3](https://github.com/tetacom/react-ui/compare/react-components-0.14.2...react-components-0.14.3) (2023-11-22)
+
+
+### Bug Fixes
+
+* remove console warnings ([aa11375](https://github.com/tetacom/react-ui/commit/aa11375f5d225ed47b89fc26828680c5d9efc8dc))
+
 ### [0.14.2](https://github.com/tetacom/react-ui/compare/react-components-0.14.1...react-components-0.14.2) (2023-11-21)
 
 

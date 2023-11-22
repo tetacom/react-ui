@@ -48,69 +48,70 @@ export function Chart(props: ChartProps) {
     <div className={s.container}>
       <div style={{ height: '100%' }} ref={chartContainer}>
         <svg height="100%" width="100%" style={{ position: 'absolute' }}>
-          {y.map((axis) => {
-            return (
-              <g transform={`translate(${axis.padding}, 0)`}>
-                <YAxis scale={axis.scale} />
-              </g>
-            );
-          })}
+          {y.map((axis, index) => (
+            <g key={index} transform={`translate(${axis.padding}, 0)`}>
+              <YAxis scale={axis.scale} />
+            </g>
+          ))}
 
           <g className="x-axis-container">
-            {x.map((axis) => {
-              return (
-                <g
-                  transform={`translate(${finalLeftPadding}, ${
-                    size?.height - finalBottomPadding
-                  })`}
-                >
-                  <XAxis scale={axis.scale} />
-                </g>
-              );
-            })}
+            {x.map((axis, index) => (
+              <g
+                key={index}
+                transform={`translate(${finalLeftPadding}, ${
+                  size?.height - finalBottomPadding
+                })`}
+              >
+                <XAxis scale={axis.scale} />
+              </g>
+            ))}
           </g>
         </svg>
-        <div>
-          <svg
-            ref={zoomContainer}
-            style={{
-              position: 'absolute',
-              transform: `translate(${finalLeftPadding}px, 0)`,
-            }}
-            viewBox={`0 0 ${size?.width - finalLeftPadding} ${
-              size?.height - finalBottomPadding
-            }`}
-            width={size?.width - finalLeftPadding}
-            height={size?.height - finalBottomPadding}
-          >
-            <Gridlines x={x} y={y} size={size} />
 
-            <g className="series">
-              {config.series?.map((item) => {
-                if (!item.component) {
-                  throw new Error(
-                    'Series must be provide `component` prop for drawing',
-                  );
-                }
+        {chartContainer.current && (
+          <div>
+            <svg
+              ref={zoomContainer}
+              style={{
+                position: 'absolute',
+                transform: `translate(${finalLeftPadding}px, 0)`,
+              }}
+              viewBox={`0 0 ${size?.width - finalLeftPadding} ${
+                size?.height - finalBottomPadding
+              }`}
+              width={size?.width - finalLeftPadding}
+              height={size?.height - finalBottomPadding}
+            >
+              <Gridlines x={x} y={y} size={size} />
 
-                const foundX = x.find((a) => a.index === item.xAxisIndex);
-                const foundY = y.find((a) => a.index === item.yAxisIndex);
+              <g className="series">
+                {config.series?.map((item, index) => {
+                  if (!item.component) {
+                    throw new Error(
+                      'Series must be provide `component` prop for drawing',
+                    );
+                  }
 
-                if (!foundX || !foundY) {
-                  throw new Error(
-                    'Series must be provide `x, y scales` for drawing.',
-                  );
-                }
+                  const foundX = x.find((a) => a.index === item.xAxisIndex);
+                  const foundY = y.find((a) => a.index === item.yAxisIndex);
 
-                return React.createElement(item.component, {
-                  x: foundX,
-                  y: foundY,
-                  serie: item,
-                });
-              })}
-            </g>
-          </svg>
-        </div>
+                  if (!foundX || !foundY) {
+                    throw new Error(
+                      'Series must be provide `x, y scales` for drawing.',
+                    );
+                  }
+
+                  return React.createElement(item.component, {
+                    key: index,
+                    x: foundX,
+                    y: foundY,
+                    serie: item,
+                  });
+                })}
+              </g>
+            </svg>
+          </div>
+        )}
       </div>
     </div>
   );
