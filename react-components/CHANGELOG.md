@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.5](https://github.com/tetacom/react-ui/compare/react-components-0.14.4...react-components-0.14.5) (2023-11-23)
+
+
+### Bug Fixes
+
+* rollback update CustomCellComponent ([a925829](https://github.com/tetacom/react-ui/commit/a925829f90292d6cad0283d3d8aaca7d0e3e4069))
+
 ### [0.14.4](https://github.com/tetacom/react-ui/compare/react-components-0.14.3...react-components-0.14.4) (2023-11-23)
 
 

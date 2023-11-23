@@ -8,3 +8,4 @@ export * from './i-cell-component';
 export * from './utc-offset';
 export * from './vertical-align';
 export * from './enum/locked-column.enum';
+export * from './cell-component';
