@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.6](https://github.com/tetacom/react-ui/compare/react-components-0.14.5...react-components-0.14.6) (2023-11-23)
+
+
+### Bug Fixes
+
+* propertyGridRow class ([458253a](https://github.com/tetacom/react-ui/commit/458253aa50b1ec9a8f5091be94a84c766e85ba6e))
+
 ### [0.14.5](https://github.com/tetacom/react-ui/compare/react-components-0.14.4...react-components-0.14.5) (2023-11-23)
 
 
