@@ -7,6 +7,7 @@ import { Icon } from '../Icons';
 import { SelectProps } from './model';
 import { BaseSelectProps } from './model/base-select-item';
 import { Input } from '../Input';
+import { Tooltip } from '../Tooltip';
 
 import s from './style.module.scss';
 import listStyle from '../List/style.module.scss';
@@ -45,53 +46,60 @@ const SelectInner = forwardRef(
         dropdown={
           <ul className={listStyle.list}>
             {props.items?.map((item) => (
-              <li
+              <Tooltip
                 key={item.key}
-                role="option"
-                aria-selected
-                className={classNames([
-                  listStyle.item,
-                  item === foundValue ? s.selected : null,
-                ])}
-                onClick={() => {
-                  setValue(item);
-                  setOpen(false);
-                  props.onChangeItem && props.onChangeItem(item);
-                }}
+                title={props.onItemRender ? '' : item.headline}
+                delay={1000}
               >
-                {props.onItemRender ? (
-                  <div className={listStyle.textHeadline}>
-                    {props.onItemRender(item)}
-                  </div>
-                ) : (
-                  <span className={listStyle.textHeadline}>
-                    {item.headline}
-                  </span>
-                )}
-              </li>
+                <li
+                  role="option"
+                  aria-selected
+                  className={classNames([
+                    listStyle.item,
+                    item === foundValue ? s.selected : null,
+                  ])}
+                  onClick={() => {
+                    setValue(item);
+                    setOpen(false);
+                    props.onChangeItem && props.onChangeItem(item);
+                  }}
+                >
+                  {props.onItemRender ? (
+                    <div className={listStyle.textHeadline}>
+                      {props.onItemRender(item)}
+                    </div>
+                  ) : (
+                    <span className={listStyle.textHeadline}>
+                      {item.headline}
+                    </span>
+                  )}
+                </li>
+              </Tooltip>
             ))}
           </ul>
         }
       >
         <div style={{ position: 'relative' }}>
-          <Input.Text
-            {...getInputProps(props)}
-            style={{ width: '100%', ...props.style }}
-            ref={useMergeRefs([inputRef, ref])}
-            value={foundValue?.headline}
-            readonly
-            rightIcon={{
-              icon: (
-                <Icon
-                  style={{
-                    transition: 'transform 0.2s',
-                    transform: `rotate(${showSelect ? 180 : 0}deg)`,
-                  }}
-                  name={'arrowDownKey'}
-                />
-              ),
-            }}
-          />
+          <Tooltip title={foundValue?.headline ?? ''} delay={1000}>
+            <Input.Text
+              {...getInputProps(props)}
+              style={{ width: '100%', ...props.style }}
+              ref={useMergeRefs([inputRef, ref])}
+              value={foundValue?.headline}
+              readonly
+              rightIcon={{
+                icon: (
+                  <Icon
+                    style={{
+                      transition: 'transform 0.2s',
+                      transform: `rotate(${showSelect ? 180 : 0}deg)`,
+                    }}
+                    name={'arrowDownKey'}
+                  />
+                ),
+              }}
+            />
+          </Tooltip>
         </div>
       </Dropdown>
     );
