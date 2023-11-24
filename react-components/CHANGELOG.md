@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.8](https://github.com/tetacom/react-ui/compare/react-components-0.14.7...react-components-0.14.8) (2023-11-24)
+
+
+### Bug Fixes
+
+* tooltips in select ([855b4fe](https://github.com/tetacom/react-ui/commit/855b4febc99b6ca6036d83d1cabaca7091721e64))
+* update IPropertyGrid, input value must be number ([18c7018](https://github.com/tetacom/react-ui/commit/18c70186f67e97ce0c760eafddd553e2faa32a74))
+
 ### [0.14.7](https://github.com/tetacom/react-ui/compare/react-components-0.14.6...react-components-0.14.7) (2023-11-23)
 
 
