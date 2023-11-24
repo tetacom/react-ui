@@ -12,7 +12,7 @@ interface BseInput {
   defaultValue?: string;
 
   // Значение входного содержимого
-  value?: string;
+  value?: string | number;
 
   // Только для чтения
   readonly?: boolean;
