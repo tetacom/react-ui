@@ -1,0 +1,63 @@
+.drawer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row-reverse;
+
+  &Bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-text-20);
+  }
+
+  &Content {
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: var(--color-global-bgcard);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    .header {
+      background-color: inherit;
+      padding: var(--spacing-12) var(--spacing-16);
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr max-content;
+      position: sticky;
+      top: 0;
+
+      &:empty {
+        padding: 0;
+      }
+    }
+
+    .body {
+      background-color: inherit;
+      padding: var(--spacing-12) var(--spacing-16);
+    }
+
+    .footer {
+      background-color: inherit;
+      padding: var(--spacing-12) var(--spacing-16);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-8);
+      align-items: center;
+      position: sticky;
+      bottom: 0;
+
+      &:empty {
+        padding: 0;
+      }
+    }
+  }
+}

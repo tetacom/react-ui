@@ -12,6 +12,7 @@ export function Slider({
   step,
   values,
   onChange,
+  onDragEnd,
   tooltipPlacement = 'bottom',
 }: SliderProps) {
   const [sliderRef, pointers, steps, getPercentageForValue] = useSlider({
@@ -19,8 +20,9 @@ export function Slider({
     max,
     step,
     values,
-    onMouseUp: () => {
+    onMouseUp: (values) => {
       setTooltipOpen(false);
+      onDragEnd?.(values);
     },
     onChange: (values) => {
       onChange?.(values);
@@ -64,7 +66,7 @@ export function Slider({
 
           return (
             <Tooltip
-              key={index}
+              key={key}
               title={value.toString()}
               open={tooltipOpen}
               placement={tooltipPlacement}
@@ -75,6 +77,7 @@ export function Slider({
                 key={index}
                 className={s.button}
                 role="slider"
+                data-name={key}
                 aria-valuenow={value}
                 onMouseDown={(e) => {
                   setTooltipOpen(true);

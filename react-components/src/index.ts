@@ -1,9 +1,6 @@
 import './style/normalize.css';
 import './utils/dayjsLocale';
 
-import { ICellEvent } from './components/Table/model/i-cell-event';
-import { TableColumn } from './components/Table/model/public-api';
-
 export * from './components/Button';
 export * from './components/Button/model/public-api';
 
@@ -71,3 +68,4 @@ export * from './components/Chart/model';
 
 export * from './components/ContextMenu';
 export * from './components/ContextMenu/model';
+export * from './components/Drawer';

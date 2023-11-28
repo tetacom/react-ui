@@ -2,6 +2,78 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.8](https://github.com/tetacom/react-ui/compare/react-components-0.14.7...react-components-0.14.8) (2023-11-24)
+
+
+### Bug Fixes
+
+* tooltips in select ([855b4fe](https://github.com/tetacom/react-ui/commit/855b4febc99b6ca6036d83d1cabaca7091721e64))
+* update IPropertyGrid, input value must be number ([18c7018](https://github.com/tetacom/react-ui/commit/18c70186f67e97ce0c760eafddd553e2faa32a74))
+
+### [0.14.7](https://github.com/tetacom/react-ui/compare/react-components-0.14.6...react-components-0.14.7) (2023-11-23)
+
+
+### Bug Fixes
+
+* update propertyGridRow ([5e42f9f](https://github.com/tetacom/react-ui/commit/5e42f9fd6d3dde87116c8c8d4208277ceacd905a))
+
+### [0.14.6](https://github.com/tetacom/react-ui/compare/react-components-0.14.5...react-components-0.14.6) (2023-11-23)
+
+
+### Bug Fixes
+
+* propertyGridRow class ([458253a](https://github.com/tetacom/react-ui/commit/458253aa50b1ec9a8f5091be94a84c766e85ba6e))
+
+### [0.14.5](https://github.com/tetacom/react-ui/compare/react-components-0.14.4...react-components-0.14.5) (2023-11-23)
+
+
+### Bug Fixes
+
+* rollback update CustomCellComponent ([a925829](https://github.com/tetacom/react-ui/commit/a925829f90292d6cad0283d3d8aaca7d0e3e4069))
+
+### [0.14.4](https://github.com/tetacom/react-ui/compare/react-components-0.14.3...react-components-0.14.4) (2023-11-23)
+
+
+### Bug Fixes
+
+* update CustomCellComponent ([f881be7](https://github.com/tetacom/react-ui/commit/f881be7a21e5ed37ccedd68bb63750c1fbac815a))
+
+### [0.14.3](https://github.com/tetacom/react-ui/compare/react-components-0.14.2...react-components-0.14.3) (2023-11-22)
+
+
+### Bug Fixes
+
+* remove console warnings ([aa11375](https://github.com/tetacom/react-ui/commit/aa11375f5d225ed47b89fc26828680c5d9efc8dc))
+
+### [0.14.2](https://github.com/tetacom/react-ui/compare/react-components-0.14.1...react-components-0.14.2) (2023-11-21)
+
+
+### Bug Fixes
+
+* textarea styles ([a0e2dd6](https://github.com/tetacom/react-ui/commit/a0e2dd679fd28aa72f67b2838bb1016ff1a253ce))
+
+### [0.14.1](https://github.com/tetacom/react-ui/compare/react-components-0.14.0...react-components-0.14.1) (2023-11-21)
+
+
+### Bug Fixes
+
+* fix slider with empty key ([53f7e4e](https://github.com/tetacom/react-ui/commit/53f7e4e010810eb6bcb2d7b91db7164236eac5a5))
+* slider onDragEnd method ([57d3b80](https://github.com/tetacom/react-ui/commit/57d3b80c45c14c7747dc1bffa0d4a4b4523884a8))
+
+## [0.14.0](https://github.com/tetacom/react-ui/compare/react-components-0.13.5...react-components-0.14.0) (2023-11-17)
+
+
+### Features
+
+* start drawer ([3a8cf35](https://github.com/tetacom/react-ui/commit/3a8cf353a0d63f73f3eed81e6b575936dc5e6ef0))
+
+
+### Bug Fixes
+
+* drawer animations ([c0cd02d](https://github.com/tetacom/react-ui/commit/c0cd02d0d2d49dfebbb97d71bf4834ba29534e04))
+* drawer parent ([10058ab](https://github.com/tetacom/react-ui/commit/10058ab05e81bbceadb1c77b5f9a1ce360634b8b))
+* drawer without animations ([ce82596](https://github.com/tetacom/react-ui/commit/ce8259658f7b978ae10448cf5aa7f18996db5529))
+
 ### [0.13.5](https://github.com/tetacom/react-ui/compare/react-components-0.13.4...react-components-0.13.5) (2023-11-15)
 
 
