@@ -35,5 +35,10 @@ export function getBgHex(initials: string): string {
   const letterPosition = firstLetter * secondLetter;
   const resultIndex = Math.ceil(letterPosition / stepLength) - 1;
 
+
+  
+
   return Object.values(avatarBgMap)[resultIndex];
 }
+
+

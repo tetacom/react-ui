@@ -1,69 +1,25 @@
-import React, { useMemo, useRef } from 'react';
-import * as d3 from 'd3';
+import React, { useRef } from 'react';
 
-import { useTimeAxis } from './hooks/useTimeAxis';
-import { GanttRowComponent } from './components/GanttRow';
-import { GanttProps, MilestoneItem, MilestoneOptions } from './model';
+import { useTimeAxis } from './useTimeAxis';
+import { BaseMilestone, GanttConfig, MilestoneItem } from './model';
 import { useElementSize } from '../hooks/useElementSize';
 import { GanttSidebar } from './components/Sidebar';
 import { GanttDatesTrack } from './components/DatesTrack';
 import { VerticalLines } from './components/VerticalLines';
-import { interpolateProduction } from './interpolateProduction';
 
 import s from './Gantt.module.scss';
+import { GanttRowComponent } from './components/GanttRow';
 
-export function Gantt<T extends MilestoneOptions>({
-  items,
-  zoom,
-  onMilestoneRender,
-  height = '100vh',
-}: GanttProps<T>) {
+export function Gantt<T, D extends BaseMilestone>({
+  config,
+}: {
+  config: GanttConfig<T, D>;
+}) {
   const [trackScrollRef, size] = useElementSize<HTMLDivElement>();
   const sidebarRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  const [minProduction, maxProduction] = useMemo(() => {
-    const minProductions: number[] = items.map(({ milestones }) => {
-      if (!milestones.length) return 0;
-
-      const [firstMilestone] = milestones;
-      return milestones
-        .filter((milestone) => (milestone as any).clusterType !== 'move')
-        .reduce(
-          (production, milestone) =>
-            Math.min((milestone as any).production, production),
-          (firstMilestone as any).production,
-        );
-    });
-    const min: number = minProductions.reduce(
-      (acc, item) => Math.min(item, acc),
-      minProductions[0],
-    );
-    const maxProductions: number[] = items.map(({ milestones }) => {
-      if (!milestones.length) return 0;
-
-      const [firstMilestone] = milestones;
-      return milestones
-        .filter((milestone) => (milestone as any).clusterType !== 'move')
-        .reduce(
-          (production, milestone) =>
-            Math.max((milestone as any).production, production),
-          (firstMilestone as any).production,
-        );
-    });
-    const max: number = maxProductions.reduce(
-      (acc, item) => Math.max(item, acc),
-      minProductions[0],
-    );
-
-    return [min, max];
-  }, [items]);
-
-  const defaultColorMap = d3
-    .scaleSequential(interpolateProduction)
-    .domain([minProduction, maxProduction]);
-
-  const [maxWidth, ticks, scale] = useTimeAxis(items, zoom, size);
+  const [maxWidth, ticks, scale] = useTimeAxis(config.items, config.zoom, size);
 
   const handleScrollSidebar = (scroll: React.BaseSyntheticEvent) => {
     if (trackScrollRef?.current) {
@@ -85,11 +41,17 @@ export function Gantt<T extends MilestoneOptions>({
   };
 
   return (
-    <div className={s.container} style={{ height, minHeight: height }}>
+    <div
+      className={s.container}
+      style={{ height: config.height, minHeight: config.height }}
+      onContextMenu={(e: React.MouseEvent) => {
+        config.onContextMenu?.(e);
+      }}
+    >
       <GanttSidebar
-        ref={sidebarRef}
         handleScrollSidebar={handleScrollSidebar}
-        items={items}
+        items={config.items}
+        component={config.sidebarComponent}
       />
 
       <div
@@ -113,18 +75,8 @@ export function Gantt<T extends MilestoneOptions>({
           }}
         >
           <VerticalLines scale={scale} ticks={ticks} />
-
-          {items.map((item: MilestoneItem<T>) => {
-            if (onMilestoneRender) return onMilestoneRender(item, scale);
-
-            return (
-              <GanttRowComponent
-                key={item.id}
-                item={item}
-                scaleTime={scale}
-                defaultColorMap={defaultColorMap}
-              />
-            );
+          {config.items.map((item: MilestoneItem<T, D>, index: number) => {
+            return <GanttRowComponent item={item} scale={scale} key={index} />;
           })}
         </div>
       </div>

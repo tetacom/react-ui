@@ -1,0 +1,12 @@
+.contextContent {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius-8);
+  border: 1px solid var(--color-text-5);
+  overflow: hidden;
+
+  padding: var(--spacing-8);
+  background-color: var(--color-global-bgcard);
+}

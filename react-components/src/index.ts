@@ -68,3 +68,6 @@ export * from './components/Card';
 
 export * from './components/Chart';
 export * from './components/Chart/model';
+
+export * from './components/ContextMenu';
+export * from './components/ContextMenu/model';

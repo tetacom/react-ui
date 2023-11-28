@@ -1,58 +1,35 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import { Typography } from '../../../Typography';
-import { GanttProps } from '../../model';
-import { DriveType } from '../../model/public-api';
+import { GanttConfig, BaseMilestone } from '../../model';
 
 import s from './style.module.scss';
 
-const { Text } = Typography;
-
-interface Props {
-  items: GanttProps<any>['items'];
+interface Props<T, D extends BaseMilestone> {
+  items: GanttConfig<T, D>['items'];
+  component: GanttConfig<T, D>['sidebarComponent'];
   handleScrollSidebar: (scroll: React.BaseSyntheticEvent) => void;
 }
 
-export const GanttSidebar = forwardRef<HTMLDivElement, Props>(function (
-  { items, handleScrollSidebar },
-  ref,
-) {
+export const GanttSidebar: React.FC<Props<any, any>> = <
+  T,
+  D extends BaseMilestone,
+>({
+  items,
+  component,
+  handleScrollSidebar,
+}: Props<object, D>) => {
+  if (!component) {
+    throw new Error('Sidebar component not provided!');
+  }
+
   return (
-    <div className={s.root} ref={ref} onScroll={handleScrollSidebar}>
+    <div className={s.root} onScroll={handleScrollSidebar}>
       <div className={s.patch} />
 
-      {items.map(
-        ({
-          id,
-          name,
-          liftingCapability,
-          hasTopDrive,
-          contractorName,
-          driveType,
-        }) => {
-          return (
-            <div key={id} className={s.drillingRig}>
-              <Text fontVariant="title3" className={s.drillingRigName}>
-                {name}{' '}
-                {hasTopDrive && (
-                  <Text fontVariant="title3" className={s.drillingRigTopDrive}>
-                    (ВСП)
-                  </Text>
-                )}{' '}
-                <Text fontVariant="title3" className={s.drillingRigTopDrive}>
-                  ({driveType === DriveType.Electric ? 'э' : 'д'})
-                </Text>
-              </Text>
-              <Text fontVariant="caption" className={s.drillingRigCompany}>
-                {contractorName}
-              </Text>
-              <Text fontVariant="caption" className={s.drillingRigLifting}>
-                {liftingCapability} т
-              </Text>
-            </div>
-          );
-        },
-      )}
+      {items.map(({ item }) => {
+        return React.createElement(component, { ...item });
+      })}
     </div>
   );
-});
+};
