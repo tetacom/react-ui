@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.9](https://github.com/tetacom/react-ui/compare/react-components-0.14.8...react-components-0.14.9) (2023-11-29)
+
+
+### Bug Fixes
+
+* list cell can be null ([6fe7635](https://github.com/tetacom/react-ui/commit/6fe7635ca3ba622fc8c72dcedb7f11055d4f0510))
+
 ### [0.14.8](https://github.com/tetacom/react-ui/compare/react-components-0.14.7...react-components-0.14.8) (2023-11-24)
 
 
