@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ICellComponent } from '../../../model/i-cell-component';
+import { ICellComponent } from '../../../model/public-api';
 
 export function DateCell({
   table,

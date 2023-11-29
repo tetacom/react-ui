@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { BaseSelectProps } from '@tetacom/react-components';
+
 import { Select } from '../../../../Select';
-import { ICellComponent } from '../../../model/i-cell-component';
-import { BaseSelectProps } from '../../../../Select/model/base-select-item';
+import { ICellComponent } from '../../../model/public-api';
 
 export function SelectCell({
   table,
@@ -26,10 +27,14 @@ export function SelectCell({
       : [];
   }
 
-  const rawValue = row.getValue<number>(column.id);
-  const foundValue = options.find(
-    (option) => option.key === rawValue.toString(),
-  );
+  const rawValue = row.getValue<number | null>(column.id);
+  const foundValue = options.find((option) => {
+    if (!rawValue) {
+      return false;
+    }
+
+    return option.key === rawValue.toString();
+  });
   const [innerValue, setInnerValue] = useState(foundValue);
   const [open, setOpen] = useState<boolean | undefined>(undefined);
 

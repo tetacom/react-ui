@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ICellComponent } from '../../../model/i-cell-component';
+import { ICellComponent } from '../../../model/public-api';
 import { EditStringCell } from '../base-string-cell';
 
 export function StringCell({
