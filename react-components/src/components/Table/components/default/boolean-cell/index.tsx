@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ICellComponent } from '../../../model/public-api';
 import { EditStringCell } from '../base-string-cell';
 
-export function StringCell({
+export function BooleanCell({
   table,
   column,
   cellIndex,
@@ -18,6 +18,8 @@ export function StringCell({
     meta?.valueChanged(value);
   };
 
+  console.log('bool');
+
   return isEdit ? (
     <EditStringCell
       value={innerValue}
@@ -31,6 +33,6 @@ export function StringCell({
       onChange={setInnerValue}
     />
   ) : (
-    <div tabIndex={cellIndex}>{value}</div>
+    <div tabIndex={cellIndex}>{String(value)}</div>
   );
 }
