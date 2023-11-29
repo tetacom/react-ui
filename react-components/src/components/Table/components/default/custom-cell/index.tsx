@@ -5,16 +5,29 @@ import { ICellComponent } from '../../../model/public-api';
 
 import numberStyles from './style.module.scss';
 
-export function NumberCell({
+export function CustomCell({
   table,
   column,
   cellIndex,
   isEdit,
   row,
+  roundToDecimalPlaces,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
   const value = row.getValue<number | null>(column.id);
   const [innerValue, setInnerValue] = useState<number | null>(value);
   const { meta } = table.options;
+
+  // let cellNumber = value;
+  // if (
+  //   roundToDecimalPlaces !== undefined &&
+  //   value !== null &&
+  //   isNumber(value) &&
+  //   value % 1 !== 0
+  // ) {
+  //   cellNumber = isNumber(cellNumber)
+  //     ? cellNumber.toFixed(roundToDecimalPlaces)
+  //     : cellNumber;
+  // }
 
   const valueChange = (value: object) => {
     meta?.valueChanged(value);
@@ -38,4 +51,12 @@ export function NumberCell({
       {column.columnDef.meta?.tableColumn.formatter?.(value) ?? value}
     </div>
   );
+}
+
+function showNumberWithSpaces(value: number | string): string {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+function isNumber(value: number | string): value is number {
+  return typeof value === 'number';
 }
