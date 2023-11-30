@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { EditStringCell } from '../base-string-cell';
 import { ICellComponent } from '../../../model/public-api';
-
-import numberStyles from './style.module.scss';
 
 export function NumberCell({
   table,
@@ -13,16 +11,24 @@ export function NumberCell({
   row,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
   const value = row.getValue<number | null>(column.id);
-  const [innerValue, setInnerValue] = useState<number | null>(value);
+  const [innerValue, setInnerValue] = useState(value);
   const { meta } = table.options;
 
   const valueChange = (value: object) => {
     meta?.valueChanged(value);
   };
 
+  useEffect(() => {
+    if (innerValue === null || innerValue === undefined) {
+      setInnerValue(0);
+    }
+  }, []);
+
+  if (innerValue === null || innerValue === undefined) return null;
+
   return isEdit ? (
     <EditStringCell
-      value={innerValue || innerValue === 0 ? innerValue.toString() : ''}
+      value={innerValue}
       tabIndex={cellIndex}
       placeholder={column.columnDef.meta?.tableColumn?.caption}
       onBlur={() => valueChange({ ...row.original, [column.id]: innerValue })}
@@ -34,7 +40,7 @@ export function NumberCell({
       onChange={(e) => setInnerValue(parseFloat(e))}
     />
   ) : (
-    <div tabIndex={cellIndex} className={numberStyles.root}>
+    <div tabIndex={cellIndex}>
       {column.columnDef.meta?.tableColumn.formatter?.(value) ?? value}
     </div>
   );

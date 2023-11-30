@@ -79,10 +79,16 @@ const SelectInner = forwardRef(
           </ul>
         }
       >
-        <div style={{ position: 'relative' }}>
+        <div
+          style={{
+            position: 'relative',
+            height: props.height,
+          }}
+        >
           <Tooltip title={foundValue?.headline ?? ''} delay={1000}>
             <Input.Text
               {...getInputProps(props)}
+              height="100%"
               style={{ width: '100%', ...props.style }}
               ref={useMergeRefs([inputRef, ref])}
               value={foundValue?.headline}
