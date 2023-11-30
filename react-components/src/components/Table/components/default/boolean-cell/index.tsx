@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BaseSelectProps } from '@tetacom/react-components';
 
+import { Select } from '../../../../Select';
 import { ICellComponent } from '../../../model/public-api';
-import { EditStringCell } from '../base-string-cell';
+
+const options: Array<BaseSelectProps> = [
+  { key: 'false', headline: 'Нет' },
+  { key: 'true', headline: 'Да' },
+];
 
 export function BooleanCell({
   table,
@@ -10,29 +16,46 @@ export function BooleanCell({
   isEdit,
   row,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
-  const value = row.getValue<string>(column.id);
-  const [innerValue, setInnerValue] = useState(value);
+  const rowValue = row.getValue<boolean | null>(column.id);
+  const foundValue = options.find((option) => {
+    if (rowValue === null || rowValue === undefined) {
+      return;
+    }
+
+    return option.key === rowValue.toString();
+  }) ?? { key: 'false', headline: 'Нет' };
+
+  const [innerValue, setInnerValue] = useState(foundValue);
+  const [open, setOpen] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    setOpen(isEdit);
+  }, [isEdit]);
+
   const { meta } = table.options;
 
-  const valueChange = (value: object) => {
-    meta?.valueChanged(value);
-  };
-
-  console.log('bool');
-
   return isEdit ? (
-    <EditStringCell
+    <Select
+      open={open}
+      items={options}
       value={innerValue}
+      autoFocus
       tabIndex={cellIndex}
-      onBlur={() =>
-        valueChange({ ...row.original, [column.id]: innerValue.toString() })
-      }
-      onPressEnter={() => {
-        valueChange({ ...row.original, [column.id]: innerValue.toString() });
+      onChangeItem={(item) => {
+        setInnerValue(item);
+        setOpen(undefined);
+        if (innerValue?.key) {
+          meta?.valueChanged({
+            ...row.original,
+            [column.id]: parseInt(innerValue.key, 10),
+          });
+        }
       }}
-      onChange={setInnerValue}
+      shape="brick"
+      size="small"
+      style={{ height: '100%' }}
     />
   ) : (
-    <div tabIndex={cellIndex}>{String(value)}</div>
+    <div tabIndex={cellIndex}>{innerValue?.headline}</div>
   );
 }

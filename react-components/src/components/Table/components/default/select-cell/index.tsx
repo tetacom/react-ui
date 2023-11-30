@@ -27,13 +27,13 @@ export function SelectCell({
       : [];
   }
 
-  const rawValue = row.getValue<number | null>(column.id);
+  const rowValue = row.getValue<number | null>(column.id);
   const foundValue = options.find((option) => {
-    if (!rawValue) {
+    if (rowValue === null || rowValue === undefined) {
       return false;
     }
 
-    return option.key === rawValue.toString();
+    return option.key === rowValue.toString();
   });
   const [innerValue, setInnerValue] = useState(foundValue);
   const [open, setOpen] = useState<boolean | undefined>(undefined);
@@ -63,6 +63,7 @@ export function SelectCell({
       }}
       shape="brick"
       size="small"
+      height="100%"
     />
   ) : (
     <div tabIndex={cellIndex}>{innerValue?.headline}</div>

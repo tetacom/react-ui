@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { ICellComponent } from '../../../model/public-api';
+import { Input } from '../../../../Input';
 
 export function DateCell({
   table,
@@ -8,26 +10,32 @@ export function DateCell({
   isEdit,
   row,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
-  const value = row.getValue<string>(column.id);
-  const [innerValue, setInnerValue] = useState<string>(value);
+  const value = row.getValue<string | null>(column.id);
+  const [innerValue, setInnerValue] = useState(value);
   const { meta } = table.options;
 
+  useEffect(() => {
+    if (innerValue === null || innerValue === undefined) {
+      setInnerValue('');
+    }
+  }, []);
+
+  if (innerValue === null || innerValue === undefined) return null;
+
   return isEdit ? (
-    <input
+    <Input.Text
       value={innerValue}
       tabIndex={cellIndex}
       autoFocus
-      style={{
-        height: '100%',
-        padding: 'var(--spacing-4)',
-        outline: 'none',
-        border: '1px solid var(--color-primary-50)',
-      }}
+      placeholder=""
       onBlur={() =>
         meta?.valueChanged({ ...row.original, [column.id]: innerValue })
       }
-      onChange={(e) => setInnerValue(e.target.value)}
+      onChange={(value) => setInnerValue(value)}
       type="date"
+      shape="brick"
+      size="small"
+      height="100%"
     />
   ) : (
     <div tabIndex={cellIndex}>

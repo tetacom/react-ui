@@ -1,1694 +1,400 @@
 {
-  "ClusterId": [
+  "DrillingRigTypeId": [
     {
       "id": 1,
-      "name": "АН192",
+      "name": "БУ-2000/125ЭП на рельсах",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 2,
-      "name": "АН5571",
+      "name": "БУ-2000/125ЭП",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 3,
-      "name": "АН16485",
+      "name": "БУ-75",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 4,
-      "name": "АН2293",
+      "name": "СБУ-3000/170",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 5,
-      "name": "ДН11443",
+      "name": "МБУ-3000/170",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 6,
-      "name": "АН16501",
+      "name": "К-80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 7,
-      "name": "АН20103",
+      "name": "К-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 8,
-      "name": "АН10111",
+      "name": "БУ-2000/125ЭБМ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 9,
-      "name": "ПН238д",
+      "name": "БАРС-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 10,
-      "name": "ПН1905",
+      "name": "БАРС-80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 11,
-      "name": "ПН1915",
+      "name": "БАРС-140",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 12,
-      "name": "ПН1923",
+      "name": "АПР-80.",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 13,
-      "name": "АН9615",
+      "name": "Идель-160",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 14,
-      "name": "АН20453",
+      "name": "БАРС-80 (Ал-Рс)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 15,
-      "name": "АНУТНС",
+      "name": "БАРС-100 (Акмаль)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 16,
-      "name": "АН5566",
+      "name": "БАРС-125 (Акмаль)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 17,
-      "name": "АН203",
+      "name": "УПР-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 18,
-      "name": "АН20134",
+      "name": "УПР-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 19,
-      "name": "АН5638д",
+      "name": "АРБ-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 20,
-      "name": "АН11278",
+      "name": "ТД-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 21,
-      "name": "ЛН39679",
+      "name": "ZJ-30",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 22,
-      "name": "ЛН24559",
+      "name": "Идель-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 23,
-      "name": "ЛН24558",
+      "name": "Идель-140",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 24,
-      "name": "ПН819Е",
+      "name": "Идель-160 (Ал-Рс)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 25,
-      "name": "ПН1491",
+      "name": "АПР-80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 26,
-      "name": "НН11383",
+      "name": "БУ-75БРЭ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 27,
-      "name": "НН11403",
+      "name": "УПРБ-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 28,
-      "name": "ПН3908",
+      "name": "МБУ 140",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 29,
-      "name": "ПН1601",
+      "name": "БУ-2900/175ДЭП",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 30,
-      "name": "ЛН35508",
+      "name": "СБУ-3000/170ИЭ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 31,
-      "name": "ЛН40542",
+      "name": "Барс 80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 32,
-      "name": "ЛН40113",
+      "name": "МБУ-3000/170ИЭ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 33,
-      "name": "ЛН40328",
+      "name": "БУ-2000/125 ЭП",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 34,
-      "name": "БН60",
+      "name": "ZJ40",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 35,
-      "name": "БН3388",
+      "name": "Барс-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 36,
-      "name": "БН4020",
+      "name": "K-100 (Кремко)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 37,
-      "name": "ЕН 8951",
+      "name": "МБУ 125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 38,
-      "name": "ЕН 9044",
+      "name": "АПР- 60/80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 39,
-      "name": "ЕН 6995",
+      "name": "TD 125 CA-A6",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 40,
-      "name": "ЕН 8193",
+      "name": "УПР 100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 41,
-      "name": "ЕН 6923",
+      "name": "ZJ30-1700D",
       "parentId": null,
       "iconId": null
-    },
-    {
-      "id": 42,
-      "name": "ЕН 7598",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 43,
-      "name": "ЕН 7559",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 44,
-      "name": "ПН542Р",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 45,
-      "name": "ПН715Г",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 46,
-      "name": "ПН517",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 47,
-      "name": "ДН26050",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 48,
-      "name": "ДН11408",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 49,
-      "name": "ДН10270",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 50,
-      "name": "ДН5455",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 51,
-      "name": "АзН27505",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 52,
-      "name": "ДН27760",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 53,
-      "name": "ДН2161",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 54,
-      "name": "ДН16689",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 55,
-      "name": "ДН15803",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 56,
-      "name": "АзН6468",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 57,
-      "name": "АзН11154",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 58,
-      "name": "АзН19831",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 59,
-      "name": "ПН643Н",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 60,
-      "name": "ПН587Р",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 61,
-      "name": "ПН1681",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 62,
-      "name": "ЛН40130",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 63,
-      "name": "ЛН40724",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 64,
-      "name": "ЛН40767",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 65,
-      "name": "ЛН40785",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 66,
-      "name": "ЛН40805",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 67,
-      "name": "ПН4305",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 68,
-      "name": "НН98511",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 69,
-      "name": "НН98279",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 70,
-      "name": "НН98188",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 71,
-      "name": "НН98486",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 72,
-      "name": "НН98400",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 73,
-      "name": "НН98236",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 74,
-      "name": "ДН7220",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 75,
-      "name": "ДН5363",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 76,
-      "name": "ДН30177",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 77,
-      "name": "ДН7551",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 78,
-      "name": "ПН1689",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 79,
-      "name": "ЛН40299",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 80,
-      "name": "ЛН39843",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 81,
-      "name": "ЛН39842",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 82,
-      "name": "НН5830",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 83,
-      "name": "НН57142",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 84,
-      "name": "НН98043",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 85,
-      "name": "НН57144",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 86,
-      "name": "НН57112",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 87,
-      "name": "БН833",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 88,
-      "name": "БН3372",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 89,
-      "name": "БН3145",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 90,
-      "name": "ЯН16106",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 91,
-      "name": "ЯН16671",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 92,
-      "name": "ЯН13362",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 93,
-      "name": "ЯН13325",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 94,
-      "name": "ДН15872",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 95,
-      "name": "ДН6679",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 96,
-      "name": "ДН6628",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 97,
-      "name": "ДН27606",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 98,
-      "name": "ДН11808",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 99,
-      "name": "АН11218",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 100,
-      "name": "АН254",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 101,
-      "name": "АН14867",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 102,
-      "name": "АН5707",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 103,
-      "name": "ДН1",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 104,
-      "name": "ДН5209",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 105,
-      "name": "ДН5199",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 106,
-      "name": "ДН576",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 107,
-      "name": "ДН19250",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 108,
-      "name": "НН11399",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 109,
-      "name": "НН1363",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 110,
-      "name": "ПН976Е",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 111,
-      "name": "БН155",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 112,
-      "name": "БН6012",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 113,
-      "name": "БН6025",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 114,
-      "name": "БН4868",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 115,
-      "name": "БН3195",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 116,
-      "name": "АзН1133Д",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 117,
-      "name": "АзН18765",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 118,
-      "name": "АзН8227",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 119,
-      "name": "АзН3718",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 120,
-      "name": "БН3189",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 121,
-      "name": "БН53",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 122,
-      "name": "ЯН35045",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 123,
-      "name": "АН14705",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 124,
-      "name": "АН17416",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 125,
-      "name": "ЛН39840",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 126,
-      "name": "ЛН40230",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 127,
-      "name": "ЛН40736",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 128,
-      "name": "ЛН40817",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 129,
-      "name": "ЛН40607",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 130,
-      "name": "БН9114",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 131,
-      "name": "НН98539",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 132,
-      "name": "НН98548",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 133,
-      "name": "НН98398",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 134,
-      "name": "НН98266",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 135,
-      "name": "ЛН40037",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 136,
-      "name": "ЛН40035",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 137,
-      "name": "ЛН40090",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 138,
-      "name": "ЛН40640",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 139,
-      "name": "ЛН40586",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 140,
-      "name": "ЛН40478",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 141,
-      "name": "ЯН32029",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 142,
-      "name": "ЯН32024",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 143,
-      "name": "ЯН7003",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 144,
-      "name": "ЯН30063",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 145,
-      "name": "ЯН30072",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 146,
-      "name": "ЯН2120",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 147,
-      "name": "ЯН12706",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 148,
-      "name": "ЯН30089",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 149,
-      "name": "ЯН30093",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 150,
-      "name": "ЯН12902",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 151,
-      "name": "ЯН12910",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 152,
-      "name": "ЯН16615",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 153,
-      "name": "ЯН34052",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 154,
-      "name": "ЯН34058",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 155,
-      "name": "ЯН30143",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 156,
-      "name": "ЯН30098",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 157,
-      "name": "ЯН34041",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 158,
-      "name": "ЯН34098",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 159,
-      "name": "ЯН35169",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 160,
-      "name": "ЯН35144",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 161,
-      "name": "НН22152",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 162,
-      "name": "НН2213",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 163,
-      "name": "НН22167",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 164,
-      "name": "НН98218",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 165,
-      "name": "НН98463",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 166,
-      "name": "ЕН 6384",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 167,
-      "name": "ЕН 6376",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 168,
-      "name": "ЕН 6386",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 169,
-      "name": "ЕН 6295",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 170,
-      "name": "ЕН 3447",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 171,
-      "name": "ЕН 8863",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 172,
-      "name": "ЕН 10434",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 173,
-      "name": "ЕН 4580",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 174,
-      "name": "ЕН 4594",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 175,
-      "name": "ЕН 6166",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 176,
-      "name": "ЕН 6219",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 177,
-      "name": "ЕН 9201",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 178,
-      "name": "ЕН 9233",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 179,
-      "name": "ЕН 10333",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 180,
-      "name": "ЕН 5518",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 181,
-      "name": "ЕН 5983",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 182,
-      "name": "ЕН 5985",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 183,
-      "name": "ЕН 5954",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 184,
-      "name": "ЕН 6504",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 185,
-      "name": "ЕН 6437",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 186,
-      "name": "ЕН 2900",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 187,
-      "name": "ЕН 8928",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 188,
-      "name": "ЕН 10385",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 189,
-      "name": "НН85032",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 190,
-      "name": "НН85013",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 191,
-      "name": "НН85011",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 192,
-      "name": "НН88360",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 193,
-      "name": "НН88369",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 194,
-      "name": "НН88370",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 195,
-      "name": "НН88249",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 196,
-      "name": "НН1106",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 197,
-      "name": "ЕН 7044",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 198,
-      "name": "ЕН 7026",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 199,
-      "name": "ЕН 11209",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 200,
-      "name": "ЕН 11219",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 201,
-      "name": "ЕН 11313",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 202,
-      "name": "ЕН 11227",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 203,
-      "name": "ЕН 6107",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 204,
-      "name": "ЕН 4541",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 205,
-      "name": "ЕН 12002",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 206,
-      "name": "ЕН 12007",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 207,
-      "name": "ЕН 12029",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 208,
-      "name": "ЕН 12043",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 209,
-      "name": "ЕН 12127",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 210,
-      "name": "ЕН 12134",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 211,
-      "name": "ЯН12629",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 212,
-      "name": "ЯН12665",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 213,
-      "name": "ЯН17447",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 214,
-      "name": "ЯН17440",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 215,
-      "name": "ЯН17418",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 216,
-      "name": "ЯН8016",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 217,
-      "name": "ЯН8012",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 218,
-      "name": "ЯН12005",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 219,
-      "name": "БН408",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 220,
-      "name": "БН419",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 221,
-      "name": "АН116",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 222,
-      "name": "АН124",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 223,
-      "name": "АН10777",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 224,
-      "name": "АНк-166",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 225,
-      "name": "АН20436",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 226,
-      "name": "АН159",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 227,
-      "name": "АН9571",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 228,
-      "name": "АН14703",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 229,
-      "name": "АН9577",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 230,
-      "name": "АзН24757г",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 231,
-      "name": "АзН28580",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 232,
-      "name": "АзН28581Б",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 233,
-      "name": "АзН2783",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 234,
-      "name": "ПН3782",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 235,
-      "name": "ПН3796",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 236,
-      "name": "ЯН32060",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 237,
-      "name": "ЯН32059",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 238,
-      "name": "ЯН32070",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 239,
-      "name": "ЯН32075",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 240,
-      "name": "ЯН11892",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 241,
-      "name": "ПН5394",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 242,
-      "name": "ПН5398",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 243,
-      "name": "ПН5049",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 244,
-      "name": "ПН943",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 245,
-      "name": "ПН3П",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 246,
-      "name": "ПН477",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 247,
-      "name": "ПН595Г",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 248,
-      "name": "ПН599Г",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 249,
-      "name": "ПН505",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 250,
-      "name": "НН98731",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 251,
-      "name": "НН98245",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 252,
-      "name": "НН98294",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 253,
-      "name": "НН11312",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 254,
-      "name": "НН98072",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 255,
-      "name": "ЕН 9175",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 256,
-      "name": "ЕН 9195",
-      "parentId": null,
-      "iconId": null
-    },
-    {
-      "id": 257,
-      "name": "ЕН 9187",
-      "parentId": null,
-      "iconId": null
-    },
+    }
+  ],
+  "ContractorId": [
     {
-      "id": 258,
-      "name": "ЯН10916",
+      "id": 1,
+      "name": "ООО \"Татбурнефть\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 259,
-      "name": "ЯН10993",
+      "id": 2,
+      "name": "ООО \"Гольфстрим\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 260,
-      "name": "ЯН10808",
+      "id": 3,
+      "name": "ООО \"ТаграС-РемСервис\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 261,
-      "name": "ЯН35001",
+      "id": 4,
+      "name": "ООО \"Алойл-Ремсервис\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 262,
-      "name": "ЯН35013",
+      "id": 5,
+      "name": "ООО \"СНК \"Акмаль\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 263,
-      "name": "ДН19245",
+      "id": 6,
+      "name": "ООО \"Славутич\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 264,
-      "name": "ДН656",
+      "id": 7,
+      "name": "ООО \"Грандбурсервис\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 265,
-      "name": "ДН6962",
+      "id": 8,
+      "name": "ООО \"ВИС-МОС\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 266,
-      "name": "ПН5125",
+      "id": 9,
+      "name": "ООО \"Пионер\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 267,
-      "name": "АН9519",
+      "id": 10,
+      "name": "ТБН",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 268,
-      "name": "ДН6783",
+      "id": 11,
+      "name": "Пионер",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 269,
-      "name": "ПН393",
+      "id": 12,
+      "name": "РС",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 270,
-      "name": "ПН1058",
+      "id": 13,
+      "name": "ГФ",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 271,
-      "name": "ПН1696",
+      "id": 14,
+      "name": "Алойл-Ремсервис",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 272,
-      "name": "НН98125",
+      "id": 15,
+      "name": "Акмаль",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 273,
-      "name": "ДН15915",
+      "id": 16,
+      "name": "Славутич",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 274,
-      "name": "БН581",
+      "id": 17,
+      "name": "Грандбурсервис",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 275,
-      "name": "ЛН40589",
+      "id": 18,
+      "name": "ВИС-МОС",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 276,
-      "name": "НН22161",
+      "id": 19,
+      "name": "Гольфстрим",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 277,
-      "name": "ЕН 6423",
+      "id": 20,
+      "name": "АО \"Пионер-2000\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 278,
-      "name": "ЕН 5521",
+      "id": 21,
+      "name": "ЗБС-Сервис",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 279,
-      "name": "НН11412",
+      "id": 22,
+      "name": "ООО \"Отрадное\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 280,
-      "name": "ЯН12619",
+      "id": 23,
+      "name": "УБРС",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 281,
-      "name": "НН98087",
+      "id": 24,
+      "name": "ООО \"Таграс-РС\"",
       "parentId": null,
       "iconId": null
     },
     {
-      "id": 282,
-      "name": "ЯН15014",
+      "id": 25,
+      "name": "ООО \"БК Акмаль\"",
       "parentId": null,
       "iconId": null
     }
