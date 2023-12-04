@@ -19,7 +19,7 @@ export class TableColumn extends FilterItem {
   /**
    * Стобец закреплен
    */
-  locked: LockedColumn | boolean;
+  locked: LockedColumn;
   /**
    * Стобец скрыт
    */
