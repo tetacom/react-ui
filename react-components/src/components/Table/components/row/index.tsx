@@ -9,7 +9,6 @@ import { lockedClasses } from '../../helpers';
 import { LockedColumnType } from '../../useStickyStyles';
 
 import s from '../../style.module.scss';
-import { motion } from 'framer-motion';
 
 export interface ITableRow<T> {
   virtualIndex: number;

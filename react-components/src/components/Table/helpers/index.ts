@@ -5,6 +5,8 @@ import { SelectCell } from '../components/default/select-cell';
 import { ICellEvent } from '../model/i-cell-event';
 import { CustomCellComponent } from '../model/cell-component';
 import { NumberCell } from '../components/default/number-cell';
+import { BooleanCell } from '../components/default/boolean-cell';
+import { CustomCell } from '../components/default/custom-cell';
 
 import s from '../style.module.scss';
 
@@ -15,7 +17,9 @@ const cellComponentsMap: Map<FilterType, CustomCellComponent> = new Map<
   .set(FilterType.string, StringCell)
   .set(FilterType.number, NumberCell)
   .set(FilterType.list, SelectCell)
-  .set(FilterType.date, DateCell);
+  .set(FilterType.date, DateCell)
+  .set(FilterType.boolean, BooleanCell)
+  .set(FilterType.custom, CustomCell);
 
 export const getCellComponent = (filterType: FilterType) =>
   cellComponentsMap.has(filterType)

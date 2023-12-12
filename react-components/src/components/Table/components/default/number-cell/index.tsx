@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { EditStringCell } from '../base-string-cell';
-import { ICellComponent } from '../../../model/i-cell-component';
-
-import numberStyles from './style.module.scss';
+import { ICellComponent } from '../../../model/public-api';
 
 export function NumberCell({
   table,
@@ -11,52 +9,48 @@ export function NumberCell({
   cellIndex,
   isEdit,
   row,
-  roundToDecimalPlaces,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
-  const value = row.getValue<number | null>(column.id);
-  const [innerValue, setInnerValue] = useState<number | null>(value);
+  const value = row.getValue<number | string | null>(column.id);
+  const [innerValue, setInnerValue] = useState(value);
   const { meta } = table.options;
 
-  // let cellNumber = value;
-  // if (
-  //   roundToDecimalPlaces !== undefined &&
-  //   value !== null &&
-  //   isNumber(value) &&
-  //   value % 1 !== 0
-  // ) {
-  //   cellNumber = isNumber(cellNumber)
-  //     ? cellNumber.toFixed(roundToDecimalPlaces)
-  //     : cellNumber;
-  // }
-
-  const valueChange = (value: object) => {
-    meta?.valueChanged(value);
+  const valueChange = () => {
+    if (typeof innerValue === 'string' && Number.isNaN(Number(innerValue))) {
+      meta?.valueChanged({ ...row.original, [column.id]: value });
+      setInnerValue(value);
+    } else {
+      meta?.valueChanged({
+        ...row.original,
+        [column.id]: innerValue === null ? innerValue : Number(innerValue),
+      });
+      setInnerValue(Number(innerValue));
+    }
   };
+
+  useEffect(() => {
+    if (innerValue === null || innerValue === undefined) {
+      setInnerValue(0);
+    }
+  }, []);
+
+  if (innerValue === null || innerValue === undefined) return null;
 
   return isEdit ? (
     <EditStringCell
-      value={innerValue || innerValue === 0 ? innerValue.toString() : ''}
+      value={innerValue}
       tabIndex={cellIndex}
       placeholder={column.columnDef.meta?.tableColumn?.caption}
-      onBlur={() => valueChange({ ...row.original, [column.id]: innerValue })}
+      onBlur={() => valueChange()}
       onKeyDown={(event) => {
         if (event.key === 'Enter') {
-          valueChange({ ...row.original, [column.id]: innerValue });
+          valueChange();
         }
       }}
-      onChange={(e) => setInnerValue(parseFloat(e))}
+      onChange={(e) => setInnerValue(e)}
     />
   ) : (
-    <div tabIndex={cellIndex} className={numberStyles.root}>
+    <div tabIndex={cellIndex}>
       {column.columnDef.meta?.tableColumn.formatter?.(value) ?? value}
     </div>
   );
-}
-
-function showNumberWithSpaces(value: number | string): string {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-}
-
-function isNumber(value: number | string): value is number {
-  return typeof value === 'number';
 }

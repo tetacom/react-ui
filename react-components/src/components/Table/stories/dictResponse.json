@@ -1,292 +1,400 @@
 {
-  "FieldId": [
+  "DrillingRigTypeId": [
     {
       "id": 1,
-      "name": "Контузлинское",
+      "name": "БУ-2000/125ЭП на рельсах",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 2,
-      "name": "Соколкинское",
+      "name": "БУ-2000/125ЭП",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 3,
-      "name": "Елабужское ",
+      "name": "БУ-75",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 4,
-      "name": "Южно-Ферганское",
+      "name": "СБУ-3000/170",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 5,
-      "name": "Агбязовский лицензионный участок",
+      "name": "МБУ-3000/170",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 6,
-      "name": "Гарейское Тл-Т.р.з.",
+      "name": "К-80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 7,
-      "name": "Татсуксинское",
+      "name": "К-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 8,
-      "name": "Ромашкинское",
+      "name": "БУ-2000/125ЭБМ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 9,
-      "name": "Ново-Елховское",
+      "name": "БАРС-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 10,
-      "name": "Нурлатское",
+      "name": "БАРС-80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 11,
-      "name": "Бондюжское",
+      "name": "БАРС-140",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 12,
-      "name": "Первомайское",
+      "name": "АПР-80.",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 13,
-      "name": "Зычебашское",
+      "name": "Идель-160",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 14,
-      "name": "Екатериновское",
+      "name": "БАРС-80 (Ал-Рс)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 15,
-      "name": "Ямашинское",
+      "name": "БАРС-100 (Акмаль)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 16,
-      "name": "Березовское",
+      "name": "БАРС-125 (Акмаль)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 17,
-      "name": "Красногорское",
+      "name": "УПР-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 18,
-      "name": "Шегурчинское",
+      "name": "УПР-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 19,
-      "name": "Сиреневское",
+      "name": "АРБ-100",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 20,
-      "name": "Черноозерское",
+      "name": "ТД-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 21,
-      "name": "Бастрыкское",
+      "name": "ZJ-30",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 22,
-      "name": "Бавлинское",
+      "name": "Идель-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 23,
-      "name": "Гарейское Тл-Т.разв.зона",
+      "name": "Идель-140",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 24,
-      "name": "Афанасовское",
+      "name": "Идель-160 (Ал-Рс)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 25,
-      "name": "Пионерское",
+      "name": "АПР-80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 26,
-      "name": "Тюгеевское",
+      "name": "БУ-75БРЭ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 27,
-      "name": "Купавное",
+      "name": "УПРБ-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 28,
-      "name": "Ильмовское",
+      "name": "МБУ 140",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 29,
-      "name": "Макаровское",
+      "name": "БУ-2900/175ДЭП",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 30,
-      "name": "Верхне-Уратьминское",
+      "name": "СБУ-3000/170ИЭ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 31,
-      "name": "Восточно-Макаровское",
+      "name": "Барс 80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 32,
-      "name": "Камышлинское",
+      "name": "МБУ-3000/170ИЭ",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 33,
-      "name": "Вишнево-Полянское",
+      "name": "БУ-2000/125 ЭП",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 34,
-      "name": "Южно-Сунчелеевское",
+      "name": "ZJ40",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 35,
-      "name": "Западно-Галицкое",
+      "name": "Барс-125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 36,
-      "name": "Лазурное",
+      "name": "K-100 (Кремко)",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 37,
-      "name": "Агбязовский уч.",
+      "name": "МБУ 125",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 38,
-      "name": "Ерсубайкинское",
+      "name": "АПР- 60/80",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 39,
-      "name": "Беркет-Ключевское",
+      "name": "TD 125 CA-A6",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 40,
+      "name": "УПР 100",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 41,
+      "name": "ZJ30-1700D",
       "parentId": null,
       "iconId": null
     }
   ],
-  "NgduId": [
+  "ContractorId": [
     {
       "id": 1,
-      "name": "АзН",
+      "name": "ООО \"Татбурнефть\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 2,
-      "name": "АН",
+      "name": "ООО \"Гольфстрим\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 3,
-      "name": "ЕН ",
+      "name": "ООО \"ТаграС-РемСервис\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 4,
-      "name": "ЛН",
+      "name": "ООО \"Алойл-Ремсервис\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 5,
-      "name": "НН",
+      "name": "ООО \"СНК \"Акмаль\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 6,
-      "name": "ПН",
+      "name": "ООО \"Славутич\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 7,
-      "name": "ЯН",
+      "name": "ООО \"Грандбурсервис\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 8,
-      "name": "ДН",
+      "name": "ООО \"ВИС-МОС\"",
       "parentId": null,
       "iconId": null
     },
     {
       "id": 9,
-      "name": "БН",
+      "name": "ООО \"Пионер\"",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 10,
+      "name": "ТБН",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 11,
+      "name": "Пионер",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 12,
+      "name": "РС",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 13,
+      "name": "ГФ",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 14,
+      "name": "Алойл-Ремсервис",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 15,
+      "name": "Акмаль",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 16,
+      "name": "Славутич",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 17,
+      "name": "Грандбурсервис",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 18,
+      "name": "ВИС-МОС",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 19,
+      "name": "Гольфстрим",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 20,
+      "name": "АО \"Пионер-2000\"",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 21,
+      "name": "ЗБС-Сервис",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 22,
+      "name": "ООО \"Отрадное\"",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 23,
+      "name": "УБРС",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 24,
+      "name": "ООО \"Таграс-РС\"",
+      "parentId": null,
+      "iconId": null
+    },
+    {
+      "id": 25,
+      "name": "ООО \"БК Акмаль\"",
       "parentId": null,
       "iconId": null
     }

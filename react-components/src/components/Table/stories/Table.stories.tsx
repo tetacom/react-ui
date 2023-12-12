@@ -1,5 +1,10 @@
 import React, { FC } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import dayjs from 'dayjs';
+
+import configResponse from './configResponse.json';
+import dataResponse from './dataResponse.json';
+import dictResponse from './dictResponse.json';
 
 import { Table } from '../index';
 import { TableDocs } from '../docs';
@@ -10,11 +15,6 @@ import { Skeleton } from '../../Skeleton';
 import { Typography } from '../../Typography';
 import { ICellComponent } from '../model/i-cell-component';
 import { Card } from '../../Card';
-import dayjs from 'dayjs';
-
-import configResponse from './configResponse.json';
-import dataResponse from './dataResponse.json';
-import dictResponse from './dictResponse.json';
 import { ClusterDto } from './tableType';
 import { FilterType } from '../model/public-api';
 
@@ -59,27 +59,6 @@ const smallTableColumns = initColumns.map((column) => {
 
   return column;
 });
-
-const CustomComponentWithDate: FC<ICellComponent<ClusterDto>> = ({
-  row,
-  column,
-}) => {
-  const value = row.getValue<object>(column.id);
-
-  if (!(typeof value === 'object' && value !== null)) {
-    return value;
-  }
-
-  return (
-    <div
-      style={{
-        padding: 'var(--spacing-6) var(--spacing-8)',
-      }}
-    >
-      {Object.values(value).join(' — ')}
-    </div>
-  );
-};
 
 const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
   let ngduName;
@@ -130,46 +109,27 @@ const TableStory: FC<{
   height,
   acrossLine,
 }) => {
-  const cols = columns
-    .map((column) => {
-      const { name } = column;
-      if (name === 'id') {
-        return {
-          ...column,
-          cellComponent: TempCustomComponent,
-        };
-      }
+  const cols = columns.map((column) => {
+    if (column.filterType === FilterType.number) {
+      return {
+        ...column,
+        formatter: (value: number | null) => {
+          return value ? value.toString() : '-';
+        },
+      };
+    }
 
-      if (name === 'floodPeriodSpring' || name === 'floodPeriodAutumn') {
-        return {
-          ...column,
-          cellComponent: CustomComponentWithDate,
-        };
-      }
-
-      return column;
-    })
-    .map((column) => {
-      if (column.filterType === FilterType.number) {
-        return {
-          ...column,
-          formatter: (value: number | null) => {
-            return value ? value.toString() : '-';
-          },
-        };
-      }
-
-      if (column.filterType === FilterType.date) {
-        return {
-          ...column,
-          formatter: (value: string | null) => {
-            const date = dayjs(value);
-            return date.format('DD MMM YYYY');
-          },
-        };
-      }
-      return column;
-    });
+    if (column.filterType === FilterType.date) {
+      return {
+        ...column,
+        formatter: (value: string | null) => {
+          const date = dayjs(value);
+          return date.format('DD MMM YYYY');
+        },
+      };
+    }
+    return column;
+  });
 
   return (
     <Card style={{ padding: 0 }}>

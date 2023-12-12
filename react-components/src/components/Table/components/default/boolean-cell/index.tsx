@@ -4,37 +4,27 @@ import { BaseSelectProps } from '@tetacom/react-components';
 import { Select } from '../../../../Select';
 import { ICellComponent } from '../../../model/public-api';
 
-export function SelectCell({
+const options: Array<BaseSelectProps> = [
+  { key: 'false', headline: 'Нет' },
+  { key: 'true', headline: 'Да' },
+];
+
+export function BooleanCell({
   table,
   column,
-  dict,
   cellIndex,
   isEdit,
   row,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
-  let options: Array<BaseSelectProps> = [];
-
-  if (dict !== null && column.columnDef.meta) {
-    options = Object.hasOwn(dict, column.columnDef.meta.tableColumn.filterField)
-      ? dict[column.columnDef.meta.tableColumn.filterField].map(
-          (option): BaseSelectProps => {
-            return {
-              key: option.id.toString(),
-              headline: option.name,
-            };
-          },
-        )
-      : [];
-  }
-
-  const rowValue = row.getValue<number | null>(column.id);
+  const rowValue = row.getValue<boolean | null>(column.id);
   const foundValue = options.find((option) => {
     if (rowValue === null || rowValue === undefined) {
-      return false;
+      return;
     }
 
     return option.key === rowValue.toString();
-  });
+  }) ?? { key: 'false', headline: 'Нет' };
+
   const [innerValue, setInnerValue] = useState(foundValue);
   const [open, setOpen] = useState<boolean | undefined>(undefined);
 
@@ -63,7 +53,7 @@ export function SelectCell({
       }}
       shape="brick"
       size="small"
-      height="100%"
+      style={{ height: '100%' }}
     />
   ) : (
     <div tabIndex={cellIndex}>{innerValue?.headline}</div>

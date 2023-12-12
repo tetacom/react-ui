@@ -2,12 +2,26 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
-### [0.14.9](https://github.com/tetacom/react-ui/compare/react-components-0.14.8...react-components-0.14.9) (2023-12-12)
+### [0.14.11](https://github.com/tetacom/react-ui/compare/react-components-0.14.10...react-components-0.14.11) (2023-12-04)
 
 
 ### Bug Fixes
 
-* add name of axis, add dropdown maxheightcontainer prop ([ca46cbd](https://github.com/tetacom/react-ui/commit/ca46cbdfa97b0207ac917fed5468403d7f7e2170))
+* fix table number cell ([5f9aca3](https://github.com/tetacom/react-ui/commit/5f9aca36d94f0cf841bde734fb586c1979f2aedb))
+
+### [0.14.10](https://github.com/tetacom/react-ui/compare/react-components-0.14.9...react-components-0.14.10) (2023-11-30)
+
+
+### Bug Fixes
+
+* update table default cells ([43c8714](https://github.com/tetacom/react-ui/commit/43c8714b76a130fa96a1704b72d1747090028111))
+
+### [0.14.9](https://github.com/tetacom/react-ui/compare/react-components-0.14.8...react-components-0.14.9) (2023-11-29)
+
+
+### Bug Fixes
+
+* list cell can be null ([6fe7635](https://github.com/tetacom/react-ui/commit/6fe7635ca3ba622fc8c72dcedb7f11055d4f0510))
 
 ### [0.14.8](https://github.com/tetacom/react-ui/compare/react-components-0.14.7...react-components-0.14.8) (2023-11-24)
 
