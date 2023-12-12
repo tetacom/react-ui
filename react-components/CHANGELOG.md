@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.9](https://github.com/tetacom/react-ui/compare/react-components-0.14.8...react-components-0.14.9) (2023-12-12)
+
+
+### Bug Fixes
+
+* add name of axis, add dropdown maxheightcontainer prop ([ca46cbd](https://github.com/tetacom/react-ui/commit/ca46cbdfa97b0207ac917fed5468403d7f7e2170))
+
 ### [0.14.8](https://github.com/tetacom/react-ui/compare/react-components-0.14.7...react-components-0.14.8) (2023-11-24)
 
 
