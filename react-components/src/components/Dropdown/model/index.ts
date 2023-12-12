@@ -27,6 +27,8 @@ export interface DropdownProps extends PropsWithChildren {
     value?: React.CSSProperties['width'];
   };
 
+  maxHeightContainer?: 'auto' | 'availableHeight';
+
   // Обратный вызов изменения состояния открыто/закрыто
   onOpenChange?: (event: boolean) => void;
 
