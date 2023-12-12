@@ -38,6 +38,7 @@ export const Dropdown: FC<DropdownProps> = ({
   children,
   onOpenChange,
   zIndex,
+  maxHeightContainer = 'availableHeight',
   portal = { enable: false },
   hideScroll = false,
   autoUpdate = {
@@ -97,7 +98,10 @@ export const Dropdown: FC<DropdownProps> = ({
           Object.assign(elements.floating.style, {
             maxWidth,
             width: maxWidth,
-            maxHeight: availableHeight,
+            maxHeight:
+              maxHeightContainer === 'availableHeight'
+                ? availableHeight
+                : 'auto',
           });
         },
         padding,
@@ -152,7 +156,10 @@ export const Dropdown: FC<DropdownProps> = ({
               >
                 <div
                   style={{
-                    maxHeight: maxHeight,
+                    maxHeight:
+                      maxHeightContainer === 'availableHeight'
+                        ? maxHeight
+                        : 'auto',
                     overflowY: hideScroll ? 'hidden' : 'scroll',
                   }}
                 >

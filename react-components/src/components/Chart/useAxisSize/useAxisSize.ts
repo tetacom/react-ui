@@ -16,7 +16,7 @@ function useAxisSize(x: AxisExtremes[], y: AxisExtremes[]) {
 
   const xSizes: AxisSize[] = useMemo(() => {
     return x.map((item, index) => {
-      const finalSize = 21;
+      const finalSize = 38;
       return {
         ...item,
         size: finalSize,
@@ -26,7 +26,7 @@ function useAxisSize(x: AxisExtremes[], y: AxisExtremes[]) {
 
   const ySizes: AxisSize[] = useMemo(() => {
     return y.map((item, index) => {
-      const finalSize = 9;
+      const finalSize = 24;
 
       const scale = scaleLinear().domain(item.extremes as number[]);
 

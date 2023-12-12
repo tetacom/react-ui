@@ -2,6 +2,20 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.14.12](https://github.com/tetacom/react-ui/compare/react-components-0.14.11...react-components-0.14.12) (2023-12-12)
+
+
+### Bug Fixes
+
+* add name of axis, add dropdown maxheightcontainer prop ([ec8e3e5](https://github.com/tetacom/react-ui/commit/ec8e3e599eb518155bc37baa28eaaa63a9e09853))
+
+### [0.14.12](https://github.com/tetacom/react-ui/compare/react-components-0.14.11...react-components-0.14.12) (2023-12-12)
+
+
+### Bug Fixes
+
+* add name of axis, add dropdown maxheightcontainer prop ([ec8e3e5](https://github.com/tetacom/react-ui/commit/ec8e3e599eb518155bc37baa28eaaa63a9e09853))
+
 ### [0.14.11](https://github.com/tetacom/react-ui/compare/react-components-0.14.10...react-components-0.14.11) (2023-12-04)
 
 

@@ -50,7 +50,7 @@ export function Chart(props: ChartProps) {
         <svg height="100%" width="100%" style={{ position: 'absolute' }}>
           {y.map((axis, index) => (
             <g key={index} transform={`translate(${axis.padding}, 0)`}>
-              <YAxis scale={axis.scale} />
+              <YAxis title={axis.title} size={axis.size} scale={axis.scale} />
             </g>
           ))}
 
@@ -62,7 +62,7 @@ export function Chart(props: ChartProps) {
                   size?.height - finalBottomPadding
                 })`}
               >
-                <XAxis scale={axis.scale} />
+                <XAxis title={axis.title} size={axis.size} scale={axis.scale} />
               </g>
             ))}
           </g>
