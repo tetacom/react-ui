@@ -45,6 +45,21 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     setState(result);
   };
 
+  const handleClickAll = () => {
+    const isAllItemsChecked = list.every((item) => item.checked);
+    const result = options.map((label) => ({
+      label,
+      checked: !isAllItemsChecked,
+    }));
+
+    onChange &&
+      onChange(result.filter((item) => item.checked).map((item) => item.label));
+    setState(result);
+  };
+
+  const indeterminate = list.some((item) => item.checked);
+  const allItemsChecked = list.every((item) => item.checked);
+
   return (
     <Stack
       align="start"
@@ -52,7 +67,13 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
       direction="column"
       divider={<Divider type="horizontal" />}
     >
-      <CheckboxComponent>Выбрать все</CheckboxComponent>
+      <CheckboxComponent
+        onClick={handleClickAll}
+        checked={allItemsChecked}
+        indeterminate={indeterminate}
+      >
+        Выбрать все
+      </CheckboxComponent>
 
       <Stack size={20} direction={direction} align="start">
         {list.map(({ label, checked }, index) => (

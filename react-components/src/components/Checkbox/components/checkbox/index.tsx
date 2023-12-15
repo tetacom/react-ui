@@ -14,6 +14,7 @@ export const CheckboxComponent = forwardRef<CheckboxRef, CheckboxProps>(
       disabled,
       defaultChecked,
       checked,
+      indeterminate,
       onChange,
       className,
       ...props
@@ -35,7 +36,7 @@ export const CheckboxComponent = forwardRef<CheckboxRef, CheckboxProps>(
       <label
         className={classNames(
           s.checkbox,
-          checkboxState && s.checkboxChecked,
+          (checkboxState || indeterminate) && s.checkboxChecked,
           disabled && s.disabled,
           className,
         )}
@@ -48,7 +49,12 @@ export const CheckboxComponent = forwardRef<CheckboxRef, CheckboxProps>(
           checked={checkboxState}
           onChange={handleChange}
         />
-        <span className={classNames(s.input, checkboxState && s.inputChecked)}>
+        <span
+          className={classNames(
+            s.input,
+            (checkboxState || indeterminate) && s.inputChecked,
+          )}
+        >
           <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
             <AnimatePresence initial={false}>
               {checkboxState && (
@@ -66,6 +72,13 @@ export const CheckboxComponent = forwardRef<CheckboxRef, CheckboxProps>(
               )}
             </AnimatePresence>
           </svg>
+
+          <span
+            className={classNames(
+              s.indeterminate,
+              indeterminate && !checkboxState && s.active,
+            )}
+          />
         </span>
 
         {typeof children === 'string' ? (
