@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Checkbox } from '../index';
 import { CheckboxDocs } from '../docs';
+import { CheckboxGroupItem } from '../model/checkbox-group-item';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Data Entry/Checkbox',
@@ -26,14 +27,20 @@ export const Default: Story = {
 };
 
 const CheckboxGroupStory = () => {
-  const [values, setValues] = useState(['Apple']);
-  const handleChange = (value: string[]) => {
+  const [values, setValues] = useState<CheckboxGroupItem[]>([
+    { id: 1, name: 'Apple' },
+  ]);
+  const handleChange = (value: CheckboxGroupItem[]) => {
     setValues(value);
   };
 
   return (
     <Checkbox.Group
-      options={['Apple', 'Orange', 'Banana']}
+      options={[
+        { id: 1, name: 'Apple' },
+        { id: 2, name: 'Orange' },
+        { id: 3, name: 'Banana' },
+      ]}
       value={values}
       onChange={handleChange}
     />

@@ -1,6 +1,7 @@
 import { InputHTMLAttributes } from 'react';
 
 import { StackProps } from '../../Stack/model';
+import { CheckboxGroupItem } from './checkbox-group-item';
 
 export type CheckboxRef = HTMLInputElement;
 
@@ -14,13 +15,13 @@ export interface CheckboxProps extends InputHTMLAttributes<CheckboxRef> {
 
 export interface CheckboxGroupProps {
   // Указывает параметры
-  options: string[];
+  options: CheckboxGroupItem[];
 
   // Выбранное значение по умолчанию
-  defaultValue?: string[];
+  defaultValue?: CheckboxGroupItem[];
 
   // Используется для установки текущего выбранного значения
-  value?: string[];
+  value?: CheckboxGroupItem[];
 
   // Свойство name всех дочерних элементов input[type="checkbox"]
   name?: string;
@@ -32,5 +33,5 @@ export interface CheckboxGroupProps {
   direction?: StackProps['direction'];
 
   // Функция обратного вызова, которая срабатывает при изменении состояния
-  onChange?: (checkedValue: string[]) => void;
+  onChange?: (checkedValue: CheckboxGroupItem[]) => void;
 }
