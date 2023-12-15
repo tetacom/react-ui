@@ -30,9 +30,13 @@
 
     svg {
       path {
-        stroke: var(--color-global-bgcard);
+        stroke: var(--color-global-white);
       }
     }
+  }
+
+  .textContent {
+    user-select: none;
   }
 
   &:hover {

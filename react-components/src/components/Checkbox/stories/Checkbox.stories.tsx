@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Checkbox } from '../index';
@@ -21,5 +22,26 @@ export const Default: Story = {
     checked: true,
     children: 'Checkbox',
     disabled: false,
+  },
+};
+
+const CheckboxGroupStory = () => {
+  const [values, setValues] = useState(['Apple']);
+  const handleChange = (value: string[]) => {
+    setValues(value);
+  };
+
+  return (
+    <Checkbox.Group
+      options={['Apple', 'Orange', 'Banana']}
+      value={values}
+      onChange={handleChange}
+    />
+  );
+};
+
+export const CheckboxGroup: Story = {
+  render: () => {
+    return <CheckboxGroupStory />;
   },
 };
