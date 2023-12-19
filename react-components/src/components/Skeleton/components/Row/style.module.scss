@@ -3,9 +3,8 @@
   gap: var(--spacing-32);
 
   .skeleton {
-    height: var(--spacing-16);
     border-radius: var(--radius-4);
-    background: linear-gradient(
+    background-image: linear-gradient(
       90deg,
       var(--color-text-5) 25%,
       var(--color-text-10) 37%,
