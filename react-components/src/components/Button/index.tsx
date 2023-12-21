@@ -2,24 +2,16 @@ import React, { ChangeEvent, Children, forwardRef, useRef, useId } from 'react';
 import classNames from 'classnames';
 
 import { Loader } from './components/Loader';
-import { ButtonProps, ButtonRef, ShapeType, SizeType, ViewType } from './model';
-import s from './style.module.scss';
+import { ButtonProps, ButtonRef } from './model';
+import {
+  disabledClasses,
+  paletteClasses,
+  shapeClasses,
+  sizeClasses,
+  viewClasses,
+} from './class-names';
 
-const sizeClasses: Record<SizeType, string> = {
-  small: s.buttonSizeSmall,
-  middle: s.buttonSizeMiddle,
-  large: s.buttonSizeLarge,
-};
-const shapeClasses: Record<ShapeType, string> = {
-  brick: s.buttonShapeBrick,
-  round: s.buttonShapeRound,
-  circle: s.buttonShapeCircle,
-};
-const disabledClasses: Record<ViewType, string> = {
-  primary: s.disabledPrimary,
-  outline: s.disabledOutline,
-  ghost: s.disabledGhost,
-};
+import s from './style.module.scss';
 
 export const Button = forwardRef<ButtonRef, ButtonProps>(
   (
@@ -41,14 +33,12 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
     ref,
   ) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const utilityClasses = `button_${view} button-${
-      palette === 'none' ? 'primary' : palette
-    }`;
     const classes = classNames(
-      utilityClasses,
       s.button,
       sizeClasses[size],
       shapeClasses[shape],
+      viewClasses[view],
+      paletteClasses[palette],
       square && s.buttonSquare,
       block && s.buttonBlock,
       loading && s.buttonLoading,

@@ -17,12 +17,8 @@ import TableRow from './components/row';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
 import { Tooltip } from '../Tooltip';
-import {
-  debounce,
-  eventIsOnRow,
-  getCoordinates,
-  lockedClasses,
-} from './helpers';
+
+import { eventIsOnRow, getCoordinates, lockedClasses } from './helpers';
 import { LockedColumn } from './model/enum/locked-column.enum';
 import { useStickyStyles } from './useStickyStyles';
 
@@ -214,26 +210,6 @@ export function Table<T>({
     [tableWidth],
   );
 
-  const [horizontalScroll, setHorizontalScroll] = useState<{
-    left: number;
-    right: number;
-  }>({
-    left: 0,
-    right: 1,
-  });
-  const handleTableScroll = debounce(() => {
-    const maxScrollLeft =
-      (parentRef.current?.scrollWidth ?? 0) -
-      (parentRef.current?.offsetWidth ?? 0) +
-      12;
-    const scrollLeft = parentRef.current?.scrollLeft ?? 0;
-
-    setHorizontalScroll({
-      left: scrollLeft,
-      right: maxScrollLeft - scrollLeft,
-    });
-  }, 100);
-
   const cellStyles = {
     '--cell-vert-clamp': cellParams.verticalClamp,
     '--tbody-transform': `${virtualizer.getVirtualItems()[0]?.start}px`,
@@ -253,7 +229,6 @@ export function Table<T>({
     <div
       className={s.root}
       ref={parentRef}
-      onScroll={handleTableScroll}
       style={{ height, position: 'relative' }}
     >
       <Drawer
@@ -328,15 +303,9 @@ export function Table<T>({
 
                   let stickyClasses = '';
                   if (columnLockedData?.isExtreme) {
-                    if (
-                      columnLocked === LockedColumn.left &&
-                      horizontalScroll.left !== 0
-                    ) {
+                    if (columnLocked === LockedColumn.left) {
                       stickyClasses = s.lockedHeadLeftLast;
-                    } else if (
-                      columnLocked === LockedColumn.right &&
-                      horizontalScroll.right !== 0
-                    ) {
+                    } else if (columnLocked === LockedColumn.right) {
                       stickyClasses = s.lockedHeadRightFirst;
                     }
                   }
@@ -412,7 +381,6 @@ export function Table<T>({
                   isSelectedRow={row.getIsSelected()}
                   acrossLine={acrossLine}
                   lockedColumnsVariables={lockedColumnsVariables}
-                  horizontalScroll={horizontalScroll}
                 />
               );
             })}

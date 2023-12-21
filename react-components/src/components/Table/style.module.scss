@@ -60,20 +60,18 @@
           &.lockedHeadLeft {
             @include lockedCell();
             @include lockedHead(right);
-            @include stickyShadow(auto, 0, 100%);
 
             &Last {
-              @include stickyLeftShadow();
+              @include stickyLeft();
             }
           }
 
           &.lockedHeadRight {
             @include lockedCell();
             @include lockedHead(left);
-            @include stickyShadow(0, auto, -100%);
 
             &First {
-              @include stickyRightShadow();
+              @include stickyRight();
             }
           }
 
@@ -118,7 +116,7 @@
               opacity: 1;
 
               &::after {
-                background: var(--color-primary-50);
+                background-color: var(--color-primary-50);
               }
             }
           }
@@ -153,19 +151,17 @@
 
           &.lockedBodyLeft {
             @include lockedCell();
-            @include stickyShadow(auto, 0, 100%);
 
             &Last {
-              @include stickyLeftShadow();
+              @include stickyLeft();
             }
           }
 
           &.lockedBodyRight {
             @include lockedCell();
-            @include stickyShadow(0, auto, -100%);
 
             &First {
-              @include stickyRightShadow();
+              @include stickyRight();
             }
           }
 

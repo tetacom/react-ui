@@ -4,13 +4,15 @@ import { defaultValues, SkeletonProps } from '../../model';
 
 import s from './style.module.scss';
 
-interface Props extends Pick<SkeletonProps, 'columns' | 'columnsUnit'> {
+interface Props
+  extends Pick<SkeletonProps, 'columns' | 'columnsUnit' | 'height'> {
   withRandomDiff?: boolean;
 }
 
 export const Row: FC<Props> = ({
   columns = defaultValues.columns,
   columnsUnit = defaultValues.columnsUnit,
+  height = defaultValues.height,
 }) => {
   if (Array.isArray(columns)) {
     return (
@@ -29,7 +31,7 @@ export const Row: FC<Props> = ({
             <div
               key={index}
               className={s.skeleton}
-              style={{ width: `${randomLength}%` }}
+              style={{ width: `${randomLength}%`, height: height }}
             />
           );
         })}
@@ -43,7 +45,10 @@ export const Row: FC<Props> = ({
 
   return (
     <div className={s.row}>
-      <div className={s.skeleton} style={{ width: singleWidth }} />
+      <div
+        className={s.skeleton}
+        style={{ width: singleWidth, height: height }}
+      />
     </div>
   );
 };
