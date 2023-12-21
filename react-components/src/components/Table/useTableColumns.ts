@@ -1,9 +1,4 @@
-import {
-  FilterType,
-  IDictionary,
-  TableColumn,
-  UtcOffset,
-} from './model/public-api';
+import { FilterType, IDictionary, TableColumn } from './model/public-api';
 import React, { useMemo } from 'react';
 import { ICellComponent } from './model/i-cell-component';
 import { getCellComponent } from './helpers';
@@ -15,6 +10,10 @@ type Config = {
   dictionary: IDictionary | null;
   columnsHash: string;
 };
+
+const defaultFilterMap = new Map<FilterType, string>()
+  .set(FilterType.boolean, 'boolean')
+  .set(FilterType.list, 'list');
 
 export const useTableColumns = <T>({
   columns,
@@ -76,6 +75,9 @@ export const useTableColumns = <T>({
             },
             header: () => caption,
             size: width,
+            filterFn: defaultFilterMap.has(filterType!)
+              ? defaultFilterMap.get(filterType!)
+              : ('auto' as any),
             meta: {
               tableColumn: {
                 name,

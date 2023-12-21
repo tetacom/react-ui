@@ -6,16 +6,20 @@ import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
 import { UtcOffset } from './utc-offset';
 import { VerticalAlign } from './vertical-align';
+import { Table } from '@tanstack/react-table';
 
 export type TableRef = HTMLTableElement;
 
 export interface TableProps<T>
   extends Omit<HTMLAttributes<TableRef>, 'onClick'> {
+  // Инстанс таблицы из хука useTable()
+  table?: Table<T>;
+
   // Массив записей данных для отображения
-  dataSource: Array<T>;
+  dataSource?: Array<T>;
 
   // Столбцы таблицы
-  columns: TableColumn[];
+  columns?: TableColumn[];
 
   // Зафиксировать шапку при скролле
   sticky?: boolean;
@@ -55,4 +59,7 @@ export interface TableProps<T>
 
   // Выравнивание строк по вертикали
   verticalAlign?: VerticalAlign;
+
+  // Компонент хедера таблицы
+  headerComponent?: React.ReactElement | null;
 }

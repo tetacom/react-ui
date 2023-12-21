@@ -2,16 +2,12 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import {
   flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
   Header,
   HeaderGroup,
   Row,
-  SortingState,
-  useReactTable,
+  Table,
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import objectHash, { sha1 } from 'object-hash';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
@@ -20,26 +16,26 @@ import { VerticalAlign } from './model/vertical-align';
 import TableRow from './components/row';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
-import { LocalStorageColumn, mergeSettings } from './storageUtils';
 import { Tooltip } from '../Tooltip';
-import { useColumnVisibility } from './useColumnVisibility';
 import {
   debounce,
   eventIsOnRow,
   getCoordinates,
   lockedClasses,
 } from './helpers';
-import { ICellEvent } from './model/i-cell-event';
-import { useTableColumns } from './useTableColumns';
-import { useLocalStorage } from '../../utils/useLocalStorage';
 import { LockedColumn } from './model/enum/locked-column.enum';
 import { useStickyStyles } from './useStickyStyles';
 
 import s from './style.module.scss';
+import { Drawer } from '../Drawer';
+import { Button } from '../Button';
+import { Filter } from './components/filter';
+import { useTable } from './useTable';
+import { Stack } from '../Stack';
+import { Skeleton } from './components/skeleton';
 
 dayjs.extend(utc);
 
-const STORAGE_KEY = '_table_settings';
 const RESIZER_ATTRIBUTE_NAME = 'resizer';
 
 const verticalAlignValues: Record<VerticalAlign, string> = {
@@ -51,7 +47,7 @@ const verticalAlignValues: Record<VerticalAlign, string> = {
 export function Table<T>({
   dataSource,
   columns,
-  sticky = false,
+  sticky = true,
   skeleton = null,
   dictionary = null,
   cellParams = {
@@ -69,123 +65,32 @@ export function Table<T>({
   verticalAlign = 'top',
   ...props
 }: TableProps<T>): React.ReactElement {
-  // Ключ для localstorage
-  const storageKey = localStorageKey ? `${localStorageKey}${STORAGE_KEY}` : '';
-
   const currentEventRef = useRef<KeyboardEvent | MouseEvent | null>(null);
 
-  // Текущая сортировка столбцов
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [filterIsOpen, setFilterOpen] = useState(false);
 
-  // Выбранная строка
-  const [rowSelection, setRowSelection] = useState({});
+  let table: Table<T>;
 
-  // Текущая редактируемая ячейка
-  const [currentEditCell, setCurrentEditCell] = useState<ICellEvent | null>(
-    null,
-  );
+  if (props.table) {
+    table = props.table;
+  } else {
+    // Переделать conditional hook
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    table = useTable({
+      data: dataSource || [],
+      columns: columns || [],
+      dictionary,
+      storageKey: localStorageKey,
+    });
+  }
 
-  // Данные таблицы
-  const [data, setData] = useState<T[]>([...dataSource]);
-
-  useEffect(() => {
-    setData([...dataSource]);
-  }, [dataSource]);
-
-  // Настройки из localstorage
-  const [localStorageColumns, setLocalStorageColumns] = useLocalStorage<
-    LocalStorageColumn[]
-  >(
-    storageKey,
-    columns.map(({ name, width }) => ({
-      name,
-      width,
-    })),
-  );
-
-  const columnsHash = objectHash(columns.map((_) => _.name));
-
-  const mergedColumns = useMemo(
-    () => mergeSettings(columns, localStorageColumns),
-    [columnsHash],
-  );
-
-  // Скрытые колонки
-  const columnVisibility = useColumnVisibility(columns);
-
-  // Генерация колонок для react-table
-  const columnDefList = useTableColumns<T>({
-    columns: mergedColumns,
-    dictionary,
-    columnsHash,
-  });
-
-  const table = useReactTable({
-    data,
-    columns: columnDefList,
-    state: {
-      rowSelection,
-      sorting,
-      columnVisibility,
-    },
-    onSortingChange: setSorting,
-    enableRowSelection: true,
-    enableMultiRowSelection: false,
-    onRowSelectionChange: setRowSelection,
-    columnResizeMode: 'onChange',
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    meta: {
-      currentEditCell: currentEditCell,
-      startEditCell: (event: ICellEvent | null) => {
-        if (
-          currentEditCell?.column !== event?.column ||
-          currentEditCell?.row !== event?.row
-        ) {
-          setCurrentEditCell(event);
-        }
-      },
-      valueChanged: (value: T) => {
-        if (
-          currentEditCell?.row !== null &&
-          currentEditCell?.row !== undefined &&
-          currentEditCell?.column !== null
-        ) {
-          const row = table.getRow(currentEditCell.row.toString());
-          const column = table.getColumn(currentEditCell.column);
-          const foundRowIndex = data?.findIndex((_) => _ === row.original);
-
-          if (foundRowIndex !== -1) {
-            const updatedData = data.map((row, index) => {
-              if (foundRowIndex === index) {
-                return {
-                  ...value,
-                };
-              }
-
-              return row;
-            });
-
-            const isRowChanged = sha1(value!) !== sha1(data[foundRowIndex]!);
-
-            if (isRowChanged) {
-              setData(updatedData);
-
-              if (column && column.columnDef.meta) {
-                valueChange?.({
-                  row: updatedData[foundRowIndex],
-                  column: column.columnDef.meta.tableColumn,
-                });
-              }
-            }
-          }
-        }
-      },
-    },
+  table.options.meta?._onValueChanged?.((value: any) => {
+    valueChange?.(value);
   });
 
   const handleDblClick = (event: MouseEvent) => {
     const coordinates = getCoordinates(event);
+
     table.options?.meta?.startEditCell(coordinates);
   };
 
@@ -205,11 +110,13 @@ export function Table<T>({
     currentEventRef.current = event;
 
     if (event.key === 'Escape') {
-      setCurrentEditCell(null);
+      // setCurrentEditCell(null);
+      table.options.meta?.startEditCell(null);
     }
 
     if (event.key === 'Enter') {
-      setCurrentEditCell(null);
+      // setCurrentEditCell(null);
+      table.options.meta?.startEditCell(null);
     }
   };
 
@@ -264,13 +171,7 @@ export function Table<T>({
   // Сохранение в локальное хранилище
   const handleSaveColumns = (headers: Header<T, unknown>[]) => {
     if (!localStorageKey) return;
-
-    setLocalStorageColumns(
-      headers.map((item) => ({
-        name: item.id,
-        width: item.getSize(),
-      })),
-    );
+    table.options.meta?._saveColumnsToLocalStorage(headers);
   };
 
   // Сохранение после ресайза колонки
@@ -345,132 +246,179 @@ export function Table<T>({
     tableWidth,
   );
 
-  if (skeleton) return skeleton;
+  const state = table.getState();
+  const filterApplied = state.columnFilters.length > 0;
 
   return (
     <div
       className={s.root}
       ref={parentRef}
       onScroll={handleTableScroll}
-      style={{ height }}
+      style={{ height, position: 'relative' }}
     >
-      <table
-        {...props}
-        className={classNames(s.table, className)}
-        style={{
-          ...cellStyles,
-          width: tableWidth,
-          height: virtualizer.getTotalSize(),
-        }}
+      <Drawer
+        open={filterIsOpen}
+        onClose={() => setFilterOpen(false)}
+        title="Фильтр"
+        zIndex={2}
+        width={420}
       >
-        <thead className={classNames(sticky && s.sticky)}>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                const isSorted = header.column.getIsSorted();
-                const thContent = flexRender(
-                  header.column.columnDef.header,
-                  header.getContext(),
-                );
-                const thHint =
-                  columns.find(({ name }) => name === header.id)?.hint ?? '';
+        <Filter
+          dict={dictionary}
+          table={table}
+          columns={table.getVisibleFlatColumns()}
+        />
+      </Drawer>
 
-                const columnLockedData = lockedColumnsVariables.get(
-                  header.column.id,
-                );
-                const columnLocked =
-                  columnLockedData?.lockedValue ?? LockedColumn.none;
+      <Stack
+        size={12}
+        style={{
+          position: 'sticky',
+          top: 0,
+          padding: 'var(--spacing-12) 0',
+          background: 'var(--color-global-bgcard)',
+          zIndex: 2,
+        }}
+        block
+        justifyContent="space-between"
+      >
+        <div>{props.headerComponent || null}</div>
 
-                let stickyClasses = '';
-                if (columnLockedData?.isExtreme) {
-                  if (
-                    columnLocked === LockedColumn.left &&
-                    horizontalScroll.left !== 0
-                  ) {
-                    stickyClasses = s.lockedHeadLeftLast;
-                  } else if (
-                    columnLocked === LockedColumn.right &&
-                    horizontalScroll.right !== 0
-                  ) {
-                    stickyClasses = s.lockedHeadRightFirst;
+        <Stack divider>
+          <Button onClick={() => setFilterOpen(true)} view="ghost" square>
+            <Icon name={filterApplied ? 'filterApplied' : 'filter'} />
+          </Button>
+          <Button
+            disabled={!filterApplied}
+            onClick={() => table.resetColumnFilters()}
+            view="ghost"
+            square
+          >
+            <Icon name="filterClear" />
+          </Button>
+        </Stack>
+      </Stack>
+
+      <Skeleton skeleton={skeleton}>
+        <table
+          className={classNames(s.table, className)}
+          style={{
+            ...cellStyles,
+            width: tableWidth,
+            height: virtualizer.getTotalSize(),
+          }}
+        >
+          <thead className={classNames(sticky && s.sticky)}>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  const isSorted = header.column.getIsSorted();
+                  const thContent = flexRender(
+                    header.column.columnDef.header,
+                    header.getContext(),
+                  );
+                  const thHint =
+                    columns?.find(({ name }) => name === header.id)?.hint ?? '';
+
+                  const columnLockedData = lockedColumnsVariables.get(
+                    header.column.id,
+                  );
+                  const columnLocked =
+                    columnLockedData?.lockedValue ?? LockedColumn.none;
+
+                  let stickyClasses = '';
+                  if (columnLockedData?.isExtreme) {
+                    if (
+                      columnLocked === LockedColumn.left &&
+                      horizontalScroll.left !== 0
+                    ) {
+                      stickyClasses = s.lockedHeadLeftLast;
+                    } else if (
+                      columnLocked === LockedColumn.right &&
+                      horizontalScroll.right !== 0
+                    ) {
+                      stickyClasses = s.lockedHeadRightFirst;
+                    }
                   }
-                }
 
-                return (
-                  <Tooltip
-                    key={header.id}
-                    title={thHint}
-                    target="hover"
-                    placement="bottom-start"
-                  >
-                    <th
-                      onClick={(event: React.MouseEvent<HTMLElement>) => {
-                        if (
-                          (event.target as HTMLElement).dataset.type ===
-                          RESIZER_ATTRIBUTE_NAME
-                        )
-                          return;
-
-                        const handler = header.column.getToggleSortingHandler();
-                        handler?.(event);
-                      }}
-                      className={classNames(
-                        lockedClasses[columnLocked]?.head,
-                        stickyClasses,
-                        header.column.getCanSort() && s.isSortable,
-                      )}
-                      style={columnLockedData?.variables}
+                  return (
+                    <Tooltip
+                      key={header.id}
+                      title={thHint}
+                      target="hover"
+                      placement="bottom-start"
                     >
-                      {header.isPlaceholder ? null : (
-                        <div className={s.thContent}>
-                          <div>{thContent}</div>
+                      <th
+                        onClick={(event: React.MouseEvent<HTMLElement>) => {
+                          if (
+                            (event.target as HTMLElement).dataset.type ===
+                            RESIZER_ATTRIBUTE_NAME
+                          )
+                            return;
 
-                          {isSorted ? (
-                            <Icon
-                              name={sortIconNames.get(isSorted) ?? ''}
-                              className={s.thContentIcon}
-                            />
-                          ) : null}
-                        </div>
-                      )}
-                      <div
-                        data-type={RESIZER_ATTRIBUTE_NAME}
+                          const handler =
+                            header.column.getToggleSortingHandler();
+                          handler?.(event);
+                        }}
                         className={classNames(
-                          s.resizer,
-                          header.column.getIsResizing() && s.resizerIsResizing,
+                          lockedClasses[columnLocked]?.head,
+                          stickyClasses,
+                          header.column.getCanSort() && s.isSortable,
                         )}
-                        onMouseDown={(event) =>
-                          handleResizeMouseDown(event, header, headerGroup)
-                        }
-                      />
-                    </th>
-                  </Tooltip>
-                );
-              })}
-            </tr>
-          ))}
-        </thead>
+                        style={columnLockedData?.variables}
+                      >
+                        {header.isPlaceholder ? null : (
+                          <div className={s.thContent}>
+                            <div>{thContent}</div>
 
-        <tbody>
-          {virtualizer.getVirtualItems().map((virtualRow) => {
-            const row = rows[virtualRow.index] as Row<T>;
+                            {isSorted ? (
+                              <Icon
+                                name={sortIconNames.get(isSorted) ?? ''}
+                                className={s.thContentIcon}
+                              />
+                            ) : null}
+                          </div>
+                        )}
+                        <div
+                          data-type={RESIZER_ATTRIBUTE_NAME}
+                          className={classNames(
+                            s.resizer,
+                            header.column.getIsResizing() &&
+                              s.resizerIsResizing,
+                          )}
+                          onMouseDown={(event) =>
+                            handleResizeMouseDown(event, header, headerGroup)
+                          }
+                        />
+                      </th>
+                    </Tooltip>
+                  );
+                })}
+              </tr>
+            ))}
+          </thead>
 
-            return (
-              <TableRow
-                key={virtualRow.key}
-                virtualIndex={virtualRow.index}
-                rowRef={virtualizer.measureElement}
-                row={row}
-                table={table}
-                isSelectedRow={row.getIsSelected()}
-                acrossLine={acrossLine}
-                lockedColumnsVariables={lockedColumnsVariables}
-                horizontalScroll={horizontalScroll}
-              />
-            );
-          })}
-        </tbody>
-      </table>
+          <tbody>
+            {virtualizer.getVirtualItems().map((virtualRow) => {
+              const row = rows[virtualRow.index] as Row<T>;
+
+              return (
+                <TableRow
+                  key={virtualRow.key}
+                  virtualIndex={virtualRow.index}
+                  rowRef={virtualizer.measureElement}
+                  row={row}
+                  table={table}
+                  isSelectedRow={row.getIsSelected()}
+                  acrossLine={acrossLine}
+                  lockedColumnsVariables={lockedColumnsVariables}
+                  horizontalScroll={horizontalScroll}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </Skeleton>
     </div>
   );
 }
