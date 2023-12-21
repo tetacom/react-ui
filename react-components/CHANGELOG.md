@@ -2,6 +2,23 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.15.0](https://github.com/tetacom/react-ui/compare/react-components-0.14.12...react-components-0.15.0) (2023-12-21)
+
+
+### Features
+
+* add filters to table ([aa85fc0](https://github.com/tetacom/react-ui/commit/aa85fc0956ba7c40e84c1644a0845ada643c5798))
+
+
+### Bug Fixes
+
+* check all ([488ef20](https://github.com/tetacom/react-ui/commit/488ef2097266468bf5d6ff81986f5a149b0bc1c1))
+* checkbox group ([18faca4](https://github.com/tetacom/react-ui/commit/18faca4a983eb2402ef26e4318684d7b0e9c564c))
+* remove handle scroll on table ([0f15dec](https://github.com/tetacom/react-ui/commit/0f15dec024fd2556356263a35243624f29cb8fec))
+* update button styles ([bfd6766](https://github.com/tetacom/react-ui/commit/bfd6766a91dc706d55f625ed27f849180c3ed66a))
+* update checkbox group data type ([687f77e](https://github.com/tetacom/react-ui/commit/687f77e21b3398e30998035e2f991b4376f09c9b))
+* update skeleton ([4a94230](https://github.com/tetacom/react-ui/commit/4a94230873b95bb4e28ed3966b7ec27080bd9895))
+
 ### [0.14.12](https://github.com/tetacom/react-ui/compare/react-components-0.14.11...react-components-0.14.12) (2023-12-12)
 
 
