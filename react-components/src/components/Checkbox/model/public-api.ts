@@ -1,1 +1,1 @@
-export { CheckboxGroupItem } from './checkbox-group-item';
+export type { CheckboxGroupItem } from './checkbox-group-item';

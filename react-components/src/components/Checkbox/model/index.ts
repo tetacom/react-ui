@@ -34,4 +34,6 @@ export interface CheckboxGroupProps {
 
   // Функция обратного вызова, которая срабатывает при изменении состояния
   onChange?: (checkedValue: CheckboxGroupItem[]) => void;
+
+  style?: React.CSSProperties;
 }

@@ -19,6 +19,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   disabled,
   direction,
   onChange,
+  style,
 }) => {
   const isControlled = value.length !== 0;
   const values = isControlled ? value : defaultValue;
@@ -75,6 +76,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
       align="start"
       size={12}
       direction="column"
+      style={style || {}}
       divider={<Divider type="horizontal" />}
     >
       <CheckboxComponent

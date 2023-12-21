@@ -20,6 +20,7 @@ export * from './components/Checkbox';
 export * from './components/Checkbox/model/public-api';
 
 export * from './components/Table';
+export { useTable } from './components/Table/useTable';
 export * from './components/Table/model/public-api';
 
 export * from './components/Dropdown';
