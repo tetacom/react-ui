@@ -654,7 +654,7 @@
     "sortOrder": 18,
     "height": null,
     "headerHeight": null,
-    "locked": 0,
+    "locked": 2,
     "name": "floodPeriodAutumn",
     "parentName": null,
     "propertyName": "FloodPeriodAutumn",
