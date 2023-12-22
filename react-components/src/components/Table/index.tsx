@@ -5,7 +5,7 @@ import {
   Header,
   HeaderGroup,
   Row,
-  Table,
+  Table as TanStackTable,
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import dayjs from 'dayjs';
@@ -17,18 +17,17 @@ import TableRow from './components/row';
 import { Icon } from '../Icons';
 import { sortIconNames } from './sortIconNames';
 import { Tooltip } from '../Tooltip';
-
-import { eventIsOnRow, getCoordinates, lockedClasses } from './helpers';
-import { LockedColumn } from './model/enum/locked-column.enum';
-import { useStickyStyles } from './useStickyStyles';
-
-import s from './style.module.scss';
 import { Drawer } from '../Drawer';
 import { Button } from '../Button';
 import { Filter } from './components/filter';
 import { useTable } from './useTable';
 import { Stack } from '../Stack';
 import { Skeleton } from './components/skeleton';
+import { eventIsOnRow, getCoordinates, lockedClasses } from './helpers';
+import { LockedColumn } from './model/enum/locked-column.enum';
+import { useStickyStyles } from './useStickyStyles';
+
+import s from './style.module.scss';
 
 dayjs.extend(utc);
 
@@ -65,7 +64,7 @@ export function Table<T>({
 
   const [filterIsOpen, setFilterOpen] = useState(false);
 
-  let table: Table<T>;
+  let table: TanStackTable<T>;
 
   if (props.table) {
     table = props.table;
