@@ -4,7 +4,6 @@ import { TableColumn } from './table-column';
 import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
-import { UtcOffset } from './utc-offset';
 import { VerticalAlign } from './vertical-align';
 import { Table } from '@tanstack/react-table';
 
@@ -47,15 +46,6 @@ export interface TableProps<T>
 
   // Обратный вызов изменения значения в ячейке таблицы
   valueChange?: (cell: ICellInstance<T>) => void;
-
-  // Форматирование ячеек давт по умолчанию
-  dateFormat?: string;
-
-  // Временная зона
-  utcOffset?: UtcOffset;
-
-  // Округлить числа до заданного количества знаков после точки
-  roundToDecimalPlaces?: number;
 
   // Выравнивание строк по вертикали
   verticalAlign?: VerticalAlign;

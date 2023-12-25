@@ -2,6 +2,11 @@
 
 @import './mixins.module';
 
+.filters {
+  padding: var(--spacing-12) 0;
+  background: var(--color-global-bgcard);
+}
+
 .root {
   overflow: auto;
   contain: strict;
@@ -25,7 +30,7 @@
 
       &.sticky {
         position: sticky;
-        top: 52px;
+        top: 0;
         z-index: 1;
       }
 

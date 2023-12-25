@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.3](https://github.com/tetacom/react-ui/compare/react-components-0.15.2...react-components-0.15.3) (2023-12-25)
+
+
+### Bug Fixes
+
+* remove extra props ([e283aa4](https://github.com/tetacom/react-ui/commit/e283aa40637c8624ed8f42a348cc7369b78b2c0a))
+* update table header with filters ([7f6e5b2](https://github.com/tetacom/react-ui/commit/7f6e5b2db913741720b058cb5f5b80ec2212462b))
+
 ### [0.15.2](https://github.com/tetacom/react-ui/compare/react-components-0.15.1...react-components-0.15.2) (2023-12-25)
 
 

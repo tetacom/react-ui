@@ -12,13 +12,9 @@ import { TableColumn } from '../model/table-column';
 import { IDictionary } from '../model/dictionary';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
-import { Typography } from '../../Typography';
-import { ICellComponent } from '../model/i-cell-component';
 import { Card } from '../../Card';
 import { ClusterDto } from './tableType';
 import { FilterType } from '../model/public-api';
-
-const { Paragraph } = Typography;
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
@@ -59,38 +55,6 @@ const smallTableColumns = initColumns.map((column) => {
 
   return column;
 });
-
-const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
-  let ngduName;
-  if (dict && Object.hasOwn(dict, 'NgduId')) {
-    ngduName =
-      dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ??
-      null;
-  }
-
-  return (
-    <div
-      style={{
-        padding: 'var(--spacing-6) var(--spacing-8)',
-      }}
-    >
-      {ngduName && (
-        <Paragraph resetMargin fontVariant="body3">
-          {ngduName}
-        </Paragraph>
-      )}
-      {ngduName && (
-        <Paragraph
-          resetMargin
-          fontVariant="caption"
-          style={{ color: 'var(--color-text-50)' }}
-        >
-          {row.original.name}
-        </Paragraph>
-      )}
-    </div>
-  );
-};
 
 const TableStory: FC<{
   columns: TableColumn[];
@@ -152,14 +116,13 @@ const TableStory: FC<{
         }
         dictionary={initDictionary}
         cellParams={cellParams}
-        dateFormat="DD MMM YYYY"
-        roundToDecimalPlaces={3}
       />
     </Card>
   );
 };
 
 export const Default: Story = {
+  // @ts-ignore
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
     columns: initColumns,
@@ -174,6 +137,7 @@ export const Default: Story = {
 };
 
 export const SmallTable: Story = {
+  // @ts-ignore
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
     columns: smallTableColumns,
