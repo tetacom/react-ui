@@ -54,9 +54,6 @@ export function Table<T>({
   localStorageKey,
   className,
   valueChange,
-  dateFormat,
-  utcOffset,
-  roundToDecimalPlaces,
   verticalAlign = 'top',
   ...props
 }: TableProps<T>): React.ReactElement {
