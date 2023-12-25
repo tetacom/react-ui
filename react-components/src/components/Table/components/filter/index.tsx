@@ -2,8 +2,8 @@ import { Column, Table } from '@tanstack/react-table';
 import { FilterType, IDictionary } from '../../model/public-api';
 import { Typography } from '../../../Typography';
 import { Input } from '../../../Input';
-
 import { Checkbox } from '../../../Checkbox';
+import { Stack } from '../../../Stack';
 
 export type FilterProps<T> = {
   columns: Array<Column<T, unknown>>;
@@ -15,7 +15,7 @@ export function Filter<T>(props: FilterProps<T>) {
   const { columns } = props;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <Stack block size={24} direction="column">
       {columns.map((column) => {
         const meta = column.columnDef.meta;
 
@@ -32,11 +32,11 @@ export function Filter<T>(props: FilterProps<T>) {
           const currentValue = column.getFilterValue() as [number, number];
 
           return (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <Stack key={column.id} block size={12} direction="column">
               <Typography.Text fontVariant="title3">
                 {meta?.tableColumn.caption}
               </Typography.Text>
-              <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                 <Input
                   placeholder={min.toString()}
                   value={currentValue?.[0] ?? ''}
@@ -59,7 +59,7 @@ export function Filter<T>(props: FilterProps<T>) {
                   }
                 />
               </div>
-            </div>
+            </Stack>
           );
         }
 
@@ -85,22 +85,22 @@ export function Filter<T>(props: FilterProps<T>) {
           );
 
           return (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <Stack key={column.id} block size={12} direction="column">
               <Typography.Text fontVariant="title3">
                 {meta?.tableColumn.caption}
               </Typography.Text>
 
               <Checkbox.Group
                 direction="column"
-                style={{ height: 120, overflowY: 'auto' }}
+                style={{ width: '100%', height: 120, overflowY: 'auto' }}
                 options={items}
                 value={currentItems || items}
                 onChange={(e) => {
                   const ids = e.map((_) => parseInt(_.id as string, 10));
                   column.setFilterValue(() => ids);
                 }}
-              ></Checkbox.Group>
-            </div>
+              />
+            </Stack>
           );
         }
 
@@ -135,27 +135,27 @@ export function Filter<T>(props: FilterProps<T>) {
           );
 
           return (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <Stack key={column.id} block size={12} direction="column">
               <Typography.Text fontVariant="title3">
                 {meta?.tableColumn.caption}
               </Typography.Text>
 
               <Checkbox.Group
                 direction="column"
-                style={{ height: 200, overflowY: 'auto' }}
+                style={{ width: '100%', height: 200, overflowY: 'auto' }}
                 options={items || []}
                 value={currentItems || items}
                 onChange={(e) => {
                   const ids = e.map((_) => parseInt(_.id as string, 10));
                   column.setFilterValue(() => ids);
                 }}
-              ></Checkbox.Group>
-            </div>
+              />
+            </Stack>
           );
         }
 
         return null;
       })}
-    </div>
+    </Stack>
   );
 }
