@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.2](https://github.com/tetacom/react-ui/compare/react-components-0.15.1...react-components-0.15.2) (2023-12-25)
+
+
+### Bug Fixes
+
+* button hover and active classes ([48305a2](https://github.com/tetacom/react-ui/commit/48305a25c1d95fe23b3a03326a49e5846807ee9d))
+
 ### [0.15.1](https://github.com/tetacom/react-ui/compare/react-components-0.15.0...react-components-0.15.1) (2023-12-22)
 
 
