@@ -52,4 +52,9 @@ export interface TableProps<T>
 
   // Компонент хедера таблицы
   headerComponent?: React.ReactElement | null;
+
+  // Родительский элемент, если боковая панель с фильтром должна оставаться в рамках другого элемента
+  parent?:
+    | string
+    | (HTMLElement | null | React.MutableRefObject<HTMLElement | null>);
 }

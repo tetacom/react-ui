@@ -6,4 +6,7 @@ export interface CardProps extends React.PropsWithChildren {
 
   // Встроенные стили
   style?: CSSProperties;
+
+  // Идентификатор
+  id?: string;
 }

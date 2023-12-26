@@ -67,7 +67,6 @@ export const Drawer: FC<DrawerProps> = ({
       <AnimatePresence>
         {open && (
           <FloatingOverlay
-            lockScroll
             style={{ zIndex, position: id || root ? 'absolute' : 'fixed' }}
           >
             <div className={s.drawer} style={drawerWrapperStyles}>

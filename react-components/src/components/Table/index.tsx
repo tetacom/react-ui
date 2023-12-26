@@ -51,6 +51,8 @@ export function Table<T>({
   className,
   valueChange,
   verticalAlign = 'top',
+  headerComponent = null,
+  parent,
   ...props
 }: TableProps<T>): React.ReactElement {
   const currentEventRef = useRef<KeyboardEvent | MouseEvent | null>(null);
@@ -225,7 +227,7 @@ export function Table<T>({
         className={s.filters}
         justifyContent="space-between"
       >
-        <div>{props.headerComponent || null}</div>
+        <div>{headerComponent}</div>
 
         <Stack divider>
           <Button onClick={() => setFilterOpen(true)} view="ghost" square>
@@ -245,6 +247,7 @@ export function Table<T>({
         open={filterIsOpen}
         onClose={() => setFilterOpen(false)}
         title="Фильтр"
+        parent={parent}
         zIndex={2}
         width={420}
       >
