@@ -96,7 +96,11 @@ const TableStory: FC<{
   });
 
   return (
-    <Card style={{ padding: 0 }}>
+    <Card
+      style={{
+        padding: 0,
+      }}
+    >
       <Table
         localStorageKey={localStorageKey}
         height={height}
@@ -108,7 +112,7 @@ const TableStory: FC<{
           loading ? (
             <Skeleton
               rows={16}
-              columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+              columns={new Array(columns.length).fill(1)}
               columnsUnit="fr"
               isTable
             />
