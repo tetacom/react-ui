@@ -14,8 +14,8 @@ export function XAxis(props: AxisProps) {
         <text
           className={s.label}
           transform={`translate(${scale.range()[1] / 2}, 32)`}
-          text-anchor="middle"
-          dominant-baseline="middle"
+          textAnchor="middle"
+          dominantBaseline="middle"
         >
           {props.title}
         </text>

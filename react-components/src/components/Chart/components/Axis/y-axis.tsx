@@ -17,8 +17,8 @@ export function YAxis(props: AxisProps) {
             props.scale.range()[1] / 2
           }) rotate(-90)`}
           dy={6}
-          text-anchor="middle"
-          dominant-baseline="middle"
+          textAnchor="middle"
+          dominantBaseline="middle"
         >
           {props.title}
         </text>
