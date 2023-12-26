@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.4](https://github.com/tetacom/react-ui/compare/react-components-0.15.3...react-components-0.15.4) (2023-12-26)
+
+
+### Bug Fixes
+
+* table styles ([775ce58](https://github.com/tetacom/react-ui/commit/775ce58695f11caaa22644266520ad89773662d6))
+
 ### [0.15.3](https://github.com/tetacom/react-ui/compare/react-components-0.15.2...react-components-0.15.3) (2023-12-25)
 
 

@@ -218,11 +218,11 @@ export function Table<T>({
   const filterApplied = state.columnFilters.length > 0;
 
   return (
-    <div>
+    <div className={s.root} style={{ height }}>
       <Stack
         size={12}
-        className={s.filters}
         block
+        className={s.filters}
         justifyContent="space-between"
       >
         <div>{props.headerComponent || null}</div>
@@ -255,11 +255,7 @@ export function Table<T>({
         />
       </Drawer>
 
-      <div
-        className={s.root}
-        ref={parentRef}
-        style={{ height, position: 'relative' }}
-      >
+      <div className={s.tableWrapper} ref={parentRef}>
         <Skeleton skeleton={skeleton}>
           <table
             className={classNames(s.table, className)}
