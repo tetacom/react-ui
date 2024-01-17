@@ -1,17 +1,14 @@
 import { MutableRefObject, useLayoutEffect, useRef, useState } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
 
-import type { Size } from '../../Gantt/model/size';
+type Size = Pick<DOMRect, 'width' | 'height'>;
 
 export const useElementSize = <T extends HTMLElement>(): [
   MutableRefObject<T | null>,
   Size,
 ] => {
   const target = useRef<T | null>(null);
-  const [size, setSize] = useState<Size>({
-    width: 0,
-    height: 0,
-  });
+  const [size, setSize] = useState<Size>(new DOMRect(0, 0));
 
   useLayoutEffect(() => {
     if (target.current) {

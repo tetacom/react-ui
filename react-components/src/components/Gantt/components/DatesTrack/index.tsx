@@ -2,13 +2,12 @@ import React, { forwardRef, useMemo } from 'react';
 import dayjs from 'dayjs';
 import * as d3 from 'd3';
 
-import { Size } from '../../model/size';
 import { TextContent } from './TextContent';
 
 import s from './style.module.scss';
 
 interface Props {
-  size: Size;
+  size: Pick<DOMRect, 'width' | 'height'>;
   maxWidth: number;
   scale: d3.ScaleTime<number, number>;
   ticks: Date[];

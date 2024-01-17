@@ -2,14 +2,13 @@ import * as d3 from 'd3';
 import { scaleTime, timeDay, timeMonth } from 'd3';
 import dayjs from 'dayjs';
 
-import { MilestoneItem, MilestoneOptions } from '../model';
-import { ZoomSize } from '../model/public-api';
-import { Size } from '../model/size';
+import { MilestoneItem, BaseMilestone } from './model';
+import { ZoomSize } from './model/public-api';
 
-export const useTimeAxis = <T extends MilestoneOptions>(
-  items: Array<MilestoneItem<T>>,
+export const useTimeAxis = <T, D extends BaseMilestone>(
+  items: Array<MilestoneItem<T, D>>,
   zoomSize: ZoomSize = ZoomSize.month,
-  size: Size,
+  size: Pick<DOMRect, 'width' | 'height'>,
 ): [number, Date[], d3.ScaleTime<number, number>] => {
   const min = d3.min(items, (item) =>
     d3.min(item.milestones, (_) => _.startTime),
