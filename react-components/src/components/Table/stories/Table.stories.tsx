@@ -12,13 +12,9 @@ import { TableColumn } from '../model/table-column';
 import { IDictionary } from '../model/dictionary';
 import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
-import { Typography } from '../../Typography';
-import { ICellComponent } from '../model/i-cell-component';
 import { Card } from '../../Card';
 import { ClusterDto } from './tableType';
 import { FilterType } from '../model/public-api';
-
-const { Paragraph } = Typography;
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
@@ -60,38 +56,6 @@ const smallTableColumns = initColumns.map((column) => {
   return column;
 });
 
-const TempCustomComponent: FC<ICellComponent<ClusterDto>> = ({ row, dict }) => {
-  let ngduName;
-  if (dict && Object.hasOwn(dict, 'NgduId')) {
-    ngduName =
-      dict?.['NgduId'].find(({ id }) => id === row.original.ngduId)?.name ??
-      null;
-  }
-
-  return (
-    <div
-      style={{
-        padding: 'var(--spacing-6) var(--spacing-8)',
-      }}
-    >
-      {ngduName && (
-        <Paragraph resetMargin fontVariant="body3">
-          {ngduName}
-        </Paragraph>
-      )}
-      {ngduName && (
-        <Paragraph
-          resetMargin
-          fontVariant="caption"
-          style={{ color: 'var(--color-text-50)' }}
-        >
-          {row.original.name}
-        </Paragraph>
-      )}
-    </div>
-  );
-};
-
 const TableStory: FC<{
   columns: TableColumn[];
   localStorageKey?: string;
@@ -132,7 +96,11 @@ const TableStory: FC<{
   });
 
   return (
-    <Card style={{ padding: 0 }}>
+    <Card
+      style={{
+        padding: 0,
+      }}
+    >
       <Table
         localStorageKey={localStorageKey}
         height={height}
@@ -144,7 +112,7 @@ const TableStory: FC<{
           loading ? (
             <Skeleton
               rows={16}
-              columns={[2, 3, 5, 10, 3, 16, 6, 9, 9, 7, 8, 10, 10]}
+              columns={new Array(columns.length).fill(1)}
               columnsUnit="fr"
               isTable
             />
@@ -152,14 +120,13 @@ const TableStory: FC<{
         }
         dictionary={initDictionary}
         cellParams={cellParams}
-        dateFormat="DD MMM YYYY"
-        roundToDecimalPlaces={3}
       />
     </Card>
   );
 };
 
 export const Default: Story = {
+  // @ts-ignore
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
     columns: initColumns,
@@ -174,6 +141,7 @@ export const Default: Story = {
 };
 
 export const SmallTable: Story = {
+  // @ts-ignore
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
     columns: smallTableColumns,

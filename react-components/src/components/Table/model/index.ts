@@ -4,18 +4,21 @@ import { TableColumn } from './table-column';
 import { IDictionary } from './dictionary';
 import { CellParamsType } from './cell-params';
 import { ICellInstance } from './i-cell-instance';
-import { UtcOffset } from './utc-offset';
 import { VerticalAlign } from './vertical-align';
+import { Table } from '@tanstack/react-table';
 
 export type TableRef = HTMLTableElement;
 
 export interface TableProps<T>
   extends Omit<HTMLAttributes<TableRef>, 'onClick'> {
+  // Инстанс таблицы из хука useTable()
+  table?: Table<T>;
+
   // Массив записей данных для отображения
-  dataSource: Array<T>;
+  dataSource?: Array<T>;
 
   // Столбцы таблицы
-  columns: TableColumn[];
+  columns?: TableColumn[];
 
   // Зафиксировать шапку при скролле
   sticky?: boolean;
@@ -44,15 +47,14 @@ export interface TableProps<T>
   // Обратный вызов изменения значения в ячейке таблицы
   valueChange?: (cell: ICellInstance<T>) => void;
 
-  // Форматирование ячеек давт по умолчанию
-  dateFormat?: string;
-
-  // Временная зона
-  utcOffset?: UtcOffset;
-
-  // Округлить числа до заданного количества знаков после точки
-  roundToDecimalPlaces?: number;
-
   // Выравнивание строк по вертикали
   verticalAlign?: VerticalAlign;
+
+  // Компонент хедера таблицы
+  headerComponent?: React.ReactElement | null;
+
+  // Родительский элемент, если боковая панель с фильтром должна оставаться в рамках другого элемента
+  parent?:
+    | string
+    | (HTMLElement | null | React.MutableRefObject<HTMLElement | null>);
 }

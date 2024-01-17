@@ -18,24 +18,16 @@ export interface ITableRow<T> {
   rowRef: (node: Element | null) => void;
   acrossLine?: TableProps<T>['acrossLine'];
   lockedColumnsVariables: Map<string, LockedColumnType>;
-  horizontalScroll: {
-    left: number;
-    right: number;
-  };
 }
 
 function TableCell<T>({
   cell,
   lockedColumnsVariables,
-  horizontalScrollLeft,
-  horizontalScrollRight,
 }: {
   cell: Cell<T, unknown>;
   width: number;
   isEdit: boolean;
   lockedColumnsVariables: Map<string, LockedColumnType>;
-  horizontalScrollLeft: number;
-  horizontalScrollRight: number;
   hash: string;
 }) {
   const cellComponent = cell.column.columnDef.cell;
@@ -47,12 +39,9 @@ function TableCell<T>({
 
   let stickyClasses = '';
   if (columnLockedData?.isExtreme) {
-    if (cellLocked === LockedColumn.left && horizontalScrollLeft !== 0) {
+    if (cellLocked === LockedColumn.left) {
       stickyClasses = s.lockedBodyLeftLast;
-    } else if (
-      cellLocked === LockedColumn.right &&
-      horizontalScrollRight !== 0
-    ) {
+    } else if (cellLocked === LockedColumn.right) {
       stickyClasses = s.lockedBodyRightFirst;
     }
   }
@@ -100,8 +89,6 @@ const MemoTableCell = memo(TableCell, (prevProps, nextProps) => {
     prevProps.width === nextProps.width &&
     prevProps.isEdit === nextProps.isEdit &&
     prevProps.hash === nextProps.hash &&
-    prevProps.horizontalScrollLeft === nextProps.horizontalScrollLeft &&
-    prevProps.horizontalScrollRight === nextProps.horizontalScrollRight &&
     lockedEquals
   );
 }) as typeof TableCell;
@@ -114,7 +101,6 @@ function TableRow<T>({
   rowRef,
   acrossLine = false,
   lockedColumnsVariables,
-  horizontalScroll,
 }: ITableRow<T>) {
   const { toggleSelected, getVisibleCells } = row;
 
@@ -150,8 +136,6 @@ function TableRow<T>({
             hash={rowHash}
             width={cellWidth}
             lockedColumnsVariables={lockedColumnsVariables}
-            horizontalScrollLeft={horizontalScroll.left}
-            horizontalScrollRight={horizontalScroll.right}
           />
         );
       })}

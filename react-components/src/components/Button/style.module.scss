@@ -60,6 +60,65 @@
     }
   }
 
+  &View {
+    &Primary {
+      background-color: var(--color-primary-50);
+
+      &:hover,
+      &[class*='hover'] {
+        background-color: var(--color-primary-60);
+      }
+
+      &:active,
+      &[class*='active'] {
+        background-color: var(--color-primary-70);
+      }
+    }
+
+    &Outline {
+      color: var(--color-text-90);
+      border: 1px solid var(--color-text-10);
+
+      &:hover,
+      &[class*='hover'] {
+        background-color: var(--color-text-5);
+      }
+
+      &:active,
+      &[class*='active'] {
+        background-color: var(--color-text-10);
+      }
+    }
+
+    &Ghost {
+      color: var(--color-text-90);
+
+      &:hover,
+      &[class*='hover'] {
+        background-color: var(--color-text-5);
+      }
+
+      &:active,
+      &[class*='active'] {
+        background-color: var(--color-text-10);
+      }
+    }
+  }
+
+  &Palette {
+    &Green {
+      background-color: var(--color-green-50);
+    }
+
+    &Yellow {
+      background-color: var(--color-yellow-50);
+    }
+
+    &Red {
+      background-color: var(--color-red-50);
+    }
+  }
+
   &Block {
     width: 100%;
   }
@@ -103,7 +162,6 @@
 
     &Ghost {
       color: var(--color-text-30);
-      background-color: transparent;
     }
   }
 }

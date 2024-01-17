@@ -2,22 +2,100 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
-### [0.14.12](https://github.com/tetacom/react-ui/compare/react-components-0.14.9...react-components-0.14.12) (2023-12-12)
-
-### [0.14.11](https://github.com/tetacom/react-ui/compare/react-components-0.14.10...react-components-0.14.11) (2023-12-04)
+### [0.15.9](https://github.com/tetacom/react-ui/compare/react-components-0.15.8...react-components-0.15.9) (2024-01-17)
 
 
 ### Bug Fixes
 
-* fix table number cell ([5f9aca3](https://github.com/tetacom/react-ui/commit/5f9aca36d94f0cf841bde734fb586c1979f2aedb))
+* table number cell ([3b4f20f](https://github.com/tetacom/react-ui/commit/3b4f20fe9601632f164b69265f70cfa876b200de))
 
-### [0.14.10](https://github.com/tetacom/react-ui/compare/react-components-0.14.8...react-components-0.14.10) (2023-11-30)
+### [0.15.8](https://github.com/tetacom/react-ui/compare/react-components-0.15.7...react-components-0.15.8) (2024-01-12)
 
 
 ### Bug Fixes
 
-* list cell can be null ([6fe7635](https://github.com/tetacom/react-ui/commit/6fe7635ca3ba622fc8c72dcedb7f11055d4f0510))
-* update table default cells ([43c8714](https://github.com/tetacom/react-ui/commit/43c8714b76a130fa96a1704b72d1747090028111))
+* table styles ([c9b2c55](https://github.com/tetacom/react-ui/commit/c9b2c551df2f4d5ff18c0d835d928fe1fda0942b))
+
+### [0.15.7](https://github.com/tetacom/react-ui/compare/react-components-0.15.6...react-components-0.15.7) (2024-01-11)
+
+
+### Bug Fixes
+
+* stack styles ([1a24f73](https://github.com/tetacom/react-ui/commit/1a24f73066b8afe3810c33ca0a8b4dafed088aea))
+
+### [0.15.6](https://github.com/tetacom/react-ui/compare/react-components-0.15.5...react-components-0.15.6) (2024-01-09)
+
+
+### Bug Fixes
+
+* stack styles ([7b98386](https://github.com/tetacom/react-ui/commit/7b98386ffeea2c9f8860b5e442d252a330a74763))
+
+### [0.15.5](https://github.com/tetacom/react-ui/compare/react-components-0.15.4...react-components-0.15.5) (2023-12-26)
+
+
+### Bug Fixes
+
+* table styles ([3e26c34](https://github.com/tetacom/react-ui/commit/3e26c343317c138de9643893ed3d692b931dee18))
+
+### [0.15.4](https://github.com/tetacom/react-ui/compare/react-components-0.15.3...react-components-0.15.4) (2023-12-26)
+
+
+### Bug Fixes
+
+* table styles ([775ce58](https://github.com/tetacom/react-ui/commit/775ce58695f11caaa22644266520ad89773662d6))
+
+### [0.15.3](https://github.com/tetacom/react-ui/compare/react-components-0.15.2...react-components-0.15.3) (2023-12-25)
+
+
+### Bug Fixes
+
+* remove extra props ([e283aa4](https://github.com/tetacom/react-ui/commit/e283aa40637c8624ed8f42a348cc7369b78b2c0a))
+* update table header with filters ([7f6e5b2](https://github.com/tetacom/react-ui/commit/7f6e5b2db913741720b058cb5f5b80ec2212462b))
+
+### [0.15.2](https://github.com/tetacom/react-ui/compare/react-components-0.15.1...react-components-0.15.2) (2023-12-25)
+
+
+### Bug Fixes
+
+* button hover and active classes ([48305a2](https://github.com/tetacom/react-ui/commit/48305a25c1d95fe23b3a03326a49e5846807ee9d))
+
+### [0.15.1](https://github.com/tetacom/react-ui/compare/react-components-0.15.0...react-components-0.15.1) (2023-12-22)
+
+
+### Bug Fixes
+
+* table sintax ([3526590](https://github.com/tetacom/react-ui/commit/35265906a282e68e2045ae2ba25f49f536f1d8ac))
+
+## [0.15.0](https://github.com/tetacom/react-ui/compare/react-components-0.14.12...react-components-0.15.0) (2023-12-21)
+
+
+### Features
+
+* add filters to table ([aa85fc0](https://github.com/tetacom/react-ui/commit/aa85fc0956ba7c40e84c1644a0845ada643c5798))
+
+
+### Bug Fixes
+
+* check all ([488ef20](https://github.com/tetacom/react-ui/commit/488ef2097266468bf5d6ff81986f5a149b0bc1c1))
+* checkbox group ([18faca4](https://github.com/tetacom/react-ui/commit/18faca4a983eb2402ef26e4318684d7b0e9c564c))
+* remove handle scroll on table ([0f15dec](https://github.com/tetacom/react-ui/commit/0f15dec024fd2556356263a35243624f29cb8fec))
+* update button styles ([bfd6766](https://github.com/tetacom/react-ui/commit/bfd6766a91dc706d55f625ed27f849180c3ed66a))
+* update checkbox group data type ([687f77e](https://github.com/tetacom/react-ui/commit/687f77e21b3398e30998035e2f991b4376f09c9b))
+* update skeleton ([4a94230](https://github.com/tetacom/react-ui/commit/4a94230873b95bb4e28ed3966b7ec27080bd9895))
+
+### [0.14.12](https://github.com/tetacom/react-ui/compare/react-components-0.14.11...react-components-0.14.12) (2023-12-12)
+
+
+### Bug Fixes
+
+* add name of axis, add dropdown maxheightcontainer prop ([ec8e3e5](https://github.com/tetacom/react-ui/commit/ec8e3e599eb518155bc37baa28eaaa63a9e09853))
+
+### [0.14.12](https://github.com/tetacom/react-ui/compare/react-components-0.14.11...react-components-0.14.12) (2023-12-12)
+
+
+### Bug Fixes
+
+* add name of axis, add dropdown maxheightcontainer prop ([ec8e3e5](https://github.com/tetacom/react-ui/commit/ec8e3e599eb518155bc37baa28eaaa63a9e09853))
 
 ### [0.14.11](https://github.com/tetacom/react-ui/compare/react-components-0.14.10...react-components-0.14.11) (2023-12-04)
 

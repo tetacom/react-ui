@@ -1,5 +1,5 @@
 import { Column, Row, Table } from '@tanstack/react-table';
-import { IDictionary, UtcOffset } from '../model/public-api';
+import { IDictionary } from './dictionary';
 
 export interface ICellComponent<T> {
   row: Row<T>;
@@ -8,7 +8,4 @@ export interface ICellComponent<T> {
   dict: IDictionary | null;
   isEdit: boolean;
   cellIndex: number;
-  dateFormat?: string;
-  utcOffset?: UtcOffset;
-  roundToDecimalPlaces?: number;
 }

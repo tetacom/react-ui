@@ -11,6 +11,7 @@
   transition: color 0.2s;
 
   .input {
+    position: relative;
     flex: 0 0 var(--spacing-16);
     width: var(--spacing-16);
     height: var(--spacing-16);
@@ -30,8 +31,29 @@
 
     svg {
       path {
-        stroke: var(--color-global-bgcard);
+        stroke: var(--color-global-white);
       }
+    }
+  }
+
+  .textContent {
+    user-select: none;
+  }
+
+  .indeterminate {
+    position: absolute;
+    top: calc((var(--spacing-16) - 2px) / 2);
+    left: calc((var(--spacing-16) - 8px) / 2);
+    transform: scale(0);
+    width: 7px;
+    height: 1px;
+    border-radius: 1px;
+    background-color: var(--color-global-white);
+    pointer-events: none;
+    transition: transform 0.2s ease-in-out;
+
+    &.active {
+      transform: scale(1);
     }
   }
 

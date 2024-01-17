@@ -10,7 +10,7 @@ import { Unstyled } from '@storybook/blocks';
 import { Checkbox } from '../index';
 import { Typography } from '../../Typography';
 
-import checkboxClassNames from '../style.module.scss';
+import checkboxClassNames from '../components/checkbox/style.module.scss';
 
 const { Title, Paragraph } = Typography;
 
