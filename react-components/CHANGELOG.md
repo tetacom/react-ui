@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.9](https://github.com/tetacom/react-ui/compare/react-components-0.15.8...react-components-0.15.9) (2024-01-17)
+
+
+### Bug Fixes
+
+* table number cell ([3b4f20f](https://github.com/tetacom/react-ui/commit/3b4f20fe9601632f164b69265f70cfa876b200de))
+
 ### [0.15.8](https://github.com/tetacom/react-ui/compare/react-components-0.15.7...react-components-0.15.8) (2024-01-12)
 
 
