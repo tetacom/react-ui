@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { EditStringCell } from '../base-string-cell';
 import { ICellComponent } from '../../../model/public-api';
@@ -15,29 +15,30 @@ export function NumberCell({
   const { meta } = table.options;
 
   const valueChange = () => {
-    if (typeof innerValue === 'string' && Number.isNaN(Number(innerValue))) {
-      meta?.valueChanged({ ...row.original, [column.id]: value });
+    const numberInnerValue = Number(innerValue);
+
+    if (Number.isNaN(numberInnerValue)) {
       setInnerValue(value);
     } else {
       meta?.valueChanged({
         ...row.original,
-        [column.id]: innerValue === null ? innerValue : Number(innerValue),
+        [column.id]: numberInnerValue,
       });
-      setInnerValue(Number(innerValue));
+      setInnerValue(numberInnerValue);
     }
   };
 
-  useEffect(() => {
-    if (innerValue === null || innerValue === undefined) {
-      setInnerValue(0);
-    }
-  }, []);
+  if (!isEdit) {
+    return (
+      <div tabIndex={cellIndex}>
+        {column.columnDef.meta?.tableColumn.formatter?.(value) ?? value}
+      </div>
+    );
+  }
 
-  if (innerValue === null || innerValue === undefined) return null;
-
-  return isEdit ? (
+  return (
     <EditStringCell
-      value={innerValue}
+      value={innerValue ?? 0}
       tabIndex={cellIndex}
       placeholder={column.columnDef.meta?.tableColumn?.caption}
       onBlur={() => valueChange()}
@@ -48,9 +49,5 @@ export function NumberCell({
       }}
       onChange={(e) => setInnerValue(e)}
     />
-  ) : (
-    <div tabIndex={cellIndex}>
-      {column.columnDef.meta?.tableColumn.formatter?.(value) ?? value}
-    </div>
   );
 }
