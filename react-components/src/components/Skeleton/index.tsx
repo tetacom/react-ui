@@ -37,6 +37,7 @@ export const Skeleton: FC<SkeletonProps> = ({
             columns={columns}
             columnsUnit={columnsUnit}
             height={height}
+            withRandomDiff={rowsList.length !== 1}
           />
         ))}
       </div>
