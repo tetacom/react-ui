@@ -13,7 +13,10 @@ export const Row: FC<Props> = ({
   columns = defaultValues.columns,
   columnsUnit = defaultValues.columnsUnit,
   height = defaultValues.height,
+  withRandomDiff = true,
 }) => {
+  const randomValue = withRandomDiff ? Math.random() : 0;
+
   if (Array.isArray(columns)) {
     return (
       <div
@@ -25,7 +28,7 @@ export const Row: FC<Props> = ({
         }}
       >
         {columns.map((column, index) => {
-          const randomLength = 100 - Math.round(Math.random() * 50);
+          const randomLength = 100 - Math.round(randomValue * 50);
 
           return (
             <div
@@ -40,7 +43,7 @@ export const Row: FC<Props> = ({
   }
 
   const singleWidth = `calc(${columns}${columnsUnit} - ${Math.round(
-    Math.random() * (columns / 2),
+    randomValue * (columns / 2),
   )}${columnsUnit})`;
 
   return (
