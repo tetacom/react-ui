@@ -5,7 +5,7 @@ import { defaultValues, SkeletonProps } from '../../model';
 import s from './style.module.scss';
 
 interface Props
-  extends Pick<SkeletonProps, 'columns' | 'columnsUnit' | 'height'> {
+  extends Pick<SkeletonProps, 'columns' | 'columnsUnit' | 'height' | 'gap'> {
   withRandomDiff?: boolean;
 }
 
@@ -13,6 +13,7 @@ export const Row: FC<Props> = ({
   columns = defaultValues.columns,
   columnsUnit = defaultValues.columnsUnit,
   height = defaultValues.height,
+  gap = defaultValues.gap,
   withRandomDiff = true,
 }) => {
   const randomValue = withRandomDiff ? Math.random() : 0;
@@ -22,6 +23,7 @@ export const Row: FC<Props> = ({
       <div
         className={s.row}
         style={{
+          gap,
           gridTemplateColumns: `${columns.join(
             `${columnsUnit} `,
           )}${columnsUnit}`,
@@ -47,7 +49,7 @@ export const Row: FC<Props> = ({
   )}${columnsUnit})`;
 
   return (
-    <div className={s.row}>
+    <div className={s.row} style={{ gap }}>
       <div
         className={s.skeleton}
         style={{ width: singleWidth, height: height }}
