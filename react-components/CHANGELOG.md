@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.11](https://github.com/tetacom/react-ui/compare/react-components-0.15.10...react-components-0.15.11) (2024-01-18)
+
+
+### Bug Fixes
+
+* skeleton width ([a4a2fce](https://github.com/tetacom/react-ui/commit/a4a2fce695a06a8e5e08056d2bac0d9454785fbb))
+
 ### [0.15.10](https://github.com/tetacom/react-ui/compare/react-components-0.15.9...react-components-0.15.10) (2024-01-17)
 
 ### [0.14.12](https://github.com/tetacom/react-ui/compare/react-components-0.14.11...react-components-0.14.12) (2023-12-12)
