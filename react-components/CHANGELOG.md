@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.13](https://github.com/tetacom/react-ui/compare/react-components-0.15.12...react-components-0.15.13) (2024-01-22)
+
+
+### Bug Fixes
+
+* skeleton gap ([6354a87](https://github.com/tetacom/react-ui/commit/6354a87b6e7e16366de5e499f6086057f5116217))
+
 ### [0.15.12](https://github.com/tetacom/react-ui/compare/react-components-0.15.11...react-components-0.15.12) (2024-01-18)
 
 
