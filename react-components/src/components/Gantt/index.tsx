@@ -6,9 +6,9 @@ import { useElementSize } from '../hooks/useElementSize';
 import { GanttSidebar } from './components/Sidebar';
 import { GanttDatesTrack } from './components/DatesTrack';
 import { VerticalLines } from './components/VerticalLines';
+import { GanttRowComponent } from './components/GanttRow';
 
 import s from './Gantt.module.scss';
-import { GanttRowComponent } from './components/GanttRow';
 
 export function Gantt<T, D extends BaseMilestone>({
   config,
