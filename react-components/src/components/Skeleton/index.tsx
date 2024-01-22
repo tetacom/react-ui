@@ -23,7 +23,12 @@ export const Skeleton: FC<SkeletonProps> = ({
       {isTable && (
         <>
           <div className={s.rows} style={{ gap }}>
-            <Row columns={columns} columnsUnit={columnsUnit} height={height} />
+            <Row
+              columns={columns}
+              columnsUnit={columnsUnit}
+              height={height}
+              gap={gap}
+            />
           </div>
 
           <div className={s.divider} />
@@ -37,6 +42,7 @@ export const Skeleton: FC<SkeletonProps> = ({
             columns={columns}
             columnsUnit={columnsUnit}
             height={height}
+            gap={gap}
             withRandomDiff={rowsList.length !== 1}
           />
         ))}
