@@ -1,0 +1,41 @@
+.item {
+  position: absolute;
+  max-height: var(--track);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-4);
+  overflow: hidden;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+
+  &Top {
+    padding: 0 var(--spacing-8);
+    height: calc(var(--track) / 2);
+    display: flex;
+
+    &Text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &Bottom {
+    position: relative;
+    height: calc(var(--track) / 2);
+
+    &Item {
+      position: absolute;
+      padding: 0 var(--spacing-4);
+      height: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

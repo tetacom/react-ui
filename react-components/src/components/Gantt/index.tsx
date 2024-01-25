@@ -49,6 +49,7 @@ export function Gantt<T, D extends BaseMilestone>({
       }}
     >
       <GanttSidebar
+        ref={sidebarRef}
         handleScrollSidebar={handleScrollSidebar}
         items={config.items}
         component={config.sidebarComponent}
