@@ -10,7 +10,7 @@ export const DropdownList = () => (
   <List
     items={[
       {
-        key: '1',
+        keyValue: '1',
         headline: 'Савельева Эмилия Арсентьевна',
         caption: 'Главный',
         picture: img1,
@@ -18,7 +18,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '2',
+        keyValue: '2',
         headline: 'Бабушкин Олег Ростиславович',
         caption: 'По горшкам',
         picture: img2,
@@ -26,7 +26,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '3',
+        keyValue: '3',
         headline: 'Петрова Милана Михайловна',
         caption: 'Командный',
         picture: img3,
@@ -34,7 +34,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '4',
+        keyValue: '4',
         headline: 'Савельева Эмилия Арсентьевна',
         caption: 'Главный',
         picture: img1,
@@ -42,7 +42,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '5',
+        keyValue: '5',
         headline: 'Бабушкин Олег Ростиславович',
         caption: 'По горшкам',
         picture: img2,
@@ -50,7 +50,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '6',
+        keyValue: '6',
         headline: 'Петрова Милана Михайловна',
         caption: 'Командный',
         picture: img3,
@@ -58,7 +58,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '7',
+        keyValue: '7',
         headline: 'Савельева Эмилия Арсентьевна',
         caption: 'Главный',
         picture: img1,
@@ -66,7 +66,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '8',
+        keyValue: '8',
         headline: 'Бабушкин Олег Ростиславович',
         caption: 'По горшкам',
         picture: img2,
@@ -74,7 +74,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '9',
+        keyValue: '9',
         headline: 'Петрова Милана Михайловна',
         caption: 'Командный',
         picture: img3,
@@ -82,7 +82,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '10',
+        keyValue: '10',
         headline: 'Савельева Эмилия Арсентьевна',
         caption: 'Главный',
         picture: img1,
@@ -90,7 +90,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '11',
+        keyValue: '11',
         headline: 'Бабушкин Олег Ростиславович',
         caption: 'По горшкам',
         picture: img2,
@@ -98,7 +98,7 @@ export const DropdownList = () => (
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '12',
+        keyValue: '12',
         headline: 'Петрова Милана Михайловна',
         caption: 'Командный',
         picture: img3,

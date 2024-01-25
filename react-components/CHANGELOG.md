@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.17](https://github.com/tetacom/react-ui/compare/react-components-0.15.16...react-components-0.15.17) (2024-01-25)
+
+
+### Bug Fixes
+
+* dropdown list ([2de7de7](https://github.com/tetacom/react-ui/commit/2de7de770bcb5381ca38b29ee491167f3dc045b2))
+
 ### [0.15.16](https://github.com/tetacom/react-ui/compare/react-components-0.15.15...react-components-0.15.16) (2024-01-25)
 
 
