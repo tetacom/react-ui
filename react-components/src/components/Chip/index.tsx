@@ -46,6 +46,7 @@ export const Chip = forwardRef<ChipRef, ChipProps>(
         ref={ref}
         className={classNames(
           s.chip,
+          hasPictureOrIcon && s.chipWithImage,
           viewClasses[view],
           onClick && s.chipClickable,
           className,
