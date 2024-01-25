@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.14](https://github.com/tetacom/react-ui/compare/react-components-0.15.13...react-components-0.15.14) (2024-01-25)
+
+
+### Bug Fixes
+
+* remove gantt stories ([643303d](https://github.com/tetacom/react-ui/commit/643303db9f4d4ab4da75be080137afc54ceb2f33))
+* update gantt ([2e83fb2](https://github.com/tetacom/react-ui/commit/2e83fb21a37b8584ae4bf669f1f71026729e4863))
+* update inner table cells state after row value changed ([3809a93](https://github.com/tetacom/react-ui/commit/3809a93da562b8fd82269fc6adc5d74fd2b177a4))
+
 ### [0.15.13](https://github.com/tetacom/react-ui/compare/react-components-0.15.12...react-components-0.15.13) (2024-01-22)
 
 
