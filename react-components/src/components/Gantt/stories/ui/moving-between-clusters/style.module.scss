@@ -1,0 +1,23 @@
+.item {
+  position: absolute;
+  max-height: var(--track);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-4);
+  overflow: hidden;
+}
+
+.move {
+  width: 100%;
+  height: var(--row-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &Text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 var(--spacing-4);
+  }
+}

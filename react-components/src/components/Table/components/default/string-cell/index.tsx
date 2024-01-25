@@ -11,35 +11,31 @@ export function StringCell({
   row,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
   const value = row.getValue<string | null>(column.id);
-  const [innerValue, setInnerValue] = useState(value);
+  const [innerValue, setInnerValue] = useState<string>(value ?? '');
   const { meta } = table.options;
 
-  const valueChange = (value: object) => {
-    meta?.valueChanged(value);
+  const valueChange = () => {
+    meta?.valueChanged({ ...row.original, [column.id]: innerValue });
   };
 
   useEffect(() => {
-    if (innerValue === null || innerValue === undefined) {
-      setInnerValue('');
+    if (value) {
+      setInnerValue(value);
     }
-  }, []);
+  }, [value]);
 
-  if (innerValue === null || innerValue === undefined) return null;
+  if (!isEdit) {
+    return <div tabIndex={cellIndex}>{value}</div>;
+  }
 
-  return isEdit ? (
+  return (
     <EditStringCell
       placeholder={column.columnDef.meta?.tableColumn.caption}
       value={innerValue}
       tabIndex={cellIndex}
-      onBlur={() =>
-        valueChange({ ...row.original, [column.id]: innerValue.toString() })
-      }
-      onPressEnter={() => {
-        valueChange({ ...row.original, [column.id]: innerValue.toString() });
-      }}
+      onBlur={valueChange}
+      onPressEnter={valueChange}
       onChange={setInnerValue}
     />
-  ) : (
-    <div tabIndex={cellIndex}>{value}</div>
   );
 }

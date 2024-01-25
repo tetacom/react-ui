@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { EditStringCell } from '../base-string-cell';
 import { ICellComponent } from '../../../model/public-api';
@@ -13,6 +13,10 @@ export function NumberCell({
   const value = row.getValue<number | string | null>(column.id);
   const [innerValue, setInnerValue] = useState(value);
   const { meta } = table.options;
+
+  useEffect(() => {
+    setInnerValue(value);
+  }, [value]);
 
   const valueChange = () => {
     const numberInnerValue = Number(innerValue);

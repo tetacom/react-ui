@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { Typography } from '../../../Typography';
 import { GanttConfig, BaseMilestone } from '../../model';
 
 import s from './style.module.scss';
@@ -11,25 +10,23 @@ interface Props<T, D extends BaseMilestone> {
   handleScrollSidebar: (scroll: React.BaseSyntheticEvent) => void;
 }
 
-export const GanttSidebar: React.FC<Props<any, any>> = <
-  T,
-  D extends BaseMilestone,
->({
-  items,
-  component,
-  handleScrollSidebar,
-}: Props<object, D>) => {
-  if (!component) {
-    throw new Error('Sidebar component not provided!');
-  }
+export const GanttSidebar = forwardRef<HTMLDivElement, Props<any, any>>(
+  function ({ items, component, handleScrollSidebar }, ref) {
+    if (!component) {
+      throw new Error('Sidebar component not provided!');
+    }
 
-  return (
-    <div className={s.root} onScroll={handleScrollSidebar}>
-      <div className={s.patch} />
+    return (
+      <div ref={ref} className={s.root} onScroll={handleScrollSidebar}>
+        <div className={s.patch} />
 
-      {items.map(({ item }) => {
-        return React.createElement(component, { ...item });
-      })}
-    </div>
-  );
-};
+        {items.map(({ item }, index) => {
+          return React.createElement(component, {
+            ...item,
+            key: index,
+          });
+        })}
+      </div>
+    );
+  },
+);
