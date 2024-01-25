@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.16](https://github.com/tetacom/react-ui/compare/react-components-0.15.15...react-components-0.15.16) (2024-01-25)
+
+
+### Bug Fixes
+
+* chip styles ([987542c](https://github.com/tetacom/react-ui/commit/987542c516357dc0941556c90a57dad67436ce44))
+* list key and props ([6157b0a](https://github.com/tetacom/react-ui/commit/6157b0a3b0b2e52bf30cf7ad7be54fd107df3de1))
+
 ### [0.15.15](https://github.com/tetacom/react-ui/compare/react-components-0.15.14...react-components-0.15.15) (2024-01-25)
 
 
