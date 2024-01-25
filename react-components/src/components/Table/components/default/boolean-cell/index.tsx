@@ -17,16 +17,14 @@ export function BooleanCell({
   row,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
   const rowValue = row.getValue<boolean | null>(column.id);
-  const foundValue = options.find((option) => {
-    if (rowValue === null || rowValue === undefined) {
-      return;
-    }
-
-    return option.key === rowValue.toString();
-  }) ?? { key: 'false', headline: 'Нет' };
+  const foundValue = foundValueFunc(options, rowValue);
 
   const [innerValue, setInnerValue] = useState(foundValue);
   const [open, setOpen] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    setInnerValue(foundValueFunc(options, rowValue));
+  }, []);
 
   useEffect(() => {
     setOpen(isEdit);
@@ -57,5 +55,20 @@ export function BooleanCell({
     />
   ) : (
     <div tabIndex={cellIndex}>{innerValue?.headline}</div>
+  );
+}
+
+function foundValueFunc(
+  options: BaseSelectProps[],
+  rowValue: boolean | null,
+): BaseSelectProps {
+  return (
+    options.find((option) => {
+      if (rowValue === null || rowValue === undefined) {
+        return;
+      }
+
+      return option.key === rowValue.toString();
+    }) ?? { key: 'false', headline: 'Нет' }
   );
 }

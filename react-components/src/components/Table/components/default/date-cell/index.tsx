@@ -11,18 +11,24 @@ export function DateCell({
   row,
 }: React.PropsWithoutRef<ICellComponent<object>>) {
   const value = row.getValue<string | null>(column.id);
-  const [innerValue, setInnerValue] = useState(value);
+  const [innerValue, setInnerValue] = useState<string>(value ?? '');
   const { meta } = table.options;
 
   useEffect(() => {
-    if (innerValue === null || innerValue === undefined) {
-      setInnerValue('');
+    if (value) {
+      setInnerValue(value);
     }
-  }, []);
+  }, [value]);
 
-  if (innerValue === null || innerValue === undefined) return null;
+  if (!isEdit) {
+    return (
+      <div tabIndex={cellIndex}>
+        {column.columnDef.meta?.tableColumn.formatter?.(value) ?? value}
+      </div>
+    );
+  }
 
-  return isEdit ? (
+  return (
     <Input.Text
       value={innerValue}
       tabIndex={cellIndex}
@@ -37,9 +43,5 @@ export function DateCell({
       size="small"
       height="100%"
     />
-  ) : (
-    <div tabIndex={cellIndex}>
-      {column.columnDef.meta?.tableColumn.formatter?.(value) ?? value}
-    </div>
   );
 }

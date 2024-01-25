@@ -28,15 +28,13 @@ export function SelectCell({
   }
 
   const rowValue = row.getValue<number | null>(column.id);
-  const foundValue = options.find((option) => {
-    if (rowValue === null || rowValue === undefined) {
-      return false;
-    }
-
-    return option.key === rowValue.toString();
-  });
+  const foundValue = foundValueFunc(options, rowValue);
   const [innerValue, setInnerValue] = useState(foundValue);
   const [open, setOpen] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    setInnerValue(foundValueFunc(options, rowValue));
+  }, [rowValue]);
 
   useEffect(() => {
     setOpen(isEdit);
@@ -68,4 +66,17 @@ export function SelectCell({
   ) : (
     <div tabIndex={cellIndex}>{innerValue?.headline}</div>
   );
+}
+
+function foundValueFunc(
+  options: BaseSelectProps[],
+  rowValue: number | null,
+): BaseSelectProps | undefined {
+  return options.find((option) => {
+    if (rowValue === null || rowValue === undefined) {
+      return false;
+    }
+
+    return option.key === rowValue.toString();
+  });
 }
