@@ -137,6 +137,7 @@ export function createMilestoneItems(
 
     const items: MilestoneItem<DrillingRigInfoDto, ScheduleMilestone> = {
       item: drillingRig,
+      // @ts-ignore
       milestones: milestones
         .sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
         .map((milestone) => ({
