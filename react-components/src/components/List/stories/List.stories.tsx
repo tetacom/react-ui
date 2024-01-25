@@ -28,7 +28,7 @@ export const Default: Story = {
     checked: true,
     items: [
       {
-        key: '1',
+        keyValue: '1',
         headline: 'Савельева Эмилия Арсентьевна',
         caption: 'Главный',
         picture: img1,
@@ -36,7 +36,7 @@ export const Default: Story = {
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '2',
+        keyValue: '2',
         headline: 'Бабушкин Олег Ростиславович',
         caption: 'По горшкам',
         picture: img2,
@@ -44,7 +44,7 @@ export const Default: Story = {
         rightIcon: <Icon name="home" />,
       },
       {
-        key: '3',
+        keyValue: '3',
         headline: 'Петрова Милана Михайловна',
         caption: 'Командный',
         picture: img3,

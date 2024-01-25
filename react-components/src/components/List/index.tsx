@@ -4,22 +4,15 @@ import classNames from 'classnames';
 import { Checkbox } from '../Checkbox';
 import { ListProps } from './model';
 import { getTextBlockWidth } from './getTextBlockWidth';
-import s from './style.module.scss';
 import { ListItem } from './model/listItem';
 
-export const List: FC<ListProps> = ({
-  items,
-  imageSize = 'small',
-  imageRound = true,
-  divider = true,
-  checked = false,
-  onClick,
-  ...props
-}) => {
+import s from './style.module.scss';
+
+export const List: FC<ListProps> = ({ items, ...props }) => {
   return (
     <ul className={s.list}>
       {items.map((item) => (
-        <Item {...item} {...props} />
+        <Item key={item.keyValue} {...item} {...props} />
       ))}
     </ul>
   );
@@ -32,7 +25,7 @@ export const Item: FC<
       'divider' | 'onClick' | 'checked' | 'imageRound' | 'imageSize'
     >
 > = ({
-  key,
+  keyValue,
   divider = true,
   onClick,
   checked = false,
@@ -47,12 +40,11 @@ export const Item: FC<
 }) => {
   return (
     <li
-      key={key}
       onClick={() =>
         onClick
           ? onClick({
               headline,
-              key,
+              keyValue,
               caption,
               disabled,
               leftIcon,

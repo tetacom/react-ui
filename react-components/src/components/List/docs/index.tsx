@@ -105,15 +105,15 @@ export const ListDocs = () => (
             divider={false}
             items={[
               {
-                key: '1',
+                keyValue: '1',
                 headline: 'Item 1',
               },
               {
-                key: '2',
+                keyValue: '2',
                 headline: 'Item 2',
               },
               {
-                key: '3',
+                keyValue: '3',
                 headline: 'Item 3',
               },
             ]}
@@ -137,19 +137,19 @@ export const ListDocs = () => (
         imageRound={false}
         items={[
           {
-            key: '1',
+            keyValue: '1',
             headline: 'Савельева Эмилия Арсентьевна',
             caption: 'Главный',
             picture: img1,
           },
           {
-            key: '2',
+            keyValue: '2',
             headline: 'Бабушкин Олег Ростиславович',
             caption: 'По горшкам',
             picture: img2,
           },
           {
-            key: '3',
+            keyValue: '3',
             headline: 'Петрова Милана Михайловна',
             caption: 'Командный',
             picture: img3,

@@ -4,7 +4,7 @@ export type PictureType = 'small' | 'large';
 
 export interface ListItem {
   // Уникальный идентификатор пункта списка
-  key: string;
+  keyValue: string;
 
   // Текст заголовка пункта списка
   headline: string;
