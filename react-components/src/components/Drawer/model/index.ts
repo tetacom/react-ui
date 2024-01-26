@@ -13,7 +13,7 @@ export interface DrawerProps extends React.PropsWithChildren {
   closeIconName?: string;
 
   // Заголовок боковой панели
-  title?: string;
+  title?: string | React.ReactElement;
 
   // Размещение бововой панели
   placement?: PlacementType;

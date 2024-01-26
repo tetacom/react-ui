@@ -25,7 +25,7 @@ export const Drawer: FC<DrawerProps> = ({
   open,
   onClose,
   closeIconName,
-  title = '',
+  title = null,
   placement = 'right',
   extra = [],
   width,
@@ -62,6 +62,15 @@ export const Drawer: FC<DrawerProps> = ({
     root: typeof parent !== 'string' ? parent : undefined,
   };
 
+  const titleElement =
+    typeof title === 'string' ? (
+      <Typography.Title level={3} fontVariant="title1" resetMargin>
+        {title}
+      </Typography.Title>
+    ) : (
+      <div>{title}</div>
+    );
+
   return (
     <FloatingPortal id={id} root={root}>
       <AnimatePresence>
@@ -91,17 +100,10 @@ export const Drawer: FC<DrawerProps> = ({
                   exit={drawerAnimateStyles}
                   transition={{ duration: 0.35, ease: 'easeInOut' }}
                 >
-                  <div className={s.header}>
+                  <div className={s.header} id={headingId}>
                     {title && (
                       <>
-                        <Typography.Title
-                          level={3}
-                          fontVariant="title1"
-                          resetMargin
-                          id={headingId}
-                        >
-                          {title}
-                        </Typography.Title>
+                        {titleElement}
                         <Button
                           shape="circle"
                           square
