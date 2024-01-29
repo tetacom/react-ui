@@ -4,9 +4,10 @@ import { BaseSelectProps } from '@tetacom/react-components';
 import { Select } from '../../../../Select';
 import { ICellComponent } from '../../../model/public-api';
 
-const options: Array<BaseSelectProps> = [
-  { key: 'false', headline: 'Нет' },
-  { key: 'true', headline: 'Да' },
+type BoolSelectProps = BaseSelectProps & { value: boolean };
+const options: Array<BoolSelectProps> = [
+  { key: 'false', headline: 'Нет', value: false },
+  { key: 'true', headline: 'Да', value: true },
 ];
 
 export function BooleanCell({
@@ -45,7 +46,7 @@ export function BooleanCell({
         if (innerValue?.key) {
           meta?.valueChanged({
             ...row.original,
-            [column.id]: parseInt(innerValue.key, 10),
+            [column.id]: item.value,
           });
         }
       }}
@@ -59,16 +60,18 @@ export function BooleanCell({
 }
 
 function foundValueFunc(
-  options: BaseSelectProps[],
+  options: BoolSelectProps[],
   rowValue: boolean | null,
-): BaseSelectProps {
+): BoolSelectProps {
+  const defaultValue = { key: 'false', headline: 'Нет', value: false };
+
   return (
     options.find((option) => {
       if (rowValue === null || rowValue === undefined) {
-        return;
+        return defaultValue;
       }
 
       return option.key === rowValue.toString();
-    }) ?? { key: 'false', headline: 'Нет' }
+    }) ?? defaultValue
   );
 }
