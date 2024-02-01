@@ -41,7 +41,7 @@ const inputComponent = <
     disabled = false,
     maxLength = 0,
     leftIconName = '',
-    rightIcon,
+    rightIcons = [],
     onChange,
     onPressEnter,
     onKeyDown,
@@ -78,11 +78,6 @@ const inputComponent = <
     }
   };
 
-  const handleClickRightIcon = () => {
-    rightIcon?.onClick && rightIcon.onClick();
-    inputWrapperRef.current?.querySelector(element)?.focus();
-  };
-
   const handleEnterKeyPress = (
     event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -94,6 +89,11 @@ const inputComponent = <
 
   const isFieldFull = maxLength - finalValue.length <= 0;
   const isErrorStatus = errorMessage || (maxLength && isFieldFull);
+  const notEdit = disabled || readonly;
+
+  const rightIconsNumber = {
+    '--right-icons-number': rightIcons?.length,
+  } as React.CSSProperties;
 
   return (
     <div
@@ -116,9 +116,10 @@ const inputComponent = <
           element === 'input' && sizeClasses[size],
           shapeClasses[shape],
           leftIconName && s.fieldLeftIcon,
-          rightIcon && s.fieldRightIcon,
+          s.fieldRightIcon,
           element === 'textarea' && s.fieldTextarea,
         )}
+        style={rightIconsNumber}
       >
         {React.createElement(element, {
           ...props,
@@ -150,19 +151,17 @@ const inputComponent = <
           </span>
         )}
 
-        {rightIcon && (
-          <button
-            type="button"
-            className={s.rightIcon}
-            disabled={disabled}
-            onClick={handleClickRightIcon}
-          >
-            {typeof rightIcon.icon === 'string' && (
-              <Icon name={rightIcon.icon} size={16} />
-            )}
-            {typeof rightIcon.icon !== 'string' && rightIcon.icon}
-          </button>
-        )}
+        <div className={s.rightIcons}>
+          {rightIcons?.map((item) => (
+            <button
+              key={item.key}
+              className={s.rightIconsItem}
+              disabled={notEdit}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
       </span>
 
       {(errorMessage || Boolean(maxLength)) && (

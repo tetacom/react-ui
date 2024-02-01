@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Unstyled } from '@storybook/blocks';
 
-import { ColoredIcon } from '../index';
+import { ColoredIcon, Icon } from '../index';
 import { Typography } from '../../Typography';
 import { Input } from '../../Input';
 import { coloredIconsList } from '../icons-list';
@@ -54,7 +54,9 @@ export const ColoredIconDocs = () => {
           size="large"
           value={searchQuery}
           onChange={handleSearch}
-          rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
+          rightIcons={[
+            <Icon key="close" name="closeCircle" onClick={handleClear} />,
+          ]}
           style={{ width: '100%' }}
         />
 

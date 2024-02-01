@@ -45,13 +45,7 @@ interface BseInput {
   leftIconName?: string;
 
   // Правая иконки
-  rightIcon?: {
-    // Название правой иконки
-    icon: string | React.ReactElement;
-
-    // Функция обратного вызова при клике по правой иконке
-    onClick?: () => void;
-  };
+  rightIcons?: React.ReactElement[];
 
   // Обратный вызов при вводе пользователем
   onChange?: (value: string) => void;

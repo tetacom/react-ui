@@ -12,6 +12,8 @@
 }
 
 .input {
+  --icon-width: var(--spacing-32);
+
   display: inline-flex;
   flex-direction: column;
   max-width: 100%;
@@ -73,8 +75,8 @@
 
       &:-webkit-autofill {
         ~ .icon,
-        ~ .rightIcon,
-        ~ .rightIcon:hover {
+        ~ .rightIconsItem,
+        ~ .rightIconsItem:hover {
           color: #000000;
         }
       }
@@ -117,33 +119,44 @@
       pointer-events: none;
 
       svg {
-        width: var(--spacing-16);
-        height: var(--spacing-16);
+        width: calc(var(--icon-width) / 2);
+        height: calc(var(--icon-width) / 2);
       }
     }
 
-    .rightIcon {
-      border: none;
+    .rightIcons {
       position: absolute;
-      color: var(--color-text-70);
       top: 0;
       right: 0;
-      padding: 0 var(--spacing-8);
       height: 100%;
       display: flex;
-      justify-content: center;
-      align-items: center;
 
-      &:enabled {
-        cursor: pointer;
-      }
+      &Item {
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--icon-width);
+        padding: 0 var(--spacing-8);
+        color: var(--color-text-50);
 
-      &:hover:enabled {
-        color: var(--color-text-90);
-      }
+        &:enabled {
+          cursor: pointer;
+        }
 
-      &:disabled {
-        color: var(--color-text-20);
+        &:hover:enabled {
+          color: var(--color-text-90);
+        }
+
+        &:disabled {
+          color: var(--color-text-20);
+          pointer-events: none;
+        }
+
+        svg {
+          width: calc(var(--icon-width) / 2);
+          height: calc(var(--icon-width) / 2);
+        }
       }
     }
 
@@ -189,14 +202,14 @@
     &LeftIcon {
       .fieldTag,
       .placeholder {
-        padding-left: var(--spacing-32);
+        padding-left: var(--icon-width);
       }
     }
 
     &RightIcon {
       .fieldTag,
       .placeholder {
-        padding-right: var(--spacing-32);
+        padding-right: calc(var(--right-icons-number) * var(--icon-width));
       }
     }
   }
