@@ -155,6 +155,7 @@ const inputComponent = <
           {rightIcons?.map((item) => (
             <button
               key={item.key}
+              type="button"
               className={s.rightIconsItem}
               disabled={notEdit}
             >
