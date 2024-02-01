@@ -54,7 +54,9 @@ export const IconDocs = () => {
           size="large"
           value={searchQuery}
           onChange={handleSearch}
-          rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
+          rightIcons={[
+            <Icon key="close" name="closeCircle" onClick={handleClear} />,
+          ]}
           style={{ width: '100%' }}
         />
 

@@ -7,6 +7,9 @@ export interface BaseProps
 
   // Установить размер иконки
   size?: number;
+
+  // Обратный вызов выполняется при нажатии на иконку
+  onClick?: () => void;
 }
 
 export interface IconProps extends BaseProps {

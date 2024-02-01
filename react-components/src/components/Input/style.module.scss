@@ -12,6 +12,8 @@
 }
 
 .input {
+  --icon-width: var(--spacing-32);
+
   display: inline-flex;
   flex-direction: column;
   max-width: 100%;
@@ -43,6 +45,7 @@
       background-color: var(--color-text-5);
       color: var(--color-text-90);
       border-radius: inherit;
+      cursor: inherit;
       transition: background-color 0.2s, border 0.2s, color 0.2s;
 
       &:read-only {
@@ -73,8 +76,8 @@
 
       &:-webkit-autofill {
         ~ .icon,
-        ~ .rightIcon,
-        ~ .rightIcon:hover {
+        ~ .rightIconsItem,
+        ~ .rightIconsItem:hover {
           color: #000000;
         }
       }
@@ -112,38 +115,49 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 var(--spacing-8);
+      padding: var(--spacing-8);
       color: var(--color-text-90);
       pointer-events: none;
 
       svg {
-        width: var(--spacing-16);
-        height: var(--spacing-16);
+        width: calc(var(--icon-width) / 2);
+        height: calc(var(--icon-width) / 2);
       }
     }
 
-    .rightIcon {
-      border: none;
+    .rightIcons {
       position: absolute;
-      color: var(--color-text-70);
       top: 0;
       right: 0;
-      padding: 0 var(--spacing-8);
       height: 100%;
       display: flex;
-      justify-content: center;
-      align-items: center;
 
-      &:enabled {
-        cursor: pointer;
-      }
+      &Item {
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--icon-width);
+        padding: var(--spacing-8);
+        color: var(--color-text-50);
 
-      &:hover:enabled {
-        color: var(--color-text-90);
-      }
+        &:enabled {
+          cursor: pointer;
+        }
 
-      &:disabled {
-        color: var(--color-text-20);
+        &:hover:enabled {
+          color: var(--color-text-90);
+        }
+
+        &:disabled {
+          color: var(--color-text-20);
+          pointer-events: none;
+        }
+
+        svg {
+          width: calc(var(--icon-width) / 2);
+          height: calc(var(--icon-width) / 2);
+        }
       }
     }
 
@@ -184,19 +198,23 @@
         align-items: flex-start;
         padding-top: var(--spacing-8);
       }
+
+      .rightIconsItem {
+        align-items: flex-start;
+      }
     }
 
     &LeftIcon {
       .fieldTag,
       .placeholder {
-        padding-left: var(--spacing-32);
+        padding-left: var(--icon-width);
       }
     }
 
     &RightIcon {
       .fieldTag,
       .placeholder {
-        padding-right: var(--spacing-32);
+        padding-right: calc(var(--right-icons-number) * var(--icon-width));
       }
     }
   }

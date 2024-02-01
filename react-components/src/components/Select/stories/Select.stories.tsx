@@ -36,7 +36,10 @@ export const Default: Story = {
     return (
       <Select<ModelItem>
         {...props}
-        onChangeItem={(item) => item.color}
+        onChangeItem={(item) => {
+          if (item === null) return null;
+          return item.color;
+        }}
         onItemRender={(item) => <CustomItem {...item} />}
         style={{ width: 220 }}
       />
@@ -50,7 +53,6 @@ export const Default: Story = {
     placeholder: 'Выберите скважину',
     errorMessage: '',
     disabled: false,
-    readonly: true,
     allowNull: true,
     maxLength: 0,
     onChange: undefined,

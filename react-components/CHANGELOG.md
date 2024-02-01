@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.20](https://github.com/tetacom/react-ui/compare/react-components-0.15.19...react-components-0.15.20) (2024-02-01)
+
+
+### Bug Fixes
+
+* select allow null prop ([010376e](https://github.com/tetacom/react-ui/commit/010376e7348821ba95036d6020eef9442a1a8077))
+* show icons ([e9da073](https://github.com/tetacom/react-ui/commit/e9da0739fe3a76c8f7da41c6c1bced743a8bc0e6))
+* update input right icons ([e4c2022](https://github.com/tetacom/react-ui/commit/e4c2022fa50b82327261bdc4582754a4070a897d))
+
 ### [0.15.19](https://github.com/tetacom/react-ui/compare/react-components-0.15.18...react-components-0.15.19) (2024-01-29)
 
 

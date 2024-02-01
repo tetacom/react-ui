@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Input } from '../index';
 import { InputDocs } from '../docs';
 import { useState } from 'react';
+import { Icon } from '../../Icons';
 
 const meta: Meta<typeof Input.Text> = {
   title: 'Data Entry/Input',
@@ -51,7 +52,7 @@ const ClearableInput = () => {
       value={value}
       onChange={handleChange}
       maxLength={32}
-      rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
+      rightIcons={[<Icon key="close" name="closeBig" onClick={handleClear} />]}
     />
   );
 };
@@ -77,10 +78,13 @@ const PasswordTypeInput = () => {
       value={value}
       onChange={handleChange}
       maxLength={32}
-      rightIcon={{
-        icon: inputType === 'text' ? 'eyeCrossed' : 'eye',
-        onClick: toggleInputType,
-      }}
+      rightIcons={[
+        <Icon
+          key="visible"
+          name={inputType === 'text' ? 'eyeCrossed' : 'eye'}
+          onClick={toggleInputType}
+        />,
+      ]}
       style={{ width: 240 }}
     />
   );
@@ -105,7 +109,7 @@ const Textarea = () => {
       onChange={handleChange}
       height={240}
       maxLength={320}
-      rightIcon={{ icon: 'closeCircle', onClick: handleClear }}
+      rightIcons={[<Icon key="close" name="closeBig" onClick={handleClear} />]}
     />
   );
 };

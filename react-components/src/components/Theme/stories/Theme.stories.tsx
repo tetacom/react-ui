@@ -44,7 +44,7 @@ const Content = () => {
           { key: 'tatneftdark', headline: 'Tatneft Dark' },
         ]}
         onChangeItem={(item) => {
-          changeTheme(item.key);
+          if (item) changeTheme(item.key);
         }}
       />
 
