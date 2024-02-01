@@ -6,7 +6,7 @@ import { BaseSelectProps } from './base-select-item';
 export interface SelectProps<T extends BaseSelectProps>
   extends Omit<InputProps, 'value'> {
   // Значение селекта
-  value?: T;
+  value?: T | null;
 
   // Список опции селекта
   items: Array<T>;
@@ -18,7 +18,7 @@ export interface SelectProps<T extends BaseSelectProps>
   open?: boolean;
 
   // Обратный вызов при вводе пользователем
-  onChangeItem?: (item: T) => void;
+  onChangeItem?: (item: T | null) => void;
 
   // Обратный вызов для кастомного рендера
   onItemRender?: (item: T) => React.ReactElement;

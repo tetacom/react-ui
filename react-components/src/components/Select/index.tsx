@@ -31,6 +31,31 @@ const SelectInner = forwardRef(
       ...rest
     }: SelectProps<T>) => rest;
 
+    const handleChange = (item: T | null) => {
+      setValue(item);
+      setOpen(false);
+      props.onChangeItem && props.onChangeItem(item);
+    };
+    const handleClear = () => {
+      handleChange(null);
+    };
+
+    const rightIcons = [
+      <Icon
+        key="arrowDownKey"
+        name="arrowDownKey"
+        style={{
+          transition: 'transform 0.2s',
+          transform: `rotate(${showSelect ? 180 : 0}deg)`,
+        }}
+      />,
+    ];
+    if (props.allowNull && value) {
+      rightIcons.unshift(
+        <Icon key="clear" name="closeBig" onClick={handleClear} />,
+      );
+    }
+
     return (
       <Dropdown
         possiblePlacements={['bottom-start', 'top-start']}
@@ -59,9 +84,7 @@ const SelectInner = forwardRef(
                     item === foundValue ? s.selected : null,
                   ])}
                   onClick={() => {
-                    setValue(item);
-                    setOpen(false);
-                    props.onChangeItem && props.onChangeItem(item);
+                    handleChange(item);
                   }}
                 >
                   {props.onItemRender ? (
@@ -89,21 +112,14 @@ const SelectInner = forwardRef(
             <Input.Text
               {...getInputProps(props)}
               height="100%"
-              style={{ width: '100%', ...props.style }}
+              style={{
+                width: '100%',
+                cursor: 'pointer',
+                ...props.style,
+              }}
               ref={useMergeRefs([inputRef, ref])}
               value={foundValue?.headline}
-              readonly
-              rightIcon={{
-                icon: (
-                  <Icon
-                    style={{
-                      transition: 'transform 0.2s',
-                      transform: `rotate(${showSelect ? 180 : 0}deg)`,
-                    }}
-                    name={'arrowDownKey'}
-                  />
-                ),
-              }}
+              rightIcons={rightIcons}
             />
           </Tooltip>
         </div>

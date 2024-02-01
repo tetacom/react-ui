@@ -29,7 +29,9 @@ export function SelectCell({
 
   const rowValue = row.getValue<number | null>(column.id);
   const foundValue = foundValueFunc(options, rowValue);
-  const [innerValue, setInnerValue] = useState(foundValue);
+  const [innerValue, setInnerValue] = useState<BaseSelectProps | null>(
+    foundValue,
+  );
   const [open, setOpen] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
@@ -49,6 +51,7 @@ export function SelectCell({
       value={innerValue}
       autoFocus
       tabIndex={cellIndex}
+      allowNull
       onChangeItem={(item) => {
         setInnerValue(item);
         setOpen(undefined);
@@ -71,12 +74,14 @@ export function SelectCell({
 function foundValueFunc(
   options: BaseSelectProps[],
   rowValue: number | null,
-): BaseSelectProps | undefined {
-  return options.find((option) => {
-    if (rowValue === null || rowValue === undefined) {
-      return false;
-    }
+): BaseSelectProps | null {
+  return (
+    options.find((option) => {
+      if (rowValue === null || rowValue === undefined) {
+        return false;
+      }
 
-    return option.key === rowValue.toString();
-  });
+      return option.key === rowValue.toString();
+    }) ?? null
+  );
 }

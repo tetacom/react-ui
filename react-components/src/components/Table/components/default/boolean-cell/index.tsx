@@ -41,6 +41,8 @@ export function BooleanCell({
       autoFocus
       tabIndex={cellIndex}
       onChangeItem={(item) => {
+        if (item === null) return;
+
         setInnerValue(item);
         setOpen(undefined);
         if (innerValue?.key) {
