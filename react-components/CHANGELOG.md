@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.21](https://github.com/tetacom/react-ui/compare/react-components-0.15.20...react-components-0.15.21) (2024-02-01)
+
+
+### Bug Fixes
+
+* input fix right icons ([79dd454](https://github.com/tetacom/react-ui/commit/79dd45432bc4251b4f163ce79cbee7ee020aeb03))
+
 ### [0.15.20](https://github.com/tetacom/react-ui/compare/react-components-0.15.19...react-components-0.15.20) (2024-02-01)
 
 
