@@ -54,7 +54,7 @@ export class PropertyGridRow extends TableColumn {
     maxValue?: number;
     minValue?: number;
     required?: boolean;
-    formatter?: (value: any) => string;
+    formatter?: (value: any) => string | number;
     propertyGridCell?: IPropertyGridComponent;
     columns?: any[];
   }) {
