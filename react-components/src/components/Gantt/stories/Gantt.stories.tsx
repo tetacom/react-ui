@@ -17,6 +17,7 @@ export default meta;
 type Story = StoryObj<typeof Gantt>;
 
 const GanttStory = () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const data: ScheduleDto = dataResponse;
 
