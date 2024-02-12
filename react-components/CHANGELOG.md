@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.24](https://github.com/tetacom/react-ui/compare/react-components-0.15.23...react-components-0.15.24) (2024-02-12)
+
+
+### Bug Fixes
+
+* drawer update ([3b2b376](https://github.com/tetacom/react-ui/commit/3b2b37616599689bb10e10ac10bba95f68fbad0c))
+
 ### [0.15.23](https://github.com/tetacom/react-ui/compare/react-components-0.15.22...react-components-0.15.23) (2024-02-12)
 
 
