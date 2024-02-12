@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   useFloating,
   useDismiss,
@@ -13,6 +13,7 @@ import {
 import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { Spinner } from '../Spinner';
 import { DrawerProps } from './model';
 import { Button } from '../Button';
 import { Icon } from '../Icons';
@@ -31,6 +32,7 @@ export const Drawer: FC<DrawerProps> = ({
   width,
   height,
   zIndex,
+  duration = 0.3,
   parent,
   style,
   className,
@@ -56,6 +58,8 @@ export const Drawer: FC<DrawerProps> = ({
       width,
       height,
     });
+
+  const [isAnimationEnded, setAnimationEnded] = useState<boolean>(false);
 
   const { id, root } = {
     id: typeof parent === 'string' ? parent : undefined,
@@ -84,7 +88,12 @@ export const Drawer: FC<DrawerProps> = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration, ease: 'easeInOut' }}
+                onAnimationComplete={(event) => {
+                  setAnimationEnded(
+                    Boolean((event as { opacity: 0 | 1 }).opacity),
+                  );
+                }}
               />
 
               <FloatingFocusManager context={context}>
@@ -98,27 +107,35 @@ export const Drawer: FC<DrawerProps> = ({
                   initial={drawerAnimateStyles}
                   animate={{ x: 0, y: 0 }}
                   exit={drawerAnimateStyles}
-                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                  transition={{ duration, ease: 'easeInOut' }}
                 >
-                  <div className={s.header} id={headingId}>
-                    {title && (
-                      <>
-                        {titleElement}
-                        <Button
-                          shape="circle"
-                          square
-                          view="ghost"
-                          onClick={onClose}
-                        >
-                          <Icon name={closeIconName || 'closeBig'} />
-                        </Button>
-                      </>
-                    )}
-                  </div>
+                  {isAnimationEnded ? (
+                    <>
+                      <div className={s.header} id={headingId}>
+                        {title && (
+                          <>
+                            {titleElement}
+                            <Button
+                              shape="circle"
+                              square
+                              view="ghost"
+                              onClick={onClose}
+                            >
+                              <Icon name={closeIconName || 'closeBig'} />
+                            </Button>
+                          </>
+                        )}
+                      </div>
 
-                  <div className={s.body}>{children}</div>
+                      <div className={s.body}>{children}</div>
 
-                  <div className={s.footer}>{extra.length > 0 && extra}</div>
+                      <div className={s.footer}>
+                        {extra.length > 0 && extra}
+                      </div>
+                    </>
+                  ) : (
+                    <Spinner size={24} color="var(--color-primary-50)" />
+                  )}
                 </motion.div>
               </FloatingFocusManager>
             </div>

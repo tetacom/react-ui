@@ -30,6 +30,9 @@ export interface DrawerProps extends React.PropsWithChildren {
   // Положение боковой панели и ее дочерних элементов по оси z
   zIndex?: CSSProperties['zIndex'];
 
+  // Время воспроизведения анимации в секундах
+  duration?: number;
+
   // Родительский элемент, если боковая панель должна оставаться в рамках другого элемента
   parent?:
     | string
