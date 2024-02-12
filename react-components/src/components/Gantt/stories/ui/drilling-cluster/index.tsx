@@ -1,12 +1,10 @@
 import * as d3 from 'd3';
-import {
-  MilestoneComponentProps,
-  Tooltip,
-  Typography,
-} from '@tetacom/react-components';
 
+import { Tooltip } from '../../../../Tooltip';
+import { Typography } from '../../../../Typography';
 import { Formatter } from '../../../../../utils/formatter';
 import { getContrastColor } from '../../../../../utils/getContrastColor';
+import { MilestoneComponentProps } from '../../../model/public-api';
 import { ScheduleMilestone, OperationTypeLib } from '../../types';
 
 import s from './style.module.scss';

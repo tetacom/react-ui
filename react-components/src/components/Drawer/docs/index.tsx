@@ -6,10 +6,11 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import { Unstyled } from '@storybook/blocks';
-import { Button, Drawer } from '@tetacom/react-components';
 
 import { Typography } from '../../Typography';
+import { Button } from '../../Button';
 import { DrawerProps } from '../model';
+import { Drawer } from '../index';
 
 import drawerClassNames from '../style.module.scss';
 

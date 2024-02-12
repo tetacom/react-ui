@@ -1,9 +1,6 @@
-import {
-  MilestoneComponentProps,
-  Tooltip,
-  Typography,
-} from '@tetacom/react-components';
-
+import { MilestoneComponentProps } from '../../../model/public-api';
+import { Tooltip } from '../../../../Tooltip';
+import { Typography } from '../../../../Typography';
 import { ScheduleMilestone } from '../../types';
 import { Formatter } from '../../../../../utils/formatter';
 

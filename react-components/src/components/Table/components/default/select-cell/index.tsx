@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { BaseSelectProps } from '@tetacom/react-components';
 
 import { Select } from '../../../../Select';
+import { BaseSelectProps } from '../../../../Select/model/public-api';
 import { ICellComponent } from '../../../model/public-api';
 
 export function SelectCell({

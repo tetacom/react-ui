@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Gantt } from '../index';
 
 import dataResponse from './data.json';
-import { ZoomSize } from '@tetacom/react-components';
+import { ZoomSize } from '../model/public-api';
 import { SidebarItem } from './ui/sidebar-item';
 import { ScheduleDto } from './types';
 import { createMilestoneItems } from './create-milestone-items';
@@ -17,6 +17,7 @@ export default meta;
 type Story = StoryObj<typeof Gantt>;
 
 const GanttStory = () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const data: ScheduleDto = dataResponse;
 
