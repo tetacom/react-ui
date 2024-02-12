@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { BaseMilestone } from '@tetacom/react-components';
+import { BaseMilestone } from '../model/public-api';
 
 export interface ClusterInfoDto {
   /** @format int32 */

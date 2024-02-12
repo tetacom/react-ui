@@ -75,6 +75,7 @@ export const SliderDocs = () => {
         }}
         width={300}
         zIndex={1}
+        renderAfterAnimationComplete
       >
         <Typography.Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus

@@ -3,9 +3,8 @@ import React, { FC, useMemo, useState } from 'react';
 import { Stack } from '../../../Stack';
 import { Divider } from '../../../Divider';
 import { CheckboxComponent } from '../checkbox';
-
 import { CheckboxGroupProps } from '../../model';
-import { CheckboxGroupItem } from '@tetacom/react-components';
+import { CheckboxGroupItem } from '../../model/public-api';
 
 interface CheckboxGroupType extends CheckboxGroupItem {
   checked: boolean;

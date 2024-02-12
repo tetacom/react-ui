@@ -26,6 +26,12 @@
     overflow-x: hidden;
     overflow-y: scroll;
 
+    &Spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .header {
       background-color: inherit;
       padding: var(--spacing-12) var(--spacing-16);

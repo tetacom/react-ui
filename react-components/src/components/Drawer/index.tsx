@@ -33,6 +33,7 @@ export const Drawer: FC<DrawerProps> = ({
   height,
   zIndex,
   duration = 0.3,
+  renderAfterAnimationComplete = false,
   parent,
   style,
   className,
@@ -60,6 +61,7 @@ export const Drawer: FC<DrawerProps> = ({
     });
 
   const [isAnimationEnded, setAnimationEnded] = useState<boolean>(false);
+  const isShowContent = renderAfterAnimationComplete ? isAnimationEnded : true;
 
   const { id, root } = {
     id: typeof parent === 'string' ? parent : undefined,
@@ -99,7 +101,11 @@ export const Drawer: FC<DrawerProps> = ({
               <FloatingFocusManager context={context}>
                 <motion.div
                   ref={refs.setFloating}
-                  className={classNames(s.drawerContent, className)}
+                  className={classNames(
+                    s.drawerContent,
+                    !isShowContent && s.drawerContentSpinner,
+                    className,
+                  )}
                   aria-labelledby={headingId}
                   aria-describedby={descriptionId}
                   {...getFloatingProps()}
@@ -109,7 +115,7 @@ export const Drawer: FC<DrawerProps> = ({
                   exit={drawerAnimateStyles}
                   transition={{ duration, ease: 'easeInOut' }}
                 >
-                  {isAnimationEnded ? (
+                  {isShowContent ? (
                     <>
                       <div className={s.header} id={headingId}>
                         {title && (

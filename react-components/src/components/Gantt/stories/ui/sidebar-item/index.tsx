@@ -1,5 +1,4 @@
-import { Typography } from '@tetacom/react-components';
-
+import { Typography } from '../../../../Typography';
 import { DrillingRigInfoDto, DriveType } from '../../types';
 
 import s from './style.module.scss';

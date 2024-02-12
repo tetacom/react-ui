@@ -33,6 +33,9 @@ export interface DrawerProps extends React.PropsWithChildren {
   // Время воспроизведения анимации в секундах
   duration?: number;
 
+  // Показывать содержимое после окончание анимации
+  renderAfterAnimationComplete?: boolean;
+
   // Родительский элемент, если боковая панель должна оставаться в рамках другого элемента
   parent?:
     | string
