@@ -6,7 +6,7 @@
   border-bottom: 1px solid var(--color-text-10);
   overflow-x: scroll;
   z-index: 1;
-
+  scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
