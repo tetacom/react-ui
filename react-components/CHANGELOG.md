@@ -2,6 +2,23 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.24](https://github.com/tetacom/react-ui/compare/react-components-0.15.23...react-components-0.15.24) (2024-02-14)
+
+
+### Bug Fixes
+
+* exit animation ([d9e8746](https://github.com/tetacom/react-ui/commit/d9e87466e62992d2012e3c62940b8ea460bb7ce8))
+
+### [0.15.23](https://github.com/tetacom/react-ui/compare/react-components-0.15.22...react-components-0.15.23) (2024-02-14)
+
+
+### Bug Fixes
+
+* drawer update ([3b2b376](https://github.com/tetacom/react-ui/commit/3b2b37616599689bb10e10ac10bba95f68fbad0c))
+* drawer update ([ce36c58](https://github.com/tetacom/react-ui/commit/ce36c58b3e0e7e63e902e4207345b6b04c8cb568))
+* update drawer ([841f715](https://github.com/tetacom/react-ui/commit/841f71560f3078112d458b42f9074c2d4c15ecb9))
+* update gantt scrollbar ([2ebcf71](https://github.com/tetacom/react-ui/commit/2ebcf71b92712c501e8a59e5639bbb75e6e1a5d6))
+
 ### [0.15.24](https://github.com/tetacom/react-ui/compare/react-components-0.15.23...react-components-0.15.24) (2024-02-12)
 
 

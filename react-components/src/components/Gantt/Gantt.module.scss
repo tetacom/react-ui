@@ -10,16 +10,6 @@
   grid-template-columns: var(--sidebar-width) 1fr;
   border-top: 1px solid var(--color-text-5);
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: var(--scrollbar-side);
-    background-color: var(--main-bg);
-  }
-
   .timeline {
     overflow-x: scroll;
     background-color: var(--color-global-bgmain);
