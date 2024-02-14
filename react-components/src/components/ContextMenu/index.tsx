@@ -9,16 +9,18 @@ import {
   useFloating,
   useInteractions,
 } from '@floating-ui/react';
-import {
+import React, {
   Children,
   cloneElement,
   isValidElement,
   useEffect,
   useState,
 } from 'react';
-import s from './style.module.scss';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import { ContextMenuProps } from './model';
+
+import s from './style.module.scss';
 
 export function ContextMenu(props: React.PropsWithChildren<ContextMenuProps>) {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,41 +80,43 @@ export function ContextMenu(props: React.PropsWithChildren<ContextMenuProps>) {
 
   return (
     <FloatingPortal>
-      {show && (
-        <FloatingOverlay lockScroll>
-          <motion.div
-            className={s.contextContent}
-            ref={refs.setFloating}
-            style={floatingStyles}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.1 }}
-            {...getFloatingProps()}
-          >
-            {Children.map(
-              props.children,
-              (child, index) =>
-                isValidElement(child) &&
-                cloneElement(
-                  child,
-                  getItemProps({
-                    onClick() {
-                      child.props.onClick?.();
-                      setIsOpen(false);
-                      props.openChange?.(false);
-                    },
-                    onMouseUp() {
-                      child.props.onClick?.();
-                      setIsOpen(false);
-                      props.openChange?.(false);
-                    },
-                  }),
-                ),
-            )}
-          </motion.div>
-        </FloatingOverlay>
-      )}
+      <AnimatePresence>
+        {show && (
+          <FloatingOverlay lockScroll>
+            <motion.div
+              className={s.contextContent}
+              ref={refs.setFloating}
+              style={floatingStyles}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.15 }}
+              {...getFloatingProps()}
+            >
+              {Children.map(
+                props.children,
+                (child) =>
+                  isValidElement(child) &&
+                  cloneElement(
+                    child,
+                    getItemProps({
+                      onClick() {
+                        child.props.onClick?.();
+                        setIsOpen(false);
+                        props.openChange?.(false);
+                      },
+                      onMouseUp() {
+                        child.props.onClick?.();
+                        setIsOpen(false);
+                        props.openChange?.(false);
+                      },
+                    }),
+                  ),
+              )}
+            </motion.div>
+          </FloatingOverlay>
+        )}
+      </AnimatePresence>
     </FloatingPortal>
   );
 }
