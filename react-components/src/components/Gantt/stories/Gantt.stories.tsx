@@ -27,7 +27,7 @@ const GanttStory = () => {
         items: createMilestoneItems(data),
         sidebarComponent: SidebarItem,
         zoom: ZoomSize.year,
-        height: '100%',
+        height: 'calc(100vh - 24px)',
       }}
     />
   );

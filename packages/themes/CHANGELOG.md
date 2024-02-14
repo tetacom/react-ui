@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.0](https://github.com/tetacom/react-ui/compare/themes-0.0.21...themes-0.1.0) (2024-02-14)
+
+
+### Features
+
+* chart mvp version ([8735ebb](https://github.com/tetacom/react-ui/commit/8735ebb133e8a760e4ad9f18c00d618f821f5ded))
+
+
+### Bug Fixes
+
+* update scrollbar ([c091ecc](https://github.com/tetacom/react-ui/commit/c091eccca1a7068973ae8e5a0c804a0ab43c1922))
+
 ### [0.0.21](https://github.com/tetacom/react-ui/compare/themes-0.0.20...themes-0.0.21) (2023-10-12)
 
 
