@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.24](https://github.com/tetacom/react-ui/compare/react-components-0.15.23...react-components-0.15.24) (2024-02-14)
+
+
+### Bug Fixes
+
+* exit animation ([d9e8746](https://github.com/tetacom/react-ui/commit/d9e87466e62992d2012e3c62940b8ea460bb7ce8))
+
 ### [0.15.23](https://github.com/tetacom/react-ui/compare/react-components-0.15.22...react-components-0.15.23) (2024-02-14)
 
 
