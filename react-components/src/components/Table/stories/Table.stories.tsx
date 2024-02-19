@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import dayjs from 'dayjs';
 
@@ -14,7 +14,7 @@ import { CellParamsType } from '../model/cell-params';
 import { Skeleton } from '../../Skeleton';
 import { Card } from '../../Card';
 import { ClusterDto } from './tableType';
-import { FilterType } from '../model/public-api';
+import { FilterType, ICellInstance } from '../model/public-api';
 
 const meta: Meta<typeof Table> = {
   title: 'Data Display/Table',
@@ -95,6 +95,14 @@ const TableStory: FC<{
     return column;
   });
 
+  const [data, setData] = useState(initData);
+  const handleChange = (value: ICellInstance<ClusterDto>) => {
+    const valueIndex = data.findIndex((item) => item.id === value.row.id);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    setData(data.with(valueIndex, value.row));
+  };
+
   return (
     <Card
       style={{
@@ -105,9 +113,10 @@ const TableStory: FC<{
         localStorageKey={localStorageKey}
         height={height}
         acrossLine={acrossLine}
-        dataSource={initData}
+        dataSource={data}
         columns={cols}
         sticky={sticky}
+        valueChange={handleChange}
         skeleton={
           loading ? (
             <Skeleton
@@ -126,6 +135,7 @@ const TableStory: FC<{
 };
 
 export const Default: Story = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   render: ({ ...args }) => <TableStory {...args} />,
   args: {
@@ -141,6 +151,7 @@ export const Default: Story = {
 };
 
 export const SmallTable: Story = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   render: ({ ...args }) => <TableStory {...args} />,
   args: {

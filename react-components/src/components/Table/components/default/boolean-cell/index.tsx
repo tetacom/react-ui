@@ -45,7 +45,8 @@ export function BooleanCell({
 
         setInnerValue(item);
         setOpen(undefined);
-        if (innerValue?.key) {
+
+        if (item) {
           meta?.valueChanged({
             ...row.original,
             [column.id]: item.value,
@@ -54,6 +55,7 @@ export function BooleanCell({
       }}
       shape="brick"
       size="small"
+      showAllOptions
       style={{ height: '100%' }}
     />
   ) : (

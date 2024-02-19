@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.27](https://github.com/tetacom/react-ui/compare/react-components-0.15.26...react-components-0.15.27) (2024-02-19)
+
+
+### Bug Fixes
+
+* fix bool cell, fix table update ([2673308](https://github.com/tetacom/react-ui/commit/26733085d11d981e8f1e8d5287af4f01019e8dc0))
+
 ### [0.15.26](https://github.com/tetacom/react-ui/compare/react-components-0.15.25...react-components-0.15.26) (2024-02-19)
 
 

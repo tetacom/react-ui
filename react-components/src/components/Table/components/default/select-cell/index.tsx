@@ -55,10 +55,11 @@ export function SelectCell({
       onChangeItem={(item) => {
         setInnerValue(item);
         setOpen(undefined);
-        if (innerValue?.key) {
+
+        if (item) {
           meta?.valueChanged({
             ...row.original,
-            [column.id]: parseInt(innerValue.key, 10),
+            [column.id]: parseInt(item.key, 10),
           });
         }
       }}
