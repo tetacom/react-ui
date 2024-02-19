@@ -18,7 +18,7 @@ export function NumberCell({
     setInnerValue(value);
   }, [value]);
 
-  const valueChange = () => {
+  const valueSave = () => {
     const numberInnerValue = Number(innerValue);
 
     if (Number.isNaN(numberInnerValue)) {
@@ -28,7 +28,6 @@ export function NumberCell({
         ...row.original,
         [column.id]: numberInnerValue,
       });
-      setInnerValue(numberInnerValue);
     }
   };
 
@@ -45,10 +44,10 @@ export function NumberCell({
       value={innerValue ?? 0}
       tabIndex={cellIndex}
       placeholder={column.columnDef.meta?.tableColumn?.caption}
-      onBlur={() => valueChange()}
+      onBlur={valueSave}
       onKeyDown={(event) => {
         if (event.key === 'Enter') {
-          valueChange();
+          valueSave();
         }
       }}
       onChange={(e) => setInnerValue(e)}

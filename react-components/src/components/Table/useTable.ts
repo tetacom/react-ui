@@ -138,8 +138,8 @@ export function useTable<T>(props: TableProps<T>) {
         ) {
           const row = table.getRow(currentEditCell.row.toString());
           const column = table.getColumn(currentEditCell.column);
-          const foundRowIndex = props.data?.findIndex(
-            (_) => _ === row.original,
+          const foundRowIndex = props.data?.findIndex((dataItem) =>
+            Object.is(dataItem, row.original),
           );
 
           if (foundRowIndex !== -1) {
