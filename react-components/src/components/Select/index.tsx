@@ -22,6 +22,16 @@ const SelectInner = forwardRef(
     const inputRef = useRef<HTMLInputElement>(null);
     const foundValue = props.items?.find(({ key }) => key === value?.key);
 
+    const [searchValue, setSearchValue] = useState<string>(
+      value?.headline ?? '',
+    );
+    const handleTypeSearch = (inputValue: string) => {
+      setSearchValue(inputValue);
+    };
+    const handleFocus = () => {
+      setOpen(true);
+    };
+
     const getInputProps = ({
       allowNull,
       onChangeItem,
@@ -33,6 +43,7 @@ const SelectInner = forwardRef(
 
     const handleChange = (item: T | null) => {
       setValue(item);
+      setSearchValue(item?.headline ?? '');
       setOpen(false);
       props.onChangeItem && props.onChangeItem(item);
     };
@@ -56,6 +67,10 @@ const SelectInner = forwardRef(
       );
     }
 
+    const filteredItems = props.items.filter(({ headline }) =>
+      headline.includes(searchValue),
+    );
+
     return (
       <Dropdown
         possiblePlacements={['bottom-start', 'top-start']}
@@ -70,35 +85,46 @@ const SelectInner = forwardRef(
         zIndex={props.zIndex}
         dropdown={
           <ul className={listStyle.list}>
-            {props.items?.map((item) => (
-              <Tooltip
-                key={item.key}
-                title={props.onItemRender ? '' : item.headline}
-                delay={1000}
-              >
-                <li
-                  role="option"
-                  aria-selected
-                  className={classNames([
-                    listStyle.item,
-                    item === foundValue ? s.selected : null,
-                  ])}
-                  onClick={() => {
-                    handleChange(item);
-                  }}
+            {filteredItems.length !== 0 ? (
+              filteredItems.map((item) => (
+                <Tooltip
+                  key={item.key}
+                  title={props.onItemRender ? '' : item.headline}
+                  delay={1000}
                 >
-                  {props.onItemRender ? (
-                    <div className={listStyle.textHeadline}>
-                      {props.onItemRender(item)}
-                    </div>
-                  ) : (
-                    <span className={listStyle.textHeadline}>
-                      {item.headline}
-                    </span>
-                  )}
-                </li>
-              </Tooltip>
-            ))}
+                  <li
+                    role="option"
+                    aria-selected
+                    className={classNames([
+                      listStyle.item,
+                      item === foundValue ? s.selected : null,
+                    ])}
+                    onClick={() => {
+                      handleChange(item);
+                    }}
+                  >
+                    {props.onItemRender ? (
+                      <div className={listStyle.textHeadline}>
+                        {props.onItemRender(item)}
+                      </div>
+                    ) : (
+                      <span className={listStyle.textHeadline}>
+                        {item.headline}
+                      </span>
+                    )}
+                  </li>
+                </Tooltip>
+              ))
+            ) : (
+              <li
+                role="option"
+                aria-selected
+                className={listStyle.item}
+                style={{ pointerEvents: 'none' }}
+              >
+                <span className={listStyle.textHeadline}>Нет вариантов</span>
+              </li>
+            )}
           </ul>
         }
       >
@@ -118,7 +144,9 @@ const SelectInner = forwardRef(
                 ...props.style,
               }}
               ref={useMergeRefs([inputRef, ref])}
-              value={foundValue?.headline}
+              value={searchValue}
+              onChange={handleTypeSearch}
+              onFocus={handleFocus}
               rightIcons={rightIcons}
             />
           </Tooltip>

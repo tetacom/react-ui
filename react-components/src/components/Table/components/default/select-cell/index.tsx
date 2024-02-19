@@ -65,6 +65,7 @@ export function SelectCell({
       shape="brick"
       size="small"
       height="100%"
+      placeholder={column.columnDef.meta?.tableColumn.caption}
     />
   ) : (
     <div tabIndex={cellIndex}>{innerValue?.headline}</div>
