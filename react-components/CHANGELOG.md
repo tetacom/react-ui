@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.26](https://github.com/tetacom/react-ui/compare/react-components-0.15.25...react-components-0.15.26) (2024-02-19)
+
+
+### Bug Fixes
+
+* select with autofill ([96f927f](https://github.com/tetacom/react-ui/commit/96f927fffbcf18724dece8e6129d42fb2212de0e))
+
 ### [0.15.25](https://github.com/tetacom/react-ui/compare/react-components-0.15.24...react-components-0.15.25) (2024-02-14)
 
 
