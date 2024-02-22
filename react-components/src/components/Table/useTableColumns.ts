@@ -13,7 +13,8 @@ type Config = {
 
 const defaultFilterMap = new Map<FilterType, string>()
   .set(FilterType.boolean, 'boolean')
-  .set(FilterType.list, 'list');
+  .set(FilterType.list, 'list')
+  .set(FilterType.string, 'string');
 
 export const useTableColumns = <T>({
   columns,

@@ -104,6 +104,7 @@ export function useTable<T>(props: TableProps<T>) {
     filterFns: {
       list: Filters.list,
       boolean: Filters.boolean,
+      string: Filters.string,
     },
     meta: {
       dictionary: props.dictionary,

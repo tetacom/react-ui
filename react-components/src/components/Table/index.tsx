@@ -21,9 +21,11 @@ import { Filter } from './components/filter';
 import { useTable } from './useTable';
 import { Stack } from '../Stack';
 import { Skeleton } from './components/skeleton';
+import { Result } from '../Result';
 import { eventIsOnRow, getCoordinates, lockedClasses } from './helpers';
 import { LockedColumn } from './model/enum/locked-column.enum';
 import { useStickyStyles } from './useStickyStyles';
+import noDataImg from './assets/no-data.svg';
 
 import s from './style.module.scss';
 
@@ -218,6 +220,7 @@ export function Table<T>({
 
   const state = table.getState();
   const filterApplied = state.columnFilters.length > 0;
+  const virtualRows = virtualizer.getVirtualItems();
 
   return (
     <div className={s.root} style={{ height }}>
@@ -260,118 +263,132 @@ export function Table<T>({
 
       <div className={s.tableWrapper} ref={parentRef}>
         <Skeleton skeleton={skeleton}>
-          <table
-            className={classNames(s.table, className)}
-            style={{
-              ...cellStyles,
-              width: tableWidth,
-              height: virtualizer.getTotalSize(),
-            }}
-          >
-            <thead className={classNames(sticky && s.sticky)}>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <tr key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => {
-                    const isSorted = header.column.getIsSorted();
-                    const thContent = flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    );
-                    const thHint =
-                      columns?.find(({ name }) => name === header.id)?.hint ??
-                      '';
+          {Boolean(virtualRows.length) && (
+            <table
+              className={classNames(s.table, className)}
+              style={{
+                ...cellStyles,
+                width: tableWidth,
+                height: virtualizer.getTotalSize(),
+              }}
+            >
+              <thead className={classNames(sticky && s.sticky)}>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <tr key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => {
+                      const isSorted = header.column.getIsSorted();
+                      const thContent = flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      );
+                      const thHint =
+                        columns?.find(({ name }) => name === header.id)?.hint ??
+                        '';
 
-                    const columnLockedData = lockedColumnsVariables.get(
-                      header.column.id,
-                    );
-                    const columnLocked =
-                      columnLockedData?.lockedValue ?? LockedColumn.none;
+                      const columnLockedData = lockedColumnsVariables.get(
+                        header.column.id,
+                      );
+                      const columnLocked =
+                        columnLockedData?.lockedValue ?? LockedColumn.none;
 
-                    let stickyClasses = '';
-                    if (columnLockedData?.isExtreme) {
-                      if (columnLocked === LockedColumn.left) {
-                        stickyClasses = s.lockedHeadLeftLast;
-                      } else if (columnLocked === LockedColumn.right) {
-                        stickyClasses = s.lockedHeadRightFirst;
+                      let stickyClasses = '';
+                      if (columnLockedData?.isExtreme) {
+                        if (columnLocked === LockedColumn.left) {
+                          stickyClasses = s.lockedHeadLeftLast;
+                        } else if (columnLocked === LockedColumn.right) {
+                          stickyClasses = s.lockedHeadRightFirst;
+                        }
                       }
-                    }
 
-                    return (
-                      <Tooltip
-                        key={header.id}
-                        title={thHint}
-                        target="hover"
-                        placement="bottom-start"
-                      >
-                        <th
-                          onClick={(event: React.MouseEvent<HTMLElement>) => {
-                            if (
-                              (event.target as HTMLElement).dataset.type ===
-                              RESIZER_ATTRIBUTE_NAME
-                            )
-                              return;
-
-                            const handler =
-                              header.column.getToggleSortingHandler();
-                            handler?.(event);
-                          }}
-                          className={classNames(
-                            lockedClasses[columnLocked]?.head,
-                            stickyClasses,
-                            header.column.getCanSort() && s.isSortable,
-                          )}
-                          style={columnLockedData?.variables}
+                      return (
+                        <Tooltip
+                          key={header.id}
+                          title={thHint}
+                          target="hover"
+                          placement="bottom-start"
                         >
-                          {header.isPlaceholder ? null : (
-                            <div className={s.thContent}>
-                              <div>{thContent}</div>
+                          <th
+                            onClick={(event: React.MouseEvent<HTMLElement>) => {
+                              if (
+                                (event.target as HTMLElement).dataset.type ===
+                                RESIZER_ATTRIBUTE_NAME
+                              )
+                                return;
 
-                              {isSorted ? (
-                                <Icon
-                                  name={sortIconNames.get(isSorted) ?? ''}
-                                  className={s.thContentIcon}
-                                />
-                              ) : null}
-                            </div>
-                          )}
-                          <div
-                            data-type={RESIZER_ATTRIBUTE_NAME}
+                              const handler =
+                                header.column.getToggleSortingHandler();
+                              handler?.(event);
+                            }}
                             className={classNames(
-                              s.resizer,
-                              header.column.getIsResizing() &&
-                                s.resizerIsResizing,
+                              lockedClasses[columnLocked]?.head,
+                              stickyClasses,
+                              header.column.getCanSort() && s.isSortable,
                             )}
-                            onMouseDown={(event) =>
-                              handleResizeMouseDown(event, header, headerGroup)
-                            }
-                          />
-                        </th>
-                      </Tooltip>
-                    );
-                  })}
-                </tr>
-              ))}
-            </thead>
+                            style={columnLockedData?.variables}
+                          >
+                            {header.isPlaceholder ? null : (
+                              <div className={s.thContent}>
+                                <div>{thContent}</div>
 
-            <tbody>
-              {virtualizer.getVirtualItems().map((virtualRow) => {
-                const row = rows[virtualRow.index] as Row<T>;
+                                {isSorted ? (
+                                  <Icon
+                                    name={sortIconNames.get(isSorted) ?? ''}
+                                    className={s.thContentIcon}
+                                  />
+                                ) : null}
+                              </div>
+                            )}
+                            <div
+                              data-type={RESIZER_ATTRIBUTE_NAME}
+                              className={classNames(
+                                s.resizer,
+                                header.column.getIsResizing() &&
+                                  s.resizerIsResizing,
+                              )}
+                              onMouseDown={(event) =>
+                                handleResizeMouseDown(
+                                  event,
+                                  header,
+                                  headerGroup,
+                                )
+                              }
+                            />
+                          </th>
+                        </Tooltip>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </thead>
 
-                return (
-                  <TableRow
-                    key={virtualRow.key}
-                    virtualIndex={virtualRow.index}
-                    rowRef={virtualizer.measureElement}
-                    row={row}
-                    table={table}
-                    isSelectedRow={row.getIsSelected()}
-                    acrossLine={acrossLine}
-                    lockedColumnsVariables={lockedColumnsVariables}
-                  />
-                );
-              })}
-            </tbody>
-          </table>
+              <tbody>
+                {virtualRows.map((virtualRow) => {
+                  const row = rows[virtualRow.index] as Row<T>;
+
+                  return (
+                    <TableRow
+                      key={virtualRow.key}
+                      virtualIndex={virtualRow.index}
+                      rowRef={virtualizer.measureElement}
+                      row={row}
+                      table={table}
+                      isSelectedRow={row.getIsSelected()}
+                      acrossLine={acrossLine}
+                      lockedColumnsVariables={lockedColumnsVariables}
+                    />
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
+
+          {!Boolean(virtualRows.length) && (
+            <Result
+              title="Данные отсутствуют"
+              picture={<img src={noDataImg} alt="" />}
+              style={{ height: '100%' }}
+            />
+          )}
         </Skeleton>
       </div>
     </div>

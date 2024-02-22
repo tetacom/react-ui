@@ -12,7 +12,15 @@ function boolean(
   return filterValue.includes(Number(row.original?.[columnId]));
 }
 
+function string(row: Row<any>, columnId: string, filterValue: string): boolean {
+  const currentValue = row.original?.[columnId];
+  if (currentValue === undefined || currentValue === null) return false;
+
+  return currentValue.toLowerCase().includes(filterValue.toLowerCase());
+}
+
 export const Filters = {
   list,
   boolean,
+  string,
 };
