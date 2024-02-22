@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { CSSProperties, InputHTMLAttributes } from 'react';
 
 import { StackProps } from '../../Stack/model';
 import { CheckboxGroupItem } from './checkbox-group-item';
@@ -35,5 +35,9 @@ export interface CheckboxGroupProps {
   // Функция обратного вызова, которая срабатывает при изменении состояния
   onChange?: (checkedValue: CheckboxGroupItem[]) => void;
 
-  style?: React.CSSProperties;
+  // Дополнительный класс
+  className?: string;
+
+  // Встроенные стили
+  style?: CSSProperties;
 }

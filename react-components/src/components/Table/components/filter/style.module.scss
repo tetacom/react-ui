@@ -1,0 +1,16 @@
+.interval {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  > * {
+    flex-grow: 1;
+  }
+}
+
+.checkboxGroup {
+  width: 100%;
+  max-height: 160px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
