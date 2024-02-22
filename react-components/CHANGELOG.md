@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.28](https://github.com/tetacom/react-ui/compare/react-components-0.15.27...react-components-0.15.28) (2024-02-22)
+
+
+### Bug Fixes
+
+* table date filter ([a3721ac](https://github.com/tetacom/react-ui/commit/a3721ac1e4f9019a90767b54528f7d41a2f1da0e))
+* table date filter ([0b5c4f1](https://github.com/tetacom/react-ui/commit/0b5c4f126c8e374729eea049ab6134a2d7d9cbb5))
+* table string filter ([68d0b8f](https://github.com/tetacom/react-ui/commit/68d0b8fa3909c9f858d761214f62de3abacd36b7))
+
 ### [0.15.27](https://github.com/tetacom/react-ui/compare/react-components-0.15.26...react-components-0.15.27) (2024-02-19)
 
 
