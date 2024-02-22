@@ -205,7 +205,7 @@ export function Filter<T>(props: FilterProps<T>) {
         }
 
         if (meta?.tableColumn.filterType === FilterType.custom) {
-          //
+          return null;
         }
 
         return null;
