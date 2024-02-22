@@ -7,6 +7,7 @@ import { Input } from '../../../Input';
 import { Checkbox } from '../../../Checkbox';
 import { Stack } from '../../../Stack';
 import { StringFilter } from './string-filter';
+import { DateFilter } from './date-filter';
 
 import s from './style.module.scss';
 
@@ -56,7 +57,21 @@ export function Filter<T>(props: FilterProps<T>) {
         }
 
         if (meta?.tableColumn.filterType === FilterType.date) {
-          //
+          const currentValue = column.getFilterValue() as [string, string];
+
+          return (
+            <FilterItemWrapper
+              key={column.id}
+              caption={meta?.tableColumn.caption}
+            >
+              <DateFilter
+                dates={[currentValue?.[0], currentValue?.[1]]}
+                onChange={(values) => {
+                  column.setFilterValue(() => values);
+                }}
+              />
+            </FilterItemWrapper>
+          );
         }
 
         if (meta?.tableColumn.filterType === FilterType.list) {

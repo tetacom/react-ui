@@ -14,7 +14,8 @@ type Config = {
 const defaultFilterMap = new Map<FilterType, string>()
   .set(FilterType.boolean, 'boolean')
   .set(FilterType.list, 'list')
-  .set(FilterType.string, 'string');
+  .set(FilterType.string, 'string')
+  .set(FilterType.date, 'date');
 
 export const useTableColumns = <T>({
   columns,
