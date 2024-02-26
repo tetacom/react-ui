@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.29](https://github.com/tetacom/react-ui/compare/react-components-0.15.28...react-components-0.15.29) (2024-02-26)
+
+
+### Bug Fixes
+
+* fix empty ([dcb804c](https://github.com/tetacom/react-ui/commit/dcb804c3ff8bc0ab523380975663c0b44c8691d8))
+
 ### [0.15.28](https://github.com/tetacom/react-ui/compare/react-components-0.15.27...react-components-0.15.28) (2024-02-22)
 
 

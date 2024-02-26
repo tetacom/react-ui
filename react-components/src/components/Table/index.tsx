@@ -382,7 +382,7 @@ export function Table<T>({
             </table>
           )}
 
-          {!Boolean(virtualRows.length) && (
+          {virtualRows.length === 0 && rows.length === 0 && (
             <Result
               title="Данные отсутствуют"
               picture={<img src={noDataImg} alt="" />}
