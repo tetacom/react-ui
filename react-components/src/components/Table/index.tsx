@@ -224,13 +224,8 @@ export function Table<T>({
 
   return (
     <div className={s.root} style={{ height }}>
-      <Stack
-        size={12}
-        block
-        className={s.filters}
-        justifyContent="space-between"
-      >
-        <div>{headerComponent}</div>
+      <div className={s.filters}>
+        {headerComponent}
 
         <Stack divider>
           <Button onClick={() => setFilterOpen(true)} view="ghost" square>
@@ -245,7 +240,7 @@ export function Table<T>({
             <Icon name="filterClear" />
           </Button>
         </Stack>
-      </Stack>
+      </div>
       <Drawer
         open={filterIsOpen}
         onClose={() => setFilterOpen(false)}

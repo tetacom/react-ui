@@ -8,6 +8,10 @@
 
   .filters {
     padding: var(--spacing-12);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-12);
     background: var(--color-global-bgcard);
   }
 
