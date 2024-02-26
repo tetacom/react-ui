@@ -225,7 +225,7 @@ export function Table<T>({
   return (
     <div className={s.root} style={{ height }}>
       <div className={s.filters}>
-        {headerComponent}
+        <div>{headerComponent}</div>
 
         <Stack divider>
           <Button onClick={() => setFilterOpen(true)} view="ghost" square>
