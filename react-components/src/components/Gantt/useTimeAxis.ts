@@ -24,7 +24,7 @@ export const useTimeAxis = <T, D extends BaseMilestone>(
 
   const ticks = scale
     .copy()
-    .domain([dayjs(min).startOf('month'), dayjs(max).endOf('month')])
+    .domain([dayjs(min).startOf(zoomSize), dayjs(max).endOf('month')])
     .ticks(
       zoomSize === ZoomSize.month
         ? (timeDay.every(1) as unknown as number)
