@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.33](https://github.com/tetacom/react-ui/compare/react-components-0.15.32...react-components-0.15.33) (2024-03-07)
+
+
+### Bug Fixes
+
+* gantt axis ([981412b](https://github.com/tetacom/react-ui/commit/981412b4561443aea8b3cc41af975bafcbc4c44a))
+
 ### [0.15.32](https://github.com/tetacom/react-ui/compare/react-components-0.15.31...react-components-0.15.32) (2024-02-26)
 
 
