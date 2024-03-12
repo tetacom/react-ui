@@ -1,4 +1,11 @@
-import React, { forwardRef, Ref, useRef, useState } from 'react';
+import React, {
+  forwardRef,
+  Ref,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react';
 import classNames from 'classnames';
 import { useMergeRefs } from '@floating-ui/react';
 
@@ -51,6 +58,16 @@ const SelectInner = forwardRef(
     const handleClear = () => {
       handleChange(null);
     };
+
+    const inputWrapperId = useId();
+    useEffect(() => {
+      if (isOpen) {
+        document
+          .getElementById(inputWrapperId)
+          ?.querySelector('input')
+          ?.focus();
+      }
+    }, [isOpen]);
 
     const rightIcons = [
       <Icon
@@ -136,20 +153,22 @@ const SelectInner = forwardRef(
           }}
         >
           <Tooltip title={foundValue?.headline ?? ''} delay={1000}>
-            <Input.Text
-              {...getInputProps(props)}
-              height="100%"
-              style={{
-                width: '100%',
-                cursor: 'pointer',
-                ...props.style,
-              }}
-              ref={useMergeRefs([inputRef, ref])}
-              value={searchValue}
-              onChange={handleTypeSearch}
-              onFocus={handleFocus}
-              rightIcons={rightIcons}
-            />
+            <div id={inputWrapperId}>
+              <Input.Text
+                {...getInputProps(props)}
+                height="100%"
+                style={{
+                  width: '100%',
+                  cursor: 'pointer',
+                  ...props.style,
+                }}
+                ref={useMergeRefs([inputRef, ref])}
+                value={searchValue}
+                onChange={handleTypeSearch}
+                onFocus={handleFocus}
+                rightIcons={rightIcons}
+              />
+            </div>
           </Tooltip>
         </div>
       </Dropdown>

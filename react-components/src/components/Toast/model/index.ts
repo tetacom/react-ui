@@ -7,7 +7,7 @@ export interface ToastProps extends React.PropsWithChildren {
   open: boolean;
 
   // Обратный вызов закрытия тоста
-  onClose: () => void;
+  onClose?: () => void;
 
   // Время автоматического закрытия тоста
   autoHideDuration?: number;
