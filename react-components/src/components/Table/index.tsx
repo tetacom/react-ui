@@ -53,6 +53,7 @@ export function Table<T>({
   className,
   valueChange,
   verticalAlign = 'top',
+  hiddenHeader = false,
   headerComponent = null,
   parent,
   ...props
@@ -224,7 +225,7 @@ export function Table<T>({
 
   return (
     <div className={s.root} style={{ height }}>
-      <div className={s.filters}>
+      <div className={classNames(s.filters, hiddenHeader && s.filtersHidden)}>
         {headerComponent || <div />}
 
         <Stack divider>
