@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.35](https://github.com/tetacom/react-ui/compare/react-components-0.15.34...react-components-0.15.35) (2024-03-12)
+
+
+### Bug Fixes
+
+* hidden table header ([de19b2b](https://github.com/tetacom/react-ui/commit/de19b2b88f57ae6bee48bdbe7078648ef4fe7aed))
+
 ### [0.15.34](https://github.com/tetacom/react-ui/compare/react-components-0.15.33...react-components-0.15.34) (2024-03-12)
 
 
