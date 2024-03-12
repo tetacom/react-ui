@@ -30,6 +30,10 @@
     padding: var(--spacing-4) 0 var(--spacing-12);
     display: grid;
     gap: var(--spacing-12);
+
+    &:empty {
+      padding-bottom: 0;
+    }
   }
 
   .extra {

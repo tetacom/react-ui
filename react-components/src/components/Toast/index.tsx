@@ -39,13 +39,15 @@ export const Toast: FC<ToastProps> = ({
   children,
 }) => {
   const handleClose = () => {
-    onClose();
+    onClose && onClose();
   };
 
   const { refs, floatingStyles, context } = useFloating({
     open,
     onOpenChange: () => {
-      if (!open) onClose();
+      if (!open) {
+        onClose && onClose();
+      }
     },
     middleware: [flip({ fallbackAxisSideDirection: 'end' }), shift()],
     whileElementsMounted: autoUpdate,

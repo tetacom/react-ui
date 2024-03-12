@@ -155,6 +155,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 className={s.dropdownContent}
               >
                 <div
+                  className={s.dropdownContainer}
                   style={{
                     maxHeight:
                       maxHeightContainer === 'availableHeight'
