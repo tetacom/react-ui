@@ -50,6 +50,9 @@ export interface TableProps<T>
   // Выравнивание строк по вертикали
   verticalAlign?: VerticalAlign;
 
+  // Скрыть хедер таблицы
+  hiddenHeader?: boolean;
+
   // Компонент хедера таблицы
   headerComponent?: React.ReactElement | null;
 
