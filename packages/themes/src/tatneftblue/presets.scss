@@ -1,0 +1,158 @@
+$presets: (
+  themes: (
+    tatneftbluelight: (
+      global: (
+        link: #007effff,
+        white: #ffffffff,
+        bgmain: #f4f5fcff,
+        bgcard: #ffffffff,
+        staticprimary: #26413fff
+      ),
+      text: (
+        5: #0919860f,
+        10: #0f163e21,
+        20: #070c2238,
+        30: #0007144f,
+        40: #050b1466,
+        50: #0306087a,
+        60: #05090b91,
+        70: #030707a6,
+        80: #020303ba,
+        90: #030303cf
+      ),
+      primary: (
+        5: #e5efffff,
+        10: #c1d6ffff,
+        20: #9ebbfeff,
+        30: #7c9dfbff,
+        40: #5b7ef7ff,
+        50: #3c5df2ff,
+        60: #3247d7ff,
+        70: #2833baff,
+        80: #20229dff,
+        90: #1b187fff
+      ),
+      green: (
+        5: #e6f4f0ff,
+        10: #bbe0d3ff,
+        20: #90cbb5ff,
+        30: #66b596ff,
+        40: #3c9e76ff,
+        50: #148654ff,
+        60: #107744ff,
+        70: #0c6836ff,
+        80: #095828ff,
+        90: #06471cff
+      ),
+      red: (
+        5: #fdeef6ff,
+        10: #facbdeff,
+        20: #f7a8c0ff,
+        30: #f4859cff,
+        40: #f16172ff,
+        50: #ef3d42ff,
+        60: #c23e42ff,
+        70: #993c3fff,
+        80: #733739ff,
+        90: #502e2fff
+      ),
+      yellow: (
+        5: #fff0ccff,
+        10: #ffe1a3ff,
+        20: #ffcf7aff,
+        30: #fdbb52ff,
+        40: #f9a429ff,
+        50: #f38b01ff,
+        60: #d86e00ff,
+        70: #bd5400ff,
+        80: #9f3d00ff,
+        90: #802900ff
+      )
+    ),
+    tatneftbluedark: (
+      global: (
+        link: #007effff,
+        white: #ffffffff,
+        bgmain: #212121ff,
+        bgcard: #2b2b2bff,
+        staticprimary: #26413fff
+      ),
+      text: (
+        5: #ffffff0f,
+        10: #ffffff14,
+        20: #ffffff3d,
+        30: #ffffff52,
+        40: #ffffff7a,
+        50: #ffffff8f,
+        60: #ffffffa3,
+        70: #ffffffb8,
+        80: #ffffffcc,
+        90: #ffffffde
+      ),
+      primary: (
+        5: #2f3977ff,
+        10: #33428eff,
+        20: #374da6ff,
+        30: #3958bfff,
+        40: #3b64d8ff,
+        50: #3b72f3ff,
+        60: #568df9ff,
+        70: #72a7fdff,
+        80: #90c0ffff,
+        90: #b0d6ffff
+      ),
+      green: (
+        5: #283f3aff,
+        10: #244b43ff,
+        20: #1f594cff,
+        30: #196855ff,
+        40: #12795dff,
+        50: #0a8a65ff,
+        60: #38a467ff,
+        70: #68bd75ff,
+        80: #a1d499ff,
+        90: #d8eaccff
+      ),
+      red: (
+        5: #4e2921ff,
+        10: #6b322aff,
+        20: #8a3931ff,
+        30: #aa3c36ff,
+        40: #cc3c3aff,
+        50: #ef3d42ff,
+        60: #fa606bff,
+        70: #ff8794ff,
+        80: #ffb2beff,
+        90: #ffe1e7ff
+      ),
+      yellow: (
+        5: #402f1dff,
+        10: #5b401fff,
+        20: #7a541dff,
+        30: #9d6c17ff,
+        40: #c4890dff,
+        50: #eeab00ff,
+        60: #fdc730ff,
+        70: #ffdf60ff,
+        80: #fff18fff,
+        90: #fffcbfff
+      )
+    )
+  ),
+  shadow: (
+    tatneftbluelight: (
+      1: 0px 4px 4px 0px #0000000f,
+      2: 0px 14px 18px 0px #00000014,
+      3: 0px 16px 22px 0px #0000001a,
+      4: 0px 16px 24px 0px #27272729,
+      5: 0px 20px 32px 0px #27272733
+    ),
+    tatneftbluedark: (
+      1: 0px 4px 15px 0px #0b0b0c33,
+      2: 0px 4px 20px 0px #00000040,
+      3: 0px 4px 25px 0px #0000004d,
+      4: 0px 4px 30px 0px #00000059,
+      5: 0px 4px 30px 0px #00000066
+    )
+  )
+);
