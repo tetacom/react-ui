@@ -4,7 +4,7 @@ $presets: (
       global: (
         link: #005ab6ff,
         white: #ffffffff,
-        bgmain: #edeef0ff,
+        bgmain: #f0f0f0ff,
         bgcard: #ffffffff,
         staticprimary: #263077ff
       ),
@@ -73,8 +73,8 @@ $presets: (
       global: (
         link: #58c3ffff,
         white: #ffffffff,
-        bgmain: #1c1b21ff,
-        bgcard: #222229ff,
+        bgmain: #212121ff,
+        bgcard: #2c2c2cff,
         staticprimary: #263077ff
       ),
       text: (
@@ -90,16 +90,16 @@ $presets: (
         90: #ffffffde
       ),
       primary: (
-        5: #2b286fff,
-        10: #2e2e88ff,
-        20: #3238a1ff,
-        30: #3643bbff,
-        40: #3a4fd6ff,
-        50: #3c5df2ff,
-        60: #6386f8ff,
-        70: #8dacfdff,
-        80: #b8d0ffff,
-        90: #e5efffff
+        5: #2f3977ff,
+        10: #33428eff,
+        20: #374da6ff,
+        30: #3958bfff,
+        40: #3b64d8ff,
+        50: #3b72f3ff,
+        60: #568df9ff,
+        70: #72a7fdff,
+        80: #90c0ffff,
+        90: #b0d6ffff
       ),
       green: (
         5: #232f26ff,
@@ -136,6 +136,24 @@ $presets: (
         70: #ffdf60ff,
         80: #fff18fff,
         90: #fffcbfff
+      ),
+      chart: (
+        coffee: #cdbcbcff,
+        lightPurple: #cfaeffff,
+        mandarin: #ffa496ff,
+        purple: #816af8ff,
+        green: #59ae50ff,
+        blue: #286cfdff,
+        peach: #ffd297ff,
+        lemon: #ffe701ff,
+        lightBlue: #83cfffff,
+        turquoise: #2bd8c5ff,
+        cadetBlue: #54adadff,
+        red: #e55759ff,
+        acidOrange: #f67a1aff,
+        mustard: #d8b655ff,
+        orange: #f6b520ff,
+        lightGreen: #46d39aff
       )
     )
   ),
