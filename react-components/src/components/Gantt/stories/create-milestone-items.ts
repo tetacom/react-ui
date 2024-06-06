@@ -70,11 +70,11 @@ export function createMilestoneItems(
             clusterType: ClusterType.move,
             distance: parseFloat(firstWork.distance!.toFixed(2)),
             startTime: dayjs
-              .min([...startDates!])
+              ?.min([...startDates!])
               .startOf('day')
               .toDate(),
             endTime: dayjs
-              .max([...endDates!])
+              ?.max([...endDates!])
               .endOf('day')
               .toDate(),
             items: null,
@@ -90,7 +90,7 @@ export function createMilestoneItems(
         const works: Array<ScheduleWork> = (milestoneWorks as ScheduleWorkDto[])
           .map(({ clusterId, operationType, wellId, startTime, endTime }) => {
             const wellName =
-              currentCluster?.wells?.find((well) => wellId == well.wellId)
+              currentCluster?.wells?.find((well) => wellId === well.wellId)
                 ?.wellName ?? String(wellId);
 
             const work: ScheduleWork = {
@@ -121,11 +121,11 @@ export function createMilestoneItems(
           powerLine: currentCluster?.powerLine,
           drillingRigId: drillingRig.drillingRigId!,
           startTime: dayjs
-            .min([...startDates!])
+            ?.min([...startDates!])
             .startOf('day')
             .toDate(),
           endTime: dayjs
-            .max([...endDates!])
+            ?.max([...endDates!])
             .endOf('day')
             .toDate(),
           items: works,
@@ -137,6 +137,7 @@ export function createMilestoneItems(
 
     const items: MilestoneItem<DrillingRigInfoDto, ScheduleMilestone> = {
       item: drillingRig,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       milestones: milestones
         .sort((a, b) => a.startTime.getTime() - b.startTime.getTime())
