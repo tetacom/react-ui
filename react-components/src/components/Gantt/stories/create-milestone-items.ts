@@ -55,26 +55,26 @@ export function createMilestoneItems(
       .map((milestoneWorks) => {
         const firstWork = milestoneWorks?.at(0) as ScheduleWorkDto;
 
-        const startDates = milestoneWorks?.map(({ startTime }) =>
-          dayjs(startTime),
-        );
-        const endDates = milestoneWorks?.map(({ endTime }) => dayjs(endTime));
+        const startDates =
+          milestoneWorks?.map(({ startTime }) => dayjs(startTime)) ?? [];
+        const endDates =
+          milestoneWorks?.map(({ endTime }) => dayjs(endTime)) ?? [];
 
         // Если передвижка между кустами
         if (
           firstWork.operationType === OperationTypeLib.MovingBetweenClusters
         ) {
           const item: ScheduleMilestone = {
-            clusterId: firstWork.clusterId!,
+            clusterId: firstWork.clusterId,
             caption: '',
             clusterType: ClusterType.move,
-            distance: parseFloat(firstWork.distance!.toFixed(2)),
+            distance: parseFloat(firstWork?.distance?.toFixed(2) ?? '0'),
             startTime: dayjs
-              ?.min([...startDates!])
+              .min([...startDates])
               .startOf('day')
               .toDate(),
             endTime: dayjs
-              ?.max([...endDates!])
+              .max([...endDates])
               .endOf('day')
               .toDate(),
             items: null,
@@ -94,10 +94,10 @@ export function createMilestoneItems(
                 ?.wellName ?? String(wellId);
 
             const work: ScheduleWork = {
-              clusterId: clusterId!,
-              drillingRigId: drillingRig.drillingRigId!,
+              clusterId: clusterId ?? 0,
+              drillingRigId: drillingRig?.drillingRigId ?? 0,
               wellId: wellName,
-              operationType: operationType!,
+              operationType: operationType ?? OperationTypeLib.Drilling,
               startTime: dayjs(startTime).startOf('day').toDate(),
               endTime: dayjs(endTime).endOf('day').toDate(),
             };
@@ -119,13 +119,13 @@ export function createMilestoneItems(
           caption: clusterCaption,
           clusterType: ClusterType.drilling,
           powerLine: currentCluster?.powerLine,
-          drillingRigId: drillingRig.drillingRigId!,
+          drillingRigId: drillingRig.drillingRigId,
           startTime: dayjs
-            ?.min([...startDates!])
+            ?.min([...startDates])
             .startOf('day')
             .toDate(),
           endTime: dayjs
-            ?.max([...endDates!])
+            ?.max([...endDates])
             .endOf('day')
             .toDate(),
           items: works,
