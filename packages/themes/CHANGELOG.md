@@ -2,6 +2,20 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.2](https://github.com/tetacom/react-ui/compare/themes-0.1.1...themes-0.1.2) (2024-06-06)
+
+
+### Bug Fixes
+
+* **style:** design tokens updated ([be84dff](https://github.com/tetacom/react-ui/commit/be84dff81f77bc9c48a4335a813a2313276fabb9))
+* **style:** design tokens updated ([6836f0b](https://github.com/tetacom/react-ui/commit/6836f0b181e425a68c59029516c3caf4f8ae314f))
+* **style:** design tokens updated ([9262e42](https://github.com/tetacom/react-ui/commit/9262e42dd7cb16a9412e42320559c173e480bf82))
+* **style:** design tokens updated ([7cc47b4](https://github.com/tetacom/react-ui/commit/7cc47b4f61f4742c38bf0cad5b6d2ca3fea6fc47))
+* **style:** design tokens updated ([f837094](https://github.com/tetacom/react-ui/commit/f837094ccefcc1e66628ea9cf8bfe50752ec53ab))
+* **style:** design tokens updated ([84e0419](https://github.com/tetacom/react-ui/commit/84e0419230119ec00291fba626543313e12db8b5))
+* **style:** design tokens updated ([3219f8c](https://github.com/tetacom/react-ui/commit/3219f8c222b8b0704ddf1c7eaf056fc70ad6e526))
+* **style:** design tokens updated ([c9f30ff](https://github.com/tetacom/react-ui/commit/c9f30ff37ff231cc6c4550c424ee9479ef1b8152))
+
 ### [0.1.1](https://github.com/tetacom/react-ui/compare/themes-0.1.0...themes-0.1.1) (2024-04-02)
 
 
