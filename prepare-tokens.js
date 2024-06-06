@@ -29,11 +29,15 @@ for (const theme of uniqThemes) {
 
 function generatePresets(json) {
     for (let k in json) {
+
         // eslint-disable-next-line no-prototype-builtins
         if (json[k]?.hasOwnProperty('type')) {
 
             if (json[k].type === 'color') {
-                json[k] = json[k]['value']
+                const jsonKey = k.replace(" ", "-")
+                const value = json[k]['value'];
+                delete json[k];
+                json[jsonKey] = value;
             }
 
             if (json[k].type === 'custom-shadow') {
