@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.38](https://github.com/tetacom/react-ui/compare/react-components-0.15.37...react-components-0.15.38) (2024-06-06)
+
+
+### Bug Fixes
+
+* fix createMilestoneItems ([c6b1e06](https://github.com/tetacom/react-ui/commit/c6b1e063141391c3e00641cea5b28e44f1672da3))
+
 ### [0.15.37](https://github.com/tetacom/react-ui/compare/react-components-0.15.36...react-components-0.15.37) (2024-06-06)
 
 
