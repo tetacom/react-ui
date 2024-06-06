@@ -1,6 +1,6 @@
 {
   "name": "@tetacom/react-components",
-  "version": "0.15.36",
+  "version": "0.15.37",
   "main": "./index.js",
   "types": "./index.d.ts",
   "module": "./index.js",
