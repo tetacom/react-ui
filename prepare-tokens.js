@@ -34,10 +34,7 @@ function generatePresets(json) {
         if (json[k]?.hasOwnProperty('type')) {
 
             if (json[k].type === 'color') {
-                const jsonKey = k.replace(" ", "-")
-                const value = json[k]['value'];
-                delete json[k];
-                json[jsonKey] = value;
+                json[k] = json[k]['value'];
             }
 
             if (json[k].type === 'custom-shadow') {
