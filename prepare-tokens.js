@@ -42,10 +42,6 @@ function generatePresets(json) {
             }
         }
 
-        if (k === 'chart') {
-            delete json[k]
-        }
-
         if (typeof json[k] === 'object' && json[k] !== null) {
             generatePresets(json[k])
         }
