@@ -60,6 +60,15 @@ export function createMilestoneItems(
         const endDates =
           milestoneWorks?.map(({ endTime }) => dayjs(endTime)) ?? [];
 
+        const startTime: Date = dayjs
+          .min([...startDates])
+          .startOf('day')
+          .toDate();
+        const endTime: Date = dayjs
+          .max([...endDates])
+          .endOf('day')
+          .toDate();
+
         // Если передвижка между кустами
         if (
           firstWork.operationType === OperationTypeLib.MovingBetweenClusters
@@ -69,14 +78,8 @@ export function createMilestoneItems(
             caption: '',
             clusterType: ClusterType.move,
             distance: parseFloat(firstWork?.distance?.toFixed(2) ?? '0'),
-            startTime: dayjs
-              .min([...startDates])
-              .startOf('day')
-              .toDate(),
-            endTime: dayjs
-              .max([...endDates])
-              .endOf('day')
-              .toDate(),
+            startTime,
+            endTime,
             items: null,
           };
           return item;
@@ -115,19 +118,22 @@ export function createMilestoneItems(
           clusterCaption = `${clusterName} / ${ngduName} / ${fieldName}`;
         }
 
+        const itemStartTime = dayjs
+          .min([...startDates])
+          .startOf('day')
+          .toDate();
+        const itemEndTime: Date = dayjs
+          .max([...endDates])
+          .endOf('day')
+          .toDate();
+
         const item: ScheduleMilestone = {
           caption: clusterCaption,
           clusterType: ClusterType.drilling,
           powerLine: currentCluster?.powerLine,
           drillingRigId: drillingRig.drillingRigId,
-          startTime: dayjs
-            ?.min([...startDates])
-            .startOf('day')
-            .toDate(),
-          endTime: dayjs
-            ?.max([...endDates])
-            .endOf('day')
-            .toDate(),
+          startTime: itemStartTime,
+          endTime: itemEndTime,
           items: works,
           ...currentCluster,
         };
