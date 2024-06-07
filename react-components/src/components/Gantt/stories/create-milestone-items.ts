@@ -60,14 +60,16 @@ export function createMilestoneItems(
         const endDates =
           milestoneWorks?.map(({ endTime }) => dayjs(endTime)) ?? [];
 
-        const startTime: Date = dayjs
-          .min([...startDates])
-          .startOf('day')
-          .toDate();
-        const endTime: Date = dayjs
-          .max([...endDates])
-          .endOf('day')
-          .toDate();
+        const startTime: Date =
+          dayjs
+            .min([...startDates])
+            ?.startOf('day')
+            .toDate() ?? new Date();
+        const endTime: Date =
+          dayjs
+            .max([...endDates])
+            ?.endOf('day')
+            .toDate() ?? new Date();
 
         // Если передвижка между кустами
         if (
@@ -118,14 +120,16 @@ export function createMilestoneItems(
           clusterCaption = `${clusterName} / ${ngduName} / ${fieldName}`;
         }
 
-        const itemStartTime = dayjs
-          .min([...startDates])
-          .startOf('day')
-          .toDate();
-        const itemEndTime: Date = dayjs
-          .max([...endDates])
-          .endOf('day')
-          .toDate();
+        const itemStartTime =
+          dayjs
+            .min([...startDates])
+            ?.startOf('day')
+            .toDate() ?? new Date();
+        const itemEndTime: Date =
+          dayjs
+            .max([...endDates])
+            ?.endOf('day')
+            .toDate() ?? new Date();
 
         const item: ScheduleMilestone = {
           caption: clusterCaption,

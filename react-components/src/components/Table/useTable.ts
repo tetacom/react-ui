@@ -102,9 +102,11 @@ export function useTable<T>(props: TableProps<T>) {
     getFacetedUniqueValues: getFacetedUniqueValues(),
     getFacetedMinMaxValues: getFacetedMinMaxValues(),
     filterFns: {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      string: Filters.string,
       list: Filters.list,
       boolean: Filters.boolean,
-      string: Filters.string,
       date: Filters.date,
     },
     meta: {
