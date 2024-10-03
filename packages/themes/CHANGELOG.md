@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.4](https://github.com/tetacom/react-ui/compare/themes-0.1.3...themes-0.1.4) (2024-10-03)
+
+
+### Bug Fixes
+
+* button text, border colors ([8482283](https://github.com/tetacom/react-ui/commit/84822833f67c63631ce8b4739ea14dc2a3557e58))
+
 ### [0.1.3](https://github.com/tetacom/react-ui/compare/themes-0.1.2...themes-0.1.3) (2024-06-07)
 
 
