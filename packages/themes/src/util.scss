@@ -27,8 +27,8 @@
   }
 
   .button_ghost.button-#{'' + $paletteName} {
-    color: getColorVar($paletteName, '90');
-    fill: getColorVar($paletteName, '90');
+    color: getColorVar($paletteName, '50');
+    fill: getColorVar($paletteName, '50');
     background-color: transparent;
 
     &.hover,
@@ -43,9 +43,9 @@
   }
 
   .button_outline.button-#{'' + $paletteName} {
-    color: getColorVar($paletteName, '90');
+    color: getColorVar($paletteName, '50');
     fill: getColorVar($paletteName, '50');
-    border-color: getColorVar($paletteName, '10');
+    border-color: getColorVar($paletteName, '50');
     border-style: solid;
     border-width: 1px;
     background-color: transparent;
