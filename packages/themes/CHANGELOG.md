@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.7](https://github.com/tetacom/react-ui/compare/themes-0.1.6...themes-0.1.7) (2024-10-22)
+
+
+### Bug Fixes
+
+* ghost style ([ade27e1](https://github.com/tetacom/react-ui/commit/ade27e19d88c134be66a29d85de86aff1706def0))
+
 ### [0.1.6](https://github.com/tetacom/react-ui/compare/themes-0.1.5...themes-0.1.6) (2024-10-22)
 
 
