@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.6](https://github.com/tetacom/react-ui/compare/themes-0.1.5...themes-0.1.6) (2024-10-22)
+
+
+### Bug Fixes
+
+* button-outline color ([c60f055](https://github.com/tetacom/react-ui/commit/c60f0550fe4bf5a78efa8dc68abd2ca68677be04))
+
 ### [0.1.5](https://github.com/tetacom/react-ui/compare/themes-0.1.4...themes-0.1.5) (2024-10-09)
 
 
