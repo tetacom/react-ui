@@ -55,7 +55,6 @@ export function BooleanCell({
       }}
       shape="brick"
       size="small"
-      showAllOptions
       style={{ height: '100%' }}
     />
   ) : (
