@@ -25,7 +25,4 @@ export interface SelectProps<T extends BaseSelectProps>
 
   // Положение селекта и его дочерних элементов по оси z
   zIndex?: React.CSSProperties['zIndex'];
-
-  // Всегда показывать все возможные варианты списка
-  showAllOptions?: boolean;
 }

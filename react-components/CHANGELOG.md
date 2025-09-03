@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.15.41](https://github.com/tetacom/react-ui/compare/react-components-0.15.40...react-components-0.15.41) (2025-09-03)
+
+
+### Bug Fixes
+
+* remove showAllOptions prop ([a3f766a](https://github.com/tetacom/react-ui/commit/a3f766a5b03539090c9e5d28aebe589c452677a8))
+
 ### [0.15.40](https://github.com/tetacom/react-ui/compare/react-components-0.15.39...react-components-0.15.40) (2024-06-07)
 
 

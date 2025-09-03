@@ -43,7 +43,6 @@ const SelectInner = forwardRef(
       allowNull,
       onChangeItem,
       onItemRender,
-      showAllOptions,
       items,
       zIndex,
       ...rest
@@ -85,9 +84,7 @@ const SelectInner = forwardRef(
       );
     }
 
-    const filteredItems = props.showAllOptions
-      ? props.items
-      : props.items.filter(({ headline }) => headline.includes(searchValue));
+    const filteredItems = props.items;
 
     return (
       <Dropdown
