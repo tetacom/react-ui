@@ -2,7 +2,7 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
-### [0.15.41](https://github.com/tetacom/react-ui/compare/react-components-0.15.40...react-components-0.15.41) (2025-09-10)
+### [0.15.42](https://github.com/tetacom/react-ui/compare/react-components-0.15.41...react-components-0.15.41) (2025-09-10)
 
 
 ### Bug Fixes
