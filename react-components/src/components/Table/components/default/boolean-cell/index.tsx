@@ -6,8 +6,8 @@ import { ICellComponent } from '../../../model/public-api';
 
 type BoolSelectProps = BaseSelectProps & { value: boolean };
 const options: Array<BoolSelectProps> = [
-  { key: 'false', headline: 'Нет', value: false },
-  { key: 'true', headline: 'Да', value: true },
+  { key: 'false', headline: 'No', value: false },
+  { key: 'true', headline: 'Yes', value: true },
 ];
 
 export function BooleanCell({
@@ -66,7 +66,7 @@ function foundValueFunc(
   options: BoolSelectProps[],
   rowValue: boolean | null,
 ): BoolSelectProps {
-  const defaultValue = { key: 'false', headline: 'Нет', value: false };
+  const defaultValue = { key: 'false', headline: 'No', value: false };
 
   return (
     options.find((option) => {
