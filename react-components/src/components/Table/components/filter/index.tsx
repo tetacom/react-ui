@@ -168,11 +168,11 @@ export function Filter<T>(props: FilterProps<T>) {
           const items = [
             {
               id: 0,
-              name: 'Нет',
+              name: 'No',
             },
             {
               id: 1,
-              name: 'Да',
+              name: 'Yes',
             },
           ];
 

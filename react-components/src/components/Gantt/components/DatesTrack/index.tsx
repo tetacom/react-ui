@@ -116,7 +116,7 @@ export const GanttDatesTrack = forwardRef<HTMLDivElement, Props>(function (
                 }}
               >
                 <TextContent>
-                  {dayjs(month).locale('ru').format('MMMM')}
+                  {dayjs(month).locale('en').format('MMMM')}
                 </TextContent>
               </div>
             );
