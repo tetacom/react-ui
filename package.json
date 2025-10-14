@@ -43,7 +43,7 @@
     "@nx/js": "17.0.2",
     "@nx/react": "17.0.2",
     "@nx/storybook": "17.0.2",
-    "@nx/vite": "17.0.2",
+    "@nx/vite": "17.3.2",
     "@nx/workspace": "17.0.2",
     "@storybook/addon-a11y": "7.5.2",
     "@storybook/addon-actions": "7.5.2",
@@ -58,7 +58,7 @@
     "@storybook/core-common": "^7.0.26",
     "@storybook/core-server": "7.5.2",
     "@storybook/react": "7.5.2",
-    "@storybook/react-vite": "7.5.2",
+    "@storybook/react-vite": "9.1.10",
     "@svgr/webpack": "^6.1.2",
     "@testing-library/react": "14.0.0",
     "@types/d3": "^7.4.0",
@@ -98,10 +98,10 @@
     "typescript": "5.1.6",
     "typescript-plugin-css-modules": "^5.0.1",
     "url-loader": "^4.1.1",
-    "vite": "4.5.3",
+    "vite": "7.1.9",
     "vite-plugin-dts": "2.3.0",
     "vite-plugin-eslint": "^1.8.1",
     "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.31.4"
+    "vitest": "3.2.4"
   }
 }
