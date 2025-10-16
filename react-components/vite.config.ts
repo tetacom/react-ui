@@ -14,8 +14,7 @@ export default defineConfig({
   plugins: [
     dts({
       entryRoot: 'src',
-      tsConfigFilePath: join(__dirname, 'tsconfig.lib.json'),
-      skipDiagnostics: true,
+      tsconfigPath: join(__dirname, 'tsconfig.lib.json'),
       afterBuild: async () => {
         if (process.env.NX_TASK_TARGET_CONFIGURATION === 'development-watch') {
           const json = require(join(__dirname, 'package.json'));

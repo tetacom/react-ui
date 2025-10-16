@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.8](https://github.com/tetacom/react-ui/compare/themes-0.1.4...themes-0.1.5) (2025-10-16)
+
+
+### Bug Fixes
+
+* update packages, update sass deprecated features ([3c92a3a](https://github.com/tetacom/react-ui/commit/3c92a3a283b2c9f5182e110b08377d1603d4592c))
+
 ### [0.1.7](https://github.com/tetacom/react-ui/compare/themes-0.1.6...themes-0.1.7) (2024-10-22)
 
 
