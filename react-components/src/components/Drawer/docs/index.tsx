@@ -1,11 +1,6 @@
 import React, { FC, useRef, useState } from 'react';
-import {
-  ArgsTable,
-  Primary,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Primary, Stories } from '@storybook/addon-docs';
+import { Unstyled, Controls } from '@storybook/blocks';
 
 import { Typography } from '../../Typography';
 import { Button } from '../../Button';
@@ -138,7 +133,7 @@ export const DrawerDocs = () => {
       <br />
       <br />
       <Primary />
-      <ArgsTable story={PRIMARY_STORY} />
+      <Controls />
       <Stories />
     </Unstyled>
   );

@@ -1,4 +1,4 @@
-@import 'react-components/src/style/mixins';
+@use '../../style/mixins';
 
 .typo {
   color: var(--color-text-90);
@@ -9,62 +9,62 @@
   }
 
   &H1 {
-    @include fontH1;
+    @include mixins.fontH1;
   }
 
   &H2 {
-    @include fontH2;
+    @include mixins.fontH2;
   }
 
   &H3 {
-    @include fontH3;
+    @include mixins.fontH3;
   }
 
   &H4 {
-    @include fontH4;
+    @include mixins.fontH4;
   }
 
   &H5 {
-    @include fontH5;
+    @include mixins.fontH5;
   }
 
   &H6 {
-    @include fontH6;
+    @include mixins.fontH6;
   }
 
   &Title1 {
-    @include fontTitle1;
+    @include mixins.fontTitle1;
   }
 
   &Title2 {
-    @include fontTitle2;
+    @include mixins.fontTitle2;
   }
 
   &Title3 {
-    @include fontTitle3;
+    @include mixins.fontTitle3;
   }
 
   &Body1 {
-    @include fontBody1;
+    @include mixins.fontBody1;
   }
 
   &Body2 {
-    @include fontBody2;
+    @include mixins.fontBody2;
   }
 
   &Body3 {
-    @include fontBody3;
+    @include mixins.fontBody3;
   }
 
   &Caption {
-    @include fontCaption;
+    @include mixins.fontCaption;
   }
 
   &CaptionBold {
-    @include fontCaptionBold;
+    @include mixins.fontCaptionBold;
   }
 
   &Overline {
-    @include fontOverline;
+    @include mixins.fontOverline;
   }
 }

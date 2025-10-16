@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  ArgsTable,
-  Primary,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Primary, Stories } from '@storybook/addon-docs';
+import { Unstyled, Controls } from '@storybook/blocks';
 
 import { Button } from '../index';
 import { ButtonProps } from '../model';
@@ -229,7 +224,7 @@ export const ButtonDocs = () => (
     <br />
     <br />
     <Primary />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Controls />
     <Stories />
   </Unstyled>
 );

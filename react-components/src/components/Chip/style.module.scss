@@ -1,7 +1,7 @@
-@import 'react-components/src/style/mixins';
+@use '../../style/mixins';
 
 .chip {
-  @include fontCaption;
+  @include mixins.fontCaption();
 
   display: inline-flex;
   align-items: center;
@@ -9,7 +9,9 @@
   max-width: calc(10 * var(--spacing-24));
   padding: var(--spacing-6) var(--spacing-8);
   border-radius: var(--spacing-14);
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   cursor: default;
 
   &WithImage {

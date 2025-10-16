@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import {
-  ArgsTable,
-  Primary,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Primary, Stories } from '@storybook/addon-docs';
+import { Unstyled, Controls } from '@storybook/blocks';
 
 import { Toast } from '../index';
 import { Typography } from '../../Typography';
@@ -14,7 +9,6 @@ import { Stack } from '../../Stack';
 import toastClassNames from '../style.module.scss';
 import { Button } from '../../Button';
 import { Icon } from '../../Icons';
-
 
 import { ToastStateType } from '../model';
 import { PaletteType } from '../../Button/model/public-api';
@@ -146,7 +140,7 @@ export const ToastDocs = () => {
       <br />
       <br />
       <Primary />
-      <ArgsTable story={PRIMARY_STORY} />
+      <Controls />
       <Stories />
     </Unstyled>
   );

@@ -1,4 +1,4 @@
-@import 'react-components/src/style/mixins';
+@use '../../style/mixins';
 
 .button {
   display: inline-flex;
@@ -14,13 +14,18 @@
   white-space: nowrap;
   box-shadow: 0 0 0 0 transparent;
   //TODO стоит завести токены с транзишенами
-  transition: background 0.2s, color 0.2s, border 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border 0.2s;
 
   .child {
     height: 100%;
     display: flex;
     align-items: center;
-    transition: opacity 0.2s, transform 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
   }
 
   &Shape {
@@ -40,19 +45,19 @@
 
   &Size {
     &Large {
-      @include fontButton2;
+      @include mixins.fontButton2();
 
       height: var(--spacing-32);
     }
 
     &Middle {
-      @include fontButton2;
+      @include mixins.fontButton2();
 
       height: var(--spacing-28);
     }
 
     &Small {
-      @include fontButton3;
+      @include mixins.fontButton3();
 
       height: var(--spacing-24);
       gap: var(--spacing-4);
@@ -147,7 +152,9 @@
 
   &:focus-visible {
     box-shadow: 0 0 0 4px var(--color-primary-10);
-    transition: background 0.4s, box-shadow 0.2s;
+    transition:
+      background 0.4s,
+      box-shadow 0.2s;
   }
 
   &.disabled {

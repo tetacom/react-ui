@@ -1,6 +1,5 @@
-@import 'react-components/src/style/mixins';
-
-@import './mixins.module';
+@use '../../style/mixins';
+@use './mixins.module' as tableMixins;
 
 .root {
   display: grid;
@@ -49,14 +48,14 @@
         }
 
         tr {
-          @include underline();
+          @include tableMixins.underline();
 
           display: grid;
           grid-template-columns: var(--row-template-columns);
           background-color: var(--color-text-5);
 
           th {
-            @include fontCaptionBold;
+            @include mixins.fontCaptionBold();
 
             padding: var(--spacing-10) var(--spacing-8);
             color: var(--color-text-60);
@@ -77,20 +76,20 @@
             }
 
             &.lockedHeadLeft {
-              @include lockedCell();
-              @include lockedHead(right);
+              @include tableMixins.lockedCell();
+              @include tableMixins.lockedHead(right);
 
               &Last {
-                @include stickyLeft();
+                @include tableMixins.stickyLeft();
               }
             }
 
             &.lockedHeadRight {
-              @include lockedCell();
-              @include lockedHead(left);
+              @include tableMixins.lockedCell();
+              @include tableMixins.lockedHead(left);
 
               &First {
-                @include stickyRight();
+                @include tableMixins.stickyRight();
               }
             }
 
@@ -119,7 +118,9 @@
               user-select: none;
               touch-action: none;
               opacity: 0;
-              transition: opacity 0.15s, background-color 0.15s;
+              transition:
+                opacity 0.15s,
+                background-color 0.15s;
 
               &::after {
                 content: '';
@@ -155,7 +156,7 @@
           grid-template-columns: var(--row-template-columns);
 
           td {
-            @include fontBody3;
+            @include mixins.fontBody3();
 
             color: var(--color-text-90);
             background-color: var(--color-global-bgcard);
@@ -169,18 +170,18 @@
             }
 
             &.lockedBodyLeft {
-              @include lockedCell();
+              @include tableMixins.lockedCell();
 
               &Last {
-                @include stickyLeft();
+                @include tableMixins.stickyLeft();
               }
             }
 
             &.lockedBodyRight {
-              @include lockedCell();
+              @include tableMixins.lockedCell();
 
               &First {
-                @include stickyRight();
+                @include tableMixins.stickyRight();
               }
             }
 
@@ -198,15 +199,15 @@
 
           &:not(:last-child) {
             &.underline {
-              @include underline();
+              @include tableMixins.underline();
 
               td {
                 &.lockedBodyLeft {
-                  @include lockedCellUnderline();
+                  @include tableMixins.lockedCellUnderline();
                 }
 
                 &.lockedBodyRight {
-                  @include lockedCellUnderline();
+                  @include tableMixins.lockedCellUnderline();
                 }
               }
             }

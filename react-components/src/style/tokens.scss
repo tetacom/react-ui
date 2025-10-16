@@ -1,9 +1,32 @@
 @use '@tetacom/themes/src/base/presets.scss' as base;
 @use '@tetacom/themes/src/tatneft/presets.scss' as tatneft;
 @use '@tetacom/themes/src/green/presets.scss' as greenPreset;
-@import "@tetacom/themes/src/util.scss";
+@use '@tetacom/themes/src/util.scss';
 
-$themes: map-collect('themes', tatneft.$presets, base.$presets, greenPreset.$presets);
-$shadows: map-collect('shadow', tatneft.$presets, base.$presets, greenPreset.$presets);
+$themes: util.map-collect(
+  'themes',
+  tatneft.$presets,
+  base.$presets,
+  greenPreset.$presets
+);
+$shadows: util.map-collect(
+  'shadow',
+  tatneft.$presets,
+  base.$presets,
+  greenPreset.$presets
+);
 
-@import '@tetacom/themes/src/generate.scss';
+@use '@tetacom/themes/src/generate.scss' with (
+  $themes: util.map-collect(
+      'themes',
+      tatneft.$presets,
+      base.$presets,
+      greenPreset.$presets
+    ),
+  $shadows: util.map-collect(
+      'shadow',
+      tatneft.$presets,
+      base.$presets,
+      greenPreset.$presets
+    )
+);

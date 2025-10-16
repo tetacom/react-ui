@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import {
-  ArgsTable,
-  Primary,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Primary, Stories } from '@storybook/addon-docs';
+import { Unstyled, Controls } from '@storybook/blocks';
 import { Placement } from '@floating-ui/react';
 
 import { Tooltip } from '../index';
@@ -184,7 +179,7 @@ export const TooltipDocs = () => {
         <br />
         <br />
         <Primary />
-        <ArgsTable story={PRIMARY_STORY} />
+        <Controls />
         <Stories />
       </div>
     </Unstyled>
