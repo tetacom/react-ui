@@ -1,18 +1,23 @@
-@import "util.scss";
+@use 'util.scss';
+@use 'sass:map';
+@use 'sass:list';
+
+$themes: () !default;
+$shadows: () !default;
 
 /*
   Generate css variables for each theme
  */
-@each $name, $theme in map-keys($themes) {
+@each $name, $theme in map.keys($themes) {
   .#{$name} {
-    @each $paletteName, $palette in map-get($themes, $name) {
+    @each $paletteName, $palette in map.get($themes, $name) {
       @each $paletteColorName, $paletteColor in $palette {
         --color-#{'' + $paletteName}-#{'' + $paletteColorName}: #{'' +
-            $paletteColor};
+          $paletteColor};
       }
     }
-    @each $name, $value in map-get($shadows, $name) {
-      --shadow-#{'' + $name}: #{$value}
+    @each $name, $value in map.get($shadows, $name) {
+      --shadow-#{'' + $name}: #{$value};
     }
   }
 }
@@ -20,34 +25,30 @@
 /*
   Generate utility classes
  */
-@each $palette, $grades in map-get($themes, nth(map-keys($themes), 1)) {
-
+@each $palette, $grades in map.get($themes, list.nth(map.keys($themes), 1)) {
   // Buttons
-  @include generateButtonForPalette($palette);
+  @include util.generateButtonForPalette($palette);
 
   // Other
   @each $grade, $_ in $grades {
     .color-#{'' + $palette}-#{'' + $grade} {
-      color: getColorVar($palette, $grade);
+      color: util.getColorVar($palette, $grade);
     }
     .bg-#{'' + $palette}-#{'' + $grade} {
-      background-color: getColorVar($palette, $grade);
+      background-color: util.getColorVar($palette, $grade);
     }
     .border-#{'' + $palette}-#{'' + $grade} {
-      border-color: getColorVar($palette, $grade);
+      border-color: util.getColorVar($palette, $grade);
     }
     .fill-#{'' + $palette}-#{'' + $grade} {
-      fill: getColorVar($palette, $grade);
+      fill: util.getColorVar($palette, $grade);
     }
   }
 }
 
-@each $grade, $_ in map-get($shadows, nth(map-keys($shadows), 1)) {
+@each $grade, $_ in map.get($shadows, list.nth(map.keys($shadows), 1)) {
   // Shadows
   .shadow-#{'' + $grade} {
     box-shadow: var(--shadow-#{'' + $grade});
   }
 }
-
-
-
