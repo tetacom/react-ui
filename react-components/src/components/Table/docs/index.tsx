@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  ArgsTable,
-  Primary,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Primary, Stories } from '@storybook/addon-docs';
+import { Unstyled, Controls } from '@storybook/blocks';
 
 import { Typography } from '../../Typography';
 
@@ -63,7 +58,7 @@ export const TableDocs = () => (
     <br />
     <br />
     <Primary />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Controls />
     <Stories />
   </Unstyled>
 );

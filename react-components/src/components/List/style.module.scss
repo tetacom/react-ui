@@ -1,4 +1,4 @@
-@import 'react-components/src/style/mixins';
+@use '../../style/mixins';
 
 .list {
   margin: 0;
@@ -100,7 +100,7 @@
       gap: var(--spacing-2);
 
       &Headline {
-        @include fontBody3;
+        @include mixins.fontBody3();
 
         white-space: nowrap;
         overflow: hidden;
@@ -109,7 +109,7 @@
       }
 
       &Caption {
-        @include fontCaption;
+        @include mixins.fontCaption();
 
         color: var(--color-text-70);
       }

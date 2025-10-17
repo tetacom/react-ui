@@ -3,13 +3,18 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
-import { join } from 'path';
+import { join, dirname } from 'path';
 import { writeFileSync } from 'fs';
 import { createRequire } from 'module';
 import { exec } from 'node:child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const require = createRequire(import.meta.url);
 
 export default defineConfig({
+  root: __dirname,
   cacheDir: '../node_modules/.vite/react-components',
   plugins: [
     dts({
@@ -54,9 +59,11 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
+    outDir: '../dist/react-components',
+    emptyOutDir: true,
     lib: {
       // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
+      entry: join(__dirname, 'src/index.ts'),
       name: 'react-components',
       fileName: 'index',
       // Change this to the formats you want to support.

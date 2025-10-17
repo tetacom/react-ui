@@ -1,7 +1,7 @@
-@import 'react-components/src/style/mixins';
+@use '../../style/mixins';
 
 .tooltip {
-  @include fontBody3;
+  @include mixins.fontBody3();
 
   pointer-events: none;
   padding: var(--spacing-8);

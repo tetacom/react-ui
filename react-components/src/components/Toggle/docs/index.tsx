@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  ArgsTable,
-  Primary,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Primary, Stories } from '@storybook/addon-docs';
+import { Unstyled, Controls } from '@storybook/blocks';
 import { linkTo } from '@storybook/addon-links';
 
 import { Toggle } from '../index';
@@ -137,7 +132,7 @@ export const ToggleDocs = () => (
       <br />
       <br />
       <Primary />
-      <ArgsTable story={PRIMARY_STORY} />
+      <Controls />
       <Stories />
     </div>
   </Unstyled>

@@ -1,4 +1,5 @@
-import { useEffect, useGlobals } from '@storybook/addons';
+import { useEffect } from 'react';
+import { useGlobals } from '@storybook/preview-api';
 
 export const useTheme = (StoryFn) => {
   const [{ theme }] = useGlobals();

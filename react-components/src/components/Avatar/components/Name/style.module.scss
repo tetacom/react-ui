@@ -1,7 +1,7 @@
-@import 'react-components/src/style/mixins';
+@use '../../../../style/mixins';
 
 .name {
-  @include fontH4;
+  @include mixins.fontH4();
 
   position: relative;
   width: 100%;

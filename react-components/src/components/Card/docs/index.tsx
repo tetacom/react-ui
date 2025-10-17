@@ -1,16 +1,9 @@
 import React from 'react';
-import {
-  ArgsTable,
-  Primary,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Primary, Stories } from '@storybook/addon-docs';
+import { Unstyled, Controls } from '@storybook/blocks';
 
 import { Card } from '../index';
 import { Typography } from '../../Typography';
-
-import { Stack } from '../../Stack';
 
 import cardClassNames from '../style.module.scss';
 
@@ -58,7 +51,7 @@ export const CardDocs = () => (
     <br />
     <br />
     <Primary />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Controls />
     <Stories />
   </Unstyled>
 );
