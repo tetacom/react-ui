@@ -14,6 +14,18 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 * update packages ([a9d1ff7](https://github.com/tetacom/react-ui/commit/a9d1ff7070f1be93ffd5fb34c2d7bc0086e8e75f))
 * update packages, update sass deprecated features ([3c92a3a](https://github.com/tetacom/react-ui/commit/3c92a3a283b2c9f5182e110b08377d1603d4592c))
 
+## [0.15.41](https://github.com/tetacom/react-ui/compare/react-components-0.15.40...react-components-0.15.41) (2025-10-17)
+
+
+### Bug Fixes
+
+* build-storybook ([ea346de](https://github.com/tetacom/react-ui/commit/ea346de8bc5f34aba18d1535211204347fc6c426))
+* change date locale to en ([354437b](https://github.com/tetacom/react-ui/commit/354437bdb791f195b5be5de84f03e9ae26dc0267))
+* remove showAllOptions prop ([a3f766a](https://github.com/tetacom/react-ui/commit/a3f766a5b03539090c9e5d28aebe589c452677a8))
+* update configuration and styles ([6a219a7](https://github.com/tetacom/react-ui/commit/6a219a7a0d0a8f6056d0653cda2292dd4ebbb0dd))
+* update packages ([a9d1ff7](https://github.com/tetacom/react-ui/commit/a9d1ff7070f1be93ffd5fb34c2d7bc0086e8e75f))
+* update packages, update sass deprecated features ([3c92a3a](https://github.com/tetacom/react-ui/commit/3c92a3a283b2c9f5182e110b08377d1603d4592c))
+
 ### [0.15.42](https://github.com/tetacom/react-ui/compare/react-components-0.15.41...react-components-0.15.41) (2025-09-10)
 
 
