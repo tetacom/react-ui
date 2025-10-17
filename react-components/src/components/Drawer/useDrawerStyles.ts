@@ -66,11 +66,25 @@ export const drawerBorderStyles: Record<
 
 type Config = Pick<DrawerProps, 'placement' | 'width' | 'height'>;
 
+type UseDrawerStylesReturn = {
+  drawerWrapperStyles: Pick<React.CSSProperties, 'flexDirection'>;
+  drawerStyles: Pick<
+    React.CSSProperties,
+    | 'borderTop'
+    | 'borderBottom'
+    | 'borderLeft'
+    | 'borderRight'
+    | 'width'
+    | 'height'
+  >;
+  drawerAnimateStyles: { x: string | number; y: string | number };
+};
+
 export const useDrawerStyles = ({
   placement = 'right',
   width,
   height,
-}: Config) => {
+}: Config): UseDrawerStylesReturn => {
   const borderStyles = drawerBorderStyles[placement];
   const drawerWidth =
     placement === 'left' || placement === 'right' ? width : '100%';

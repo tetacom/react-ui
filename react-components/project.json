@@ -17,7 +17,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/react-components"
+        "outputPath": "dist/react-components",
+        "configFile": "react-components/vite.config.ts"
       },
       "configurations": {
         "development-watch": {
