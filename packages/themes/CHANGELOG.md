@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.9](https://github.com/tetacom/react-ui/compare/themes-0.1.8...themes-0.1.9) (2025-12-02)
+
+
+### Bug Fixes
+
+* update generateButtonForPalette ([9ab990a](https://github.com/tetacom/react-ui/commit/9ab990a990addcbdada08b291fa28b9424d63f1e))
+
 ### [0.1.8](https://github.com/tetacom/react-ui/compare/themes-0.1.4...themes-0.1.5) (2025-10-16)
 
 
