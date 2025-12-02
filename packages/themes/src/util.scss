@@ -15,51 +15,84 @@
 
 @mixin generateButtonForPalette($paletteName) {
   .button_primary.button-#{'' + $paletteName} {
+    --teta-button-color: var(--color-global-white);
+
     background-color: getColorVar($paletteName, '50');
 
-    &.hover,
-    &:hover {
+    &.hover:not(:disabled),
+    &:hover:not(:disabled) {
       background-color: getColorVar($paletteName, '60');
     }
 
-    &.active,
-    &:active {
+    &.active:not(:disabled),
+    &:active:not(:disabled) {
       background-color: getColorVar($paletteName, '70');
+    }
+
+    &:focus-visible {
+      box-shadow: 0px 0px 0px 4px getColorVar($paletteName, '10');
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus-visible {
+      background-color: var(--color-text-30);
     }
   }
 
   .button_ghost.button-#{'' + $paletteName} {
-    color: getColorVar($paletteName, '90');
-    fill: getColorVar($paletteName, '90');
+    --teta-button-color: #{getColorVar($paletteName, '50')};
+
     background-color: transparent;
 
-    &.hover,
-    &:hover {
+    &.hover:not(:disabled),
+    &:hover:not(:disabled) {
       background-color: getColorVar($paletteName, '5');
     }
 
-    &.active,
-    &:active {
+    &.active:not(:disabled),
+    &:active:not(:disabled) {
       background-color: getColorVar($paletteName, '10');
+    }
+
+    &:focus-visible {
+      box-shadow: 0px 0px 0px 4px getColorVar($paletteName, '10');
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus-visible {
+      --teta-button-color: var(--color-text-30);
     }
   }
 
   .button_outline.button-#{'' + $paletteName} {
-    color: getColorVar($paletteName, '90');
-    fill: getColorVar($paletteName, '90');
-    border-color: getColorVar($paletteName, '10');
+    --teta-button-color: #{getColorVar($paletteName, '50')};
+
+    border-color: getColorVar($paletteName, '50');
     border-style: solid;
     border-width: 1px;
     background-color: transparent;
 
-    &.hover,
-    &:hover {
+    &.hover:not(:disabled),
+    &:hover:not(:disabled) {
       background-color: getColorVar($paletteName, '5');
     }
 
-    &.active,
-    &:active {
+    &.active:not(:disabled),
+    &:active:not(:disabled) {
       background-color: getColorVar($paletteName, '10');
+    }
+
+    &:focus-visible {
+      box-shadow: 0px 0px 0px 4px getColorVar($paletteName, '10');
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus-visible {
+      --teta-button-color: var(--color-text-30);
+      border-color: var(--color-text-10);
     }
   }
 }
